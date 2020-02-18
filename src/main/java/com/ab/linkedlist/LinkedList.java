@@ -45,6 +45,16 @@ public class LinkedList<T> {
         return head;
     }
 
+    public Node<T> getCharacterLinkedList() {
+        LinkedList<T> linkedList = new LinkedList<>();
+        Node head = null;
+        head = linkedList.add('a',head);
+        head = linkedList.add('b',head);
+        head = linkedList.add('c',head);
+        head = linkedList.add('b',head);
+        head = linkedList.add('a',head);
+        return head;
+    }
 
     public <T> Node<T> add(T data, Node head) {
         Node<T> tempHead = head;

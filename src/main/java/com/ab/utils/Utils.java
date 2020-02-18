@@ -27,4 +27,10 @@ public class Utils {
         int temp = Math.min(i1,i2);
         return Math.min(temp,i3);
     }
+
+    public static void swapArrayElements(int[] arr,int x,int y){
+        int temp = arr[x];
+        arr[x] = arr[y];
+        arr[y] = temp;
+    }
 }
