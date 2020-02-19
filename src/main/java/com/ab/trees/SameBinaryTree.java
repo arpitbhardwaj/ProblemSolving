@@ -7,6 +7,8 @@ public class SameBinaryTree {
     public static void main(String[] args) {
         BinaryTree bt1 = BinaryTree.getSampleBinaryTree();
         BinaryTree bt2 = BinaryTree.getSampleBinaryTree();
+        System.out.println(bt1.root);
+        System.out.println(bt2.root);
         //BinaryTree bt2 = BinaryTree.getAnotherSampleBinaryTree();
         boolean isSame = isSameBinaryTree(bt1.root,bt2.root);
         System.out.println("Are both trees same : " + isSame);
