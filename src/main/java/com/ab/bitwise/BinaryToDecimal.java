@@ -19,7 +19,7 @@ public class BinaryToDecimal {
                 decimalNumber += base_value;
             }
             //base_value *= 2;
-            base_value = base_value << 1;
+            base_value <<= 1;
         }
         return decimalNumber;
     }

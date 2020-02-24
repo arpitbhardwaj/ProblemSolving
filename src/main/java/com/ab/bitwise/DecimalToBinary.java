@@ -18,10 +18,9 @@ public class DecimalToBinary {
     private static int convertDecimalToBinary(int num, int[] binary) {
         int index = 0;
         while(num > 0) {
-            binary[index] = num % 2;
+            binary[index++] = num % 2;
             //num = num / 2;
-            num = num >>> 1;
-            index++;
+            num >>>= 1;
         }
         return index;
     }
