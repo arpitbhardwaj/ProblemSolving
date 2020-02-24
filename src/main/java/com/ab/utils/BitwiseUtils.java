@@ -20,4 +20,8 @@ public class BitwiseUtils {
                 ,n
                 ,Integer.toBinaryString(n)));
     }
+
+    public static int kthLSB(int num, int k){
+        return (num & (1 << (k-1)));
+    }
 }
