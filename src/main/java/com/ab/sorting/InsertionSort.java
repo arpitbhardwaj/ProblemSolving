@@ -18,8 +18,12 @@ public class InsertionSort {
     }
 
     private static void insertionSort(int[] arr) {
+        insertionSortUtil(arr,1,arr.length - 1);
+    }
 
-        for (int i = 1; i < arr.length; i++) {
+    public static void insertionSortUtil(int[] arr, int startIndex, int endIndex) {
+
+        for (int i = startIndex; i <= endIndex; i++) {
             int key = arr[i];
             int j = i - 1;
             /*for (;j >= 0 && arr[j] > key;) {

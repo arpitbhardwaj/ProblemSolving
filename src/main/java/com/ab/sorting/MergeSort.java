@@ -25,7 +25,7 @@ public class MergeSort {
         }
     }
 
-    private static void merge(int[] arr, int low, int mid, int high) {
+    public static void merge(int[] arr, int low, int mid, int high) {
         //create two temp arrays
         int n1 = mid - low + 1;//+1 for 0 based indexing
         int n2 = high - mid;
