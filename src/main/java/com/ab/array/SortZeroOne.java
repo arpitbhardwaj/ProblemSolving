@@ -7,6 +7,8 @@ import java.util.Arrays;
  *
  * Solve in single traverse through the array
  * Counting 0 or 1s will solve in double pass
+ *
+ * Variation of famous Dutch national flag problem.
  */
 public class SortZeroOne {
     public static void main(String[] args) {

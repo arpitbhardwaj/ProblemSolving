@@ -34,6 +34,12 @@ public class Utils {
         arr[y] = temp;
     }
 
+    public static void swapStringArrElements(String[] arr,int x,int y){
+        String temp = arr[x];
+        arr[x] = arr[y];
+        arr[y] = temp;
+    }
+
     public static int[] convertToIntArray(int num){
         String numStr = Integer.toString(num);
         int[] intArray = new int[numStr.length()];
