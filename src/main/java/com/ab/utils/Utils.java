@@ -15,14 +15,6 @@ public class Utils {
         }
     }
 
-    public static void printMatrix(boolean[][] matrix) {
-        System.out.println("Printing Matrix");
-        for (boolean[] row:
-                matrix) {
-            System.out.println(Arrays.toString(row));
-        }
-    }
-
     public static int min(int i1, int i2, int i3) {
         int temp = Math.min(i1,i2);
         return Math.min(temp,i3);
@@ -30,12 +22,6 @@ public class Utils {
 
     public static void swapArrayElements(int[] arr,int x,int y){
         int temp = arr[x];
-        arr[x] = arr[y];
-        arr[y] = temp;
-    }
-
-    public static void swapStringArrElements(String[] arr,int x,int y){
-        String temp = arr[x];
         arr[x] = arr[y];
         arr[y] = temp;
     }

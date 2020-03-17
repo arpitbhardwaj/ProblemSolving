@@ -114,6 +114,34 @@ public class Graph<T> {
         return graph;
     }
 
+    public static Graph<Integer> getWeightedSSSPIntGraph(boolean isDirected) {
+        Graph<Integer> graph = new Graph<>(isDirected);
+
+        graph.addEdge(1, 2, 5);
+        graph.addEdge(2, 3, 2);
+        graph.addEdge(1, 4, 9);
+        graph.addEdge(1, 5, 3);
+        graph.addEdge(5, 6, 2);
+        graph.addEdge(6, 4, 2);
+        graph.addEdge(3, 4, 3);
+
+        return graph;
+    }
+
+    public static Graph<Integer> getNegativeWeightedSSSPIntGraph(boolean isDirected) {
+        Graph<Integer> graph = new Graph<>(isDirected);
+
+        graph.addEdge(0, 3, 8);
+        graph.addEdge(0, 1, 4);
+        graph.addEdge(0, 2, 5);
+        graph.addEdge(1, 2, -3);
+        graph.addEdge(2, 4, 4);
+        graph.addEdge(3, 4, 2);
+        graph.addEdge(4, 3, 1);
+
+        return graph;
+    }
+
     public List<Edge<T>> getEdgeList() {
         return edgeList;
     }
@@ -194,5 +222,9 @@ public class Graph<T> {
             Vertex<T> vertex = vertexMap.get(id);
             vertex.setData(data);
         }
+    }
+
+    public Vertex<T> getVertex(long id){
+        return vertexMap.get(id);
     }
 }

@@ -1,5 +1,7 @@
 package com.ab.stack;
 
+import com.ab.utils.CharacterUtils;
+
 import java.util.Stack;
 
 /**
@@ -25,7 +27,7 @@ public class PostfixToInfix {
         for (int i = 0; i < postfixExp.length(); i++) {
             char character = postfixExp.charAt(i);
 
-            if(isOperand(character)){
+            if(CharacterUtils.isOperand(character)){
                 stringStack.push(character + "");
             }else{
                 String operand1 = stringStack.pop();
@@ -36,10 +38,5 @@ public class PostfixToInfix {
         }
         infixExp = stringStack.pop();
         return infixExp;
-    }
-
-    private static boolean isOperand(char character) {
-        return (character >= 'A' && character <= 'Z')
-                ||(character >= 'a' && character <= 'z');
     }
 }

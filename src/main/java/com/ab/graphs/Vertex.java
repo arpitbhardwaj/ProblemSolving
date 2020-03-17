@@ -12,7 +12,6 @@ import java.util.Objects;
 public class Vertex<T> {
     long id;//for simple use case consider id as data itself
     private T data;
-    //private int weight;
     private List<Edge<T>> edgeList = new ArrayList<>();
     private List<Vertex<T>> adjacentVertexList = new ArrayList<>();
 

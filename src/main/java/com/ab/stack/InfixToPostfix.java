@@ -1,5 +1,7 @@
 package com.ab.stack;
 
+import com.ab.utils.CharacterUtils;
+
 import java.util.Stack;
 
 /**
@@ -38,7 +40,7 @@ public class InfixToPostfix {
                     characterStack.pop();
                 }
             }else{
-                while (!characterStack.isEmpty() && calculatePrecedence(character) <= calculatePrecedence(characterStack.peek())){
+                while (!characterStack.isEmpty() && CharacterUtils.calculatePrecedence(character) <= CharacterUtils.calculatePrecedence(characterStack.peek())){
                     if(characterStack.peek() == '('){
                         throw new IllegalArgumentException("Invalid Infix Expression");
                     }
@@ -56,19 +58,4 @@ public class InfixToPostfix {
         return postfixExp;
     }
 
-    private static int calculatePrecedence(char character) {
-        switch (character){
-            case '+':
-            case '-':
-                return 1;
-            case '*':
-            case '/':
-                return 2;
-            case '^':
-                return 3;
-            default:
-                //return 4;
-        }
-        return -1;
-    }
 }
