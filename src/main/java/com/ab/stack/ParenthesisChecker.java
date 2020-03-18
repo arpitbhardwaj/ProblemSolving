@@ -6,6 +6,10 @@ import java.util.Stack;
 
 /**
  * @author Arpit Bhardwaj
+ *
+ * Given a string of length n having parentheses in it, your task is to find whether given string has balanced parentheses or not.
+ *
+ * Implemetation using Stack takes O(n) space or using constant O(1) space
  */
 public class ParenthesisChecker {
     public static void main(String[] args) {
