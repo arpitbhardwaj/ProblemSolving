@@ -15,7 +15,7 @@ public class KadaneAlgo {
         System.out.println("Largest sum of contiguous sub array: " + largestSum);
     }
 
-    private static int getLargestContiguousSum(int[] arr) {
+    public static int getLargestContiguousSum(int[] arr) {
         int maxEndingHere = 0;
         int maxSoFar = Integer.MIN_VALUE;
 
