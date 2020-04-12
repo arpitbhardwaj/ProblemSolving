@@ -2,6 +2,8 @@ package com.ab.array;
 
 /**
  * @author Arpit Bhardwaj
+ *
+ * Given an unsorted array of nonnegative integers, find a continuous subarray which adds to a given number.
  */
 public class GivenSumSubArray {
     public static void main(String[] args) {

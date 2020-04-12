@@ -10,6 +10,7 @@ import java.util.Arrays;
  *
  * The sequence 2, 4, 1, 3, 5 has three inversions (2, 1), (4, 1), (4, 3).
  *
+ * Merge Sort willused to solve this
  */
 public class InversionsCount {
     public static void main(String[] args) {
@@ -49,7 +50,7 @@ public class InversionsCount {
                 i++;
             }else{
                 arr[k] = tempArr2[j];
-                swapCount += (mid + 1) - (low + i);
+                swapCount += (mid + 1) - (low + i);//crux of the algorithm
                 j++;
             }
             k++;

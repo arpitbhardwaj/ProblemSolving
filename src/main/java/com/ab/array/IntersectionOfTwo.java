@@ -38,10 +38,11 @@ public class IntersectionOfTwo {
                 result.add(arr2[pointer2++]);
             }
         }
-
+        //add remaining ones from first array
         while (pointer1 < length1){
             result.add(arr1[pointer1++]);
         }
+        //add remaining ones from second array
         while (pointer2 < length2){
             result.add(arr2[pointer2++]);
         }

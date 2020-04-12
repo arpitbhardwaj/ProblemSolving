@@ -12,8 +12,8 @@ import java.util.Arrays;
  */
 public class EquilibriumPoint {
     public static void main(String[] args) {
-        //int[] arr = { -7, 1, 5, 2, -4, 3, 0 };
-        int[] arr = {1, 2, 3};
+        int[] arr = { -7, 1, 5, 2, -4, 3, 0 };
+        //int[] arr = {1, 2, 3};
         int equilibriumIndex = getEquilibriumPoint(arr);
         if(equilibriumIndex == -1){
             System.out.println("Equilibrium index not present in " + Arrays.toString(arr));
@@ -30,8 +30,10 @@ public class EquilibriumPoint {
             totalSum += arr[i];
         }
         //keep to pointers one to point left elements sum and other to right elements sum
-        int leftSum=0,rightSum = 0;
-        /*for (int i = 1; i < length; i++) {
+        int leftSum=0;
+
+        /*int rightSum = 0;
+        for (int i = 1; i < length; i++) {
             leftSum += arr[i-1];
             rightSum =  totalSum - arr[i] - leftSum;
             if(leftSum == rightSum){
@@ -39,8 +41,8 @@ public class EquilibriumPoint {
             }
         }*/
         for (int i = 0; i < length; i++) {
-            rightSum -= arr[i];
-            if(leftSum == rightSum){
+            totalSum -= arr[i];
+            if(leftSum == totalSum){
                 return i;
             }
             leftSum += arr[i];

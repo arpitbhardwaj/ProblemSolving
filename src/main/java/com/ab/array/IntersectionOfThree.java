@@ -24,7 +24,42 @@ public class IntersectionOfThree {
     }
 
     private static List<Integer> getUnion(int[] arr1, int[] arr2, int[] arr3) {
-        return null;
+        List<Integer> result =  new ArrayList<>();
+        int pointer1 = 0,pointer2 = 0,pointer3=0;
+        int length1 = arr1.length;
+        int length2 = arr2.length;
+        int length3 = arr3.length;
+        while (pointer1 < length1
+                && pointer2 < length2
+                && pointer3 < length3){
+            if(arr1[pointer1] == arr2[pointer2]
+                    && arr2[pointer2] == arr3[pointer3]){
+                result.add(arr1[pointer1++]);
+                pointer2++;
+                pointer3++;
+            }
+            else if (arr1[pointer1] < arr2[pointer2]){
+                result.add(arr1[pointer1++]);
+            }else if (arr2[pointer2] < arr3[pointer3]){
+                result.add(arr2[pointer2++]);
+            }else{
+                result.add(arr3[pointer3++]);
+            }
+        }
+        //add remaining ones from first array
+        while (pointer1 < length1){
+            result.add(arr1[pointer1++]);
+        }
+        //add remaining ones from second array
+        while (pointer2 < length2){
+            result.add(arr2[pointer2++]);
+        }
+
+        //add remaining ones from third array
+        while (pointer3 < length3){
+            result.add(arr3[pointer3++]);
+        }
+        return result;
     }
 
     private static List<Integer> getIntersection(int[] arr1, int[] arr2, int[] arr3) {
