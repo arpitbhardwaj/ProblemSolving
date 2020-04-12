@@ -22,12 +22,15 @@ public class SortZeroOne {
         int leftIndex = 0;
         int rightIndex = length - 1;
         while (leftIndex < rightIndex){
+            //keep searching for 1 from the left by incrementing left index
             while (arr[leftIndex] == 0){
                 leftIndex++;
             }
+            //keep searching for 0 from the left by incrementing left index
             while (arr[rightIndex] == 1){
                 rightIndex--;
             }
+            //once found swap it
             if(arr[leftIndex] > arr[rightIndex]){
                 arr[leftIndex] = 0;
                 arr[rightIndex] = 1;

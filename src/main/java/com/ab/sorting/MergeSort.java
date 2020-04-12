@@ -4,6 +4,11 @@ import java.util.Arrays;
 
 /**
  * @author Arpit Bhardwaj
+ *
+ * Time complexity of Merge Sort is O(nLogn) in all 3 cases (worst, average and best)
+ * as merge sort always divides the array into two halves and take linear time to merge two halves.
+ *
+ * Auxiliary Space: O(n)
  */
 public class MergeSort {
 

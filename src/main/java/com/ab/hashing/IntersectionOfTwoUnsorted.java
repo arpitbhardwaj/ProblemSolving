@@ -6,7 +6,9 @@ import java.util.*;
  * @author Arpit Bhardwaj
  *
  * Given two unsorted arrays that represent two sets (elements in every array are distinct),
- *  find union and intersection of two arrays.
+ * find union and intersection of two arrays.
+ *
+ *  Sorted ones can be done via pointers explained in array package
  */
 public class IntersectionOfTwoUnsorted {
     public static void main(String[] args) {

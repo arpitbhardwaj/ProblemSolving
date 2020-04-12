@@ -7,6 +7,9 @@ import java.util.Arrays;
  *
  * Given a sorted array of positive integers, rearrange the array alternately
  * i.e first element should be the maximum value, second minimum value, third-second max, fourth-second min and so on.
+ *
+ * Input : [1, 2, 3, 4, 5, 6, 7, 8, 9]
+ * Output : [9, 1, 8, 2, 7, 3, 6, 4, 5]
  */
 public class RearrangeMaxMin {
     public static void main(String[] args) {

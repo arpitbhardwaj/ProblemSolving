@@ -27,7 +27,7 @@ public class MinPlatforms {
         int platformsNeeded = 1;
         int minPlatforms = 1;
 
-        //logic of merge sort to work with 2 sorted arrays together without merging
+        //crux is to use logic of merge sort to work with 2 sorted arrays together without merging
         int i = 1;//i for arr indexing (starting from 2nd train arrival)
         int j = 0;//j for dep indexing
         while (i < noOfTrains && j < noOfTrains){

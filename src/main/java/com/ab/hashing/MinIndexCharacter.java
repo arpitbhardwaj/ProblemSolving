@@ -11,7 +11,7 @@ import java.util.Map;
 public class MinIndexCharacter {
     public static void main(String[] args) {
         String str1 = "geeksforgeeks";
-        String str2 = "zwt";
+        String str2 = "zst";
         System.out.println(str1);
         System.out.println(str2);
         char mimIndexChar = getMinIndexCharacter(str1.toCharArray(),str2.toCharArray());

@@ -18,7 +18,7 @@ public class BinarySearch {
         }
     }
 
-    private static int binarySearch(int[] array, int item) {
+    public static int binarySearch(int[] array, int item) {
         int low,high,mid;
         low = 0;
         high = array.length - 1;

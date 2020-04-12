@@ -9,7 +9,7 @@ import java.util.*;
  * if the given array is {10, 2, 3, 4, 5, 9, 7, 8} and K = 23, one of the quadruple is “3 5 7 8” (3 + 5 + 7 + 8 = 23).
  *
  */
-public class Quadruples {
+public class ExactQuadrupleSum {
     static class Pair{
         int first;
         int second;
@@ -42,7 +42,7 @@ public class Quadruples {
                 sumPairMap.put(arr[i] + arr[j], new Pair(i,j));
             }
         }
-        System.out.println(sumPairMap);
+        //System.out.println(sumPairMap);
         for (int i = 0; i < length - 1; i++) {
             for (int j = i+1; j < length; j++) {
                 int firstPairSum = arr[i] + arr[j];
@@ -53,16 +53,19 @@ public class Quadruples {
                     && secondPair.second != j
                     && secondPair.first != j
                     && secondPair.second != i){
-                        StringJoiner joiner = new StringJoiner(",");
-                        joiner.add(Integer.toString(arr[i]))
-                                .add(Integer.toString(arr[j]))
-                                .add(Integer.toString(arr[secondPair.first]))
-                                .add(Integer.toString(arr[secondPair.second]));
-                        System.out.println(joiner.toString());
-
+                        printQuadruple(arr, arr[i], arr[j], secondPair);
                     }
                 }
             }
         }
+    }
+
+    private static void printQuadruple(int[] arr, int i1, int i2, Pair secondPair) {
+        StringJoiner joiner = new StringJoiner(",");
+        joiner.add(Integer.toString(i1))
+                .add(Integer.toString(i2))
+                .add(Integer.toString(arr[secondPair.first]))
+                .add(Integer.toString(arr[secondPair.second]));
+        System.out.println(joiner.toString());
     }
 }
