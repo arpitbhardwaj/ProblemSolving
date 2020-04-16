@@ -1,5 +1,7 @@
 package com.ab.hashing;
 
+import com.ab.utils.Utils;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -25,7 +27,7 @@ public class RelativeSorting {
 
     private static List<Integer> relativeSort(int[] arr1, int[] arr2) {
         List<Integer> resultList = new ArrayList<>();
-        Map<Integer, Integer> countMap = SortByFrequency.geCountMap(arr1);
+        Map<Integer, Integer> countMap = Utils.getCountMap(arr1);
         for (int i = 0; i < arr2.length; i++) {
             int key = arr2[i];
             if(countMap.containsKey(key)){

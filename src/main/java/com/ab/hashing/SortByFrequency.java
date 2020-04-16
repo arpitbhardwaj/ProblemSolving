@@ -1,5 +1,7 @@
 package com.ab.hashing;
 
+import com.ab.utils.Utils;
+
 import java.util.*;
 
 /**
@@ -25,7 +27,7 @@ public class SortByFrequency {
     private static List<Integer> sortByFrequency(int[] arr) {
         List<Integer> resultList = new ArrayList<>();
 
-        Map<Integer, Integer> countMap = geCountMap(arr);
+        Map<Integer, Integer> countMap = Utils.getCountMap(arr);
 
         countMap.entrySet()
                 .stream()
@@ -40,17 +42,4 @@ public class SortByFrequency {
         return resultList;
     }
 
-    public static Map<Integer, Integer> geCountMap(int[] arr) {
-        //using LinkedHashMap to maintain the order of inserted elements
-        Map<Integer,Integer> countMap = new LinkedHashMap<>();
-        for (int i = 0; i < arr.length; i++) {
-            int element = arr[i];
-            if(countMap.containsKey(element)){
-                countMap.put(element,countMap.get(element) + 1);
-            }else{
-                countMap.put(element,1);
-            }
-        }
-        return countMap;
-    }
 }

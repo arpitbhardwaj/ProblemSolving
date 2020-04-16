@@ -1,6 +1,8 @@
 package com.ab.utils;
 
 import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * @author Arpit Bhardwaj
@@ -77,5 +79,20 @@ public class Utils {
 
     public static int medianIndex(int startIndex, int endIndex){
         return (startIndex + endIndex + 1) / 2;
+    }
+
+
+    public static Map<Integer, Integer> getCountMap(int[] arr) {
+        //using LinkedHashMap to maintain the order of inserted elements
+        Map<Integer,Integer> countMap = new LinkedHashMap<>();
+        for (int i = 0; i < arr.length; i++) {
+            int element = arr[i];
+            if(countMap.containsKey(element)){
+                countMap.put(element,countMap.get(element) + 1);
+            }else{
+                countMap.put(element,1);
+            }
+        }
+        return countMap;
     }
 }
