@@ -17,11 +17,11 @@ public class PeakElement {
         return peakElementUtil(arr,0,arr.length-1);
     }
 
-    private static int peakElementUtil(int[] arr, int low, int high) {
+    public static int peakElementUtil(int[] arr, int low, int high) {
         int mid = (low + high) >>> 1;
 
         if ((mid == 0 || arr[mid -1] <= arr[mid])
-        && (mid == arr.length-1 || arr[mid + 1] <= arr[mid])){
+                && (mid == arr.length-1 || arr[mid + 1] <= arr[mid])){
             return mid;
         }
         else if (mid > 0 && arr[mid-1] > arr[mid]){
@@ -29,4 +29,5 @@ public class PeakElement {
         }
         else return peakElementUtil(arr,mid + 1,high);
     }
+
 }
