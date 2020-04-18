@@ -2,6 +2,8 @@ package com.ab.trees;
 
 /**
  * @author Arpit Bhardwaj
+ *
+ * Size of the tree is number of nodes in the tree
  */
 public class BinaryTreeSize {
 
@@ -9,6 +11,7 @@ public class BinaryTreeSize {
         //BinaryTree binaryTree = BinaryTree.getSampleBinaryTree();
         BinaryTree binaryTree = BinaryTree.getAnotherSampleBinaryTree();
         int size = determineSize(binaryTree.root);
+        System.out.println(binaryTree.root);
         System.out.println("Size of Sample Binary Tree is : " + size);
     }
 
