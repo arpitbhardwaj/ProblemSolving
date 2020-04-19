@@ -5,6 +5,14 @@ import java.util.stream.Collectors;
 
 /**
  * @author Arpit Bhardwaj
+ *
+ * There is one meeting room in a firm.
+ * There are N meetings in the form of (S[i], F[i]) where S[i] is the start time of meeting i and F[i] is finish time of meeting i.
+ * The task is to find the maximum number of meetings that can be accommodated in the meeting room.
+ *
+ * You are given n activities with their start and finish times.
+ * Select the maximum number of activities that can be performed by a single person,
+ * assuming that a person can only work on a single activity at a time.
  */
 public class NMeetings {
     public static void main(String[] args) {
