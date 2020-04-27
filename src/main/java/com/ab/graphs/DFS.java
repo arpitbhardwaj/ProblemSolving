@@ -25,7 +25,7 @@ public class DFS<T> {
         }
     }
 
-    private void DFSUtil(Vertex<T> vertex, Set<Long> visitedVertexSet) {
+    public void DFSUtil(Vertex<T> vertex, Set<Long> visitedVertexSet) {
         visitedVertexSet.add(vertex.getId());
         System.out.print(vertex.getId() + " ");
         for (Vertex<T> adjacentVertex:
