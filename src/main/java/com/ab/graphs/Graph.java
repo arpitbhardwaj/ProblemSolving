@@ -88,11 +88,14 @@ public class Graph<T> {
     public static Graph<Integer> getSampleCycLicGraph(boolean isDirected) {
         Graph<Integer> graph = new Graph<>(isDirected);
         graph.addEdge(0, 1);
-        graph.addEdge(0, 2);
+        //graph.addEdge(0, 2);//makes cycle for undirected not for directed
         graph.addEdge(1, 2);
-        graph.addEdge(2, 0);
+        //graph.addEdge(2, 0);//cycle
         graph.addEdge(2, 3);
-        graph.addEdge(3, 3);
+        //graph.addEdge(0, 3);//makes cycle for undirected not for directed
+        //graph.addEdge(3, 3);//cycle
+        graph.addEdge(4, 5);
+        //graph.addEdge(5, 4);//cycle
         return graph;
     }
 

@@ -5,18 +5,15 @@ import java.util.Set;
 
 /**
  * @author Arpit Bhardwaj
- * Given a directed graph, check whether the graph contains a cycle or not.
+ * DFS can be used to detect a cycle in a Undirected Graph
+ * For every visited vertex ‘v’, if there is an adjacent ‘u’ such that u is already visited and u is not parent of v, then there is a cycle in graph.
  *
- * DFS can be used to detect a cycle in directed Graph.
- * There is a cycle in a graph only if there is a back edge present in the graph.
- * A back edge is an edge that is from a node to itself (self-loop) or one of its ancestor in the tree produced by DFS.
  */
-public class DetectCycleDirected<T> {
+public class DetectCycleUndirected<T> {
     public static void main(String[] args) {
-        Graph<Integer> directedGraph = Graph.getSampleCycLicGraph(true);
-        //Graph<Integer> directedGraph = Graph.getAnotherSampleIntGraph(true);
-        DetectCycleDirected<Integer> detectCycle = new DetectCycleDirected<>();
-        if(detectCycle.isCyclic(directedGraph)){
+        Graph<Integer> undirectedGraph = Graph.getSampleCycLicGraph(false);
+        DetectCycleUndirected<Integer> detectCycle = new DetectCycleUndirected<>();
+        if(detectCycle.isCyclic(undirectedGraph)){
             System.out.println("Graph contains cycle");
         }else{
             System.out.println("Graph doesn't contains cycle");
@@ -27,7 +24,7 @@ public class DetectCycleDirected<T> {
         Set<Long> visitedVertexSet = new HashSet<>();
         for (Vertex<T> vertex:directedGraph.getAllVertex()) {
             if(!visitedVertexSet.contains(vertex.getId())){
-                if(isCyclicUtil(vertex,visitedVertexSet)){
+                if(isCyclicUtil(vertex,visitedVertexSet,null)){
                     return true;
                 }else{//continue to explore for disconnected graphs
                     continue;
@@ -37,13 +34,17 @@ public class DetectCycleDirected<T> {
         return false;
     }
 
-    public boolean isCyclicUtil(Vertex<T> vertex, Set<Long> visitedVertexSet) {
+    public boolean isCyclicUtil(Vertex<T> vertex, Set<Long> visitedVertexSet,Vertex<T> parent) {
         System.out.print(vertex.getId() + " ");
         visitedVertexSet.add(vertex.getId());
         for (Vertex<T> adjacentVertex:
                 vertex.getAdjacentVertexList()) {
+            //crux condition for undirected graph and the only difference compare to directed algo
+            if (adjacentVertex.equals(parent)){
+                continue;
+            }
             if(!visitedVertexSet.contains(adjacentVertex.getId())){
-                return isCyclicUtil(adjacentVertex,visitedVertexSet);
+                return isCyclicUtil(adjacentVertex,visitedVertexSet,vertex);
             }else{
                 return true;
             }
