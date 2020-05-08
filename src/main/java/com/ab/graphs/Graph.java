@@ -36,6 +36,7 @@ public class Graph<T> {
     public static Graph<Integer> getSampleIntegerDisConnGraph(boolean isDirected) {
         Graph<Integer> graph = new Graph<>(isDirected);
         graph.addEdge(1, 2);
+        graph.addEdge(1, 9);
         graph.addEdge(1, 3);
         graph.addEdge(2, 4);
         graph.addEdge(3, 4);
@@ -81,6 +82,17 @@ public class Graph<T> {
         graph.addEdge(5, 8);
         graph.addEdge(5, 6);
         graph.addEdge(6, 7);
+        return graph;
+    }
+
+    public static Graph<Integer> getSampleCycLicGraph(boolean isDirected) {
+        Graph<Integer> graph = new Graph<>(isDirected);
+        graph.addEdge(0, 1);
+        graph.addEdge(0, 2);
+        graph.addEdge(1, 2);
+        graph.addEdge(2, 0);
+        graph.addEdge(2, 3);
+        graph.addEdge(3, 3);
         return graph;
     }
 

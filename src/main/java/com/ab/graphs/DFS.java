@@ -16,9 +16,9 @@ public class DFS<T> {
         dfs.printDFSTraversal(integerGraph);
     }
 
-    private void printDFSTraversal(Graph<T> integerGraph) {
+    private void printDFSTraversal(Graph<T> graph) {
         Set<Long> visitedVertexSet = new HashSet<>();
-        for (Vertex<T> vertex:integerGraph.getAllVertex()) {
+        for (Vertex<T> vertex:graph.getAllVertex()) {
             if(!visitedVertexSet.contains(vertex.getId())){
                 DFSUtil(vertex,visitedVertexSet);
             }
