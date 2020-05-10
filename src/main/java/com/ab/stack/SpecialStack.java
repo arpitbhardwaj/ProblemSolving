@@ -37,8 +37,8 @@ public class SpecialStack {
                 s.push(element);
             }else{
                 //If x is less than minEle, insert (2*x – minEle) into the stack and make minEle equal to x.
-                minElement = element;
                 s.push(2*element - minElement);
+                minElement = element;
             }
         }
     }
@@ -48,12 +48,27 @@ public class SpecialStack {
             throw new IllegalStateException("Stack is empty");
         }else{
             int element = s.pop();
-            //If y is greater than or equal to minEle, the minimum element in the stack is still minEle.
-            //If y is less than minEle, the minimum element now becomes (2*minEle – y), so update (minEle = 2*minEle – y)
+            //If popped element is greater than min element, the minimum element in the stack is still minEle.
+            //If popped element is less than or equal to minEle, the minimum element now becomes (2*minEle – y), so update (minEle = 2*minEle – y)
             if (element <= minElement){
                 minElement = 2*minElement - element;
+                element = (minElement + element) / 2;
             }
             return element;
         }
+    }
+
+    public static void main(String[] args) {
+        SpecialStack specialStack = new SpecialStack();
+        specialStack.push(3);
+        specialStack.push(5);
+        System.out.println("Minimum Element: " + specialStack.getMin());
+        specialStack.push(2);
+        specialStack.push(1);
+        System.out.println("Minimum Element: " + specialStack.getMin());
+        System.out.println("Pop Element: "+ specialStack.pop());
+        System.out.println("Minimum Element: " + specialStack.getMin());
+        specialStack.push(0);
+        System.out.println("Minimum Element: " + specialStack.getMin());
     }
 }
