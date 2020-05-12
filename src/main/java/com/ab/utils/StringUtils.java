@@ -27,7 +27,7 @@ public class StringUtils {
         }
         return charCountMap;
     }
-
+    //counter clockwise rotation
     public static String leftShift(String str, int shift){
         int length = str.length();
         while (shift > length){
@@ -39,7 +39,7 @@ public class StringUtils {
         //if shift is either 0 or 1 return the same string without any shift
         return str;
     }
-
+    //clockwise rotation
     public static String rightShift(String str, int shift){
         return leftShift(str, str.length() - shift);
     }

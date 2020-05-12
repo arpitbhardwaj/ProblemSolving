@@ -28,8 +28,8 @@ public class IntersectionPoint {
     }
 
     private static Node getIntersection(Node head1, Node head2) {
-        int count1 = getNodeCounts(head1);
-        int count2 = getNodeCounts(head2);
+        int count1 = LinkedList.getNodeCounts(head1);
+        int count2 = LinkedList.getNodeCounts(head2);
         int difference = 0;
         Node intersectionNode = null;
         if (count1 > count2){
@@ -62,15 +62,5 @@ public class IntersectionPoint {
             smallerCurrent = smallerCurrent.next;
         }
         return null;
-    }
-
-    private static int getNodeCounts(Node head) {
-        Node current = head;
-        int count = 0;
-        while (current != null){
-            current = current.next;
-            count++;
-        }
-        return count;
     }
 }

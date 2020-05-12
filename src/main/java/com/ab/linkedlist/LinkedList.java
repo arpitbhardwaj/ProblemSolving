@@ -119,4 +119,14 @@ public class LinkedList<T> {
         }
         return null;
     }
+
+    public static int getNodeCounts(Node head) {
+        Node current = head;
+        int count = 0;
+        while (current != null){
+            current = current.next;
+            count++;
+        }
+        return count;
+    }
 }
