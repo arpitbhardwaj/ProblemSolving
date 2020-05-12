@@ -21,24 +21,10 @@ public class RearrangePositiveNegative {
     }
 
     private static void rearrangePositiveNegative(int[] arr) {
+        int negativeIndex = 0;//starting index of negative numbers rally
+        int positiveIndex = SegregateNegativePositive.segregatePosNegQuick(arr);//starting index for positive numbers rally
 
-        //quick sort logic to partition by considering 0 as pivot
-        int pivot = 0;
-        int low = 0;
-        int high = arr.length - 1;
-        int i = low - 1;
-        for (int j = low; j < high; j++) {
-            if (arr[j] < pivot){
-                i++;
-                Utils.swapArrayElements(arr, i, j);
-            }
-        }
-        System.out.println(Arrays.toString(arr));
-
-        int negativeIndex = 0;
-        int positiveIndex = i + 1;
-
-        while (positiveIndex < high
+        while (positiveIndex < arr.length
         && negativeIndex < positiveIndex
         && arr[negativeIndex] < 0){
             Utils.swapArrayElements(arr,negativeIndex,positiveIndex);
@@ -46,4 +32,5 @@ public class RearrangePositiveNegative {
             positiveIndex++;
         }
     }
+
 }

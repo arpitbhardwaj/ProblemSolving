@@ -12,15 +12,23 @@ import java.util.Arrays;
  *
  * Variation of famous Dutch national flag problem.
  */
-public class SegregateOddEven {
+public class SegregateEvenOdd {
     public static void main(String[] args) {
         int[] arr = {12, 34, 45, 9, 8, 90, 3};
         System.out.println(Arrays.toString(arr));
-        segregateEvenOdd(arr);
+        segregateEvenOddWithoutOrder(arr);
         System.out.println(Arrays.toString(arr));
+
+        int[] arr1 = {12, 34, 45, 9, 8, 90, 3};
+        segregateEvenOddWithOrder(arr1);
+        System.out.println(Arrays.toString(arr1));
     }
 
-    private static void segregateEvenOdd(int[] arr) {
+    private static void segregateEvenOddWithOrder(int[] arr1) {
+
+    }
+
+    private static void segregateEvenOddWithoutOrder(int[] arr) {
         int length = arr.length;
         int leftIndex = 0;
         int rightIndex = length - 1;
