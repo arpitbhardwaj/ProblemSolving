@@ -24,8 +24,25 @@ public class SegregateEvenOdd {
         System.out.println(Arrays.toString(arr1));
     }
 
-    private static void segregateEvenOddWithOrder(int[] arr1) {
-
+    private static void segregateEvenOddWithOrder(int[] arr) {
+        int countEven = 0;
+        int length = arr.length;
+        for (int i = 0; i < length; i++) {
+            if (arr[i]%2 == 0){
+                countEven++;
+            }
+        }
+        int i = 0;
+        int j = i+1;
+        while (i != countEven){
+            if (arr[i]%2 == 0){
+                i++;
+                j = i + 1;
+            }else if (arr[i]%2 == 1 && j < length){
+                Utils.swapArrayElements(arr,i,j);
+                j++;
+            }
+        }
     }
 
     private static void segregateEvenOddWithoutOrder(int[] arr) {

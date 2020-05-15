@@ -19,34 +19,33 @@ public class LRUCache {
     private static int cacheSize;
 
     public LRUCache(int size) {
-        deque = new LinkedList<>();
+        deque = new ArrayDeque<>();
+        //deque = new LinkedList<>();
         hashSet = new HashSet<>();
         cacheSize = size;
     }
 
     public void refer(int page){
         //If the required page is not in memory, we bring that in memory.
-        // we add a new node to the front of the queue and update the corresponding node address in the hash
-        if (!hashSet.contains(page)){
-            if (deque.size() == cacheSize){
+        if (!hashSet.contains(page)) {
+            //the required page is not present in the memory.
+            if (deque.size() == cacheSize) {
                 int lastPage = deque.removeLast();
                 hashSet.remove(lastPage);
-            }else{
-                //the required page may be in the memory.
-                // If it is in the memory, we need to detach the node of the list and bring it to the front of the queue.
-                int index = 0;
-                Iterator<Integer> iterator = deque.iterator();
-                while (iterator.hasNext()){
-                    if (iterator.next() == page){
-                        break;
-                    }
-                    index++;
-                }
-                deque.remove(index);
             }
-            deque.addFirst(page);
-            hashSet.add(page);
+        }else{
+            // If it is in the memory, we need to detach the node of the list and bring it to the front of the queue.
+            Iterator<Integer> iterator = deque.iterator();
+            while (iterator.hasNext()){
+                if (iterator.next() == page){
+                    deque.remove(page);//works same as removeFirstOccurrence
+                    break;
+                }
+            }
         }
+        // we add a new node to the front of the queue and update the corresponding node address in the hash
+        deque.addFirst(page);
+        hashSet.add(page);
     }
 
     public void display(){
@@ -58,12 +57,13 @@ public class LRUCache {
 
     public static void main(String[] args) {
         LRUCache lruCache = new LRUCache(4);
-        lruCache.refer(1);
-        lruCache.refer(2);
-        lruCache.refer(3);
-        lruCache.refer(1);
-        lruCache.refer(4);
-        lruCache.refer(5);
+        lruCache.refer(1);//1
+        lruCache.refer(2);//21
+        lruCache.refer(3);//321
+        lruCache.refer(1);//132
+        lruCache.refer(4);//4132
+        lruCache.refer(5);//5413
+        lruCache.refer(4);//4513
         lruCache.display();
     }
 }
