@@ -5,7 +5,7 @@ package com.ab.trees;
  *
  * Traversal implemented using recursion
  */
-public class Traversal {
+public class RecursiveTraversal {
     public static void main(String[] args) {
         BinaryTree binaryTree = BinaryTree.getSampleBinaryTree();
         System.out.print("PreOrder Traversal : ");

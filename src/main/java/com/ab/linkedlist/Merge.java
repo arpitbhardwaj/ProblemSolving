@@ -19,11 +19,11 @@ public class Merge<T> {
         head2 = linkedList2.add(21,head2);
 
         Merge<Integer> merge = new Merge();
-        Node head = merge.mergeSortedList(head1,head2);
+        Node head = merge.mergeTwoSortedList(head1,head2);
         LinkedList.printLinkedList(head);
     }
 
-    private Node<Integer> mergeSortedList(Node<Integer> head1, Node<Integer> head2) {
+    private Node<Integer> mergeTwoSortedList(Node<Integer> head1, Node<Integer> head2) {
         if (head1 == null){
             return head2;
         }
@@ -32,12 +32,16 @@ public class Merge<T> {
         }
 
         if (head1.data < head2.data){
-            head1.next = mergeSortedList(head1.next,head2);
+            head1.next = mergeTwoSortedList(head1.next,head2);
             return head1;
         }
         else {
-            head2.next = mergeSortedList(head1,head2.next);
+            head2.next = mergeTwoSortedList(head1,head2.next);
             return head2;
         }
+    }
+
+    private Node<Integer> mergeKSortedList(Node arr[]) {
+        return null;
     }
 }

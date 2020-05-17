@@ -6,29 +6,47 @@ import java.util.Stack;
 
 /**
  * @author Arpit Bhardwaj
+ *
  * Regular Level Order Traversal (LOT): 1 Queue
  * Level By Level LOT : 2 Queue / 1 Queue and delimeter / 1 Queue and counter
  * Reverse LOT : 1 Queue + 1 Stack
- * Spiral LOT : 2 Stack / 1 Dequeue and delimeter / 1 Dequeue and counter
- *
  */
 public class LevelOrderTraversal {
     public static void main(String[] args) {
         BinaryTree binaryTree = BinaryTree.getSampleBinaryTree();
+        System.out.println(binaryTree.root);
         System.out.print("Level order Traversal : ");
-        printLevelOrder(binaryTree.root);
+        //printIterativeLevelOrder(binaryTree.root);
+        printRecursiveLevelOrder(binaryTree.root);
         System.out.println();
-        System.out.print("Level by level level order Traversal : ");
+        System.out.println("Level by level level order Traversal : ");
         printLBLLevelOrder(binaryTree.root);
         System.out.println();
         System.out.print("Reverse Level order Traversal : ");
-        printReverseLevelOrder(binaryTree.root);
+        printIterativeReverseLevelOrder(binaryTree.root);
         System.out.println();
-        System.out.print("Spiral Level order Traversal : ");
-        printSpiralLevelOrder(binaryTree.root);
     }
 
-    private static void printLevelOrder(Node root) {
+    private static void printRecursiveLevelOrder(Node root) {
+        int height = HeightAndDiameter.determineHeight(root);
+        for (int i = 1; i <= height; i++) {
+            printRecursiveLevelOrderUtil(root,i);
+        }
+    }
+
+    private static void printRecursiveLevelOrderUtil(Node root, int level) {
+        if(root == null){
+            return;
+        }
+        if (level == 1){
+            System.out.print(root.data + "\t");
+        }else {
+            printRecursiveLevelOrderUtil(root.left, level - 1);
+            printRecursiveLevelOrderUtil(root.right, level - 1);
+        }
+    }
+
+    private static void printIterativeLevelOrder(Node root) {
         if(root == null){
             return;
         }
@@ -53,9 +71,14 @@ public class LevelOrderTraversal {
     }
 
     private static void printLBLLevelOrder(Node root) {
+        int height = HeightAndDiameter.determineHeight(root);
+        for (int i = 1; i <= height; i++) {
+            printRecursiveLevelOrderUtil(root,i);
+            System.out.println();
+        }
     }
 
-    private static void printReverseLevelOrder(Node root) {
+    private static void printIterativeReverseLevelOrder(Node root) {
         if(root == null){
             return;
         }
@@ -77,6 +100,5 @@ public class LevelOrderTraversal {
         }
     }
 
-    private static void printSpiralLevelOrder(Node root) {
-    }
+
 }
