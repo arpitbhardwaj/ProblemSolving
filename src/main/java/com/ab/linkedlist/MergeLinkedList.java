@@ -3,10 +3,9 @@ package com.ab.linkedlist;
 /**
  * @author Arpit Bhardwaj
  */
-public class Merge<T> {
+public class MergeLinkedList<T> {
     public static void main(String[] args) {
         int k = 3;
-        Merge<Integer> merge = new Merge();
         Node[] nodeArr = new Node[k];
 
         LinkedList<Integer> linkedList1 = new LinkedList<>();
@@ -38,11 +37,28 @@ public class Merge<T> {
         nodeArr[0] = head1;
         nodeArr[1] = head2;
         nodeArr[2] = head3;
-        Node resultHead = merge.mergeKSortedList(nodeArr);
+        Node resultHead = mergeKSortedList(nodeArr);
         LinkedList.printLinkedList(resultHead);
     }
 
-    private Node<Integer> mergeTwoSortedList(Node<Integer> head1, Node<Integer> head2) {
+    private static Node<Integer> mergeKSortedList(Node arr[]) {
+        int last = arr.length - 1;
+
+        while (last != 0){
+            int i = 0,j = last;
+            for (;i < j;) {
+                arr[i] = mergeTwoSortedList(arr[i],arr[j]);
+                i++;j--;
+                if (i >= j){
+                    last = j;
+                }
+            }
+        }
+
+        return arr[0];
+    }
+
+    private static Node<Integer> mergeTwoSortedList(Node<Integer> head1, Node<Integer> head2) {
         if (head1 == null){
             return head2;
         }
@@ -60,20 +76,4 @@ public class Merge<T> {
         }
     }
 
-    private Node<Integer> mergeKSortedList(Node arr[]) {
-        int last = arr.length - 1;
-
-        while (last != 0){
-            int i = 0,j = last;
-            for (;i < j;) {
-                arr[i] = mergeTwoSortedList(arr[i],arr[j]);
-                i++;j--;
-                if (i >= j){
-                    last = j;
-                }
-            }
-        }
-
-        return arr[0];
-    }
 }

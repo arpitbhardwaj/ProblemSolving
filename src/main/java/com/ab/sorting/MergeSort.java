@@ -9,7 +9,8 @@ import java.util.Arrays;
  * Auxiliary Space: O(n)
  *
  * MergeSort is preferred over QuickSort for sorting Linked Lists
- * Merge sort accesses data sequentially and the need of random access is low.
+ * Merge sort accesses data sequentially and the need of random access is low which is best fit case for linked list.
+ * Also while merging in linked list no extra space is needed.
  */
 public class MergeSort {
 
