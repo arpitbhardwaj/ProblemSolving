@@ -5,10 +5,11 @@ import java.util.Arrays;
 /**
  * @author Arpit Bhardwaj
  *
- * Time complexity of Merge Sort is O(nLogn) in all 3 cases (worst, average and best)
- * as merge sort always divides the array into two halves and take linear time to merge two halves.
- *
+ * worst, average and best: O(nLogn) always divides the array into two halves and take linear time to merge two halves.
  * Auxiliary Space: O(n)
+ *
+ * MergeSort is preferred over QuickSort for sorting Linked Lists
+ * Merge sort accesses data sequentially and the need of random access is low.
  */
 public class MergeSort {
 

@@ -1,9 +1,13 @@
 package com.ab.sorting;
 
+import com.ab.utils.Utils;
+
 import java.util.Arrays;
 
 /**
  * @author Arpit Bhardwaj
+ *
+ * Time complexity : O(nLogn)
  */
 public class HeapSort {
     public static void main(String[] args) {
@@ -22,7 +26,7 @@ public class HeapSort {
         //build heap from bottom up ignoring leaf nodes as they are already heapified.
         for (int i = startIndex; i >= 0 ; i--) {
             maxHeapifyRecursive(arr,length-1,i);
-            //maxHeapify(arr,length,i);
+            //maxHeapifyIterative(arr,length,i);
         }
 
         /*for (int i = 1; i < length ; i++) {
@@ -31,9 +35,9 @@ public class HeapSort {
 
         //replace array last element with first element, then do heapify at first one
         for (int i = length - 1; i >= 0; i--) {
-            swap(arr, i,0);
+            Utils.swapArrayElements(arr, i,0);
             maxHeapifyRecursive(arr,i-1,0);
-            //maxHeapify(arr,i-1,0);
+            //maxHeapifyIterative(arr,i-1,0);
         }
     }
 
@@ -55,12 +59,12 @@ public class HeapSort {
         int largerIndex = arr[leftIndex] >= arr[rightIndex]
                 ?leftIndex:rightIndex;
         if(arr[currentIndex] < arr[largerIndex]){
-            swap(arr, currentIndex,largerIndex);
+            Utils.swapArrayElements(arr, currentIndex,largerIndex);
             maxHeapifyRecursive(arr,length,largerIndex);
         }
     }
 
-    private void maxHeapify(int arr[], int end,int currentIndex){
+    private void maxHeapifyIterative(int arr[], int end,int currentIndex){
         int i = currentIndex;
         int leftIndex;
         int rightIndex;
@@ -77,10 +81,10 @@ public class HeapSort {
                 break;
             }
             if(arr[leftIndex] >= arr[rightIndex]){
-                swap(arr, i, leftIndex);
+                Utils.swapArrayElements(arr, i, leftIndex);
                 i = leftIndex;
             }else{
-                swap(arr, i, rightIndex);
+                Utils.swapArrayElements(arr, i, rightIndex);
                 i = rightIndex;
             }
         }
@@ -90,17 +94,11 @@ public class HeapSort {
         int i = end;
         while(i > 0){
             if(arr[i] > arr[(i-1)/2]){
-                swap(arr, i, (i-1)/2);
+                Utils.swapArrayElements(arr, i, (i-1)/2);
                 i = (i - 1)/2;
             }else{
                 break;
             }
         }
-    }
-
-    private void swap(int[] arr, int i1, int i2) {
-        int temp = arr[i1];
-        arr[i1] = arr[i2];
-        arr[i2] = temp;
     }
 }

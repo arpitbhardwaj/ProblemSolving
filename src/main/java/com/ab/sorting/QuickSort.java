@@ -6,6 +6,12 @@ import java.util.Arrays;
 
 /**
  * @author Arpit Bhardwaj
+ *
+ * Best and Average Case: O(nlogn) The best case occurs when the partition process always picks the middle element as pivot
+ * Worst Case : O(n2)  when the partition process always picks greatest or smallest element as pivot.
+ *
+ * Quick Sort is preferred over MergeSort for sorting Arrays
+ * Quick Sort requires a lot of random access which is possible in Arrays not in linked list
  */
 public class QuickSort {
 
@@ -28,12 +34,12 @@ public class QuickSort {
 
     public static int partition(int[] arr, int low, int high) {
         //pick median as pivot
-        //int pivotIndex = (low + high) >> 1;
-        //int pivot = arr[pivotIndex];
+        int pivotIndex = (low + high) >> 1;
+        int pivot = arr[pivotIndex];
 
         //pick last as pivot
-        int pivotIndex = high;
-        int pivot = arr[pivotIndex];
+        //int pivotIndex = high;
+        //int pivot = arr[pivotIndex];
 
         int i = low - 1;
         for (int j = low; j < high; j++) {
@@ -44,7 +50,6 @@ public class QuickSort {
         }
 
         Utils.swapArrayElements(arr,i+1,pivotIndex);
-
         return i+1;
     }
 }

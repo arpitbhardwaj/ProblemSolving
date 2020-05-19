@@ -1,14 +1,19 @@
 package com.ab.sorting;
 
+import com.ab.utils.Utils;
+
 import java.util.Arrays;
 
 /**
  * @author Arpit Bhardwaj
+ *
+ * Worst and Average: O(n*2)
+ * Best : O(n) when array is already sorted
  */
 public class BubbleSort {
     public static void main(String[] args) {
-        //int arr[] = {67, 25, 98, 45, 10};
-        int arr[] = {10, 25, 45, 67, 98};
+        int arr[] = {67, 25, 98, 45, 10};
+        //int arr[] = {10, 25, 45, 67, 98};
         System.out.println(Arrays.toString(arr));
         bubbleSort(arr);
         System.out.println(Arrays.toString(arr));
@@ -26,9 +31,7 @@ public class BubbleSort {
 
                 if(arr[j] > arr[j+1]){
                     System.out.println("Swap " + arr[j] + " with "+ arr[j+1]);
-                    int tmp = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = tmp;
+                    Utils.swapArrayElements(arr,j,j+1);
                     atLeastSingleSwap = true;
                 }
             }

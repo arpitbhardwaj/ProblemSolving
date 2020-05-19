@@ -3,9 +3,11 @@ package com.ab.sorting;
 import java.util.Arrays;
 
 /**
- * Space Complexity: O(1)
- * Time Complexity: O(n*2)
  * @author Arpit Bhardwaj
+ *
+ *  Playing cards sorting
+ *  Worst and Average: O(n*2)
+ *  Best : O(n) when array is already sorted
  */
 public class InsertionSort {
     public static void main(String[] args) {
@@ -26,10 +28,6 @@ public class InsertionSort {
         for (int i = startIndex; i <= endIndex; i++) {
             int key = arr[i];
             int j = i - 1;
-            /*for (;j >= 0 && arr[j] > key;) {
-                arr[j + 1] = arr[j];
-                j--;
-            }*/
             while (j>=0 && arr[j] > key){
                 System.out.println("Shifting element " +arr[j]+ " greater than : " + key + " one position ahead");
                 arr[j+1] = arr[j];
