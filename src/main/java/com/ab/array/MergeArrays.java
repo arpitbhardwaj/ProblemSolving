@@ -6,6 +6,7 @@ import java.util.Arrays;
  * @author Arpit Bhardwaj
  *
  * Time Complexity: O(nklogk)
+ * Space Complexity: O(nklogk)
  */
 public class MergeArrays {
     public static void main(String[] args) {
