@@ -14,16 +14,6 @@ import java.util.Map;
  */
 public class Trie {
 
-    private class TrieNode{
-        Map<Character, TrieNode> children;
-        boolean endOfWord;
-
-        public TrieNode() {
-            children = new HashMap<>();
-            endOfWord = false;
-        }
-    }
-
     private final TrieNode root;
 
     public Trie() {
@@ -34,23 +24,48 @@ public class Trie {
         insertRecursiveUtil(root,word,0);
     }
 
-    private void insertRecursiveUtil(TrieNode root, String word, int index) {
-
+    private void insertRecursiveUtil(TrieNode current, String word, int index) {
+        if (index == word.length()){
+            current.endOfWord = true;
+            return;
+        }
+        char c = word.charAt(index);
+        TrieNode node = current.children.get(c);
+        if (node == null){
+            node = new TrieNode();
+            current.children.put(c,node);
+        }
+        insertRecursiveUtil(node,word,index+1);
     }
 
     public boolean searchRecursive(String word) {
         return searchRecursiveUtil(root,word,0);
     }
 
-    private boolean searchRecursiveUtil(TrieNode root, String word, int index) {
-        return false;
+    private boolean searchRecursiveUtil(TrieNode current, String word, int index) {
+        if(index == word.length()){
+            return current.endOfWord;
+        }
+        char c = word.charAt(index);
+        TrieNode node = current.children.get(c);
+        if (node == null){
+            return false;
+        }
+        return searchRecursiveUtil(node,word,index+1);
     }
 
     public void deleteRecursive(String word) {
         deleteRecursiveUtil(root,word,0);
     }
 
-    private void deleteRecursiveUtil(TrieNode root, String word, int index) {
+    private void deleteRecursiveUtil(TrieNode current, String word, int index) {
 
+    }
+
+    public static void main(String[] args) {
+        Trie trie = new Trie();
+        trie.insertRecursive("banana");
+        trie.insertRecursive("apple");
+        trie.insertRecursive("appium");
     }
 }
