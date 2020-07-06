@@ -17,7 +17,18 @@ package com.ab.advancedds;
  * a
  */
 public class SuffixTree {
+    int start;
+    End end;
+    int index;
+
     public static void main(String[] args) {
 
     }
+}
+
+class End{
+    public End(int end){
+        this.end = end;
+    }
+    int end;
 }

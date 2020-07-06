@@ -5,6 +5,8 @@ import java.util.Arrays;
 /**
  * @author Arpit Bhardwaj
  *
+ * Two Pointers Pattern
+ *
  * This can be solved by sorting as well as hashing technique
  */
 public class ExactPairSumAndProduct {
