@@ -5,6 +5,8 @@ import java.util.Set;
 
 /**
  * @author Arpit Bhardwaj
+ *
+ * DFS uses stack, hence can be implemented using recursion
  */
 public class DFS<T> {
 

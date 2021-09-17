@@ -1,18 +1,20 @@
 package com.ab.searching;
 
 /**
+ * @author Arpit Bhardwaj
+ *
  * Worst-case performance	O(log n)
  * Best-case performance	O(1)
  * Average performance	O(log n)
  * Worst-case space complexity	O(1)
- * @author Arpit Bhardwaj
  */
 public class BinarySearch {
     public static void main(String[] args) {
         int[] ints = new int[]{1,4,5,8,9,10};
-        int key = 5;
-        int index = iterativeBinarySearch(ints, key);
+        int key = 7;
+        //int index = iterativeBinarySearch(ints, key);
         //int index = recursiveBinarySearch(ints, 0,ints.length - 1,key);
+        int index = bsTemplate(ints,key);
         if(index == -1){
             System.out.println("Item not found in array");
         }else{
@@ -40,7 +42,7 @@ public class BinarySearch {
                 low = mid + 1;
             }
         }
-        return -1;
+        return -1;//return start in case you need inserted position
     }
 
     public static int recursiveBinarySearch(int[] array, int low, int high, int item) {
@@ -57,5 +59,22 @@ public class BinarySearch {
             }
         }
         return -1;
+    }
+
+    //if we are sure element is present in array, then we can use below template
+    //if the element not found this gives you the last index (array.length - 1)
+    public static int bsTemplate(int[] array, int target){
+        int start = 0;
+        int end = array.length - 1;
+        while(start < end){
+            int mid = (start + end) >>> 1;
+            if(array[mid] == target){ //this if condition can be replaced by any generic condition
+                end = mid;
+            }else{
+                start = mid + 1;
+            }
+        }
+
+        return start;
     }
 }

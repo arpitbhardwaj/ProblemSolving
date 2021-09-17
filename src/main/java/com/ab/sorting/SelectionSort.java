@@ -20,12 +20,12 @@ public class SelectionSort {
     }
 
     private static void selectionSort(int[] arr) {
-        int arr_length = arr.length;
-        for (int i = 0; i < arr_length - 1 /*-1 in order to avoid last element go in loop*/; i++) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1 /*-1 in order to avoid last element go in loop*/; i++) {
             int minIndex = i;
             System.out.println("Running Loop : " + i);
             //find minimum element in unsorted array
-            for (int j = i+1; j < arr_length; j++) {
+            for (int j = i+1; j < n; j++) {
                 if(arr[minIndex] > arr[j]){
                     minIndex = j;
                 }

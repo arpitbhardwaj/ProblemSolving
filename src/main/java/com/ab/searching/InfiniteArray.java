@@ -16,23 +16,23 @@ public class InfiniteArray {
         }
     }
 
+    //the crux here is to find the high
     private static int binarySearchMaster(int[] arr, int key) {
         int val = arr[0];
-        int lowIndex = 0;
-        int highIndex = 1;
+        int n = arr.length;
+        int low = 0;
+        int high = 1;
         while (val < key){
             // copy high index in low index
-            lowIndex = highIndex;
+            low = high;
             //double the high index
-
-            if (2*highIndex < arr.length - 1){
-                highIndex = highIndex * 2;
+            if (2*high < n - 1){
+                high = high * 2;
             }else{
-                highIndex = arr.length - 1;
+                high = n - 1;
             }
-
-            val = arr[highIndex];
+            val = arr[high];
         }
-        return BinarySearch.recursiveBinarySearch(arr,lowIndex,highIndex,key);
+        return BinarySearch.recursiveBinarySearch(arr,low,high,key);
     }
 }

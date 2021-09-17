@@ -50,13 +50,13 @@ public class DetectLoop<T> {
     }
 
     private boolean detectLoop(Node<T> head) {
-        Node<T> slowPointer = head;
-        Node<T> fastPointer = head;
+        Node<T> slow = head;
+        Node<T> fast = head;
         if (head != null){
-            while (slowPointer != null && fastPointer != null){
-                slowPointer = slowPointer.next;
-                fastPointer = fastPointer.next.next;
-                if(slowPointer == fastPointer){
+            while (fast != null && fast.next != null){
+                slow = slow.next;
+                fast = fast.next.next;
+                if(slow == fast){
                     return true;
                 }
             }
@@ -65,14 +65,14 @@ public class DetectLoop<T> {
     }
 
     private boolean detectAndRemoveLoop(Node<T> head) {
-        Node<T> slowPointer = head;
-        Node<T> fastPointer = head;
+        Node<T> slow = head;
+        Node<T> fast = head;
         if (head != null){
-            while (slowPointer != null && fastPointer != null){
-                slowPointer = slowPointer.next;
-                fastPointer = fastPointer.next.next;
-                if(slowPointer == fastPointer){
-                    removeLoop(slowPointer,head);
+            while (fast != null && fast.next != null){
+                slow = slow.next;
+                fast = fast.next.next;
+                if(slow == fast){
+                    removeLoop(slow,head);
                     return true;
                 }
             }

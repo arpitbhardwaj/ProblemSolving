@@ -4,7 +4,7 @@ package com.ab.searching;
  * @author Arpit Bhardwaj
  *
  * Given an array of integers. Find a peak element in it. An array element is peak if it is NOT smaller than its neighbors.
- * Note that we need to return any one peak element.
+ * Note that we need to return anyone peak element.
  */
 public class PeakElement {
     public static void main(String[] args) {

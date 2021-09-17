@@ -20,14 +20,14 @@ public class MiddleElement {
     }
 
     private static Node<Integer> getMiddleElement(Node<Integer> head) {
-        Node slowPointer = head;
-        Node fastPointer = head;
+        Node slow = head;
+        Node fast = head;
         if (head != null){
-            while (slowPointer != null && fastPointer != null){
-                slowPointer = slowPointer.next;
-                fastPointer = fastPointer.next.next;
+            while (fast != null && fast.next != null){
+                slow = slow.next;
+                fast = fast.next.next;
             }
         }
-        return slowPointer;
+        return slow;
     }
 }
