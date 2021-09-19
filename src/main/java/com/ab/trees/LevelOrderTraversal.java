@@ -7,22 +7,24 @@ import java.util.Stack;
 /**
  * @author Arpit Bhardwaj
  *
- * Regular Level Order Traversal (LOT): 1 Queue
- * Level By Level LOT : 2 Queue / 1 Queue and delimeter / 1 Queue and counter
- * Reverse LOT : 1 Queue + 1 Stack
+ * Level Order Traversal (LOT)
+ *
+ * Regular LOT          : 1 Queue
+ * Level By Level LOT   : 2 Queue / 1 Queue and delimeter / 1 Queue and counter
+ * Reverse LOT          : 1 Queue + 1 Stack
  */
 public class LevelOrderTraversal {
     public static void main(String[] args) {
         BinaryTree binaryTree = BinaryTree.getSampleBinaryTree();
         System.out.println(binaryTree.root);
-        System.out.print("Level order Traversal : ");
+        System.out.print("LOT : ");
         //printIterativeLevelOrder(binaryTree.root);
         printRecursiveLevelOrder(binaryTree.root);
         System.out.println();
-        System.out.println("Level by level level order Traversal : ");
+        System.out.println("Level by level LOT : ");
         printLBLLevelOrder(binaryTree.root);
         System.out.println();
-        System.out.print("Reverse Level order Traversal : ");
+        System.out.print("Reverse LOT: ");
         printIterativeReverseLevelOrder(binaryTree.root);
         System.out.println();
     }

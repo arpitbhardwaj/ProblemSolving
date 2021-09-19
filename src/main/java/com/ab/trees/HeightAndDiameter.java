@@ -1,7 +1,7 @@
 package com.ab.trees;
 
 /**
- * The task is to find the height of regular binary tree. actually it doesn't matter it is applicable to all trees
+ * The task is to find the height of regular binary tree. actually it doesn't matter as it is applicable to all trees
  * Height = Maximum Depth = the number of nodes along the longest path from the root node down to the farthest leaf node.
  *
  * The diameter of a tree is the number of nodes on the longest path between two leaves in the tree.

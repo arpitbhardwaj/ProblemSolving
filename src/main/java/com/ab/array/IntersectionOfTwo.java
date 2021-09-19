@@ -23,47 +23,45 @@ public class IntersectionOfTwo {
 
     private static List<Integer> getUnion(int[] arr1, int[] arr2) {
         List<Integer> result =  new ArrayList<>();
-        int pointer1 = 0,pointer2 = 0;
-        int length1 = arr1.length;
-        int length2 = arr2.length;
-        while (pointer1 < length1
-        && pointer2 < length2){
-            if(arr1[pointer1] == arr2[pointer2]){
-                result.add(arr1[pointer1++]);
-                pointer2++;
+        int p1 = 0,p2 = 0;
+        int n1 = arr1.length;
+        int n2 = arr2.length;
+        while (p1 < n1 && p2 < n2){
+            if(arr1[p1] == arr2[p2]){
+                result.add(arr1[p1++]);
+                p2++;
             }
-            else if(arr1[pointer1] < arr2[pointer2]){
-                result.add(arr1[pointer1++]);
+            else if(arr1[p1] < arr2[p2]){
+                result.add(arr1[p1++]);
             }else{
-                result.add(arr2[pointer2++]);
+                result.add(arr2[p2++]);
             }
         }
         //add remaining ones from first array
-        while (pointer1 < length1){
-            result.add(arr1[pointer1++]);
+        while (p1 < n1){
+            result.add(arr1[p1++]);
         }
         //add remaining ones from second array
-        while (pointer2 < length2){
-            result.add(arr2[pointer2++]);
+        while (p2 < n2){
+            result.add(arr2[p2++]);
         }
         return result;
     }
 
     private static List<Integer> getIntersection(int[] arr1, int[] arr2) {
         List<Integer> result =  new ArrayList<>();
-        int pointer1 = 0,pointer2 = 0;
-        int length1 = arr1.length;
-        int length2 = arr2.length;
-        while (pointer1 < length1
-                && pointer2 < length2){
-            if(arr1[pointer1] == arr2[pointer2]){
-                result.add(arr1[pointer1++]);
-                pointer2++;
+        int p1 = 0,p2 = 0;
+        int n1 = arr1.length;
+        int n2 = arr2.length;
+        while (p1 < n1 && p2 < n2){
+            if(arr1[p1] == arr2[p2]){
+                result.add(arr1[p1++]);
+                p2++;
             }
-            else if(arr1[pointer1] < arr2[pointer2]){
-                pointer1++;
+            else if(arr1[p1] < arr2[p2]){
+                p1++;
             }else{
-                pointer2++;
+                p2++;
             }
         }
         return result;

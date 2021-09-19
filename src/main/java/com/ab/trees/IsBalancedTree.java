@@ -7,4 +7,7 @@ package com.ab.trees;
  * A tree is height balanced if difference between heights of left and right subtrees is not more than one for all nodes of tree.
  */
 public class IsBalancedTree {
+    public static void main(String[] args) {
+
+    }
 }

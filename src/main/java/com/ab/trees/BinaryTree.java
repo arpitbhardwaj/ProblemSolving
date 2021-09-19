@@ -1,15 +1,16 @@
 package com.ab.trees;
 
 /**
- *  Binary Tree : is tree where every node has 0,1 or max 2 childs
+ * @author Arpit Bhardwaj
+ *
+ *  Binary Tree         : is tree where every node has 0,1 or max 2 childs
  *  Complete Binary Tree: is a BT in which every level, except possibly the last, is completely filled,
  *                        and all nodes are as far left as possible.
- *  Full Binary Tree: sometimes called proper BT or 2-tree is a tree in which every node other than the leaves
- *                    has two children.
- *  Binary Search Tree : is a BT with additional constraints that left child is less than parent and right
- *                       child is greater than parent and this should be recursively true for all nodes
+ *  Full Binary Tree    : sometimes called proper BT or 2-tree is a tree in which every node other than the leaves
+ *                        has two children.
+ *  Binary Search Tree  : is a BT with additional constraints that left child is less than parent and right
+ *                        child is greater than parent and this should be recursively true for all nodes
  *
- * @author Arpit Bhardwaj
  */
 public class BinaryTree {
     Node root;

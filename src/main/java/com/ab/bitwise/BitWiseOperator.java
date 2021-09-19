@@ -3,6 +3,28 @@ package com.ab.bitwise;
 /**
  * ~ is the 1s complement of binary number but compiler gives 2s complement
  * @author Arpit Bhardwaj
+ *
+ * Changing the sign is done by inverting all the bits and adding 1 to it
+ *-4      11111111111111111111111111111100
+ *-3      11111111111111111111111111111101
+ *-2      11111111111111111111111111111110
+ *-1      11111111111111111111111111111111
+ *0       00000000000000000000000000000000
+ *1       00000000000000000000000000000001
+ *2       00000000000000000000000000000010
+ *3       00000000000000000000000000000011
+ *4       00000000000000000000000000000100
+ *
+ * Bitwise complement operator invert all the bits of a number
+ * Result of ~a  would be mirrored binary value -(a+1)
+ *
+ * int a = 2;
+ * int b = ~a;
+ * then b = -3
+ *
+ * Signed left shift    : shifts each bit to the left by specified no of positions, fill low order position with 0 bit values
+ * Signed right shift   : shifts each bit to the right by specified no of positions, fill high order position with 0 bit values
+ * Unsigned right shift : shifts each bit to the right by specified no of positions, fill high order position with 0 bit values
  */
 public class BitWiseOperator {
     public static void main(String[] args) {

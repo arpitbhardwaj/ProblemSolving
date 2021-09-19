@@ -3,8 +3,8 @@ package com.ab.trees;
 /**
  * @author Arpit Bhardwaj
  *
- *  * Spiral LOT : 2 Stack / 1 Dequeue and delimeter / 1 Dequeue and counter
- *  * Reverse Spiral LOT :
+ *  Spiral LOT          : 2 Stack / 1 Dequeue and delimeter / 1 Dequeue and counter
+ *  Reverse Spiral LOT :
  */
 public class SpiralOrder {
     public static void main(String[] args) {
