@@ -15,29 +15,29 @@ public class MinCostPath {
     }
 
     private static int determineMinCostPath(int[][] cost) {
-        int rowLength = cost.length;
-        int columnLength = cost[0].length;
+        int r = cost.length;
+        int c = cost[0].length;
         int sum = 0;
-        int[][] temp = new int[rowLength][columnLength];
+        int[][] temp = new int[r][c];
         // fill first row
-        for (int i = 0; i < columnLength; i++) {
+        for (int i = 0; i < c; i++) {
             temp[0][i] = sum + cost[0][i];
             sum = temp[0][i];
         }
         sum = 0;
         // fill first column
-        for (int i = 0; i < rowLength; i++) {
+        for (int i = 0; i < r; i++) {
             temp[i][0] = sum + cost[i][0];
             sum = temp[i][0];
         }
         Utils.printMatrix(temp);
 
-        for (int i = 1; i < rowLength; i++) {
-            for (int j = 1; j < columnLength; j++) {
+        for (int i = 1; i < r; i++) {
+            for (int j = 1; j < c; j++) {
                 temp[i][j] = cost[i][j] + Math.min(temp[i-1][j], temp[i][j-1]);
             }
         }
         Utils.printMatrix(temp);
-        return temp[rowLength - 1][columnLength - 1];
+        return temp[r - 1][c - 1];
     }
 }

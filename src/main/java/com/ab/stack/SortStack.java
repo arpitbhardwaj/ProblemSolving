@@ -32,7 +32,7 @@ public class SortStack {
     }
 
     private static void sortStackInsert(Stack<Integer> stack, int element) {
-        //if (stack.isEmpty() || element < stack.peek()){ //Descending Top will be maximum
+        //if (stack.isEmpty() || element > stack.peek()){ //Descending Top will be maximum
         if (stack.isEmpty() || element < stack.peek()){ //Ascending Top will be minimum
             stack.push(element);
         }else{

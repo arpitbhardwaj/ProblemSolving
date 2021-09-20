@@ -6,7 +6,7 @@ import java.util.HashSet;
  * @author Arpit Bhardwaj
  *
  *  given an array A[] of n numbers and another number x,
- *  1. determines whether or not there exist two elements in S whose sum is exactly x.
+ *  1. determines whether there exist two elements in S whose sum is exactly x.
  *
  *  2. find the number of pairs of integers in the array whose sum is equal to ‘sum’.
  */

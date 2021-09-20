@@ -13,42 +13,36 @@ import java.util.List;
  * The same repeated number may be chosen from arr[] unlimited number of times.
  */
 public class CombinationSum {
+    static List<List<Integer>> powerList = new ArrayList<>();
+    static List<Integer> list = new ArrayList<>();
+
     public static void main(String[] args) {
-        int arr[] = {2, 4, 6, 8};
-        int sum = 8;
-        List<List<Integer>> result = combinationSum(arr,sum);
-        System.out.println(result);
+        int arr[] = {2, 3, 6, 7};
+        int sum = 7;
+        System.out.println(combinationSum(arr,sum));
     }
 
-    private static List<List<Integer>> combinationSum(int[] arr, int sum) {
-        //sort the array
-        Arrays.sort(arr);
-
-        //remove duplicates
-        int newLast = RemoveDuplicates.removeDuplicates(arr);
-        int[] newArr = Arrays.copyOfRange(arr, 0, newLast);
-
-        List<List<Integer>> result = new ArrayList<>();
-        List<Integer> list = new ArrayList<>();
-        combinationSumUtil(newArr,sum,result,list,0);
-        return result;
+    public static List<List<Integer>> combinationSum(int[] candidates, int target) {
+        combinationSumUtil(candidates,0,target);
+        return powerList;
     }
 
-    private static void combinationSumUtil(int[] arr, int sum, List<List<Integer>> result, List<Integer> list, int i) {
-        if (sum < 0){
+    public static void combinationSumUtil(int[] candidates,int start, int target){
+        if(target < 0){
             return;
         }
-        if (sum == 0){
-            result.add(list);
+
+        if(target == 0){
+            powerList.add(new ArrayList<>(list));
             return;
         }
-        while (i < arr.length && sum - arr[i] >= 0){
-            list.add(arr[i]);
-            //recursion
-            combinationSumUtil(arr,sum - arr[i],result,list,i);
-            i++;
-            //back track
-            list.remove(list.size() - 1);
+
+        for(int i = start; i < candidates.length; i++){
+            list.add(candidates[i]);
+            combinationSumUtil(candidates,i, target-candidates[i]);
+
+            //backtrack
+            list.remove(list.size()-1);
         }
     }
 }

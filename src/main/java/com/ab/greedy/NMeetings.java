@@ -47,7 +47,7 @@ public class NMeetings {
             }
         });*/
         //using java 8 syntax
-        Collections.sort(meetingsList, Comparator.comparing((Meeting meeting) -> meeting.finishingTime));
+        Collections.sort(meetingsList, Comparator.comparing(m -> m.finishingTime));
 
         /*List<Meeting> sortedList = meetingsList.stream()
                 .sorted(Comparator.comparing((Meeting meeting) -> meeting.finishingTime))

@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * @author Arpit Bhardwaj
  *
- * * Given a string find longest palindromic subsequence in this string.
+ * * Given a string find the longest palindromic subsequence in this string.
  *  *
  *  * Time complexity - O(n2)
  *  * Space complexity - O(n2)

@@ -17,7 +17,7 @@ public class StringRotation {
         boolean isRotatedTwice = isRotatedTwice(str1,str2);
         System.out.println("String 1: " + str1);
         System.out.println("String 2: " + str2);
-        System.out.println("is String 2 a twicely rotated of String 1: " + isRotatedTwice);
+        System.out.println("is String 2 a twice rotated of String 1: " + isRotatedTwice);
     }
 
     private static boolean isRotatedTwice(String str1, String str2) {
@@ -27,14 +27,14 @@ public class StringRotation {
         String clockRot = "";
         String antiClockRot = "";
 
-        int length = str2.length();
+        int n = str2.length();
         //substring beginIndex inclusive and endIndex exclusive.
 
-        clockRot = str2.substring(2, length)
+        antiClockRot = str2.substring(2, n)
                 + str2.substring(0, 2);
 
-        antiClockRot = str2.substring(length -2, length)
-                + str2.substring(0, length -2);
+        clockRot = str2.substring(n-2, n)
+                + str2.substring(0, n-2);
 
         System.out.println(str1.hashCode());
         System.out.println(clockRot.hashCode());

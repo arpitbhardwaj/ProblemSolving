@@ -19,10 +19,10 @@ import java.util.List;
  *                   The same property must be recursively true for all nodes in Binary Tree.
  *
  * A Binary Heap is a Complete Binary Tree. A binary heap is typically represented as an array.
- *  * For ith node
- *  * Arr[(i-1)/2]	Returns the parent node
- *  * Arr[(2*i)+1]	Returns the left child node
- *  * Arr[(2*i)+2]	Returns the right child node
+ * For ith node
+ * Arr[(i-1)/2]	Returns the parent node
+ * Arr[(2*i)+1]	Returns the left child node
+ * Arr[(2*i)+2]	Returns the right child node
  *
  * @author Arpit Bhardwaj
  */

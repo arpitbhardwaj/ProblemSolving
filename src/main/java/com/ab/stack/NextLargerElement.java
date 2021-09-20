@@ -28,23 +28,8 @@ public class NextLargerElement {
         stack.push(arr[0]);
 
         for (int i = 1; i < arr.length; i++) {
-            int currElement = arr[i];
-            int next = currElement;
-
+            int next = arr[i];
             if (!stack.isEmpty()){
-                /*int poppedElement = stack.pop();
-                while (next > poppedElement){
-                    //next will be the Next Greater Element of popped one
-                    System.out.println(poppedElement + "-->" + next);
-                    if (stack.isEmpty()){
-                        break;
-                    }else{
-                        poppedElement = stack.pop();
-                    }
-                }
-                if (next <= poppedElement){
-                    stack.push(poppedElement);
-                }*/
                 while (next > stack.peek()){
                     int poppedElement = stack.pop();
                     //next will be the Next Greater Element of popped one

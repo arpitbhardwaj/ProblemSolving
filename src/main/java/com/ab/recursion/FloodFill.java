@@ -4,6 +4,8 @@ import com.ab.utils.Utils;
 
 /**
  * @author Arpit Bhardwaj
+ *
+ * DFS which uses stack
  */
 public class FloodFill {
     public static void main(String[] args) {
@@ -29,19 +31,11 @@ public class FloodFill {
         int columns = screen[0].length;
 
         //base case
-        if (x >= rows || y>= columns){
+        if (x<0 || y<0 || x >= rows || y>= columns || screen[x][y] != oldColour){
             return;
         }
-        if (x<0 || y<0){
-            return;
-        }
-        if (screen[x][y] != oldColour){
-            return;
-        }
-
         //fill the colour
         screen[x][y] = newColour;
-
         floodFill(screen,x+1,y,oldColour,newColour);//up
         floodFill(screen,x-1,y,oldColour,newColour);//down
         floodFill(screen,x,y+1,oldColour,newColour);//right

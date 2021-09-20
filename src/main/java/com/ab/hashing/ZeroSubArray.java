@@ -29,9 +29,7 @@ public class ZeroSubArray {
         int maxLength = 0;
         int sum = 0;
         for (int i = 0; i < arr.length; i++) {
-            int element = arr[i];
-            sum += element;
-
+            sum += arr[i];
             if(sumMapIndex.containsKey(sum)){
                 maxLength = i-sumMapIndex.get(sum);
             }else{

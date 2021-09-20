@@ -3,7 +3,7 @@ package com.ab.bitwise;
 /**
  * @author Arpit Bhardwaj
  *
- * Given an array in which all numbers except two are repeated once.
+ * Given an array in which all numbers repeats except two.
  * (i.e. we have 2n+2 numbers and n numbers are occurring twice and remaining two have occurred once).
  */
 public class TwoNonDuplicateNumbers {

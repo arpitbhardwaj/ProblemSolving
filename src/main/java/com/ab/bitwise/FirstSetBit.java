@@ -27,10 +27,10 @@ public class FirstSetBit {
         //Take the log2 of the no
         //Add 1
 
-        System.out.println(Integer.toBinaryString(number));
-        System.out.println(Integer.toBinaryString(~number));//1's Complement
-        System.out.println(Integer.toBinaryString(~number + 1));//2's Complement
-        System.out.println(Integer.toBinaryString(number & (~number + 1)));
+        System.out.println(number + " " + Integer.toBinaryString(number));
+        System.out.println(~number + " " + Integer.toBinaryString(~number));//1's Complement
+        System.out.println((~number + 1) + " " + Integer.toBinaryString(~number + 1));//2's Complement
+        System.out.println((number & (~number + 1)) + " "+Integer.toBinaryString(number & (~number + 1)));
         System.out.println(Integer.toBinaryString(logBaseX((number & (~number + 1)), 2)));
         System.out.println(Integer.toBinaryString(logBaseX((number & (~number + 1)), 2) + 1));
 

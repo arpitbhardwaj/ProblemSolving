@@ -41,6 +41,7 @@ public class StackFromQueue {
                 queue2.add(queue1.poll());
             }
 
+            //swap the queues
             Queue queue = queue1;
             queue1 = queue2;
             queue2 = queue;

@@ -15,13 +15,6 @@ package com.ab.bitwise;
  *3       00000000000000000000000000000011
  *4       00000000000000000000000000000100
  *
- * Bitwise complement operator invert all the bits of a number
- * Result of ~a  would be mirrored binary value -(a+1)
- *
- * int a = 2;
- * int b = ~a;
- * then b = -3
- *
  * Signed left shift    : shifts each bit to the left by specified no of positions, fill low order position with 0 bit values
  * Signed right shift   : shifts each bit to the right by specified no of positions, fill high order position with 0 bit values
  * Unsigned right shift : shifts each bit to the right by specified no of positions, fill high order position with 0 bit values

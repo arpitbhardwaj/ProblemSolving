@@ -1,4 +1,4 @@
-package com.ab.strings;
+package com.ab.dp;
 
 /**
  * @author Arpit Bhardwaj

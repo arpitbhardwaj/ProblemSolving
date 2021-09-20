@@ -18,10 +18,7 @@ public class Anagram {
     public static void main(String[] args) {
         String string1 = "thisisthetime";
         String string2 = "hitssiethimet";
-        char[] charArr1 = string1.toCharArray();
-        char[] charArr2 = string2.toCharArray();
-
-        boolean areAnagrams = areAnagrams(charArr1,charArr2);
+        boolean areAnagrams = isAnagram(string1,string2);
         if(areAnagrams){
             System.out.println(string1 + " is the anagram of " + string2);
         }else{
@@ -29,26 +26,24 @@ public class Anagram {
         }
     }
 
-    private static boolean areAnagrams(char[] charArr1, char[] charArr2) {
-
-        int length1 = charArr1.length;
-        int length2 = charArr2.length;
-        if(length1 != length2){
+    public static boolean isAnagram(String s, String t) {
+        if(s.length() != t.length()){
             return false;
         }
-        int[] countArray = new int[NO_OF_CHARS];
-        Arrays.fill(countArray,0);
 
-        for (int i = 0; i < length1 && i< length2; i++) {
-            countArray[charArr1[i]]++;
-            countArray[charArr2[i]]--;
+        int[] countChar = new int[26];
+
+        for(int i = 0; i < s.length(); i++){
+            countChar[s.charAt(i)-'a']++;
+            countChar[t.charAt(i)-'a']--;
         }
 
-        for (int i = 0; i < NO_OF_CHARS; i++) {
-            if (countArray[i] != 0){
+        for(int count:countChar){
+            if(count != 0){
                 return false;
             }
         }
+
         return true;
     }
 }

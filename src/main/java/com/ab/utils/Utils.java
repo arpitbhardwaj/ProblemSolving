@@ -87,11 +87,12 @@ public class Utils {
         Map<Integer,Integer> countMap = new LinkedHashMap<>();
         for (int i = 0; i < arr.length; i++) {
             int element = arr[i];
-            if(countMap.containsKey(element)){
+            countMap.put(element,countMap.getOrDefault(element,0)+1);
+            /*if(countMap.containsKey(element)){
                 countMap.put(element,countMap.get(element) + 1);
             }else{
                 countMap.put(element,1);
-            }
+            }*/
         }
         return countMap;
     }
