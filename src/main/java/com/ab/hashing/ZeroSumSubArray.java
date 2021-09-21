@@ -1,6 +1,6 @@
 package com.ab.hashing;
 
-import javafx.util.Pair;
+//import javafx.util.Pair;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,16 +12,16 @@ import java.util.HashMap;
  */
 public class ZeroSumSubArray {
     public static void main(String[] args) {
-        int[] arr = {6, 3, -1, -3, 4, -2, 2, 4, 6, -12, -7};
+        /*int[] arr = {6, 3, -1, -3, 4, -2, 2, 4, 6, -12, -7};
         ArrayList<Pair> subArrayPair = findSubArraySumZero(arr);
         if (subArrayPair.size() == 0){
             System.out.println("No Sub array exist with sum 0");
         }else{
             printPair(subArrayPair);
-        }
+        }*/
     }
 
-    private static void printPair(ArrayList<Pair> subArrayPair) {
+/*    private static void printPair(ArrayList<Pair> subArrayPair) {
         for (int i = 0; i < subArrayPair.size(); i++) {
             Pair pair = subArrayPair.get(i);
             System.out.println("Subarray found from index "
@@ -54,5 +54,5 @@ public class ZeroSumSubArray {
             sumToEndIndexMap.put(sum,endIndexList);
         }
         return subArrayPair;
-    }
+    }*/
 }

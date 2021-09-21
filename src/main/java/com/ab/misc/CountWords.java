@@ -4,7 +4,7 @@ import java.util.stream.Stream;
 
 public class CountWords {
     public static void main(String[] args) {
-        String s = "How many? eggs 649726347 ,are in a half-dozen, 13?";
+        String s = "b? Dl )B 4(V! A. MK, YtG ](f 1m )CNxuNUR {PG?";
         System.out.println(countWords(s));
 
     }
@@ -14,24 +14,13 @@ public class CountWords {
         if (sentence == null || sentence.isEmpty()) {
             return 0;
         }
-
+        //b Dl B V A MK YtG f m CNxuNUR PG
         sentence = sentence
-                .replaceAll("[^-a-zA-Z]"," ")
+                .replaceAll("[.,?!]"," ")
                 .replaceAll(" +"," ")
                 .trim();
-        String[] str = sentence.split(" ");
         return Stream.of(sentence.split(" "))
-                .count();
+                .filter(w->w.matches("^[-a-zA-Z]*")).count();
     }
 
-    private static long countWords(final String sentence, final int minLength) {
-        // Validate the input sentence is not null or empty.
-        if (sentence == null || sentence.isEmpty()) {
-            return 0;
-        }
-
-        return Stream.of(sentence.split(" "))
-                .filter(word -> word.trim().replaceAll("[^a-zA-Z0-9]", "").length() >= minLength)
-                .count();
-    }
 }

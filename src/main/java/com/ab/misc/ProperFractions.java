@@ -12,10 +12,13 @@ public class ProperFractions {
         return gcd(b,a%b);
     }
 
-    public int properFunc(int den){
+    public int properFunc(int max_d){
         int result = 0;
-        for (int i = 1; i < den; i++) {
-            if (gcd(den,i)==1)result++;
+        for (int i = 1; i < max_d; i++) {
+            for(int j = i + 1; j <= max_d; j++)
+            {
+                if (gcd(i,j)==1)result++;
+            }
         }
         return result;
     }

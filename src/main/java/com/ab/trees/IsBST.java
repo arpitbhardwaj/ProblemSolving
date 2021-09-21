@@ -1,7 +1,5 @@
 package com.ab.trees;
 
-import org.omg.CORBA.INTERNAL;
-
 /**
  * @author Arpit Bhardwaj
  */

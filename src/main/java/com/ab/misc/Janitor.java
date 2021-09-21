@@ -1,43 +1,33 @@
 package com.ab.misc;
 
+import java.util.*;
+
 public class Janitor {
     public static void main(String[] args) {
-        double[] weights = {1.99, 1.01, 2.5, 1.5, 1.01};
-        double max = 3.0;
-        System.out.println(getMinTrips(weights, max));
+        List<Float> weights = new ArrayList<>(List.of(1.99F, 1.01F, 2.5F, 1.5F, 1.01F));
+        System.out.println(efficientJanitor(weights));
     }
 
-    static int res = Integer.MAX_VALUE;
-
-    private static int getMinTrips(double[] weights, double max) {
-        boolean[] visited = new boolean[weights.length];
-        dfs(weights, visited, 0.0, 1, max);
-        return res;
-    }
-
-    private static void dfs(double[] weights, boolean[] visited, double w, int tmp, double max) {
-        if(tmp > res)
-            return;
-        if(isAllVisited(visited)) {
-            res = Math.min(res, tmp);
-            return;
-        }
-        for(int i=0;i<weights.length;i++){
-            if(!visited[i]) {
-                visited[i] = true;
-                if(w + weights[i] <= max)
-                    dfs(weights, visited, w + weights[i], tmp, max);
-                else
-                    dfs(weights, visited, weights[i], tmp+1, max);
-                visited[i] = false;
+    public static int efficientJanitor(List<Float> weight) {
+        Collections.sort(weight);
+        int left = 0;
+        int right = weight.size() - 1;
+        int count = 0;
+        while(left <= right){
+            if(left == right){
+                count++;
+                break;
+            }
+            if(weight.get(left) + weight.get(right) <= 3.0){
+                left++;
+                right--;
+                count++;
+            }
+            else{
+                right--;
+                count++;
             }
         }
-    }
-
-    private static boolean isAllVisited(boolean[] visited) {
-        for(boolean v : visited)
-            if(v == false)
-                return false;
-        return true;
+        return count;
     }
 }

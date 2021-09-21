@@ -1,9 +1,6 @@
 package com.ab.divideandconquer;
 
 import com.ab.utils.Utils;
-
-import javax.rmi.CORBA.Util;
-
 /**
  * @author Arpit Bhardwaj
  *
