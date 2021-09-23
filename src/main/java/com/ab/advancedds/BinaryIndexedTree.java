@@ -5,8 +5,8 @@ package com.ab.advancedds;
  *
  * A Binary Indexed Tree is also called fenwick tree
  * Use Case
- * To get prefix sum queries
- * To update an element
+ *      To get prefix sum queries
+ *      To update an element
  *
  * Build a BI Tree
  * Convert to array index to Binary Representation -> flip the rightmost set bit to get the parent

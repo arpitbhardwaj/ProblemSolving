@@ -3,12 +3,13 @@ package com.ab.advancedds;
 /**
  * @author Arpit Bhardwaj
  *
- * Segment tree is also called range tree
- * Segment tree is a data structure similar to heap.
- * Segment Tree is a full binary tree (every node has 0 or 2 children)
- * leaf nodes and represent the single element from the given array for which Segment tree would be built.
- * Each node except the leaf of the tree will hold information about a range from the given array.
- * The closer the node to root, the more range it covers.
+ * Segment tree
+ *      is also called range tree
+ *      is a data structure similar to heap.
+ *      is a full binary tree (every node has 0 or 2 children)
+ *      leaf nodes and represent the single element from the given array for which Segment tree would be built.
+ *      each node except the leaf of the tree will hold information about a range from the given array.
+ *      the closer the node to root, the more range it covers.
  *
  * The root node will hold the information for the interval [A, B]
  * For A < B,

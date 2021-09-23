@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *  * Binary Max Heap: The key at root must be maximum among all keys present in Binary Heap.
- *  *                   The same property must be recursively true for all nodes in Binary Tree.
+ * Binary Max Heap: The key at root must be maximum among all keys present in Binary Heap.
+ *                  The same property must be recursively true for all nodes in Binary Tree.
  *
  * @author Arpit Bhardwaj
  */

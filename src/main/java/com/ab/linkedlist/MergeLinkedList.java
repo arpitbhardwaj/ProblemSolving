@@ -41,21 +41,20 @@ public class MergeLinkedList<T> {
         LinkedList.printLinkedList(resultHead);
     }
 
-    private static Node<Integer> mergeKSortedList(Node arr[]) {
-        int last = arr.length - 1;
+    //this can efficiently be done using heap (priority queue)
+    private static Node<Integer> mergeKSortedList(Node lists[]) {
+        int k = lists.length;
 
-        while (last != 0){
-            int i = 0,j = last;
-            for (;i < j;) {
-                arr[i] = mergeTwoSortedList(arr[i],arr[j]);
-                i++;j--;
-                if (i >= j){
-                    last = j;
-                }
-            }
+        if(k==0){
+            return null;
         }
 
-        return arr[0];
+        Node sortedHead = lists[0];
+        for(int i = 1; i < k; i++){
+            sortedHead = mergeTwoSortedList(sortedHead,lists[i]);
+        }
+
+        return sortedHead;
     }
 
     private static Node<Integer> mergeTwoSortedList(Node<Integer> head1, Node<Integer> head2) {
