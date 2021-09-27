@@ -14,20 +14,26 @@ public class PeakElement {
     }
 
     private static int findPeakElementIndex(int[] arr) {
-        return peakElementUtil(arr,0,arr.length-1);
-    }
-
-    public static int peakElementUtil(int[] arr, int low, int high) {
-        int mid = (low + high) >>> 1;
-
-        if ((mid == 0 || arr[mid -1] <= arr[mid])
-                && (mid == arr.length-1 || arr[mid + 1] <= arr[mid])){
-            return mid;
+        int start = 0;
+        int end = arr.length-1;
+        while (start < end){
+            int mid = (start + end) >>> 1;
+            if (arr[mid] > arr[mid+1]){
+                //you are in dec part of array
+                //this may be the ans but look at left
+                //that is why end != mid -1
+                end = mid;
+            }else{
+                //you are in asc part of array
+                //because we know that mid+1 element is greater than mid
+                //hence ignoring mid
+                start = mid + 1;
+            }
         }
-        else if (mid > 0 && arr[mid-1] > arr[mid]){
-            return peakElementUtil(arr,low,mid - 1);
-        }
-        else return peakElementUtil(arr,mid + 1,high);
-    }
 
+        //in the end, start and end will point to the largest number because of 2 checks above, hence both will be equal
+        //start and end will always trying to find max element in above 2 checks
+        //
+        return start; // or return end;
+    }
 }
