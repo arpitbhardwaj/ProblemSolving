@@ -36,17 +36,20 @@ public class BinarySearch {
         //return end;       //in case you need floor of the target
     }
 
+    //divide and conquer recurrence (very efficient) as the search space is getting reduced to half
     public static int recursiveBinarySearch(int[] arr, int start, int end, int target) {
-        if((start <= end)){
-            int mid = (start + end) >>> 1;
-            if(arr[mid] < target){
-                return recursiveBinarySearch(arr,mid+1,end,target);
-            } else if (arr[mid] > target){
-                return recursiveBinarySearch(arr,start,mid-1,target);
-            } else {
-                return mid;
-            }
+        //base condition
+        if(start > end){
+            return -1;
         }
-        return -1;
+
+        int mid = (start + end) >>> 1;
+        if(arr[mid] < target){
+            return recursiveBinarySearch(arr,mid+1,end,target);
+        } else if (arr[mid] > target){
+            return recursiveBinarySearch(arr,start,mid-1,target);
+        } else {
+            return mid;
+        }
     }
 }

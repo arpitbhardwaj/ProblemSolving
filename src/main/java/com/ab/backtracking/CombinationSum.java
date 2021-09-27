@@ -1,4 +1,4 @@
-package com.ab.recursion;
+package com.ab.backtracking;
 
 import com.ab.array.RemoveDuplicates;
 

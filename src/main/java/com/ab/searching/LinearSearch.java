@@ -1,11 +1,11 @@
 package com.ab.searching;
 
 /**
+ * @author Arpit Bhardwaj
+ *
  * Worst-case performance	O(n)
  * Best-case performance	O(1)
  * Average performance	O(n)
- * Worst-case space complexity
- * @author Arpit Bhardwaj
  */
 public class LinearSearch {
     public static void main(String[] args) {

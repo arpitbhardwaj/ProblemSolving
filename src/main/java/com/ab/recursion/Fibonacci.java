@@ -1,11 +1,13 @@
-package com.ab.misc;
+package com.ab.recursion;
 
 /**
  * @author Arpit Bhardwaj
  *
  * Seed Values: F0 = 0 and F1 = 1.
  * Formulae: Fn = Fn-1 + Fn-2
+ *
  * Using Recursion
+ *  space complexity is the height of the recursion tree
  * Using Dynamic Programming
  */
 public class Fibonacci {
@@ -33,6 +35,7 @@ public class Fibonacci {
         }
     }
 
+    //linear recursion (very inefficient)
     private static int fibonacciNumber(int n) {
         if (n <= 1){
             return n;
