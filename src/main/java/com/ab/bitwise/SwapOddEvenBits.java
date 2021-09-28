@@ -1,7 +1,5 @@
 package com.ab.bitwise;
 
-import com.ab.utils.BitwiseUtils;
-
 /**
  * @author Arpit Bhardwaj
  *

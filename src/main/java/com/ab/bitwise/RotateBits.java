@@ -1,7 +1,5 @@
 package com.ab.bitwise;
 
-import com.ab.utils.BitwiseUtils;
-
 /**
  * @author Arpit Bhardwaj
  *
@@ -32,5 +30,11 @@ public class RotateBits {
         //BitwiseUtils.displayBinary(number >> (BITS-rotate));
         System.out.println("Rotating Left");
         return (number << rotate) | (number >> (BITS-rotate));
+    }
+
+    public static void displayBinary(int n){
+        System.out.println(String.format("Binary Representation of %s is %s"
+                ,n
+                ,Integer.toBinaryString(n)));
     }
 }

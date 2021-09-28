@@ -1,7 +1,5 @@
 package com.ab.bitwise;
 
-import com.ab.utils.BitwiseUtils;
-
 /**
  * @author Arpit Bhardwaj
  *
@@ -20,6 +18,16 @@ public class PowerOfTwo {
     }
 
     private static boolean powerOfTwo(int number) {
-        return BitwiseUtils.countSetBits(number) == 1?true:false;
+        return countSetBits(number) == 1?true:false;
+    }
+
+    public static int countSetBits(int number) {
+        int count = 0;
+        while (number > 0){
+            count += number & 1;
+            number >>= 1;
+        }
+        System.out.println("No of Set Bits: " + count);
+        return count;
     }
 }

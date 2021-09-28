@@ -1,8 +1,5 @@
 package com.ab.dp;
 
-import com.ab.utils.BooleanUtils;
-import com.ab.utils.Utils;
-
 import java.util.Arrays;
 
 /**
@@ -26,7 +23,7 @@ public class SubsetSum {
         for (int i = 0; i <= arr.length; i++) {
             temp[i][0] = true;
         }
-        BooleanUtils.printMatrix(temp);
+        printMatrix(temp);
 
         for (int i = 1; i < temp.length; i++) {
             for (int j = 1; j < temp[i].length; j++) {
@@ -39,7 +36,15 @@ public class SubsetSum {
                 }
             }
         }
-        BooleanUtils.printMatrix(temp);
+        printMatrix(temp);
         return temp[arr.length][sum];
+    }
+
+    public static void printMatrix(boolean[][] matrix) {
+        System.out.println("Printing Matrix");
+        for (boolean[] row:
+                matrix) {
+            System.out.println(Arrays.toString(row));
+        }
     }
 }

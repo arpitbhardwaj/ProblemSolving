@@ -1,7 +1,5 @@
 package com.ab.bitwise;
 
-import com.ab.utils.BitwiseUtils;
-
 /**
  * @author Arpit Bhardwaj
  *
@@ -12,7 +10,7 @@ public class SparseNumber {
     public static void main(String[] args) {
         //int number = 72;
         int number = 12;
-        BitwiseUtils.displayBinary(number);
+        displayBinary(number);
         System.out.println(String.format("%s is the Sparse Number: %s",number,isSparseNumber(number)));
     }
 
@@ -24,5 +22,11 @@ public class SparseNumber {
             return true;
         }
         return false;
+    }
+
+    public static void displayBinary(int n){
+        System.out.println(String.format("Binary Representation of %s is %s"
+                ,n
+                ,Integer.toBinaryString(n)));
     }
 }
