@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * An element is leader if it is greater than all the elements to its right side
- * the rightmost element is always a leader
+ * An element is leader
+ *      if it is greater than all the elements to its right side
+ *      the rightmost element is always a leader
  *
  * Naive Solution O(n*2)
  * Track of maximum one from right takes O(n)
@@ -20,16 +21,16 @@ public class FindLeaders {
     }
 
     private static List<Integer> getLeaders(int[] arr) {
-        List<Integer> leadersList = new ArrayList<>();
-        int length = arr.length;
-        int maxItem = arr[length-1];
-        leadersList.add(maxItem);
-        for (int i = length - 2; i >=0 ; i--) {
-            if(arr[i] > maxItem){
-                maxItem = arr[i];
-                leadersList.add(maxItem);
+        List<Integer> leaders = new ArrayList<>();
+        int n = arr.length;
+        int max = arr[n-1];
+        leaders.add(max);
+        for (int i = n - 2; i >=0 ; i--) {
+            if(arr[i] > max){
+                max = arr[i];
+                leaders.add(max);
             }
         }
-        return leadersList;
+        return leaders;
     }
 }

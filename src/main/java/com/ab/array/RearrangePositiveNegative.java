@@ -29,15 +29,13 @@ public class RearrangePositiveNegative {
     }
 
     private static void rearrangePosNegWithoutOrder(int[] arr) {
-        int negativeIndex = 0;//starting index of negative numbers rally
-        int positiveIndex = SegregateNegativePositive.segregatePosNegQuick(arr);//starting index for positive numbers rally
+        int negative = 0;//starting index of negative numbers rally
+        int postive = Segregate.segregatePosNegQuick(arr);//starting index for positive numbers rally
 
-        while (positiveIndex < arr.length
-        && negativeIndex < positiveIndex
-        && arr[negativeIndex] < 0){
-            Utils.swapArrayElements(arr,negativeIndex,positiveIndex);
-            negativeIndex += 2;
-            positiveIndex++;
+        while (postive < arr.length && negative < postive && arr[negative] < 0){
+            Utils.swapArrayElements(arr,negative,postive);
+            negative += 2;
+            postive++;
         }
     }
 

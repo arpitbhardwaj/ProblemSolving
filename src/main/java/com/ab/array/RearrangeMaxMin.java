@@ -21,31 +21,26 @@ public class RearrangeMaxMin {
     }
 
     private static void rearrangeMaxMin(int[] arr) {
-        int length = arr.length;
-        int minIndex = 0;
-        int maxIndex = length - 1;
-        int maxElement = arr[maxIndex] + 1;
+        int n = arr.length;
+        int min = 0;
+        int max = n - 1;
+        int maxEle = arr[max] + 1;
 
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < n; i++) {
             //at even index put max element
             if (i%2 == 0){
-                arr[i] += (arr[maxIndex--] % maxElement) * maxElement;
                 //arr[max_index] is stored as multiplier and “arr[i]” is stored as remainder
+                arr[i] += (arr[max--] % maxEle) * maxEle;
             }else{
-                arr[i] += (arr[minIndex++] % maxElement) * maxElement;
+                arr[i] += (arr[min++] % maxEle) * maxEle;
             }
         }
 
         System.out.println(Arrays.toString(arr));
 
-        //to fetch multipliers
-        for (int i = 0; i < length; i++) {
-            arr[i] /= maxElement;
+        //to fetch remainders in which the actual element stored
+        for (int i = 0; i < n; i++) {
+            arr[i] /= maxEle;
         }
-
-        //to fetch remainders
-        /*for (int i = 0; i < length; i++) {
-            arr[i] %= maxElement;
-        }*/
     }
 }

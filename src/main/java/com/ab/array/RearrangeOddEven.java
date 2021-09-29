@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * @author Arpit Bhardwaj
  *
- *Given an array of integers (both odd and even), the task is to arrange them in such a way
+ * Given an array of integers (both odd and even), the task is to arrange them in such a way
  * that odd and even values come in alternate fashion in non-decreasing order(ascending) respectively.
  *
  * If the smallest value is Even then we have to print Even-Odd pattern.
@@ -37,13 +37,13 @@ public class RearrangeOddEven {
         if (arr[0] % 2 == 0){
             smallestEven = true;
         }
-        int evenPointer = 0;
-        int oddPointer = 0;
+        int even = 0;
+        int odd = 0;
         for (int i = 0; i < arr.length; i++) {
             if (smallestEven){
-                arr[i] = evenList.get(evenPointer++);
+                arr[i] = evenList.get(even++);
             }else{
-                arr[i] = oddList.get(oddPointer++);
+                arr[i] = oddList.get(odd++);
             }
             smallestEven = !smallestEven;
         }

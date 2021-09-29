@@ -7,7 +7,7 @@ import java.util.Arrays;
  *
  * Given n numbers (both +ve and -ve), arranged in a circle, fnd the maximum sum of consecutive number.
  *
- * Algo: find sum of non contributing elements which are non wrapping and subtract this sum from the total sum
+ * Algo: find sum of non-contributing elements which are non wrapping and subtract this sum from the total sum
  *       which eventually gives us the wrapping sum of contributing elements.
  */
 public class MaxSumSubArrayCircular {

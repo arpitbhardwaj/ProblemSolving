@@ -32,14 +32,6 @@ public class EquilibriumPoint {
         //keep to pointers one to point left elements sum and other to right elements sum
         int leftSum=0;
 
-        /*int rightSum = 0;
-        for (int i = 1; i < length; i++) {
-            leftSum += arr[i-1];
-            rightSum =  totalSum - arr[i] - leftSum;
-            if(leftSum == rightSum){
-                return i;
-            }
-        }*/
         for (int i = 0; i < length; i++) {
             totalSum -= arr[i];
             if(leftSum == totalSum){

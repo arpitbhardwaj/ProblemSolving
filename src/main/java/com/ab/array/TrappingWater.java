@@ -18,25 +18,25 @@ public class TrappingWater {
 
     private static int trappingWater(int[] arr) {
         int water = 0;
-        int length = arr.length;
-        int left[] = new int[length];
-        int right[] = new int[length];
+        int n = arr.length;
+        int left[] = new int[n];
+        int right[] = new int[n];
 
-        //compute highest bar on left of every bar
+        //compute the highest bar on left of every bar
         left[0] = arr[0];
-        for (int i = 1; i < length; i++) {
+        for (int i = 1; i < n; i++) {
             left[i] = Math.max(left[i-1],arr[i]);
         }
         System.out.println(Arrays.toString(left));
 
-        //compute highest bar on right of every bar
-        right[length-1] = arr[length-1];
-        for (int i = length-2; i >= 0; i--) {
+        //compute the highest bar on right of every bar
+        right[n-1] = arr[n-1];
+        for (int i = n-2; i >= 0; i--) {
             right[i] = Math.max(right[i+1],arr[i]);
         }
         System.out.println(Arrays.toString(right));
 
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < n; i++) {
             water += Math.min(left[i],right[i]) - arr[i];
         }
         return water;

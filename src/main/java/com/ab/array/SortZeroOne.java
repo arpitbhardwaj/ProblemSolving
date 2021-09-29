@@ -18,26 +18,26 @@ public class SortZeroOne {
     }
 
     private static void sortArray(int[] arr) {
-        int length = arr.length;
-        int leftIndex = 0;
-        int rightIndex = length - 1;
-        while (leftIndex < rightIndex){
+        int n = arr.length;
+        int left = 0;
+        int right = n - 1;
+        while (left < right){
             //keep searching for 1 from the left by incrementing left index
-            while (arr[leftIndex] == 0){
-                leftIndex++;
+            while (arr[left] == 0){
+                left++;
             }
             //keep searching for 0 from the left by incrementing left index
-            while (arr[rightIndex] == 1){
-                rightIndex--;
+            while (arr[right] == 1){
+                right--;
             }
             //once found swap it
-            if(arr[leftIndex] > arr[rightIndex]){
-                arr[leftIndex] = 0;
-                arr[rightIndex] = 1;
+            if(arr[left] > arr[right]){
+                arr[left] = 0;
+                arr[right] = 1;
             }
 
-            leftIndex++;
-            rightIndex--;
+            left++;
+            right--;
         }
     }
 }

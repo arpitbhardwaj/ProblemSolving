@@ -20,7 +20,6 @@ public class SortZeroOneTwo {
         int low = 0;
         int mid = 0;
         int high = arr.length - 1;
-        int temp = 0;
 
         while (mid <= high){
             switch (arr[mid]){
