@@ -10,24 +10,23 @@ package com.ab.bitwise;
  */
 public class SwapOddEvenBits {
     public static void main(String[] args) {
-        //int number = 14;
-        int number = 23;
-        BitwiseUtils.displayBinary(number);
-        System.out.println(String.format("%s after swapping bits becomes: %s",number
-                ,swapBits(number)));
+        //int n = 14;
+        int n = 23;
+        System.out.println(String.format("Binary of %s is %s",n,Integer.toBinaryString(n)));
+        System.out.println(String.format("%s after swapping bits becomes: %s",n
+                ,swapBits(n)));
     }
 
-    private static int swapBits(int number) {
+    private static int swapBits(int n) {
         //0xAAAAAAAA is a 32 bit number with all even bits set as 1 and all odd bits as 0.
-        int evenBits = number & 0xAAAAAAAA;
-        BitwiseUtils.displayBinary(evenBits);
+        int even = n & 0xAAAAAAAA;
+
         //0x55555555 is a 32 bit number with all odd bits set as 1 and all even bits as 0.
-        int oddBits = number & 0x55555555;
-        BitwiseUtils.displayBinary(oddBits);
+        int odd = n & 0x55555555;
 
-        evenBits >>= 1;
-        oddBits <<= 1;
+        even >>= 1;
+        odd <<= 1;
 
-        return evenBits | oddBits;
+        return even | odd;
     }
 }

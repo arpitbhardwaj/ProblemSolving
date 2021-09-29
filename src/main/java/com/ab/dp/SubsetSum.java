@@ -1,5 +1,7 @@
 package com.ab.dp;
 
+import com.ab.utils.Utils;
+
 import java.util.Arrays;
 
 /**
@@ -18,33 +20,23 @@ public class SubsetSum {
     }
 
     private static boolean isSubsetSum(int[] arr, int sum) {
-        boolean[][] temp = new boolean[arr.length + 1][sum + 1];
+        boolean[][] dp = new boolean[arr.length + 1][sum + 1];
         //filling 0th column all true
         for (int i = 0; i <= arr.length; i++) {
-            temp[i][0] = true;
+            dp[i][0] = true;
         }
-        printMatrix(temp);
-
-        for (int i = 1; i < temp.length; i++) {
-            for (int j = 1; j < temp[i].length; j++) {
+        for (int i = 1; i < dp.length; i++) {
+            for (int j = 1; j < dp[i].length; j++) {
                 if (j < arr[i - 1]){
                     //take the above row cell value
-                    temp[i][j] = temp[i-1][j];
+                    dp[i][j] = dp[i-1][j];
                 }else{
                     //take either above row cell value or the
-                    temp[i][j] = temp[i-1][j] || temp[i-1][j - arr[i - 1]];
+                    dp[i][j] = dp[i-1][j] || dp[i-1][j - arr[i - 1]];
                 }
             }
         }
-        printMatrix(temp);
-        return temp[arr.length][sum];
-    }
-
-    public static void printMatrix(boolean[][] matrix) {
-        System.out.println("Printing Matrix");
-        for (boolean[] row:
-                matrix) {
-            System.out.println(Arrays.toString(row));
-        }
+        Utils.printMatrix(dp);
+        return dp[arr.length][sum];
     }
 }

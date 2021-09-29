@@ -1,5 +1,7 @@
 package com.ab.dp;
 
+import com.ab.utils.Utils;
+
 import java.util.Arrays;
 
 /**
@@ -14,42 +16,32 @@ public class LongestPalindromicSubSeq {
 
     public static void main(String[] args) {
         String str = "agbdba";
-        int lpsLength = longestPalindromicSubSequence(str.toCharArray());
+        int lpsLength = longestPalindromicSubSequence(str);
         System.out.println("Longest Palindromic Sub Sequence : " + lpsLength);
     }
 
-    private static int longestPalindromicSubSequence(char[] strArr) {
-        int strLength = strArr.length;
-        int[][] temp = new int[strLength][strLength];
+    private static int longestPalindromicSubSequence(String str) {
+        int n = str.length();
+        int[][] dp = new int[n][n];
 
         //fill diagonally 1 all
-        for (int i = 0; i < strLength; i++) {
-            temp[i][i] = 1;
+        for (int i = 0; i < n; i++) {
+            dp[i][i] = 1;
         }
-        printMatrix(temp);
 
-        for (int i = 2; i <= strLength; i++) {
+        for (int i = 2; i <= n; i++) {
             //loop for rows indexing (j)
-            for (int j = 0; j < (strLength - (i-1)); j++) {
+            for (int j = 0; j < (n - (i-1)); j++) {
                 int k = j + i - 1;//for column indexing
-                if(strArr[j] == strArr[k]){
+                if(str.charAt(j) == str.charAt(k)){
                     //if ends of sub string is equal then they contribute 2 to length of palindrome at row +1 and column -1 th element
-                    temp[j][k] = temp[j+1][k-1] + 2;
+                    dp[j][k] = dp[j+1][k-1] + 2;
                 }else{
-                    temp[j][k] = Math.max(temp[j+1][k],temp[j][k-1]);
+                    dp[j][k] = Math.max(dp[j+1][k],dp[j][k-1]);
                 }
             }
         }
-        printMatrix(temp);
-
-        return temp[0][strLength - 1];
-    }
-
-    private static void printMatrix(int[][] matrix) {
-        System.out.println("Printing Matrix");
-        for (int[] row:
-                matrix) {
-            System.out.println(Arrays.toString(row));
-        }
+        Utils.printMatrix(dp);
+        return dp[0][n - 1];
     }
 }

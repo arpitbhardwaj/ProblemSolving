@@ -13,21 +13,21 @@ package com.ab.bitwise;
 public class PowerOfTwo {
     public static void main(String[] args) {
         //int number = 256;
-        int number = 5455;
-        System.out.println(String.format("%s is the power of 2 : %s", number,powerOfTwo(number)));
+        int n = 5455;
+        System.out.println(String.format("Binary of %s is %s",n,Integer.toBinaryString(n)));
+        System.out.println(String.format("%s is the power of 2 : %s", n,isPowerOfTwo(n)));
     }
 
-    private static boolean powerOfTwo(int number) {
-        return countSetBits(number) == 1?true:false;
+    private static boolean isPowerOfTwo(int n) {
+        return countSetBits(n) == 1?true:false;
     }
 
-    public static int countSetBits(int number) {
+    public static int countSetBits(int n) {
         int count = 0;
-        while (number > 0){
-            count += number & 1;
-            number >>= 1;
+        while (n > 0){
+            count += n & 1;
+            n >>= 1;
         }
-        System.out.println("No of Set Bits: " + count);
         return count;
     }
 }

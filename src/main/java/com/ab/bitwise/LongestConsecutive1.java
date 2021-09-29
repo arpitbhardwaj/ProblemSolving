@@ -8,26 +8,18 @@ package com.ab.bitwise;
 public class LongestConsecutive1 {
     public static void main(String[] args) {
         //int number = 14;
-        int number = 222;
-        displayBinary(number);
-        System.out.println(String.format("Count of Longest Consecutive Ones in %s are: %s",number
-                ,countMaxConsecutiveOnes(number)));
+        int n = 222;
+        System.out.println(String.format("Binary of %s is %s",n,Integer.toBinaryString(n)));
+        System.out.println(String.format("Count of Longest Consecutive Ones in %s are: %s",n
+                ,countMaxConsecutiveOnes(n)));
     }
 
-    private static int countMaxConsecutiveOnes(int number) {
+    private static int countMaxConsecutiveOnes(int n) {
         int count = 0;
-        while (number != 0){
-            //number = number & (number << 1);
-            number &= number << 1;
-            displayBinary(number);
+        while (n != 0){
+            n = n & (n << 1);
             count++;
         }
         return count;
-    }
-
-    public static void displayBinary(int n){
-        System.out.println(String.format("Binary Representation of %s is %s"
-                ,n
-                ,Integer.toBinaryString(n)));
     }
 }

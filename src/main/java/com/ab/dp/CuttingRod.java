@@ -20,37 +20,33 @@ public class CuttingRod {
         //price of length 4 = 8
         int rodLength = 5;
         int maxProfit = calculateMaxProfit(priceArr,rodLength);
-        //int noOfCuts = calculateCutsForMaxProfitSingleArray(priceArr,rodLength);
         System.out.println("Maximum Profit: " + maxProfit);
     }
 
 
-    private static int calculateMaxProfit(int[] priceArr, int rodLength) {
-        int[][] temp = new int[priceArr.length + 1][rodLength + 1];
+    private static int calculateMaxProfit(int[] prices, int rodlen) {
+        int m = prices.length + 1;
+        int n = rodlen + 1;
+        int[][] dp = new int[m][n];
 
-        //fill 1st column all zero
-        for (int i = 0; i < temp.length; i++) {
-            temp[i][0] = 0;
-        }
         //fill 1 row with increasing number
-        for (int i = 0; i < temp[0].length; i++) {
-            temp[0][i] = i;
+        for (int i = 0; i < n; i++) {
+            dp[0][i] = i;
         }
-        Utils.printMatrix(temp);
 
-        //starting from 1 as the 0th row and column are all set as per previous loop
-        for (int i = 1; i < temp.length; i++) {
-            for (int j = 1; j < temp[i].length; j++) {
-                if (priceArr[i-1] > j){
-                    temp[i][j] = temp[i-1][j];
-                }
-                else{
-                    temp[i][j] = Math.max(temp[i-1][j], priceArr[i-1] + temp[i][j-1]);
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                if(j >= prices[i-1]){
+                    //if length to cut is greater than the price
+                    dp[i][j] = Math.max(dp[i-1][j], prices[i-1] + dp[i][j-1]);
+                }else{
+                    //ignore the current price, take the value from previous row
+                    dp[i][j] = dp[i-1][j];
                 }
             }
         }
 
-        Utils.printMatrix(temp);
-        return temp[priceArr.length - 1][rodLength];
+        Utils.printMatrix(dp);
+        return dp[m-1][n-1];
     }
 }

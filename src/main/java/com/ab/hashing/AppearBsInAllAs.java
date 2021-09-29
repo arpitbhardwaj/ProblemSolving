@@ -1,4 +1,4 @@
-package com.ab.bitwise;
+package com.ab.hashing;
 
 import java.util.Arrays;
 import java.util.HashSet;

@@ -16,6 +16,13 @@ public class Utils {
             System.out.println(Arrays.toString(row));
         }
     }
+    public static void printMatrix(boolean[][] matrix) {
+        System.out.println("Printing Matrix");
+        for (boolean[] row:
+                matrix) {
+            System.out.println(Arrays.toString(row));
+        }
+    }
 
     public static int min(int i1, int i2, int i3) {
         int temp = Math.min(i1,i2);
@@ -88,11 +95,6 @@ public class Utils {
         for (int i = 0; i < arr.length; i++) {
             int element = arr[i];
             countMap.put(element,countMap.getOrDefault(element,0)+1);
-            /*if(countMap.containsKey(element)){
-                countMap.put(element,countMap.get(element) + 1);
-            }else{
-                countMap.put(element,1);
-            }*/
         }
         return countMap;
     }
