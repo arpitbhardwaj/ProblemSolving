@@ -12,14 +12,16 @@ package com.ab.bitwise;
  */
 public class PowerOfTwo {
     public static void main(String[] args) {
-        //int number = 256;
+        //int n = 256;
         int n = 5455;
         System.out.println(String.format("Binary of %s is %s",n,Integer.toBinaryString(n)));
         System.out.println(String.format("%s is the power of 2 : %s", n,isPowerOfTwo(n)));
     }
 
     private static boolean isPowerOfTwo(int n) {
-        return countSetBits(n) == 1?true:false;
+        return (n & (n-1)) == 0;
+        //or
+        //return countSetBits(n) == 1;
     }
 
     public static int countSetBits(int n) {

@@ -6,12 +6,12 @@ package com.ab.bitwise;
  * You are given two numbers A and B.
  * Count number of bits needed to be flipped to convert A to B.
  */
-public class BitDifference {
+public class FlipBits {
     public static void main(String[] args) {
         int a = 10;
         int b = 20;
-        BitwiseUtils.displayBinary(a);
-        BitwiseUtils.displayBinary(b);
+        System.out.println(String.format("Binary of %s is %s",a,Integer.toBinaryString(a)));
+        System.out.println(String.format("Binary of %s is %s",b,Integer.toBinaryString(b)));
         int count = countBitsToFlip(a,b);
         System.out.println(String.format("Number of Bits to flip to convert %s to %s are %s"
                 , a
@@ -23,19 +23,17 @@ public class BitDifference {
         return countSetBits(a^b);
     }
 
-    public static int countSetBits(int number) {
+    public static int countSetBits(int n) {
         int count = 0;
-        while (number > 0){
-            count += number & 1;
-            number >>= 1;
+        while (n > 0){
+            count ++;
+            n = n & (n-1);
         }
+        /*while (n > 0){
+            count += n & 1;
+            n >>= 1;
+        }*/
         System.out.println("No of Set Bits: " + count);
         return count;
-    }
-
-    public static void displayBinary(int n){
-        System.out.println(String.format("Binary Representation of %s is %s"
-                ,n
-                ,Integer.toBinaryString(n)));
     }
 }
