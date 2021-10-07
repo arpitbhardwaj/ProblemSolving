@@ -1,8 +1,6 @@
 package com.ab.trees;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * @author Arpit Bhardwaj
@@ -17,22 +15,26 @@ public class LevelOrderTraversal {
     public static void main(String[] args) {
         BinaryTree binaryTree = BinaryTree.getSampleBinaryTree();
         System.out.println(binaryTree.root);
-        System.out.print("LOT : ");
-        //printIterativeLevelOrder(binaryTree.root);
+
+        System.out.println("LOT : ");
+        printIterativeLevelOrder(binaryTree.root);
+        System.out.println();
         printRecursiveLevelOrder(binaryTree.root);
         System.out.println();
-        System.out.println("Level by level LOT : ");
-        printLBLLevelOrder(binaryTree.root);
+
+        System.out.println("LBL LOT : ");
+        printIterativeLBLLevelOrder(binaryTree.root);
         System.out.println();
-        System.out.print("Reverse LOT: ");
+
+        System.out.println("Reverse LOT: ");
         printIterativeReverseLevelOrder(binaryTree.root);
-        System.out.println();
     }
 
     private static void printRecursiveLevelOrder(Node root) {
-        int height = HeightAndDiameter.determineHeight(root);
+        int height = Dimensions.determineHeight(root);
         for (int i = 1; i <= height; i++) {
             printRecursiveLevelOrderUtil(root,i);
+            //System.out.println();//for level by level
         }
     }
 
@@ -52,31 +54,41 @@ public class LevelOrderTraversal {
         if(root == null){
             return;
         }
-        Queue<Node> nodeQueue = new LinkedList<>();
-        //add and offer inserts the element if there is a space
-        //add throws IllegalStateException if Queue capacity restricted and no space is left for insertion
-        //offer does not throws an exception when the capacity of the queue is full, it returns false instead.
-        nodeQueue.add(root);
-        while (!nodeQueue.isEmpty()){
-            //poll and remove returns and removes the element
-            //poll does not throw exception when the Queue is empty, it returns null instead
-            //remove throws an NoSuchElementException when the Queue is empty
-            Node node = nodeQueue.poll();
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()){
+            Node node = queue.poll();
             System.out.print(node.data + "\t");
             if(node.left != null){
-                nodeQueue.add(node.left);
+                queue.add(node.left);
             }
             if(node.right != null){
-                nodeQueue.add(node.right);
+                queue.add(node.right);
             }
         }
     }
 
-    private static void printLBLLevelOrder(Node root) {
-        int height = HeightAndDiameter.determineHeight(root);
-        for (int i = 1; i <= height; i++) {
-            printRecursiveLevelOrderUtil(root,i);
-            System.out.println();
+    private static void printIterativeLBLLevelOrder(Node root) {
+        if(root == null){
+            return;
+        }
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()){
+            List<Integer> levelNodes = new ArrayList<>();
+            int levelSize = queue.size();
+            while (levelSize > 0){
+                Node node = queue.poll();
+                levelNodes.add(node.data);
+                if(node.left != null){
+                    queue.add(node.left);
+                }
+                if(node.right != null){
+                    queue.add(node.right);
+                }
+                levelSize--;
+            }
+            System.out.println(levelNodes);
         }
     }
 
@@ -101,6 +113,4 @@ public class LevelOrderTraversal {
             System.out.print(nodeStack.pop().data + "\t");
         }
     }
-
-
 }

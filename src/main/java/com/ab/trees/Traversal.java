@@ -1,7 +1,5 @@
 package com.ab.trees;
 
-import java.util.Deque;
-import java.util.LinkedList;
 import java.util.Stack;
 
 /**
@@ -10,19 +8,26 @@ import java.util.Stack;
  * Iterative In Order   : Using 1 Stacks
  * Iterative Pre Order  : Using 1 Stacks
  * Iterative Post Order : Using 2 Stacks
- *
  */
-public class IterativeTraversal {
+public class Traversal {
     public static void main(String[] args) {
         BinaryTree binaryTree = BinaryTree.getSampleBinaryTree();
-        System.out.print("Iterative PreOrder Traversal : ");
+        System.out.println("Iterative PreOrder Traversal : ");
         printIterativePreOrder(binaryTree.root);
         System.out.println();
-        System.out.print("Iterative InOrder Traversal : ");
+        printPreOrder(binaryTree.root);
+        System.out.println();
+
+        System.out.println("Iterative InOrder Traversal : ");
         printIterativeInOrder(binaryTree.root);
         System.out.println();
-        System.out.print("Iterative PostOrder Traversal : ");
+        printInOrder(binaryTree.root);
+        System.out.println();
+
+        System.out.println("Iterative PostOrder Traversal : ");
         printIterativePostOrder(binaryTree.root);
+        System.out.println();
+        printPostOrder(binaryTree.root);
     }
 
     private static void printIterativePreOrder(Node root) {
@@ -89,6 +94,30 @@ public class IterativeTraversal {
         }
         while (!nodeStack2.isEmpty()){
             System.out.print(nodeStack2.pop().data + "\t");
+        }
+    }
+
+    private static void printPreOrder(Node root) {
+        if(root != null){
+            System.out.print(root.data + "\t");
+            printPreOrder(root.left);
+            printPreOrder(root.right);
+        }
+    }
+
+    private static void printInOrder(Node root) {
+        if(root != null){
+            printInOrder(root.left);
+            System.out.print(root.data + "\t");
+            printInOrder(root.right);
+        }
+    }
+
+    private static void printPostOrder(Node root) {
+        if(root != null){
+            printPostOrder(root.left);
+            printPostOrder(root.right);
+            System.out.print(root.data + "\t");
         }
     }
 

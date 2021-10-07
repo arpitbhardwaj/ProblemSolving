@@ -17,13 +17,13 @@ public class IsBST {
         return isBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
-    public static boolean isBST(Node root, int min, int max) {
-        if (root == null){
+    public static boolean isBST(Node node, int min, int max) {
+        if (node == null){
             return true;
         }
-        if (root.data <= min || root.data > max){
+        if (node.data <= min || node.data > max){
             return false;
         }
-        return isBST(root.left, min, root.data) && isBST(root.right,root.data,max);
+        return isBST(node.left, min, node.data) && isBST(node.right,node.data,max);
     }
 }

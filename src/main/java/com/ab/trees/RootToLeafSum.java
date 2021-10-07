@@ -6,8 +6,9 @@ import java.util.List;
 /**
  * @author Arpit Bhardwaj
  *
- * Given a binary tree and a number, return true if the tree has a root-to-leaf path such that adding up all the values along the path equals the given number.
- * Return false if no such path can be found.
+ * Given a binary tree and a number,
+ *  Return true if the tree has a root-to-leaf path such that adding up all the values along the path equals the given number.
+ *  Return false if no such path can be found.
  */
 public class RootToLeafSum {
     public static void main(String[] args) {

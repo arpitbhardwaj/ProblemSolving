@@ -6,7 +6,7 @@ package com.ab.trees;
  *  Spiral LOT          : 2 Stack / 1 Dequeue and delimeter / 1 Dequeue and counter
  *  Reverse Spiral LOT :
  */
-public class SpiralOrder {
+public class SpiralOrderTraversal {
     public static void main(String[] args) {
         BinaryTree binaryTree = BinaryTree.getSampleBinaryTree();
         System.out.println(binaryTree.root);
@@ -18,7 +18,7 @@ public class SpiralOrder {
     }
 
     private static void printReverseSpiralLevelOrder(Node root) {
-        int height = HeightAndDiameter.determineHeight(root);
+        int height = Dimensions.determineHeight(root);
         boolean ltr = false;
         for (int i = height; i >= 1; i--) {
             printSpiralLevelOrderUtil(root,i,ltr);
@@ -27,7 +27,7 @@ public class SpiralOrder {
     }
 
     private static void printSpiralLevelOrder(Node root) {
-        int height = HeightAndDiameter.determineHeight(root);
+        int height = Dimensions.determineHeight(root);
         boolean ltr = false;
         for (int i = 1; i <= height; i++) {
             printSpiralLevelOrderUtil(root,i,ltr);

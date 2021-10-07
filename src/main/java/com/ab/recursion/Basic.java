@@ -10,6 +10,21 @@ public class Basic {
         System.out.println(sum);
         System.out.println(revNum2(696923));
         System.out.println(isPalindrome(12321));
+        System.out.println(countZeroes(105608902));
+    }
+
+    private static int countZeroes(int n) {
+        return countZeroesUtil(n,0);
+    }
+
+    private static int countZeroesUtil(int n, int count) {
+        if(n == 0){
+            return count;
+        }
+        if(n%10 == 0){
+            return countZeroesUtil(n/10,count+1);
+        }
+        return countZeroesUtil(n/10,count);
     }
 
     private static boolean isPalindrome(int n) {

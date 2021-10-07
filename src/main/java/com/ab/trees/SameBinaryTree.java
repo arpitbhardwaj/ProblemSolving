@@ -14,15 +14,15 @@ public class SameBinaryTree {
         System.out.println("Are both trees same : " + isSame);
     }
 
-    private static boolean isSameBinaryTree(Node root1, Node root2) {
-        if(root1 == null && root2 == null){
+    private static boolean isSameBinaryTree(Node node1, Node node2) {
+        if(node1 == null && node2 == null){
             return true;
-        }else if(root1 == null || root2 == null){
+        }else if(node1 == null || node2 == null){
             return false;
         }else{
-            return root1.data == root2.data
-                    && isSameBinaryTree(root1.left, root2.left)
-                    && isSameBinaryTree(root1.right, root2.right);
+            return node1.data == node2.data
+                    && isSameBinaryTree(node1.left, node2.left)
+                    && isSameBinaryTree(node1.right, node2.right);
         }
     }
 }

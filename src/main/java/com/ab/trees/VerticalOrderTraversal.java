@@ -28,8 +28,7 @@ public class VerticalOrderTraversal {
         Map<Integer, List<Integer>> map = new TreeMap<>();
         int hd = 0;
         verticalOrderUtil(root,hd,map);
-        for (List<Integer> verticalList:
-             map.values()) {
+        for (List<Integer> verticalList: map.values()) {
             System.out.println(verticalList);
         }
     }
