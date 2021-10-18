@@ -38,13 +38,8 @@ public class MergeKLinkedList{
         head3 = linkedList3.add(51,head3);
         LinkedList.printLinkedList(head3);
 
-        /*Node head = merge.mergeTwoSortedList(head1,head2);
-        LinkedList.printLinkedList(head);*/
-
-
         Node<Integer> resultHead = mergeKLinkedLists(List.of(head1,head2,head3));
         LinkedList.printLinkedList(resultHead);
-
     }
 
     public static Node<Integer> mergeKLinkedLists(List<Node<Integer>> lists){
