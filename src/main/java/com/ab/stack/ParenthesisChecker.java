@@ -1,7 +1,5 @@
 package com.ab.stack;
 
-import com.ab.utils.CharacterUtils;
-
 import java.util.Stack;
 
 /**
@@ -28,13 +26,13 @@ public class ParenthesisChecker {
         Stack<Character> stack = new Stack<>();
 
         for (int i = 0; i < exp.length; i++) {
-            if (CharacterUtils.isOpeningParenthesis(exp[i])){
+            if (isOpeningParenthesis(exp[i])){
                 stack.push(exp[i]);
             }
-            if (CharacterUtils.isClosingParenthesis(exp[i])){
+            if (isClosingParenthesis(exp[i])){
                 if (stack.isEmpty()){
                     return false;
-                }else if (!CharacterUtils.isMatchingParenthesis(stack.pop(),exp[i])){
+                }else if (!isMatchingParenthesis(stack.pop(),exp[i])){
                     return false;
                 }
             }
@@ -46,5 +44,24 @@ public class ParenthesisChecker {
         }
     }
 
+    public static boolean isMatchingParenthesis(char char1, char char2) {
+        if (char1 == '{' && char2 == '}'){
+            return true;
+        }else if (char1 == '(' && char2 == ')'){
+            return true;
+        }else if (char1 == '[' && char2 == ']'){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    public static boolean isOpeningParenthesis(char character) {
+        return (character == '{' || character == '[' || character == '(');
+    }
+
+    public static boolean isClosingParenthesis(char character) {
+        return (character == '}' || character == ']' || character == ')');
+    }
 
 }
