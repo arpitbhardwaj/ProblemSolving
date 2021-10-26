@@ -1,4 +1,4 @@
-package com.ab.divideandconquer;
+package com.ab.binarysearch;
 
 import com.ab.utils.Utils;
 /**

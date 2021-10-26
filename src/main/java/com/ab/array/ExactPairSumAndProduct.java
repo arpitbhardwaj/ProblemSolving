@@ -1,6 +1,6 @@
 package com.ab.array;
 
-import com.ab.searching.BinarySearch;
+import com.ab.binarysearch.BinarySearch;
 
 import java.util.Arrays;
 

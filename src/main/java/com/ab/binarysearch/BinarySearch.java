@@ -1,4 +1,4 @@
-package com.ab.searching;
+package com.ab.binarysearch;
 
 /**
  * @author Arpit Bhardwaj
