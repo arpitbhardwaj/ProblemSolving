@@ -1,6 +1,6 @@
 package com.ab.recursion;
 
-public class Basic {
+public class NumberRecursion {
     static int sum = 0;
     public static void main(String[] args) {
         System.out.println(factorial(5));
