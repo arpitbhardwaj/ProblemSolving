@@ -1,8 +1,6 @@
-package com.ab.misc;
+package com.ab.backtracking;
 
 import com.ab.utils.Utils;
-
-import java.util.Arrays;
 
 /**
  * @author Arpit Bhardwaj

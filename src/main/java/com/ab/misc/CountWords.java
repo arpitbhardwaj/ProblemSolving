@@ -6,7 +6,6 @@ public class CountWords {
     public static void main(String[] args) {
         String s = "b? Dl )B 4(V! A. MK, YtG ](f 1m )CNxuNUR {PG?";
         System.out.println(countWords(s));
-
     }
 
     private static long countWords(String sentence) {

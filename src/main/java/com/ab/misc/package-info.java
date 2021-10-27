@@ -1,4 +1,4 @@
-package com.ab.complexity;
+package com.ab.misc;
 
 /**
  * @author Arpit Bhardwaj

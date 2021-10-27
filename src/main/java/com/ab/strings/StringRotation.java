@@ -42,4 +42,21 @@ public class StringRotation {
         return str1.equals(antiClockRot)
                 || str1.equals(clockRot);
     }
+
+    //counter clockwise rotation
+    public static String leftShift(String str, int shift){
+        int length = str.length();
+        while (shift > length){
+            shift -= length;
+        }
+        if (shift > 1){
+            return str.substring(shift) + str.substring(0,shift);
+        }
+        //if shift is either 0 or 1 return the same string without any shift
+        return str;
+    }
+    //clockwise rotation
+    public static String rightShift(String str, int shift){
+        return leftShift(str, str.length() - shift);
+    }
 }

@@ -9,6 +9,12 @@ import java.util.Map;
  */
 public class Utils {
 
+    public static void swapArrElements(String[] arr,int x,int y){
+        String temp = arr[x];
+        arr[x] = arr[y];
+        arr[y] = temp;
+    }
+
     public static void printMatrix(int[][] matrix) {
         System.out.println("Printing Matrix");
         for (int[] row:

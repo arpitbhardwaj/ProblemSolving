@@ -1,6 +1,6 @@
 package com.ab.strings;
 
-import com.ab.utils.StringUtils;
+import com.ab.utils.Utils;
 import java.util.Arrays;
 
 /**
@@ -22,7 +22,7 @@ public class LexicographicalSort {
         for (int i = 0; i < n-1; i++) {
             for (int j = i+1; j < n; j++) {
                 if (words[i].compareTo(words[j]) > 0){
-                    StringUtils.swapArrElements(words,i,j);
+                    Utils.swapArrElements(words,i,j);
                 }
             }
         }

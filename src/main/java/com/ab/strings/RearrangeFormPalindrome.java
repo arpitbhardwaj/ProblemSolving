@@ -1,8 +1,5 @@
 package com.ab.strings;
 
-import com.ab.utils.StringUtils;
-
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +17,7 @@ public class RearrangeFormPalindrome {
     }
 
     private static String getPalindrome(String str) {
-        Map<Character, Integer> charCountMap = StringUtils.getCharCountMap(str);
+        Map<Character, Integer> charCountMap = getCharCountMap(str);
 
         System.out.println(charCountMap);
 
@@ -51,5 +48,18 @@ public class RearrangeFormPalindrome {
         }
 
         return oddCount == 1 ? firstHalf + oddChar + secondHalf : firstHalf + secondHalf;
+    }
+
+    public static Map<Character, Integer> getCharCountMap(String str) {
+        Map<Character, Integer> charCountMap = new HashMap<>();
+        for (int i = 0; i < str.length(); i++) {
+            char currChar = str.charAt(i);
+            if (charCountMap.containsKey(currChar)){
+                charCountMap.put(currChar,charCountMap.get(currChar) + 1);
+            }else {
+                charCountMap.put(currChar,1);
+            }
+        }
+        return charCountMap;
     }
 }

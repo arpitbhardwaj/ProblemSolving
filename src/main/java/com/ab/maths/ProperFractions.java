@@ -1,4 +1,4 @@
-package com.ab.misc;
+package com.ab.maths;
 
 public class ProperFractions {
     public static void main(String[] args) {

@@ -13,17 +13,16 @@ public class Janitor {
         int left = 0;
         int right = weight.size() - 1;
         int count = 0;
-        while(left <= right){
-            if(left == right){
+        while (left <= right) {
+            if (left == right) {
                 count++;
                 break;
             }
-            if(weight.get(left) + weight.get(right) <= 3.0){
+            if (weight.get(left) + weight.get(right) <= 3.0) {
                 left++;
                 right--;
                 count++;
-            }
-            else{
+            } else {
                 right--;
                 count++;
             }
