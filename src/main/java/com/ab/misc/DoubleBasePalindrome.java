@@ -18,7 +18,7 @@ class DoubleBasePalindrome {
     }
 
     public static String getNumberInGivenBase(int n, int k) {
-        Stack<Integer> s = new Stack<Integer>();
+        Stack<Integer> s = new Stack<>();
         while (n != 0) {
             s.push(n % k);
             n /= k;
