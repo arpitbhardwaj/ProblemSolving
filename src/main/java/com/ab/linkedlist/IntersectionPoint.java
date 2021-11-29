@@ -5,31 +5,31 @@ package com.ab.linkedlist;
  */
 public class IntersectionPoint {
     public static void main(String[] args) {
-        LinkedList<Integer> linkedList = new LinkedList<>();
+        CustomLinkedList<Integer> customLinkedList = new CustomLinkedList<>();
         Node head1 = null;
-        head1 = linkedList.add(1,head1);
-        head1 = linkedList.add(2,head1);
-        head1 = linkedList.add(3,head1);
-        head1 = linkedList.add(4,head1);
-        head1 = linkedList.add(5,head1);
-        head1 = linkedList.add(6,head1);
+        head1 = customLinkedList.add(1,head1);
+        head1 = customLinkedList.add(2,head1);
+        head1 = customLinkedList.add(3,head1);
+        head1 = customLinkedList.add(4,head1);
+        head1 = customLinkedList.add(5,head1);
+        head1 = customLinkedList.add(6,head1);
 
         Node head2 = null;
-        head2 = linkedList.add(10,head2);
-        head2 = linkedList.add(4,head2);
-        head2 = linkedList.add(5,head2);
-        head2 = linkedList.add(6,head2);
+        head2 = customLinkedList.add(10,head2);
+        head2 = customLinkedList.add(4,head2);
+        head2 = customLinkedList.add(5,head2);
+        head2 = customLinkedList.add(6,head2);
 
-        LinkedList.printLinkedList(head1);
-        LinkedList.printLinkedList(head2);
+        CustomLinkedList.printLinkedList(head1);
+        CustomLinkedList.printLinkedList(head2);
 
         Node intersectionNode = getIntersection(head1,head2);
         System.out.println("intersection Point is : "+ intersectionNode.data);
     }
 
     private static Node getIntersection(Node head1, Node head2) {
-        int count1 = LinkedList.getNodeCounts(head1);
-        int count2 = LinkedList.getNodeCounts(head2);
+        int count1 = CustomLinkedList.getNodeCounts(head1);
+        int count2 = CustomLinkedList.getNodeCounts(head2);
         int difference = 0;
         Node intersectionNode = null;
         if (count1 > count2){

@@ -5,17 +5,16 @@ package com.ab.linkedlist;
  *
  * Hashing:
  * Approach using Mark Visited Nodes:
- * Floyd’s Cycle-Finding Algorithm:
- *
+ * Floyd’s Cycle-Finding Algorithm
  */
-public class DetectLoop<T> {
+public class AddRemoveLoop<T> {
     public static void main(String[] args) {
-        DetectLoop detectLoop = new DetectLoop();
-        LinkedList<Integer> linkedList = new LinkedList<>();
-        Node<Integer> head = linkedList.getSampleLinkedList();
+        AddRemoveLoop detectLoop = new AddRemoveLoop();
+        CustomLinkedList<Integer> customLinkedList = new CustomLinkedList<>();
+        Node<Integer> head = customLinkedList.getSampleLinkedList();
 
         System.out.println("Printing linked list:");
-        LinkedList.printLinkedList(head);
+        CustomLinkedList.printLinkedList(head);
 
         System.out.println("Adding Loop:");
         detectLoop.addLoop(head);
@@ -30,7 +29,7 @@ public class DetectLoop<T> {
             System.out.println("Removing Loop:");
             detectLoop.detectAndRemoveLoop(head);
             System.out.println("Printing linked list:");
-            LinkedList.printLinkedList(head);
+            CustomLinkedList.printLinkedList(head);
         }
     }
 

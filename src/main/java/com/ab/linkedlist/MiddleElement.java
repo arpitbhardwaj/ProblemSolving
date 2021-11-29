@@ -9,11 +9,11 @@ package com.ab.linkedlist;
  */
 public class MiddleElement {
     public static void main(String[] args) {
-        LinkedList<Integer> linkedList = new LinkedList<>();
-        Node<Integer> head = linkedList.getSampleLinkedList();
+        CustomLinkedList<Integer> customLinkedList = new CustomLinkedList<>();
+        Node<Integer> head = customLinkedList.getSampleLinkedList();
 
         System.out.println("Printing linked list:");
-        LinkedList.printLinkedList(head);
+        CustomLinkedList.printLinkedList(head);
 
         Node<Integer> middleNode = getMiddleElement(head);
         System.out.println("Middle node : " + middleNode.data);

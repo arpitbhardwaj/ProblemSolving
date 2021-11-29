@@ -7,38 +7,38 @@ import com.ab.utils.Utils;
  */
 public class AddTwoNumbers {
     public static void main(String[] args) {
-        LinkedList<Integer> num1 = new LinkedList<>();
+        CustomLinkedList<Integer> num1 = new CustomLinkedList<>();
         Node head1 = null;
         //head1 = num1.add(9,head1);
         head1 = num1.add(3,head1);
         head1 = num1.add(6,head1);
         head1 = num1.add(5,head1);
 
-        LinkedList.printLinkedList(head1);
+        CustomLinkedList.printLinkedList(head1);
 
-        LinkedList<Integer> num2 = new LinkedList<>();
+        CustomLinkedList<Integer> num2 = new CustomLinkedList<>();
         Node head2 = null;
         head2 = num2.add(2,head2);
         //head2 = num2.add(6,head2);
         head2 = num2.add(4,head2);
         head2 = num2.add(8,head2);
 
-        LinkedList.printLinkedList(head2);
+        CustomLinkedList.printLinkedList(head2);
 
-        LinkedList<Integer> sum = new LinkedList<>();
+        CustomLinkedList<Integer> sum = new CustomLinkedList<>();
 
         Node head = sum(num1,num2,head1,head2,sum);
 
-        LinkedList.printLinkedList(head);
+        CustomLinkedList.printLinkedList(head);
     }
 
-    private static Node sum(LinkedList<Integer> num1, LinkedList<Integer> num2, Node<Integer> head1, Node<Integer> head2, LinkedList<Integer> sum) {
+    private static Node sum(CustomLinkedList<Integer> num1, CustomLinkedList<Integer> num2, Node<Integer> head1, Node<Integer> head2, CustomLinkedList<Integer> sum) {
         //reverse linked list
         System.out.println("reverse linked list");
         head1 = num1.reverse(head1);
-        LinkedList.printLinkedList(head1);
+        CustomLinkedList.printLinkedList(head1);
         head2 = num2.reverse(head2);
-        LinkedList.printLinkedList(head2);
+        CustomLinkedList.printLinkedList(head2);
 
         //Add the nodes of both the lists iteratively.
         int carry = 0;

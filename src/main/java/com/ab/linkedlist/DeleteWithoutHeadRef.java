@@ -10,16 +10,16 @@ package com.ab.linkedlist;
  */
 public class DeleteWithoutHeadRef {
     public static void main(String[] args) {
-        LinkedList<Integer> linkedList = new LinkedList<>();
-        Node<Integer> head = linkedList.getSampleLinkedList();
+        CustomLinkedList<Integer> customLinkedList = new CustomLinkedList<>();
+        Node<Integer> head = customLinkedList.getSampleLinkedList();
 
         System.out.println("Printing linked list:");
-        LinkedList.printLinkedList(head);
+        CustomLinkedList.printLinkedList(head);
         Node<Integer> nodeToDelete = head.next.next.next;
 
         deleteWithoutHeadRef(nodeToDelete);
         System.out.println("Printing linked list:");
-        LinkedList.printLinkedList(head);
+        CustomLinkedList.printLinkedList(head);
     }
 
     private static void deleteWithoutHeadRef(Node<Integer> nodeToDelete) {

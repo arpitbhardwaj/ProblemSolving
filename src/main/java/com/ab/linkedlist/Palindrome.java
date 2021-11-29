@@ -10,11 +10,11 @@ package com.ab.linkedlist;
  */
 public class Palindrome {
     public static void main(String[] args) {
-        LinkedList<Character> linkedList = new LinkedList<>();
-        Node<Character> head = linkedList.getCharacterLinkedList();
+        CustomLinkedList<Character> customLinkedList = new CustomLinkedList<>();
+        Node<Character> head = customLinkedList.getCharacterLinkedList();
 
         System.out.println("Printing linked list:");
-        LinkedList.printLinkedList(head);
+        CustomLinkedList.printLinkedList(head);
 
         boolean isPalindrome = isPalindrome(head);
         System.out.println("is Palindrome : " + isPalindrome);

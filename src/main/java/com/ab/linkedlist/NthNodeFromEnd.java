@@ -7,11 +7,11 @@ package com.ab.linkedlist;
  */
 public class NthNodeFromEnd {
     public static void main(String[] args) {
-        LinkedList<Integer> linkedList = new LinkedList<>();
-        Node<Integer> head = linkedList.getSampleLinkedList();
+        CustomLinkedList<Integer> customLinkedList = new CustomLinkedList<>();
+        Node<Integer> head = customLinkedList.getSampleLinkedList();
 
         System.out.println("Printing linked list:");
-        LinkedList.printLinkedList(head);
+        CustomLinkedList.printLinkedList(head);
 
         int nth = 4;
         Node<Integer> nthNode = getNthNode(head, nth);
