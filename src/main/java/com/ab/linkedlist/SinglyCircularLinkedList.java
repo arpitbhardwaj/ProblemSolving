@@ -6,6 +6,11 @@ package com.ab.linkedlist;
  * In circular Singly linked list,
  * There is no null value present in the next part of any of the nodes.
  * The last node of the list contains a pointer to the first node of the list.
+ *
+ * In circular Doubly linked list,
+ * doesn't contain NULL in any of the node.
+ * The last node of the list contains the address of the first node of the list.
+ * The first node of the list also contain address of the last node in its previous pointer.
  */
 public class SinglyCircularLinkedList<T> {
 

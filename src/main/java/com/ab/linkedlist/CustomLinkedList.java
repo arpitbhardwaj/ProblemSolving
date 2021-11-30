@@ -5,6 +5,14 @@ package com.ab.linkedlist;
  */
 public class CustomLinkedList<T> {
 
+    private Node<T> head;
+    private Node<T> tail;
+    private int size;
+
+    public CustomLinkedList() {
+        this.size=0;
+    }
+
     public <T> Node<T> add(T data, Node head) {
         Node<T> tempHead = head;
         Node<T> node = new Node(data);
@@ -18,13 +26,26 @@ public class CustomLinkedList<T> {
         return tempHead;
     }
 
-    public Node<T> addAtFront(T data, Node head){
+    public void addFirst(T data){
         Node node = new Node(data);
-        if(head == null){
-            return node;
-        }
         node.next = head;
-        return node;
+        head = node;
+
+        if (tail==null){
+            tail = head;
+        }
+        size++;
+    }
+
+    public void addLast(T data){
+        if (tail==null){
+            addFirst(data);
+            return;
+        }
+        Node node = new Node(data);
+        tail.next = node;
+        tail = node;
+        size++;
     }
 
     public Node<T> reverse(Node head){
@@ -75,22 +96,6 @@ public class CustomLinkedList<T> {
         return count;
     }
 
-    public static void main(String[] args) {
-        CustomLinkedList<Integer> customLinkedList = new CustomLinkedList<>();
-        Node<Integer> head = customLinkedList.getSampleLinkedList();
-        System.out.println("Printing linked list:");
-        printLinkedList(head);
-        System.out.println("Adding 0 at front in linked list:");
-        head = customLinkedList.addAtFront(0,head);
-        printLinkedList(head);
-        Node findNode = customLinkedList.find(head,4);
-        System.out.println("Finding Node 4 : " + findNode.data);
-        //head = linkedList.reverse(head);
-        head = customLinkedList.recursiveReverse(head);
-        System.out.println("Printing reverse linked list:");
-        printLinkedList(head);
-    }
-
     public static void printLinkedList(Node head) {
         while (head != null){
             System.out.print(head.data);
@@ -123,5 +128,21 @@ public class CustomLinkedList<T> {
         head = customLinkedList.add('b',head);
         head = customLinkedList.add('a',head);
         return head;
+    }
+
+    public static void main(String[] args) {
+        CustomLinkedList<Integer> customLinkedList = new CustomLinkedList<>();
+        Node<Integer> head = customLinkedList.getSampleLinkedList();
+        System.out.println("Printing linked list:");
+        printLinkedList(head);
+        System.out.println("Adding 0 at front in linked list:");
+        customLinkedList.addFirst(0);
+        printLinkedList(head);
+        Node findNode = customLinkedList.find(head,4);
+        System.out.println("Finding Node 4 : " + findNode.data);
+        //head = linkedList.reverse(head);
+        head = customLinkedList.recursiveReverse(head);
+        System.out.println("Printing reverse linked list:");
+        printLinkedList(head);
     }
 }
