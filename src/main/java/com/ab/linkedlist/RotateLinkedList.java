@@ -40,7 +40,7 @@ public class RotateLinkedList {
     }
 
     private static Node<Integer> rotateClockwise(Node<Integer> head, int rotation) {
-        return rotateCounterClockwise(head, CustomLinkedList.getNodeCounts(head) - rotation);
+        return rotateCounterClockwise(head, CustomLinkedList.getSize(head) - rotation);
     }
 
     private static Node<Integer> rotateCounterClockwise(Node<Integer> head, int rotation) {

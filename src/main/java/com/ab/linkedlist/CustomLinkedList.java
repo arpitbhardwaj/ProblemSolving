@@ -13,6 +13,17 @@ public class CustomLinkedList<T> {
         this.size=0;
     }
 
+    public void addFirst(T data){
+        Node node = new Node(data);
+        node.next = head;
+        head = node;
+
+        if (tail==null){
+            tail = head;
+        }
+        size++;
+    }
+
     public void add(T data,int index) {
         if (index==0){
             addFirst(data);
@@ -27,18 +38,8 @@ public class CustomLinkedList<T> {
             temp = temp.next;
         }
         Node node = new Node(data);
+        node.next = temp.next;
         temp.next = node;
-        size++;
-    }
-
-    public void addFirst(T data){
-        Node node = new Node(data);
-        node.next = head;
-        head = node;
-
-        if (tail==null){
-            tail = head;
-        }
         size++;
     }
 
@@ -51,6 +52,40 @@ public class CustomLinkedList<T> {
         tail.next = node;
         tail = node;
         size++;
+    }
+
+    public T deleteFirst() {
+        T val = head.data;
+        head = head.next;
+        if (head==null){
+            tail = null;
+        }
+        size--;
+        return val;
+    }
+
+    public T delete(int index){
+        if (index==0){
+            deleteFirst();
+        }
+        if (index==size-1){
+            deleteLast();
+        }
+        Node prev = getByIndex(index-1);
+        T val = (T) prev.next.data;
+        prev.next = prev.next.next;
+        return val;
+    }
+
+    public T deleteLast(){
+        if (size==1){
+            return deleteFirst();
+        }
+        Node secondLast = getByIndex(size-2);
+        T val = tail.data;
+        tail = secondLast;
+        tail.next = null;
+        return val;
     }
 
     public void reverse(){
@@ -78,7 +113,7 @@ public class CustomLinkedList<T> {
         head.next = null;
     }
 
-    public Node find(T data){
+    public Node getByVal(T data){
         Node temp = head;
         while (temp != null){
             if(temp.data == data){
@@ -89,7 +124,15 @@ public class CustomLinkedList<T> {
         return null;
     }
 
-    public static int getNodeCounts(Node head) {
+    public Node getByIndex(int index){
+        Node temp = head;
+        for (int i = 0; i < index; i++) {
+            temp = temp.next;
+        }
+        return temp;
+    }
+
+    public static int getSize(Node head) {
         Node current = head;
         int count = 0;
         while (current != null){
@@ -121,16 +164,22 @@ public class CustomLinkedList<T> {
         System.out.println("Printing linked list:");
         CustomLinkedList.printLinkedList(ll.head);
 
-        System.out.println("Adding 0 at front in linked list:");
         ll.addFirst(0);
+        ll.add(11,3);
         CustomLinkedList.printLinkedList(ll.head);
 
-        Node findNode = ll.find(4);
-        System.out.println("Finding Node 4 : " + findNode.data);
+        ll.deleteFirst();
+        ll.deleteLast();
+        ll.delete(3);
+        CustomLinkedList.printLinkedList(ll.head);
+
+        Node findNode = ll.getByVal(11);
+        System.out.println("Finding Node 11 : " + findNode.data);
 
         ll.reverse();
         System.out.println("Printing reverse linked list:");
         CustomLinkedList.printLinkedList(ll.head);
+
 
         /*ll.recursiveReverse();
         System.out.println("Printing reverse linked list:");

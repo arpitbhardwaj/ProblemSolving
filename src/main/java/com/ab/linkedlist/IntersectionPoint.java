@@ -27,8 +27,8 @@ public class IntersectionPoint {
     }
 
     private static Node getIntersection(Node head1, Node head2) {
-        int count1 = CustomLinkedList.getNodeCounts(head1);
-        int count2 = CustomLinkedList.getNodeCounts(head2);
+        int count1 = CustomLinkedList.getSize(head1);
+        int count2 = CustomLinkedList.getSize(head2);
         int difference = 0;
         Node intersectionNode = null;
         if (count1 > count2){

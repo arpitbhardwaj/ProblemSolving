@@ -10,9 +10,43 @@ public class DoublyLinkedList<T> {
         this.head = null;
     }
 
-    public static void main(String[] args) {
-        Node<Integer> head = getSampleDoublyLinkedList();
-        printDoublyLinkedList(head);
+    //add at front of linked list //5 Step Process
+    public void addFirst(T data){
+        Node<T> node = new Node<>(data);
+        if (this.head == null){
+            addToEmpty(data);
+            return;
+        }
+        node.next = head;
+        head.before = node;
+        head = node;
+    }
+
+    //add node after a given node //7 Step Process
+    public void add(Node prevNode, T data){}
+
+    //add node at end of linked list //7 Step Process
+    public void addLast(T data){
+        Node<T> node = new Node<>(data);
+        if (this.head == null){
+            addToEmpty(data);
+            return;
+        }
+
+        Node current = this.head;
+        while (current.next != null){
+            current = current.next;
+        }
+        current.next = node;
+        node.before = current;
+    }
+
+    public void addToEmpty(T data) {
+        if (this.head != null){
+            return;
+        }
+        Node node = new Node(data);
+        this.head = node;
     }
 
     private static void printDoublyLinkedList(Node head) {
@@ -40,53 +74,17 @@ public class DoublyLinkedList<T> {
 
     public static Node<Integer> getSampleDoublyLinkedList() {
         DoublyLinkedList<Integer> linkedList = new DoublyLinkedList<>();
-        linkedList.add(1);
-        linkedList.add(2);
-        linkedList.add(3);
-        linkedList.add(4);
-        linkedList.addAtFront(5);
-        linkedList.addAtFront(6);
+        linkedList.addLast(1);
+        linkedList.addLast(2);
+        linkedList.addLast(3);
+        linkedList.addLast(4);
+        linkedList.addFirst(5);
+        linkedList.addFirst(6);
         return linkedList.head;
     }
 
-    //add at front of linked list //5 Step Process
-    public void addAtFront(T data){
-        Node<T> node = new Node<>(data);
-        if (this.head == null){
-            addToEmpty(data);
-            return;
-        }
-        node.next = head;
-        head.before = node;
-        head = node;
-    }
-
-    //add node at end of linked list //7 Step Process
-    public void add(T data){
-        Node<T> node = new Node<>(data);
-        if (this.head == null){
-            addToEmpty(data);
-            return;
-        }
-
-        Node current = this.head;
-        while (current.next != null){
-            current = current.next;
-        }
-        current.next = node;
-        node.before = current;
-    }
-
-    public void addToEmpty(T data) {
-        if (this.head != null){
-            return;
-        }
-        Node node = new Node(data);
-        this.head = node;
-    }
-
-    //add node after a given node //7 Step Process
-    public void addAfter(Node prevNode, T data){
-
+    public static void main(String[] args) {
+        Node<Integer> head = getSampleDoublyLinkedList();
+        printDoublyLinkedList(head);
     }
 }
