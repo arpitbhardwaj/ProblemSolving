@@ -1,31 +1,28 @@
 package com.ab.linkedlist;
 
-import java.util.LinkedList;
-
 /**
  * @author Arpit Bhardwaj
  */
 public class IntersectionPoint {
     public static void main(String[] args) {
-        CustomLinkedList<Integer> ll = new CustomLinkedList<>();
-        Node head1 = null;
-        head1 = ll.add(1,head1);
-        head1 = ll.add(2,head1);
-        head1 = ll.add(3,head1);
-        head1 = ll.add(4,head1);
-        head1 = ll.add(5,head1);
-        head1 = ll.add(6,head1);
+        CustomLinkedList<Integer> ll1 = new CustomLinkedList<>();
+        ll1.addLast(1);
+        ll1.addLast(2);
+        ll1.addLast(3);
+        ll1.addLast(4);
+        ll1.addLast(5);
+        ll1.addLast(6);
 
-        Node head2 = null;
-        head2 = ll.add(10,head2);
-        head2 = ll.add(4,head2);
-        head2 = ll.add(5,head2);
-        head2 = ll.add(6,head2);
+        CustomLinkedList<Integer> ll2 = new CustomLinkedList<>();
+        ll2.addLast(10);
+        ll2.addLast(4);
+        ll2.addLast(5);
+        ll2.addLast(6);
 
-        CustomLinkedList.printLinkedList(head1);
-        CustomLinkedList.printLinkedList(head2);
+        CustomLinkedList.printLinkedList(ll1.head);
+        CustomLinkedList.printLinkedList(ll2.head);
 
-        Node intersectionNode = getIntersection(head1,head2);
+        Node intersectionNode = getIntersection(ll1.head,ll2.head);
         System.out.println("intersection Point is : "+ intersectionNode.data);
     }
 

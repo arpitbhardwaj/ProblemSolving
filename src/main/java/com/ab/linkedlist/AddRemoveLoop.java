@@ -9,27 +9,32 @@ package com.ab.linkedlist;
  */
 public class AddRemoveLoop<T> {
     public static void main(String[] args) {
-        AddRemoveLoop detectLoop = new AddRemoveLoop();
-        CustomLinkedList<Integer> customLinkedList = new CustomLinkedList<>();
-        Node<Integer> head = customLinkedList.getSampleLinkedList();
+        AddRemoveLoop addRemoveLoop = new AddRemoveLoop();
 
+        CustomLinkedList<Integer> cll = new CustomLinkedList<>();
+        cll.addLast(1);
+        cll.addLast(2);
+        cll.addLast(3);
+        cll.addLast(4);
+        cll.addLast(5);
+        cll.addLast(6);
         System.out.println("Printing linked list:");
-        CustomLinkedList.printLinkedList(head);
+        CustomLinkedList.printLinkedList(cll.head);
 
         System.out.println("Adding Loop:");
-        detectLoop.addLoop(head);
+        addRemoveLoop.addLoop(cll.head);
 
         //leads to indefinite printing due to presence of loop
         /*System.out.println("Printing Looped linked list:");
         LinkedList.printLinkedList(head);*/
 
-        boolean loopPresent = detectLoop.detectLoop(head);
+        boolean loopPresent = addRemoveLoop.detectLoop(cll.head);
         System.out.println("Loop present in the linked list : " + loopPresent);
         if(loopPresent){
             System.out.println("Removing Loop:");
-            detectLoop.detectAndRemoveLoop(head);
+            addRemoveLoop.detectAndRemoveLoop(cll.head);
             System.out.println("Printing linked list:");
-            CustomLinkedList.printLinkedList(head);
+            CustomLinkedList.printLinkedList(cll.head);
         }
     }
 

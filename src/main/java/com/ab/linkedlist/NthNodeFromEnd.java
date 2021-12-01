@@ -7,14 +7,18 @@ package com.ab.linkedlist;
  */
 public class NthNodeFromEnd {
     public static void main(String[] args) {
-        CustomLinkedList<Integer> customLinkedList = new CustomLinkedList<>();
-        Node<Integer> head = customLinkedList.getSampleLinkedList();
-
+        CustomLinkedList<Integer> cll = new CustomLinkedList<>();
+        cll.addLast(1);
+        cll.addLast(2);
+        cll.addLast(3);
+        cll.addLast(4);
+        cll.addLast(5);
+        cll.addLast(6);
         System.out.println("Printing linked list:");
-        CustomLinkedList.printLinkedList(head);
+        CustomLinkedList.printLinkedList(cll.head);
 
         int nth = 4;
-        Node<Integer> nthNode = getNthNode(head, nth);
+        Node<Integer> nthNode = getNthNode(cll.head, nth);
         System.out.println(String.format("%sth node from end : %s", nth, nthNode.data));
     }
 

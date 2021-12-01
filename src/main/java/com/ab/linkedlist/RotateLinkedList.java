@@ -9,21 +9,32 @@ package com.ab.linkedlist;
  */
 public class RotateLinkedList {
     public static void main(String[] args) {
-        CustomLinkedList<Integer> customLinkedList1 = new CustomLinkedList<>();
-        Node<Integer> head1 = customLinkedList1.getSampleLinkedList();
-
+        CustomLinkedList<Integer> cll1 = new CustomLinkedList<>();
+        cll1.addLast(1);
+        cll1.addLast(2);
+        cll1.addLast(3);
+        cll1.addLast(4);
+        cll1.addLast(5);
+        cll1.addLast(6);
         System.out.println("Printing linked list:");
-        CustomLinkedList.printLinkedList(head1);
+        CustomLinkedList.printLinkedList(cll1.head);
 
         int noOfRotation = 4; //also kth
-        Node<Integer> newHead1 = rotateCounterClockwise(head1,noOfRotation);
+        Node<Integer> newHead1 = rotateCounterClockwise(cll1.head,noOfRotation);
         System.out.println(String.format("Printing linked list after %s counter clockwise rotation : ", noOfRotation));
         CustomLinkedList.printLinkedList(newHead1);
 
-        CustomLinkedList<Integer> customLinkedList2 = new CustomLinkedList<>();
-        Node<Integer> head2 = customLinkedList2.getSampleLinkedList();
+        CustomLinkedList<Integer> cll2 = new CustomLinkedList<>();
+        cll2.addLast(1);
+        cll2.addLast(2);
+        cll2.addLast(3);
+        cll2.addLast(4);
+        cll2.addLast(5);
+        cll2.addLast(6);
+        System.out.println("Printing linked list:");
+        CustomLinkedList.printLinkedList(cll2.head);
 
-        Node<Integer> newHead2 = rotateClockwise(head2,noOfRotation);
+        Node<Integer> newHead2 = rotateClockwise(cll2.head,noOfRotation);
         System.out.println(String.format("Printing linked list after %s clockwise rotation : ", noOfRotation));
         CustomLinkedList.printLinkedList(newHead2);
     }

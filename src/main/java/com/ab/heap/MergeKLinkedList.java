@@ -15,30 +15,27 @@ import java.util.PriorityQueue;
  */
 public class MergeKLinkedList{
     public static void main(String[] args) {
-        CustomLinkedList<Integer> customLinkedList1 = new CustomLinkedList<>();
-        Node<Integer> head1 = null;
-        head1 = customLinkedList1.add(5,head1);
-        head1 = customLinkedList1.add(10,head1);
-        head1 = customLinkedList1.add(15,head1);
-        CustomLinkedList.printLinkedList(head1);
+        CustomLinkedList<Integer> cll1 = new CustomLinkedList<>();
+        cll1.addLast(5);
+        cll1.addLast(10);
+        cll1.addLast(15);
+        CustomLinkedList.printLinkedList(cll1.head);
 
-        CustomLinkedList<Integer> customLinkedList2 = new CustomLinkedList<>();
-        Node<Integer> head2 = null;
-        head2 = customLinkedList2.add(2,head2);
-        head2 = customLinkedList2.add(3,head2);
-        head2 = customLinkedList2.add(20,head2);
-        head2 = customLinkedList2.add(21,head2);
-        CustomLinkedList.printLinkedList(head2);
+        CustomLinkedList<Integer> cll2 = new CustomLinkedList<>();
+        cll2.addLast(2);
+        cll2.addLast(3);
+        cll2.addLast(20);
+        cll2.addLast(21);
+        CustomLinkedList.printLinkedList(cll2.head);
 
-        CustomLinkedList<Integer> customLinkedList3 = new CustomLinkedList<>();
-        Node<Integer> head3 = null;
-        head3 = customLinkedList3.add(6,head3);
-        head3 = customLinkedList3.add(9,head3);
-        head3 = customLinkedList3.add(11,head3);
-        head3 = customLinkedList3.add(51,head3);
-        CustomLinkedList.printLinkedList(head3);
+        CustomLinkedList<Integer> cll3 = new CustomLinkedList<>();
+        cll3.addLast(6);
+        cll3.addLast(9);
+        cll3.addLast(11);
+        cll3.addLast(51);
+        CustomLinkedList.printLinkedList(cll3.head);
 
-        Node<Integer> resultHead = mergeKLinkedLists(List.of(head1,head2,head3));
+        Node<Integer> resultHead = mergeKLinkedLists(List.of(cll1.head,cll2.head,cll3.head));
         CustomLinkedList.printLinkedList(resultHead);
     }
 
