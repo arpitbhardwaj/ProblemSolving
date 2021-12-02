@@ -13,83 +13,66 @@ package com.ab.linkedlist;
  * The first node of the list also contain address of the last node in its previous pointer.
  */
 public class CircularLinkedList<T> {
-
-    Node last;
+    Node head;
+    Node tail;
 
     public CircularLinkedList() {
-        this.last = null;
-    }
-
-    public void addFront(T data) {
-        if (last == null){
-            addToEmpty(data);
-        }
-
-        Node node = new Node(data);
-        node.next = last.next;
-        last.next = node;
+        this.head = null;
+        this.tail = null;
     }
 
     public void addLast(T data) {
-        if (last == null){
-            addToEmpty(data);
-        }
-
         Node node = new Node(data);
-        node.next = last.next;
-        last.next = node;
-        last = node;
-    }
-
-    public void addToEmpty(T data) {
-        if (last != null){
+        if (head == null){
+            head = node;
+            tail = node;
             return;
         }
-        Node node = new Node(data);
-        last = node;
-        last.next = last;
+        tail.next = node;
+        node.next = head;
+        tail = node;
     }
 
-    private static void printCircularLinkedList(Node last) {
-        if (last == null){
-            throw new IllegalStateException("List is Empty");
+    public void delete(T val){
+        Node node = head;
+        if (node == null){
+            return;
         }
-        Node first = last.next;
-        /*while (first != null){
-            System.out.print(first.data);
-            first = first.next;
-            if(first != last.next){
-                System.out.print(" -> ");
-            }
-            if (first == last.next){
+        if (node.data == val){
+            head = head.next;
+            tail.next = head;
+            return;
+        }
+        do {
+            Node n =node.next;
+            if (n.data == val){
+                node.next = n.next;
                 break;
             }
-        }*/
-        do {
-            System.out.print(first.data);
-            first = first.next;
-            if(first != last.next){
-                System.out.print(" -> ");
-            }
-        }while (first != last.next);
-
-        System.out.println();
+            node = node.next;
+        }while (node!= head);
     }
 
-    public static Node<Integer> getSampleCircularLinkedList() {
-        CircularLinkedList<Integer> linkedList = new CircularLinkedList<>();
-        linkedList.addLast(1);
-        linkedList.addLast(2);
-        linkedList.addLast(3);
-        linkedList.addLast(4);
-        linkedList.addFront(5);
-        linkedList.addFront(6);
-        return linkedList.last;
+    private static void printCircularLinkedList(Node head) {
+        Node node = head;
+        if (head != null){
+            do {
+                System.out.print(node.data + " -> ");
+                node = node.next;
+            }while (node != head);
+        }
     }
 
     public static void main(String[] args) {
-        Node<Integer> last = getSampleCircularLinkedList();
+        CircularLinkedList<Integer> cll = new CircularLinkedList<>();
+        cll.addLast(1);
+        cll.addLast(2);
+        cll.addLast(3);
+        cll.addLast(6);
+        cll.addLast(4);
+        cll.addLast(5);
+        cll.delete(4);
         System.out.println("Printing Circular linked list:");
-        printCircularLinkedList(last);
+        printCircularLinkedList(cll.head);
     }
 }

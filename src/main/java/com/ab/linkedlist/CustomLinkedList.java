@@ -7,9 +7,11 @@ public class CustomLinkedList<T> {
 
     public Node<T> head;
     public Node<T> tail;
-    private int size;
+    public int size;
 
     public CustomLinkedList() {
+        this.head = null;
+        this.tail = null;
         this.size=0;
     }
 
