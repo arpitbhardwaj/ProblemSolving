@@ -19,18 +19,23 @@ public class AddTwoNumbers {
         num2.addLast(8);
         CustomLinkedList.printLinkedList(num2.head);
 
-        CustomLinkedList<Integer> sum = new CustomLinkedList<>();
-        Node head = sum(num1,num2,num1.head,num2.head,sum);
+
+        Node head = sum(num1,num2);
         CustomLinkedList.printLinkedList(head);
     }
 
-    private static Node sum(CustomLinkedList<Integer> num1, CustomLinkedList<Integer> num2, Node<Integer> head1, Node<Integer> head2, CustomLinkedList<Integer> sum) {
+    private static Node sum(CustomLinkedList<Integer> num1, CustomLinkedList<Integer> num2) {
+
+        Node<Integer> head1 = num1.head;
+        Node<Integer> head2 = num2.head;
+
+        CustomLinkedList<Integer> sum = new CustomLinkedList<>();
         //reverse linked list
         System.out.println("reverse linked list");
         num1.reverse();
-        CustomLinkedList.printLinkedList(head1);
+        CustomLinkedList.printLinkedList(num1.head);
         num2.reverse();
-        CustomLinkedList.printLinkedList(head2);
+        CustomLinkedList.printLinkedList(num2.head);
 
         //Add the nodes of both the lists iteratively.
         int carry = 0;
@@ -67,6 +72,7 @@ public class AddTwoNumbers {
         }
         //Reverse the resultant list and return its head.
         sum.reverse();
+        CustomLinkedList.printLinkedList(sum.head);
         return sum.head;
     }
 }

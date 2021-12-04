@@ -106,14 +106,14 @@ public class CustomLinkedList<T> {
         head = previous;
     }
 
-    public void recursiveReverse(){
+    /*public void recursiveReverse(){
         if(head == null || head.next == null){
             return ;
         }
         recursiveReverse();
         head.next.next = head;
         head.next = null;
-    }
+    }*/
 
     public Node getByVal(T data){
         Node temp = head;

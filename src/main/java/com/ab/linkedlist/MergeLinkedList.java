@@ -3,7 +3,7 @@ package com.ab.linkedlist;
 /**
  * @author Arpit Bhardwaj
  */
-public class MergeLinkedList<T> {
+public class MergeLinkedList{
     public static void main(String[] args) {
         CustomLinkedList<Integer> cll1 = new CustomLinkedList<>();
         cll1.addLast(5);
@@ -25,15 +25,7 @@ public class MergeLinkedList<T> {
         cll3.addLast(51);
         CustomLinkedList.printLinkedList(cll3.head);
 
-        /*Node head = merge.mergeTwoSortedList(head1,head2);
-        LinkedList.printLinkedList(head);*/
-
-        int k = 3;
-        Node[] nodeArr = new Node[k];
-        nodeArr[0] = cll1.head;
-        nodeArr[1] = cll2.head;
-        nodeArr[2] = cll3.head;
-        Node resultHead = mergeKSortedList(nodeArr);
+        Node resultHead = mergeKSortedList(new Node[]{cll1.head,cll2.head,cll3.head});
         CustomLinkedList.printLinkedList(resultHead);
     }
 
@@ -49,7 +41,6 @@ public class MergeLinkedList<T> {
         for(int i = 1; i < k; i++){
             sortedHead = mergeTwoSortedList(sortedHead,lists[i]);
         }
-
         return sortedHead;
     }
 
