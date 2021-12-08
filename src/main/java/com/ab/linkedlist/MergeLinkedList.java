@@ -39,12 +39,13 @@ public class MergeLinkedList{
 
         Node sortedHead = lists[0];
         for(int i = 1; i < k; i++){
+            //sortedHead = mergeTwoSortedListRecursive(sortedHead,lists[i]);
             sortedHead = mergeTwoSortedList(sortedHead,lists[i]);
         }
         return sortedHead;
     }
 
-    private static Node<Integer> mergeTwoSortedList(Node<Integer> head1, Node<Integer> head2) {
+    private static Node<Integer> mergeTwoSortedListRecursive(Node<Integer> head1, Node<Integer> head2) {
         if (head1 == null){
             return head2;
         }
@@ -53,13 +54,39 @@ public class MergeLinkedList{
         }
 
         if (head1.data < head2.data){
-            head1.next = mergeTwoSortedList(head1.next,head2);
+            head1.next = mergeTwoSortedListRecursive(head1.next,head2);
             return head1;
         }
         else {
-            head2.next = mergeTwoSortedList(head1,head2.next);
+            head2.next = mergeTwoSortedListRecursive(head1,head2.next);
             return head2;
         }
+    }
+
+    private static Node<Integer> mergeTwoSortedList(Node<Integer> head1, Node<Integer> head2) {
+        Node<Integer> f = head1;
+        Node<Integer> s = head2;
+
+        CustomLinkedList<Integer> resList = new CustomLinkedList<>();
+        while (f!= null && s != null){
+            if (f.data < s.data){
+                resList.addLast(f.data);
+                f = f.next;
+            }else {
+                resList.addLast(s.data);
+                s = s.next;
+            }
+        }
+
+        while (f != null){
+            resList.addLast(f.data);
+            f = f.next;
+        }
+        while (s != null){
+            resList.addLast(s.data);
+            s = s.next;
+        }
+        return resList.head;
     }
 
 }

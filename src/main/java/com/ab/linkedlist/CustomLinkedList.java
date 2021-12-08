@@ -106,14 +106,16 @@ public class CustomLinkedList<T> {
         head = previous;
     }
 
-    /*public void recursiveReverse(){
-        if(head == null || head.next == null){
+    public void recursiveReverse(Node node){
+        if(node == tail){
+            head = tail;
             return ;
         }
-        recursiveReverse();
-        head.next.next = head;
-        head.next = null;
-    }*/
+        recursiveReverse(node.next);
+        tail.next = node;
+        tail = node;
+        tail.next = null;
+    }
 
     public Node getByVal(T data){
         Node temp = head;
@@ -155,6 +157,16 @@ public class CustomLinkedList<T> {
         System.out.println();
     }
 
+    public static Node<Integer> getMiddleElement(Node<Integer> head) {
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
     public static void main(String[] args) {
         CustomLinkedList<Integer> ll = new CustomLinkedList<>();
         ll.addLast(1);
@@ -182,9 +194,11 @@ public class CustomLinkedList<T> {
         System.out.println("Printing reverse linked list:");
         CustomLinkedList.printLinkedList(ll.head);
 
-
-        /*ll.recursiveReverse();
+        ll.recursiveReverse(ll.head);
         System.out.println("Printing reverse linked list:");
-        CustomLinkedList.printLinkedList(ll.head);*/
+        CustomLinkedList.printLinkedList(ll.head);
+
+        Node<Integer> middleNode = getMiddleElement(ll.head);
+        System.out.println("Middle node : " + middleNode.data);
     }
 }
