@@ -6,11 +6,64 @@ public class NumberRecursion {
         System.out.println(factorial(5));
         System.out.println(sumOfDigits(1234));
         System.out.println(productOfDigits(1234));
+        System.out.println(powerOfNumber(2, 4));
         revNum1(5672);
         System.out.println(sum);
         System.out.println(revNum2(696923));
         System.out.println(isPalindrome(12321));
         System.out.println(countZeroes(105608902));
+    }
+
+    /**
+     * n!= n * (n-1)
+     */
+    private static int factorial(int n) {
+        if(n < 0){
+            return -1;
+        }
+        if (n == 0 || n == 1){
+            return 1;
+        }
+        return n * factorial(n-1);
+    }
+
+    /**
+     * f(n) = n%10 + f(n/10)
+     */
+    private static int sumOfDigits(int n) {
+        if(n <= 0){
+            return 0;
+        }
+        return (n%10) + sumOfDigits(n/10);
+    }
+
+    /**
+     * f(n) = n%10 * f(n/10)
+     */
+    private static int productOfDigits(int n) {
+        if(n < 0){
+            return 0;
+        }
+        if(n%10 == n){
+            return n;
+        }
+        return (n%10) * productOfDigits(n/10);
+    }
+
+    /**
+     * x pow y
+     * x is called base
+     * y is called exponent
+     * f(x, y) = x * f(x, y-1)
+     */
+    private static int powerOfNumber(int b, int e) {
+        if(e < 0){
+            return -1;
+        }
+        if(e == 0){
+            return 1;
+        }
+        return b * powerOfNumber(b, e-1);
     }
 
     private static int countZeroes(int n) {
@@ -51,26 +104,5 @@ public class NumberRecursion {
         }
         int lastDigit = n%10;
         return lastDigit * (int)Math.pow(10,noOfDigits-1) + reverseUtil(n/10,noOfDigits-1);
-    }
-
-    private static int productOfDigits(int n) {
-        if(n%10==n){
-            return n;
-        }
-        return (n%10) * productOfDigits(n/10);
-    }
-
-    private static int sumOfDigits(int n) {
-        if(n==0){
-            return 0;
-        }
-        return (n%10) + sumOfDigits(n/10);
-    }
-
-    private static int factorial(int n) {
-        if (n==1){
-            return n;
-        }
-        return n * factorial(n-1);
     }
 }

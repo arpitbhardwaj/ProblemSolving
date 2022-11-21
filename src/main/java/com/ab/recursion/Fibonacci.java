@@ -3,12 +3,12 @@ package com.ab.recursion;
 /**
  * @author Arpit Bhardwaj
  *
- * Seed Values: F0 = 0 and F1 = 1.
- * Formulae: Fn = Fn-1 + Fn-2
+ * f(n) = f(n-1) + f(n-2)
  *
  * Using Recursion
  *  space complexity is the height of the recursion tree
  * Using Dynamic Programming
+ *
  */
 public class Fibonacci {
     //seed value
@@ -17,6 +17,17 @@ public class Fibonacci {
     public static void main(String[] args) {
         System.out.println(fibonacciNumber(9));
         fibonacciSeries(9);
+    }
+
+    //linear recursion (very inefficient)
+    private static int fibonacciNumber(int n) {
+        if(n < 0){
+            return -1;
+        }
+        if (n == 0 || n== 1){
+            return n;
+        }
+        return fibonacciNumber(n-1) + fibonacciNumber(n-2);
     }
 
     private static void fibonacciSeries(int count) {
@@ -33,13 +44,5 @@ public class Fibonacci {
             f1 = fn;
             fibonacciSeriesUtil(count-1);
         }
-    }
-
-    //linear recursion (very inefficient)
-    private static int fibonacciNumber(int n) {
-        if (n <= 1){
-            return n;
-        }
-        return fibonacciNumber(n-1) + fibonacciNumber(n-2);
     }
 }
