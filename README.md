@@ -1,26 +1,38 @@
 This Project is about Computer Science Problem Solving
 
+**1. Recursion**
+
+        Factorial
+        Fibonacci
+        Sum of digits
+        Power
+        GCD
+        Decimal to Binary
+
 **1. Two Pointers Approach**
 
-        Pair with Target Sum (easy)
-        Remove Duplicates (easy)
-        Squaring a Sorted Array (easy)
-        Triplet Sum to Zero (medium)
-        Triplet Sum Close to Target (medium)
-        Triplets with Smaller Sum (medium)
-        Subarrays with Product Less than a Target (medium)
-        Dutch National Flag Problem (medium)
+        Pair with Target Sum
+        Remove Duplicates
+        Squaring a Sorted Array
+        Triplet Sum to Zero
+        Triplet Sum Close to Target
+        Triplets with Smaller Sum
+        Subarrays with Product Less than a Target
+        Dutch National Flag Problem
+
 **2. Fast & Slow pointers**
 
         LinkedList Cycle (easy)
         Start of LinkedList Cycle (medium)
         Happy Number (medium)
         Middle of the LinkedList (easy)
+
 **3. Bitwise XOR**
 
         Single Number (easy)
         Two Single Numbers (medium)
         Complement of Base 10 Number (medium)
+
 **4. Sliding Window**
 
     Maximum Sum Subarray of Size K (easy)
