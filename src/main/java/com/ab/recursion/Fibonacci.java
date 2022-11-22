@@ -11,7 +11,6 @@ package com.ab.recursion;
  *
  */
 public class Fibonacci {
-    //seed value
     static int f0 = 0,f1 = 1,fn = 0;
 
     public static void main(String[] args) {
@@ -19,7 +18,10 @@ public class Fibonacci {
         fibonacciSeries(9);
     }
 
-    //linear recursion (very inefficient)
+    //Tree recursion (very inefficient)
+    //the function call itself multiple times, here it calls 2 times so the branches are 2 and depth is n
+    //O(2 pow n) exponential time complexity
+    //function calls will be in a tree structure with complexity measured as O(branches pow depth)
     private static int fibonacciNumber(int n) {
         if(n < 0){
             return -1;
