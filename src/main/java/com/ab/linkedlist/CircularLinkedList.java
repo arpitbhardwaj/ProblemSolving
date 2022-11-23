@@ -4,7 +4,7 @@ package com.ab.linkedlist;
  * @author Arpit Bhardwaj
  *
  * In Singly Circular linked list,
- * There is no null value present in the next part of any of the nodes.
+ * doesn't contain NULL in any of the node.
  * The last node of the list contains a pointer to the first node of the list.
  *
  * In Doubly Circular linked list,

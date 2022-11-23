@@ -1,4 +1,4 @@
-package com.ab.printpattern;
+package com.ab.matrix;
 
 /**
  * @author Arpit Bhardwaj
