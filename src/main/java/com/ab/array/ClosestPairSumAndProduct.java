@@ -34,4 +34,7 @@ public class ClosestPairSumAndProduct {
         }
         System.out.println("Closest Pair exist with given sum : " + sum + " is (" + arr[resLeft] + "," + arr[resRight] + ")");
     }
+    private static void printClosestPairProduct(int[] arr, int prod) {
+        //TODO
+    }
 }

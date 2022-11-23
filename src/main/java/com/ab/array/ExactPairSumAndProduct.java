@@ -7,8 +7,10 @@ import java.util.Arrays;
 /**
  * @author Arpit Bhardwaj
  *
- * Two Pointers Pattern
+ * find all pairs of integers whose sum is equal to a given number.
+ * find all pairs of integers whose product is equal to a given number.
  *
+ * Two Pointers Pattern
  * This can be solved by sorting as well as hashing technique
  */
 public class ExactPairSumAndProduct {

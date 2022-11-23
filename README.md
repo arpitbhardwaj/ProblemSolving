@@ -9,9 +9,18 @@ This Project is about Computer Science Problem Solving
         GCD
         Decimal to Binary
 
+**2. Arrays**
+
+        Missing Number
+        Search
+        Pair with exact/closest/max product
+        isUnique / Remove Duplicate
+        isPermutation
+        Rotate Matrix
+
 **1. Two Pointers Approach**
 
-        Pair with Target Sum
+        Pair with exact/closest/max sum
         Remove Duplicates
         Squaring a Sorted Array
         Triplet Sum to Zero
@@ -22,10 +31,10 @@ This Project is about Computer Science Problem Solving
 
 **2. Fast & Slow pointers**
 
-        LinkedList Cycle (easy)
-        Start of LinkedList Cycle (medium)
-        Happy Number (medium)
-        Middle of the LinkedList (easy)
+        LinkedList Cycle
+        Start of LinkedList Cycle
+        Happy Number
+        Middle of the LinkedList
 
 **3. Bitwise XOR**
 
