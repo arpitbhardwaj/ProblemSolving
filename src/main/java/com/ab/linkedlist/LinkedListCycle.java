@@ -111,7 +111,7 @@ public class LinkedListCycle {
     public static void main(String[] args) {
         LinkedListCycle addRemoveLoop = new LinkedListCycle();
 
-        CustomLinkedList<Integer> cll = new CustomLinkedList<>();
+        SinglyLinkedList<Integer> cll = new SinglyLinkedList<>();
         cll.addLast(1);
         cll.addLast(2);
         cll.addLast(3);
@@ -119,7 +119,7 @@ public class LinkedListCycle {
         cll.addLast(5);
         cll.addLast(6);
         System.out.println("Printing linked list:");
-        CustomLinkedList.printLinkedList(cll.head);
+        SinglyLinkedList.printLinkedList(cll.head);
 
         System.out.println("Adding Cycle:");
         addRemoveLoop.addCycle(cll.head);
@@ -134,7 +134,7 @@ public class LinkedListCycle {
             System.out.println("Removing Cycle:");
             addRemoveLoop.detectAndRemoveCycle(cll.head);
             System.out.println("Printing linked list:");
-            CustomLinkedList.printLinkedList(cll.head);
+            SinglyLinkedList.printLinkedList(cll.head);
         }
     }
 }

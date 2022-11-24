@@ -3,13 +3,13 @@ package com.ab.linkedlist;
 /**
  * @author Arpit Bhardwaj
  */
-public class CustomLinkedList<T> {
+public class SinglyLinkedList<T> {
 
     public Node<T> head;
     public Node<T> tail;
     public int size;
 
-    public CustomLinkedList() {
+    public SinglyLinkedList() {
         this.head = null;
         this.tail = null;
         this.size=0;
@@ -168,7 +168,7 @@ public class CustomLinkedList<T> {
     }
 
     public static void main(String[] args) {
-        CustomLinkedList<Integer> ll = new CustomLinkedList<>();
+        SinglyLinkedList<Integer> ll = new SinglyLinkedList<>();
         ll.addLast(1);
         ll.addLast(2);
         ll.addLast(3);
@@ -176,27 +176,27 @@ public class CustomLinkedList<T> {
         ll.addLast(5);
         ll.addLast(6);
         System.out.println("Printing linked list:");
-        CustomLinkedList.printLinkedList(ll.head);
+        SinglyLinkedList.printLinkedList(ll.head);
 
         ll.addFirst(0);
         ll.add(11,3);
-        CustomLinkedList.printLinkedList(ll.head);
+        SinglyLinkedList.printLinkedList(ll.head);
 
         ll.deleteFirst();
         ll.deleteLast();
         ll.delete(3);
-        CustomLinkedList.printLinkedList(ll.head);
+        SinglyLinkedList.printLinkedList(ll.head);
 
         Node findNode = ll.getByVal(11);
         System.out.println("Finding Node 11 : " + findNode.data);
 
         ll.reverse();
         System.out.println("Printing reverse linked list:");
-        CustomLinkedList.printLinkedList(ll.head);
+        SinglyLinkedList.printLinkedList(ll.head);
 
         ll.recursiveReverse(ll.head);
         System.out.println("Printing reverse linked list:");
-        CustomLinkedList.printLinkedList(ll.head);
+        SinglyLinkedList.printLinkedList(ll.head);
 
         Node<Integer> middleNode = getMiddleElement(ll.head);
         System.out.println("Middle node : " + middleNode.data);

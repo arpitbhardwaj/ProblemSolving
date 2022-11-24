@@ -3,20 +3,16 @@ package com.ab.linkedlist;
 /**
  * @author Arpit Bhardwaj
  *
- * In Singly Circular linked list,
+ * In Circular Singly linked list,
  * doesn't contain NULL in any of the node.
  * The last node of the list contains a pointer to the first node of the list.
  *
- * In Doubly Circular linked list,
- * doesn't contain NULL in any of the node.
- * The last node of the list contains the address of the first node of the list.
- * The first node of the list also contain address of the last node in its previous pointer.
  */
-public class CircularLinkedList<T> {
+public class CircularSinglyLinkedList<T> {
     Node head;
     Node tail;
 
-    public CircularLinkedList() {
+    public CircularSinglyLinkedList() {
         this.head = null;
         this.tail = null;
     }
@@ -64,7 +60,7 @@ public class CircularLinkedList<T> {
     }
 
     public static void main(String[] args) {
-        CircularLinkedList<Integer> cll = new CircularLinkedList<>();
+        CircularSinglyLinkedList<Integer> cll = new CircularSinglyLinkedList<>();
         cll.addLast(1);
         cll.addLast(2);
         cll.addLast(3);
@@ -72,7 +68,7 @@ public class CircularLinkedList<T> {
         cll.addLast(4);
         cll.addLast(5);
         cll.delete(4);
-        System.out.println("Printing Circular linked list:");
+        System.out.println("Printing Circular Singly linked list:");
         printCircularLinkedList(cll.head);
     }
 }

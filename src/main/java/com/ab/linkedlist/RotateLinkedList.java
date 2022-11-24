@@ -9,7 +9,7 @@ package com.ab.linkedlist;
  */
 public class RotateLinkedList {
     public static void main(String[] args) {
-        CustomLinkedList<Integer> cll1 = new CustomLinkedList<>();
+        SinglyLinkedList<Integer> cll1 = new SinglyLinkedList<>();
         cll1.addLast(1);
         cll1.addLast(2);
         cll1.addLast(3);
@@ -17,14 +17,14 @@ public class RotateLinkedList {
         cll1.addLast(5);
         cll1.addLast(6);
         System.out.println("Printing linked list:");
-        CustomLinkedList.printLinkedList(cll1.head);
+        SinglyLinkedList.printLinkedList(cll1.head);
 
         int noOfRotation = 4; //also kth
         Node<Integer> newHead1 = rotateCounterClockwise(cll1.head,noOfRotation);
         System.out.println(String.format("Printing linked list after %s counter clockwise rotation : ", noOfRotation));
-        CustomLinkedList.printLinkedList(newHead1);
+        SinglyLinkedList.printLinkedList(newHead1);
 
-        CustomLinkedList<Integer> cll2 = new CustomLinkedList<>();
+        SinglyLinkedList<Integer> cll2 = new SinglyLinkedList<>();
         cll2.addLast(1);
         cll2.addLast(2);
         cll2.addLast(3);
@@ -32,15 +32,15 @@ public class RotateLinkedList {
         cll2.addLast(5);
         cll2.addLast(6);
         System.out.println("Printing linked list:");
-        CustomLinkedList.printLinkedList(cll2.head);
+        SinglyLinkedList.printLinkedList(cll2.head);
 
         Node<Integer> newHead2 = rotateClockwise(cll2.head,noOfRotation);
         System.out.println(String.format("Printing linked list after %s clockwise rotation : ", noOfRotation));
-        CustomLinkedList.printLinkedList(newHead2);
+        SinglyLinkedList.printLinkedList(newHead2);
     }
 
     private static Node<Integer> rotateClockwise(Node<Integer> head, int rotation) {
-        return rotateCounterClockwise(head, CustomLinkedList.getSize(head) - rotation);
+        return rotateCounterClockwise(head, SinglyLinkedList.getSize(head) - rotation);
     }
 
     private static Node<Integer> rotateCounterClockwise(Node<Integer> head, int rotation) {

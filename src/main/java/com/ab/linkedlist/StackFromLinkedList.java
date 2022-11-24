@@ -26,7 +26,7 @@ public class StackFromLinkedList<T> {
     }
 
     public void display() {
-        CustomLinkedList.printLinkedList(top);
+        SinglyLinkedList.printLinkedList(top);
     }
     public static void main(String[] args) {
         StackFromLinkedList<Integer> stack = new StackFromLinkedList<>();

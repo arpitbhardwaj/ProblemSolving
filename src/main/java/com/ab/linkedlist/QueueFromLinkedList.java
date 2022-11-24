@@ -36,7 +36,7 @@ public class QueueFromLinkedList<T> {
     }
 
     public void display() {
-        CustomLinkedList.printLinkedList(front);
+        SinglyLinkedList.printLinkedList(front);
     }
 
     public static void main(String[] args) {

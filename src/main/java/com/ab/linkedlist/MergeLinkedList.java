@@ -5,28 +5,28 @@ package com.ab.linkedlist;
  */
 public class MergeLinkedList{
     public static void main(String[] args) {
-        CustomLinkedList<Integer> cll1 = new CustomLinkedList<>();
+        SinglyLinkedList<Integer> cll1 = new SinglyLinkedList<>();
         cll1.addLast(5);
         cll1.addLast(10);
         cll1.addLast(15);
-        CustomLinkedList.printLinkedList(cll1.head);
+        SinglyLinkedList.printLinkedList(cll1.head);
 
-        CustomLinkedList<Integer> cll2 = new CustomLinkedList<>();
+        SinglyLinkedList<Integer> cll2 = new SinglyLinkedList<>();
         cll2.addLast(2);
         cll2.addLast(3);
         cll2.addLast(20);
         cll2.addLast(21);
-        CustomLinkedList.printLinkedList(cll2.head);
+        SinglyLinkedList.printLinkedList(cll2.head);
 
-        CustomLinkedList<Integer> cll3 = new CustomLinkedList<>();
+        SinglyLinkedList<Integer> cll3 = new SinglyLinkedList<>();
         cll3.addLast(6);
         cll3.addLast(9);
         cll3.addLast(11);
         cll3.addLast(51);
-        CustomLinkedList.printLinkedList(cll3.head);
+        SinglyLinkedList.printLinkedList(cll3.head);
 
         Node resultHead = mergeKSortedList(new Node[]{cll1.head,cll2.head,cll3.head});
-        CustomLinkedList.printLinkedList(resultHead);
+        SinglyLinkedList.printLinkedList(resultHead);
     }
 
     //this can efficiently be done using heap (priority queue)
@@ -67,7 +67,7 @@ public class MergeLinkedList{
         Node<Integer> f = head1;
         Node<Integer> s = head2;
 
-        CustomLinkedList<Integer> resList = new CustomLinkedList<>();
+        SinglyLinkedList<Integer> resList = new SinglyLinkedList<>();
         while (f!= null && s != null){
             if (f.data < s.data){
                 resList.addLast(f.data);
