@@ -65,32 +65,53 @@ public class CircularSinglyLinkedList<T> {
         size++;
     }
 
-    public void deleteFirst(){
-        size--;
-    }
-
-    public void delete(T val){
-        Node node = head;
-        if (node == null){
-            return;
+    public T deleteFirst(){
+        if (head == null){
+            throw new RuntimeException("LinkedList is empty");
         }
-        if (node.data == val){
+        T val = head.data;
+        if (head == tail){
+            head = null;
+            tail = null;
+        }else{
             head = head.next;
-            tail.next = head;
-            return;
         }
-        do {
-            Node n =node.next;
-            if (n.data == val){
-                node.next = n.next;
-                break;
-            }
-            node = node.next;
-        }while (node!= head);
+        size--;
+        return val;
     }
 
-    public void deleteLast(){
+    public T delete(int index){
+        if (index == 0){
+            deleteFirst();
+        }
+        if (index == size-1){
+            deleteLast();
+        }
+        Node prev = getByIndex(index-1);
+        T val = (T) prev.next.data;
+        prev.next = prev.next.next;
         size--;
+        return val;
+    }
+
+    public T deleteLast(){
+        if (size == 1){
+            return deleteFirst();
+        }
+        Node secondLast = getByIndex(size-2);
+        T val = tail.data;
+        tail = secondLast;
+        tail.next = head;
+        size--;
+        return val;
+    }
+
+    private Node getByIndex(int index){
+        Node temp = head;
+        for (int i = 0; i < index; i++) {
+            temp = temp.next;
+        }
+        return temp;
     }
 
     private static void printCircularSinglyLinkedList(Node head) {
@@ -101,6 +122,7 @@ public class CircularSinglyLinkedList<T> {
                 node = node.next;
             }while (node != head);
         }
+        System.out.println();
     }
 
     public static void main(String[] args) {
@@ -112,8 +134,12 @@ public class CircularSinglyLinkedList<T> {
         cll.addLast(6);
         cll.addLast(4);
         cll.addLast(5);
-        cll.delete(4);
         cll.add(9, 1);
+        printCircularSinglyLinkedList(cll.head);
+
+        cll.deleteFirst();
+        cll.delete(4);
+        cll.deleteLast();
         printCircularSinglyLinkedList(cll.head);
     }
 }

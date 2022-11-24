@@ -57,6 +57,9 @@ public class SinglyLinkedList<T> {
     }
 
     public T deleteFirst() {
+        if (head==null){
+            throw new RuntimeException("LinkedList is empty");
+        }
         T val = head.data;
         head = head.next;
         if (head==null){
@@ -76,6 +79,7 @@ public class SinglyLinkedList<T> {
         Node prev = getByIndex(index-1);
         T val = (T) prev.next.data;
         prev.next = prev.next.next;
+        size--;
         return val;
     }
 
@@ -175,6 +179,7 @@ public class SinglyLinkedList<T> {
 
     public static void main(String[] args) throws InterruptedException {
         SinglyLinkedList<Integer> ll = new SinglyLinkedList<>();
+        //ll.deleteFirst();
         ll.addLast(1);
         ll.addLast(2);
         ll.addLast(3);
