@@ -3,30 +3,70 @@ package com.ab.linkedlist;
 /**
  * @author Arpit Bhardwaj
  *
- * In Circular Singly linked list,
- * doesn't contain NULL in any of the node.
+ * Doesn't contain NULL in any of the node.
  * The last node of the list contains a pointer to the first node of the list.
- *
  */
 public class CircularSinglyLinkedList<T> {
-    Node head;
-    Node tail;
+    Node<T> head;
+    Node<T> tail;
+    int size;
 
     public CircularSinglyLinkedList() {
         this.head = null;
         this.tail = null;
+        this.size = 0;
+    }
+
+    private void initialize(Node node){
+        node.next = node;
+        head = node;
+        tail = node;
+    }
+
+    public void addFirst(T data) {
+        Node node = new Node(data);
+        if(head == null){
+            initialize(node);
+        }else{
+            node.next = head;
+            head = node;
+        }
+        size++;
+    }
+
+    public void add(T data, int index) {
+        if (index==0){
+            addFirst(data);
+            return;
+        }
+        if (index==size){
+            addLast(data);
+            return;
+        }
+        Node temp = head;
+        for (int i = 1; i < index; i++) {
+            temp = temp.next;
+        }
+        Node node = new Node(data);
+        node.next = temp.next;
+        temp.next = node;
+        size++;
     }
 
     public void addLast(T data) {
         Node node = new Node(data);
         if (head == null){
-            head = node;
+            initialize(node);
+        }else{
+            tail.next = node;
+            node.next = head;
             tail = node;
-            return;
         }
-        tail.next = node;
-        node.next = head;
-        tail = node;
+        size++;
+    }
+
+    public void deleteFirst(){
+        size--;
     }
 
     public void delete(T val){
@@ -49,7 +89,11 @@ public class CircularSinglyLinkedList<T> {
         }while (node!= head);
     }
 
-    private static void printCircularLinkedList(Node head) {
+    public void deleteLast(){
+        size--;
+    }
+
+    private static void printCircularSinglyLinkedList(Node head) {
         Node node = head;
         if (head != null){
             do {
@@ -63,12 +107,13 @@ public class CircularSinglyLinkedList<T> {
         CircularSinglyLinkedList<Integer> cll = new CircularSinglyLinkedList<>();
         cll.addLast(1);
         cll.addLast(2);
+        cll.addFirst(0);
         cll.addLast(3);
         cll.addLast(6);
         cll.addLast(4);
         cll.addLast(5);
         cll.delete(4);
-        System.out.println("Printing Circular Singly linked list:");
-        printCircularLinkedList(cll.head);
+        cll.add(9, 1);
+        printCircularSinglyLinkedList(cll.head);
     }
 }

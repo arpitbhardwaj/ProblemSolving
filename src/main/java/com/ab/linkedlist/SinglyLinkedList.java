@@ -87,6 +87,7 @@ public class SinglyLinkedList<T> {
         T val = tail.data;
         tail = secondLast;
         tail.next = null;
+        size--;
         return val;
     }
 
@@ -117,7 +118,7 @@ public class SinglyLinkedList<T> {
         tail.next = null;
     }
 
-    public Node getByVal(T data){
+    private Node getByVal(T data){
         Node temp = head;
         while (temp != null){
             if(temp.data == data){
@@ -128,7 +129,7 @@ public class SinglyLinkedList<T> {
         return null;
     }
 
-    public Node getByIndex(int index){
+    private Node getByIndex(int index){
         Node temp = head;
         for (int i = 0; i < index; i++) {
             temp = temp.next;
@@ -167,7 +168,12 @@ public class SinglyLinkedList<T> {
         return slow;
     }
 
-    public static void main(String[] args) {
+    public void deleteLinkedList(){
+        head = null;
+        tail = null;
+    }
+
+    public static void main(String[] args) throws InterruptedException {
         SinglyLinkedList<Integer> ll = new SinglyLinkedList<>();
         ll.addLast(1);
         ll.addLast(2);
@@ -175,30 +181,35 @@ public class SinglyLinkedList<T> {
         ll.addLast(4);
         ll.addLast(5);
         ll.addLast(6);
-        System.out.println("Printing linked list:");
+        System.out.println("Size: "+ getSize(ll.head));
         SinglyLinkedList.printLinkedList(ll.head);
 
         ll.addFirst(0);
         ll.add(11,3);
+        System.out.println("Size: "+ getSize(ll.head));
         SinglyLinkedList.printLinkedList(ll.head);
 
         ll.deleteFirst();
         ll.deleteLast();
         ll.delete(3);
+        System.out.println("Size: "+ getSize(ll.head));
         SinglyLinkedList.printLinkedList(ll.head);
 
         Node findNode = ll.getByVal(11);
-        System.out.println("Finding Node 11 : " + findNode.data);
+        System.out.println("Finding Node 11: " + findNode.data);
 
         ll.reverse();
-        System.out.println("Printing reverse linked list:");
         SinglyLinkedList.printLinkedList(ll.head);
 
         ll.recursiveReverse(ll.head);
-        System.out.println("Printing reverse linked list:");
         SinglyLinkedList.printLinkedList(ll.head);
 
         Node<Integer> middleNode = getMiddleElement(ll.head);
-        System.out.println("Middle node : " + middleNode.data);
+        System.out.println("Middle node: " + middleNode.data);
+
+        ll.deleteLinkedList();
+        Thread.sleep(1000);
+        System.out.println("Size: "+ getSize(ll.head));
+        SinglyLinkedList.printLinkedList(ll.head);
     }
 }

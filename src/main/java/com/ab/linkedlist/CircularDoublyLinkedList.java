@@ -3,8 +3,7 @@ package com.ab.linkedlist;
 /**
  * @author Arpit Bhardwaj
  *
- * In Circular Doubly linked list,
- * doesn't contain NULL in any of the node.
+ * Doesn't contain NULL in any of the node.
  * The last node of the list contains the address of the first node of the list.
  * The first node of the list also contain address of the last node in its previous pointer.
  */
