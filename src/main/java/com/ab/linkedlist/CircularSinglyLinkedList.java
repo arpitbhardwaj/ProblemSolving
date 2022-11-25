@@ -72,10 +72,12 @@ public class CircularSinglyLinkedList<T> {
         }
         T val = head.data;
         if (head == tail){
+            head.next = null;
             head = null;
             tail = null;
         }else{
             head = head.next;
+            tail.next = head;
         }
         size--;
         return val;
