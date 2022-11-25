@@ -19,7 +19,6 @@ public class SinglyLinkedList<T> {
         Node node = new Node(data);
         node.next = head;
         head = node;
-
         if (tail==null){
             tail = head;
         }
@@ -57,7 +56,7 @@ public class SinglyLinkedList<T> {
     }
 
     public T deleteFirst() {
-        if (head==null){
+        if (head == null){
             throw new RuntimeException("LinkedList is empty");
         }
         T val = head.data;
@@ -70,10 +69,10 @@ public class SinglyLinkedList<T> {
     }
 
     public T delete(int index){
-        if (index==0){
+        if (index == 0){
             deleteFirst();
         }
-        if (index==size-1){
+        if (index == size-1){
             deleteLast();
         }
         Node prev = getByIndex(index-1);
@@ -84,7 +83,7 @@ public class SinglyLinkedList<T> {
     }
 
     public T deleteLast(){
-        if (size==1){
+        if (size == 1){
             return deleteFirst();
         }
         Node secondLast = getByIndex(size-2);

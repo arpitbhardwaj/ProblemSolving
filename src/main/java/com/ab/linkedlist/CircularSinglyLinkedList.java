@@ -152,7 +152,13 @@ public class CircularSinglyLinkedList<T> {
         System.out.println();
     }
 
-    public static void main(String[] args) {
+    public void deleteCircularSinglyLinkedList(){
+        head = null;
+        tail.next = null;
+        tail = null;
+    }
+
+    public static void main(String[] args) throws InterruptedException {
         CircularSinglyLinkedList<Integer> cll = new CircularSinglyLinkedList<>();
         cll.addLast(1);
         cll.addLast(2);
@@ -171,5 +177,9 @@ public class CircularSinglyLinkedList<T> {
 
         Node findNode = cll.getByVal(3);
         System.out.println("Finding Node 3: " + findNode.data);
+
+        cll.deleteCircularSinglyLinkedList();
+        Thread.sleep(1000);
+        SinglyLinkedList.printLinkedList(cll.head);
     }
 }

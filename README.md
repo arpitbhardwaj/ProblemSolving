@@ -29,6 +29,13 @@ This Project is about Computer Science Problem Solving
         Reverse a Sub-list
         Reverse every K-element Sub-list
 
+**2. Fast & Slow pointers**
+
+        LinkedList Cycle
+        Start of LinkedList Cycle
+        Happy Number
+        Middle of the LinkedList
+
 **1. Two Pointers Approach**
 
         Pair with exact/closest/max sum
@@ -40,12 +47,13 @@ This Project is about Computer Science Problem Solving
         Subarrays with Product Less than a Target
         Dutch National Flag Problem
 
-**2. Fast & Slow pointers**
+**2. Stack and Queues**
 
-        LinkedList Cycle
-        Start of LinkedList Cycle
-        Happy Number
-        Middle of the LinkedList
+        Three in one
+        Stack Minimum
+        Stack of plates
+        Queue via stacks
+        Animal Shelter
 
 **3. Bitwise XOR**
 
