@@ -18,6 +18,17 @@ This Project is about Computer Science Problem Solving
         isPermutation
         Rotate Matrix
 
+**3. LinkedList**
+        
+        Remove Duplicates
+        Return Nth to last
+        Partition
+        Sum Lists
+        Intersection
+        Reverse a LinkedList
+        Reverse a Sub-list
+        Reverse every K-element Sub-list
+
 **1. Two Pointers Approach**
 
         Pair with exact/closest/max sum
@@ -44,9 +55,9 @@ This Project is about Computer Science Problem Solving
 
 **4. Sliding Window**
 
-    Maximum Sum Subarray of Size K (easy)
-    Smallest Subarray with a given sum (easy)
-    Longest Substring with K Distinct Characters (medium)
+        Maximum Sum Subarray of Size K (easy)
+        Smallest Subarray with a given sum (easy)
+        Longest Substring with K Distinct Characters (medium)
  
 **5. Merge Intervals**
 
@@ -61,12 +72,6 @@ This Project is about Computer Science Problem Solving
         Find all Missing Numbers (easy)
         Find the Duplicate Number (easy)
         Find all Duplicate Numbers (easy)
-        
-**7. In-place Reversal of a LinkedList**
-
-        Reverse a LinkedList (easy)
-        Reverse a Sub-list (medium)
-        Reverse every K-element Sub-list (medium)
 
 **8. Breadth First Search**
 

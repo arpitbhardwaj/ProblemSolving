@@ -106,6 +106,19 @@ public class CircularSinglyLinkedList<T> {
         return val;
     }
 
+    private Node getByVal(T data){
+        Node node = head;
+        if (head != null){
+            for (int i = 0; i < size; i++) {
+                if(node.data == data){
+                    return node;
+                }
+                node = node.next;
+            }
+        }
+        return null;
+    }
+
     private Node getByIndex(int index){
         Node temp = head;
         for (int i = 0; i < index; i++) {
@@ -114,13 +127,27 @@ public class CircularSinglyLinkedList<T> {
         return temp;
     }
 
-    private static void printCircularSinglyLinkedList(Node head) {
+    private static void printCircularSinglyLinkedList1(Node head) {
         Node node = head;
         if (head != null){
             do {
                 System.out.print(node.data + " -> ");
                 node = node.next;
             }while (node != head);
+        }
+        System.out.println();
+    }
+
+    private void printCircularSinglyLinkedList2() {
+        Node node = head;
+        if (head != null){
+            for (int i = 0; i < size; i++) {
+                System.out.print(node.data);
+                node = node.next;
+                if(i != size-1){
+                    System.out.print(" -> ");
+                }
+            }
         }
         System.out.println();
     }
@@ -135,11 +162,14 @@ public class CircularSinglyLinkedList<T> {
         cll.addLast(4);
         cll.addLast(5);
         cll.add(9, 1);
-        printCircularSinglyLinkedList(cll.head);
+        printCircularSinglyLinkedList1(cll.head);
 
         cll.deleteFirst();
         cll.delete(4);
         cll.deleteLast();
-        printCircularSinglyLinkedList(cll.head);
+        cll.printCircularSinglyLinkedList2();
+
+        Node findNode = cll.getByVal(3);
+        System.out.println("Finding Node 3: " + findNode.data);
     }
 }

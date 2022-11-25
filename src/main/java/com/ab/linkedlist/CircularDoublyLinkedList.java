@@ -16,7 +16,19 @@ public class CircularDoublyLinkedList<T> {
         this.tail = null;
     }
 
+    public void addFirst(T data) {
+        //TODO
+    }
+
+    public void add(T data) {
+        //TODO
+    }
+
     public void addLast(T data) {
+        //TODO
+    }
+
+    public void deleteFirst(T val){
         //TODO
     }
 
@@ -24,13 +36,16 @@ public class CircularDoublyLinkedList<T> {
         //TODO
     }
 
-    private static void printCircularLinkedList(Node head) {
+    public void deleteLast(T val){
+        //TODO
+    }
+
+    private static void printCircularDoublyLinkedList(Node head) {
         //TODO
     }
 
     public static void main(String[] args) {
         CircularDoublyLinkedList<Integer> cll = new CircularDoublyLinkedList<>();
-        System.out.println("Printing Circular Doubly linked list:");
-        printCircularLinkedList(cll.head);
+        printCircularDoublyLinkedList(cll.head);
     }
 }

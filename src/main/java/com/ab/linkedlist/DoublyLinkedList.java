@@ -60,6 +60,18 @@ public class DoublyLinkedList<T> {
         size++;
     }
 
+    public void deleteFirst(){
+        //TODO
+    }
+
+    public void delete(){
+        //TODO
+    }
+
+    public void deleteLast(){
+        //TODO
+    }
+
     private static void printDoublyLinkedList(Node head) {
         System.out.println("Printing in forward direction");
         while (head != null){
