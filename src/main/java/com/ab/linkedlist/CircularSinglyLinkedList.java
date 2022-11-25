@@ -28,6 +28,7 @@ public class CircularSinglyLinkedList<T> {
         if(head == null){
             initialize(node);
         }else{
+            tail.next = node;
             node.next = head;
             head = node;
         }
@@ -35,11 +36,11 @@ public class CircularSinglyLinkedList<T> {
     }
 
     public void add(T data, int index) {
-        if (index==0){
+        if (index == 0){
             addFirst(data);
             return;
         }
-        if (index==size){
+        if (index == size){
             addLast(data);
             return;
         }
