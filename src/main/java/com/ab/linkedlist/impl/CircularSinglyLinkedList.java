@@ -1,18 +1,17 @@
-package com.ab.linkedlist;
+package com.ab.linkedlist.impl;
 
 /**
  * @author Arpit Bhardwaj
  *
  * Doesn't contain NULL in any of the node.
- * The last node of the list contains the address of the first node of the list.
- * The first node of the list also contain address of the last node in its previous pointer.
+ * The last node of the list contains a pointer to the first node of the list.
  */
-public class CircularDoublyLinkedList<T> {
+public class CircularSinglyLinkedList<T> {
     Node<T> head;
     Node<T> tail;
     int size;
 
-    public CircularDoublyLinkedList() {
+    public CircularSinglyLinkedList() {
         this.head = null;
         this.tail = null;
         this.size = 0;
@@ -20,21 +19,17 @@ public class CircularDoublyLinkedList<T> {
 
     private void initialize(Node node){
         node.next = node;
-        node.before = node;
         head = node;
         tail = node;
     }
-
 
     public void addFirst(T data) {
         Node node = new Node(data);
         if(head == null){
             initialize(node);
         }else{
-            node.next = head;
-            node.before = tail;
-            head.before = node;
             tail.next = node;
+            node.next = head;
             head = node;
         }
         size++;
@@ -55,8 +50,6 @@ public class CircularDoublyLinkedList<T> {
         }
         Node node = new Node(data);
         node.next = temp.next;
-        node.before = temp;
-        temp.next.before = node;
         temp.next = node;
         size++;
     }
@@ -66,11 +59,9 @@ public class CircularDoublyLinkedList<T> {
         if (head == null){
             initialize(node);
         }else{
-            node.next = head;
-            node.before = tail;
-            head.before = node;
             tail.next = node;
-            tail = node;//this line is only different compare to addFirst()
+            node.next = head;
+            tail = node;
         }
         size++;
     }
@@ -82,17 +73,11 @@ public class CircularDoublyLinkedList<T> {
         T val = head.data;
         if (head == tail){
             head.next = null;
-            head.before = null;
             head = null;
             tail = null;
         }else{
-            //clean up steps are commented as it deleted node will be cleanup by gc
-            //Node nodeToBeDeleted = head;
             head = head.next;
-            head.before = tail;
             tail.next = head;
-            //nodeToBeDeleted.next = null;
-            //nodeToBeDeleted.before = null;
         }
         size--;
         return val;
@@ -107,12 +92,7 @@ public class CircularDoublyLinkedList<T> {
         }
         Node prev = getByIndex(index-1);
         T val = (T) prev.next.data;
-        //clean up steps are commented as it deleted node will be cleanup by gc
-        //Node nodeToBeDeleted = prev.next;
         prev.next = prev.next.next;
-        prev.next.before = prev;
-        //nodeToBeDeleted.next = null;
-        //nodeToBeDeleted.before = null;
         size--;
         return val;
     }
@@ -121,17 +101,25 @@ public class CircularDoublyLinkedList<T> {
         if (size == 1){
             return deleteFirst();
         }
+        Node secondLast = getByIndex(size-2);
         T val = tail.data;
-        //clean up steps are commented as it deleted node will be cleanup by gc
-        //Node nodeToBeDeleted = tail;
-        Node secondLast = tail.before;
         tail = secondLast;
         tail.next = head;
-        head.before = tail;
-        //nodeToBeDeleted.next = null;
-        //nodeToBeDeleted.before = null;
         size--;
         return val;
+    }
+
+    private Node getByVal(T data){
+        Node node = head;
+        if (head != null){
+            for (int i = 0; i < size; i++) {
+                if(node.data == data){
+                    return node;
+                }
+                node = node.next;
+            }
+        }
+        return null;
     }
 
     private Node getByIndex(int index){
@@ -142,7 +130,7 @@ public class CircularDoublyLinkedList<T> {
         return temp;
     }
 
-    private static void printCircularDoublyLinkedList(Node head) {
+    private static void printCircularSinglyLinkedList1(Node head) {
         Node node = head;
         if (head != null){
             do {
@@ -153,51 +141,48 @@ public class CircularDoublyLinkedList<T> {
         System.out.println();
     }
 
-    private static void printCircularDoublyLinkedListInReverse(Node tail) {
-        Node node = tail;
-        if (tail != null){
-            do {
-                System.out.print(node.data + " -> ");
-                node = node.before;
-            }while (node != tail);
+    private void printCircularSinglyLinkedList2() {
+        Node node = head;
+        if (head != null){
+            for (int i = 0; i < size; i++) {
+                System.out.print(node.data);
+                node = node.next;
+                if(i != size-1){
+                    System.out.print(" -> ");
+                }
+            }
         }
         System.out.println();
     }
 
-    public void deleteCircularDoublyLinkedList(){
-        Node temp = head;
-        if (temp != null){
-            do {
-                temp.before = null;
-                temp = temp.next;
-            }while (temp != head);
-        }
+    public void deleteCircularSinglyLinkedList(){
         head = null;
         tail.next = null;
         tail = null;
     }
 
     public static void main(String[] args) throws InterruptedException {
-        CircularDoublyLinkedList<Integer> cdll = new CircularDoublyLinkedList<>();
-        cdll.addLast(1);
-        cdll.addLast(2);
-        cdll.addFirst(0);
-        cdll.addLast(3);
-        cdll.addLast(6);
-        cdll.addLast(4);
-        cdll.addLast(5);
-        cdll.add(9, 1);
-        printCircularDoublyLinkedList(cdll.head);
-        printCircularDoublyLinkedListInReverse(cdll.tail);
+        CircularSinglyLinkedList<Integer> cll = new CircularSinglyLinkedList<>();
+        cll.addLast(1);
+        cll.addLast(2);
+        cll.addFirst(0);
+        cll.addLast(3);
+        cll.addLast(6);
+        cll.addLast(4);
+        cll.addLast(5);
+        cll.add(9, 1);
+        printCircularSinglyLinkedList1(cll.head);
 
-        cdll.deleteFirst();
-        cdll.delete(4);
-        cdll.deleteLast();
-        printCircularDoublyLinkedList(cdll.head);
-        printCircularDoublyLinkedListInReverse(cdll.tail);
+        cll.deleteFirst();
+        cll.delete(4);
+        cll.deleteLast();
+        cll.printCircularSinglyLinkedList2();
 
-        cdll.deleteCircularDoublyLinkedList();
+        Node findNode = cll.getByVal(3);
+        System.out.println("Finding Node 3: " + findNode.data);
+
+        cll.deleteCircularSinglyLinkedList();
         Thread.sleep(1000);
-        SinglyLinkedList.printLinkedList(cdll.head);
+        SinglyLinkedList.printLinkedList(cll.head);
     }
 }

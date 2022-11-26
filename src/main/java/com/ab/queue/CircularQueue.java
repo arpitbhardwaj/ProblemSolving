@@ -1,6 +1,6 @@
 package com.ab.queue;
 
-import com.ab.linkedlist.Node;
+import com.ab.linkedlist.impl.Node;
 
 /**
  * @author Arpit Bhardwaj

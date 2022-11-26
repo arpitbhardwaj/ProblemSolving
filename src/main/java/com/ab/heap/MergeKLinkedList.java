@@ -1,7 +1,7 @@
 package com.ab.heap;
 
-import com.ab.linkedlist.SinglyLinkedList;
-import com.ab.linkedlist.Node;
+import com.ab.linkedlist.impl.SinglyLinkedList;
+import com.ab.linkedlist.impl.Node;
 
 import java.util.Comparator;
 import java.util.List;

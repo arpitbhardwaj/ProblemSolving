@@ -1,4 +1,4 @@
-package com.ab.linkedlist;
+package com.ab.linkedlist.impl;
 
 /**
  * @author Arpit Bhardwaj
