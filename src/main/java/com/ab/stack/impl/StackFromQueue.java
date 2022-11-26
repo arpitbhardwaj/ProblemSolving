@@ -27,10 +27,12 @@ public class StackFromQueue {
 
     private static class CustomStack<T> {
         static int size;
-        Queue<T> queue1 = new LinkedList<>();
-        Queue<T> queue2 = new LinkedList<>();
+        Queue<T> queue1;
+        Queue<T> queue2;
 
         public CustomStack() {
+            queue1 = new LinkedList<>();
+            queue2 = new LinkedList<>();
             size=0;
         }
 
