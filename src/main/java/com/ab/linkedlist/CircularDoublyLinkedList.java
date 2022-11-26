@@ -166,9 +166,11 @@ public class CircularDoublyLinkedList<T> {
 
     public void deleteCircularDoublyLinkedList(){
         Node temp = head;
-        while (temp != null){
-            temp.before = null;
-            temp = temp.next;
+        if (temp != null){
+            do {
+                temp.before = null;
+                temp = temp.next;
+            }while (temp != head);
         }
         head = null;
         tail.next = null;
