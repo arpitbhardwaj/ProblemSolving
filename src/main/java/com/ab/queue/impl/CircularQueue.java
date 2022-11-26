@@ -1,4 +1,4 @@
-package com.ab.queue;
+package com.ab.queue.impl;
 
 import com.ab.linkedlist.impl.Node;
 
@@ -7,7 +7,7 @@ import com.ab.linkedlist.impl.Node;
  */
 public class CircularQueue<T> {
 
-    Node<T> front,rear;
+    public Node<T> front,rear;
 
     public CircularQueue() {
         this.front = null;

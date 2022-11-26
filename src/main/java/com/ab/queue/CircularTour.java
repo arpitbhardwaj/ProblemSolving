@@ -1,7 +1,6 @@
 package com.ab.queue;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import com.ab.queue.impl.CircularQueue;
 
 /**
  * @author Arpit Bhardwaj

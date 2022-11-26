@@ -1,4 +1,4 @@
-package com.ab.queue;
+package com.ab.stack.impl;
 
 import java.util.LinkedList;
 import java.util.Queue;
