@@ -5,20 +5,20 @@ import java.util.Arrays;
 public class StackFromArray {
 
     public static void main(String[] args) {
-        CustomStack customStack = new CustomStack(4);
-        customStack.push(11);
-        customStack.push(20);
-        customStack.push(3);
-        customStack.printStack();
+        CustomStack stack = new CustomStack(4);
+        stack.push(11);
+        stack.push(20);
+        stack.push(3);
+        stack.printStack();
 
-        System.out.println(customStack.pop());
-        customStack.push(23);
-        customStack.push(12);
-        customStack.printStack();
+        System.out.println(stack.pop());
+        stack.push(23);
+        stack.push(12);
+        stack.printStack();
 
-        System.out.println(customStack.peek());
-        customStack.delete();
-        customStack.printStack();
+        System.out.println(stack.peek());
+        stack.delete();
+        stack.printStack();
     }
 
     private static class CustomStack {
@@ -40,7 +40,8 @@ public class StackFromArray {
 
         public void push(int data) {
             if (!isFull()){
-                arr[topOfStack++ + 1] = data;
+                topOfStack++;
+                arr[topOfStack] = data;
             }
         }
 
