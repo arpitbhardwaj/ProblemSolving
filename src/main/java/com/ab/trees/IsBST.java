@@ -8,7 +8,7 @@ import com.ab.trees.impl.Node;
  */
 public class IsBST {
     public static void main(String[] args) {
-        BinaryTree binaryTree = BinaryTree.getSampleBinarySearchTree();
+        BinaryTree binaryTree = BinaryTree.getBinarySearchTree();
         //BinaryTree binaryTree = BinaryTree.getSampleBinaryTree();
         //BinaryTree binaryTree = BinaryTree.getAnotherSampleBinaryTree();
         System.out.println(binaryTree.root);

@@ -15,7 +15,7 @@ public class LowestCommonAncestor {
         Node node1 = getBTLCA(bt.root,n1,n2);
         System.out.println(String.format("LCA of %s and %s is : %s",n1,n2,node1.data));
 
-        BinaryTree bst = BinaryTree.getSampleBinarySearchTree();
+        BinaryTree bst = BinaryTree.getBinarySearchTree();
         System.out.println(bst.root);
         int n3 = 14;
         int n4 = 18;

@@ -8,8 +8,8 @@ import com.ab.trees.impl.Node;
  */
 public class BinaryTreeLeavesCount {
     public static void main(String[] args) {
-        //BinaryTree binaryTree = BinaryTree.getSampleBinaryTree();
-        BinaryTree binaryTree = BinaryTree.getAnotherSampleBinaryTree();
+        BinaryTree binaryTree = BinaryTree.getLeftSkewedBinaryTree();
+        System.out.println(binaryTree.root);
         int leavesCount = getLeavesCount(binaryTree.root);
         System.out.println("Leaves count in Sample Binary Tree is : " + leavesCount);
     }

@@ -1,6 +1,6 @@
 package com.ab.queue;
 
-import com.ab.queue.impl.CircularQueue;
+import com.ab.queue.impl.CircularQueueFromLL;
 
 /**
  * @author Arpit Bhardwaj
@@ -34,7 +34,7 @@ public class CircularTour {
     }
 
     private static int getTourStartPoint(PetrolPump[] petrolPumpArr) {
-        CircularQueue<PetrolPump> queue = new CircularQueue<>();
+        CircularQueueFromLL.CustomQueue<PetrolPump> queue = new CircularQueueFromLL.CustomQueue<>();
 
         if(petrolPumpArr.length < 0){
             throw new IllegalArgumentException("Empty Tour");
@@ -53,7 +53,7 @@ public class CircularTour {
             queue.enQueue(petrolPumpArr[j]);
             System.out.println("Equeue");
         }
-        queue.printCircularQueue();
+        queue.printQueue();
         if (queue.front.data == petrolPumpArr[0]){
             return -1;
         }

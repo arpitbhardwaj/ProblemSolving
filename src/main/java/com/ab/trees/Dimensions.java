@@ -14,7 +14,7 @@ public class Dimensions {
     static int diameter = Integer.MIN_VALUE;
 
     public static void main(String[] args) {
-        BinaryTree binaryTree = BinaryTree.getSampleBinarySearchTree();
+        BinaryTree binaryTree = BinaryTree.getBinarySearchTree();
         System.out.println(binaryTree.root);
         int height = determineHeight(binaryTree.root);
         int size = determineSize(binaryTree.root);

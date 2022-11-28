@@ -8,9 +8,11 @@ package com.ab.trees.impl;
  *                        and all nodes are as far left as possible.
  *  Full Binary Tree    : sometimes called proper BT or 2-tree is a tree in which every node other than the leaves
  *                        has two children.
+ *  Perfect Binary Tree: in which all non leaf node that are located at the same depth should have 2 childrens.
+ *                        and the leaf nodes should not have any children
+ *  Balanced Binary Tree: all leaf nodes should be located at the same distance from root node.
  *  Binary Search Tree  : is a BT with additional constraints that left child is less than parent and right
  *                        child is greater than parent and this should be recursively true for all nodes
- *
  */
 public class BinaryTree {
     public Node root;
@@ -29,19 +31,26 @@ public class BinaryTree {
         return tree;
     }
 
-    public static BinaryTree getAnotherSampleBinaryTree(){
+    public static BinaryTree getLeftSkewedBinaryTree(){
         BinaryTree tree = new BinaryTree();
         tree.root = new Node(1);
         tree.root.left = new Node(2);
-        //tree.root.right = new Node(3);
         tree.root.left.left = new Node(4);
-        //tree.root.left.right = new Node(5);
         tree.root.left.left.left = new Node(6);
         return tree;
     }
 
+    public static BinaryTree getRightSkewedBinaryTree(){
+        BinaryTree tree = new BinaryTree();
+        tree.root = new Node(1);
+        tree.root.right = new Node(2);
+        tree.root.right.right = new Node(4);
+        tree.root.right.right.right = new Node(6);
+        return tree;
+    }
 
-    public static BinaryTree getSampleBinarySearchTree(){
+
+    public static BinaryTree getBinarySearchTree(){
         BinaryTree binaryTree = new BinaryTree();
         Node head = null;
         head = binaryTree.insertNode(head,10);
