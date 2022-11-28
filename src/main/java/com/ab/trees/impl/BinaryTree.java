@@ -17,6 +17,10 @@ package com.ab.trees.impl;
 public class BinaryTree {
     public Node root;
 
+    public BinaryTree(){
+        this.root = null;
+    }
+
     public static BinaryTree getSampleBinaryTree(){
         BinaryTree tree = new BinaryTree();
         tree.root = new Node(1);
@@ -51,21 +55,21 @@ public class BinaryTree {
 
 
     public static BinaryTree getBinarySearchTree(){
-        BinaryTree binaryTree = new BinaryTree();
+        BinaryTree tree = new BinaryTree();
         Node head = null;
-        head = binaryTree.insertNode(head,10);
-        binaryTree.root = head;
-        head = binaryTree.insertNode(head,15);
-        head = binaryTree.insertNode(head,14);
-        head = binaryTree.insertNode(head,5);
-        head = binaryTree.insertNode(head,7);
-        head = binaryTree.insertNode(head,19);
-        head = binaryTree.insertNode(head,18);
-        head = binaryTree.insertNode(head,20);
-        head = binaryTree.insertNode(head,-1);
-        head = binaryTree.insertNode(head,21);
+        head = tree.insertNode(head,10);
+        tree.root = head;
+        head = tree.insertNode(head,15);
+        head = tree.insertNode(head,14);
+        head = tree.insertNode(head,5);
+        head = tree.insertNode(head,7);
+        head = tree.insertNode(head,19);
+        head = tree.insertNode(head,18);
+        head = tree.insertNode(head,20);
+        head = tree.insertNode(head,-1);
+        head = tree.insertNode(head,21);
 
-        return binaryTree;
+        return tree;
     }
 
     //insertion in Binary search tree

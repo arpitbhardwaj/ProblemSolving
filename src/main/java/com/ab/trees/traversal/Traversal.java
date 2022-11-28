@@ -1,4 +1,4 @@
-package com.ab.trees;
+package com.ab.trees.traversal;
 
 import com.ab.trees.impl.BinaryTree;
 import com.ab.trees.impl.Node;
