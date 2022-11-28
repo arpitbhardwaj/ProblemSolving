@@ -32,10 +32,6 @@ public class StackFromLL {
             return ll.isEmpty();
         }
 
-        public boolean isFull(){
-            return false;
-        }
-
         public void push(T i) {
             ll.addFirst(i);
         }
@@ -54,7 +50,7 @@ public class StackFromLL {
 
         public void printStack(){
             for (T item : ll) {
-                System.out.print(item + " -> ");
+                System.out.print(item + " ");
             }
             System.out.println();
         }

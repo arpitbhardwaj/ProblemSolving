@@ -37,10 +37,6 @@ public class LinearQueueFromLL {
             return ll.isEmpty();
         }
 
-        public void isFull(){
-            //TODO
-        }
-
         public void enQueue(T data) {
             ll.offerLast(data);
         }
