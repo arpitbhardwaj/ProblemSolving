@@ -1,5 +1,8 @@
 package com.ab.trees;
 
+import com.ab.trees.impl.BinaryTree;
+import com.ab.trees.impl.Node;
+
 /**
  * Size of the tree is number of nodes in the tree
  * Height = Maximum Depth = the number of nodes along the longest path from the root node down to the farthest leaf node.

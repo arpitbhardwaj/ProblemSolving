@@ -1,4 +1,4 @@
-package com.ab.trees;
+package com.ab.trees.impl;
 
 /**
  * @author Arpit Bhardwaj
@@ -13,7 +13,7 @@ package com.ab.trees;
  *
  */
 public class BinaryTree {
-    Node root;
+    public Node root;
 
     public static BinaryTree getSampleBinaryTree(){
         BinaryTree tree = new BinaryTree();
