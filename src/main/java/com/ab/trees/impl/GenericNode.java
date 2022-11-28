@@ -1,12 +1,12 @@
-package com.ab.trees;
+package com.ab.trees.impl;
 
 /**
  * @author Arpit Bhardwaj
  */
 public class GenericNode<T> {
-    T data;
-    GenericNode left;
-    GenericNode right;
+    public T data;
+    public GenericNode left;
+    public GenericNode right;
 
     public GenericNode(T data) {
         this.data = data;

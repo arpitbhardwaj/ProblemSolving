@@ -1,5 +1,7 @@
 package com.ab.trees;
 
+import com.ab.trees.impl.GenericNode;
+
 /**
  * @author Arpit Bhardwaj
  *
