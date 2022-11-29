@@ -1,7 +1,7 @@
 package com.ab.trees.traversal;
 
 import com.ab.trees.Dimensions;
-import com.ab.trees.impl.BinaryTree;
+import com.ab.trees.impl.BinaryTreeFromLL;
 import com.ab.trees.impl.Node;
 
 import java.util.*;
@@ -17,7 +17,7 @@ import java.util.*;
  */
 public class LevelOrderTraversal {
     public static void main(String[] args) {
-        BinaryTree tree = BinaryTree.getBinaryTree();
+        BinaryTreeFromLL.BinaryTree tree = BinaryTreeFromLL.getBinaryTree();
         System.out.println(tree.root);
 
         System.out.println("LOT : ");

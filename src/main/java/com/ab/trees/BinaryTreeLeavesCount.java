@@ -1,6 +1,6 @@
 package com.ab.trees;
 
-import com.ab.trees.impl.BinaryTree;
+import com.ab.trees.impl.BinaryTreeFromLL;
 import com.ab.trees.impl.Node;
 
 /**
@@ -8,7 +8,7 @@ import com.ab.trees.impl.Node;
  */
 public class BinaryTreeLeavesCount {
     public static void main(String[] args) {
-        BinaryTree binaryTree = BinaryTree.getLeftSkewedBinaryTree();
+        BinaryTreeFromLL.BinaryTree binaryTree = BinaryTreeFromLL.getLeftSkewedBinaryTree();
         System.out.println(binaryTree.root);
         int leavesCount = getLeavesCount(binaryTree.root);
         System.out.println("Leaves count in Sample Binary Tree is : " + leavesCount);

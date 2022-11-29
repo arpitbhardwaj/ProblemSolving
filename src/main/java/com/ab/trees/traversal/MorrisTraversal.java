@@ -1,6 +1,6 @@
 package com.ab.trees.traversal;
 
-import com.ab.trees.impl.BinaryTree;
+import com.ab.trees.impl.BinaryTreeFromLL;
 import com.ab.trees.impl.Node;
 
 /**
@@ -14,7 +14,7 @@ import com.ab.trees.impl.Node;
  */
 public class MorrisTraversal {
     public static void main(String[] args) {
-        BinaryTree binaryTree = BinaryTree.getBinaryTree();
+        BinaryTreeFromLL.BinaryTree binaryTree = BinaryTreeFromLL.getBinaryTree();
         System.out.print("PreOrder Traversal : ");
         printMorrisInOrderTraversal(binaryTree.root);
     }

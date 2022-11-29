@@ -1,6 +1,6 @@
 package com.ab.trees.traversal;
 
-import com.ab.trees.impl.BinaryTree;
+import com.ab.trees.impl.BinaryTreeFromLL;
 import com.ab.trees.impl.Node;
 
 import java.util.Stack;
@@ -14,7 +14,7 @@ import java.util.Stack;
  */
 public class Traversal {
     public static void main(String[] args) {
-        BinaryTree binaryTree = BinaryTree.getBinaryTree();
+        BinaryTreeFromLL.BinaryTree binaryTree = BinaryTreeFromLL.getBinaryTree();
         System.out.println("Iterative PreOrder Traversal : ");
         printIterativePreOrder(binaryTree.root);
         System.out.println();

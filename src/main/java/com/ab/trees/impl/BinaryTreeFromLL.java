@@ -14,11 +14,14 @@ package com.ab.trees.impl;
  *  Binary Search Tree  : is a BT with additional constraints that left child is less than parent and right
  *                        child is greater than parent and this should be recursively true for all nodes
  */
-public class BinaryTree {
-    public Node root;
+public class BinaryTreeFromLL {
 
-    public BinaryTree(){
-        this.root = null;
+    public static class BinaryTree{
+        public Node root;
+
+        public BinaryTree(){
+            this.root = null;
+        }
     }
 
     public static BinaryTree getBinaryTree(){
@@ -54,9 +57,9 @@ public class BinaryTree {
     }
 
     public static void main(String[] args) {
-        BinaryTree bt = BinaryTree.getBinaryTree();
-        BinaryTree lsbt = BinaryTree.getLeftSkewedBinaryTree();
-        BinaryTree rsbt = BinaryTree.getRightSkewedBinaryTree();
+        BinaryTree bt = getBinaryTree();
+        BinaryTree lsbt = getLeftSkewedBinaryTree();
+        BinaryTree rsbt = getRightSkewedBinaryTree();
         System.out.println(bt.root);
         System.out.println(lsbt.root);
         System.out.println(rsbt.root);

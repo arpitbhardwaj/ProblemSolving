@@ -1,7 +1,7 @@
 package com.ab.trees;
 
 import com.ab.trees.impl.BinarySearchTreeFromLL;
-import com.ab.trees.impl.BinaryTree;
+import com.ab.trees.impl.BinaryTreeFromLL;
 import com.ab.trees.impl.Node;
 
 /**
@@ -9,7 +9,7 @@ import com.ab.trees.impl.Node;
  */
 public class LowestCommonAncestor {
     public static void main(String[] args) {
-        BinaryTree bt = BinaryTree.getBinaryTree();
+        BinaryTreeFromLL.BinaryTree bt = BinaryTreeFromLL.getBinaryTree();
         System.out.println(bt.root);
         int n1 = 4;
         int n2 = 3;

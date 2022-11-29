@@ -1,6 +1,6 @@
 package com.ab.trees.traversal;
 
-import com.ab.trees.impl.BinaryTree;
+import com.ab.trees.impl.BinaryTreeFromLL;
 import com.ab.trees.impl.Node;
 
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ import java.util.TreeMap;
  */
 public class VerticalOrderTraversal {
     public static void main(String[] args) {
-        BinaryTree binaryTree = BinaryTree.getBinaryTree();
+        BinaryTreeFromLL.BinaryTree binaryTree = BinaryTreeFromLL.getBinaryTree();
         System.out.println(binaryTree.root);
         System.out.println("Vertical order Traversal : ");
         printVerticalOrder(binaryTree.root);
