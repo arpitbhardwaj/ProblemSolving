@@ -12,7 +12,7 @@ import com.ab.trees.impl.Node;
  */
 public class SpiralOrderTraversal {
     public static void main(String[] args) {
-        BinaryTree binaryTree = BinaryTree.getSampleBinaryTree();
+        BinaryTree binaryTree = BinaryTree.getBinaryTree();
         System.out.println(binaryTree.root);
         System.out.print("Spiral Level order Traversal : ");
         printSpiralLevelOrder(binaryTree.root);

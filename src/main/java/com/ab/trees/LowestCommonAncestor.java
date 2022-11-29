@@ -8,7 +8,7 @@ import com.ab.trees.impl.Node;
  */
 public class LowestCommonAncestor {
     public static void main(String[] args) {
-        BinaryTree bt = BinaryTree.getSampleBinaryTree();
+        BinaryTree bt = BinaryTree.getBinaryTree();
         System.out.println(bt.root);
         int n1 = 4;
         int n2 = 3;

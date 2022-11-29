@@ -24,11 +24,13 @@ public class SuffixTree {
     public static void main(String[] args) {
 
     }
+
+    private static class End{
+        public End(int end){
+            this.end = end;
+        }
+        int end;
+    }
 }
 
-class End{
-    public End(int end){
-        this.end = end;
-    }
-    int end;
-}
+

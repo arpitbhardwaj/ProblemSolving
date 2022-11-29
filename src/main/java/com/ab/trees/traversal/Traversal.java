@@ -14,7 +14,7 @@ import java.util.Stack;
  */
 public class Traversal {
     public static void main(String[] args) {
-        BinaryTree binaryTree = BinaryTree.getSampleBinaryTree();
+        BinaryTree binaryTree = BinaryTree.getBinaryTree();
         System.out.println("Iterative PreOrder Traversal : ");
         printIterativePreOrder(binaryTree.root);
         System.out.println();
@@ -100,6 +100,7 @@ public class Traversal {
         }
     }
 
+    // TC: O(n) SC: O(n)
     private static void printPreOrder(Node root) {
         if(root != null){
             System.out.print(root.data + "\t");
@@ -108,6 +109,7 @@ public class Traversal {
         }
     }
 
+    // TC: O(n) SC: O(n)
     private static void printInOrder(Node root) {
         if(root != null){
             printInOrder(root.left);
@@ -116,6 +118,7 @@ public class Traversal {
         }
     }
 
+    // TC: O(n) SC: O(n)
     private static void printPostOrder(Node root) {
         if(root != null){
             printPostOrder(root.left);

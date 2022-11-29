@@ -10,7 +10,7 @@ import com.ab.trees.impl.Node;
  */
 public class MirrorTree {
     public static void main(String[] args) {
-        BinaryTree binaryTree = BinaryTree.getSampleBinaryTree();
+        BinaryTree binaryTree = BinaryTree.getBinaryTree();
         System.out.println(binaryTree.root);
         Node mirrorImageBTRoot = getMirrorImageBinaryTree(binaryTree.root);
         System.out.println(mirrorImageBTRoot);

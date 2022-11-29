@@ -17,21 +17,38 @@ import java.util.*;
  */
 public class LevelOrderTraversal {
     public static void main(String[] args) {
-        BinaryTree binaryTree = BinaryTree.getSampleBinaryTree();
-        System.out.println(binaryTree.root);
+        BinaryTree tree = BinaryTree.getBinaryTree();
+        System.out.println(tree.root);
 
         System.out.println("LOT : ");
-        printIterativeLevelOrder(binaryTree.root);
+        printIterativeLevelOrder(tree.root);
         System.out.println();
-        printRecursiveLevelOrder(binaryTree.root);
+        printRecursiveLevelOrder(tree.root);
         System.out.println();
 
         System.out.println("LBL LOT : ");
-        printIterativeLBLLevelOrder(binaryTree.root);
-        System.out.println();
+        printIterativeLBLLevelOrder(tree.root);
 
         System.out.println("Reverse LOT: ");
-        printIterativeReverseLevelOrder(binaryTree.root);
+        printIterativeReverseLevelOrder(tree.root);
+    }
+
+    private static void printIterativeLevelOrder(Node root) {
+        if(root == null){
+            return;
+        }
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()){
+            Node node = queue.poll();
+            System.out.print(node.data + "\t");
+            if(node.left != null){
+                queue.add(node.left);
+            }
+            if(node.right != null){
+                queue.add(node.right);
+            }
+        }
     }
 
     private static void printRecursiveLevelOrder(Node root) {
@@ -51,24 +68,6 @@ public class LevelOrderTraversal {
         }else {
             printRecursiveLevelOrderUtil(root.left, level - 1);
             printRecursiveLevelOrderUtil(root.right, level - 1);
-        }
-    }
-
-    private static void printIterativeLevelOrder(Node root) {
-        if(root == null){
-            return;
-        }
-        Queue<Node> queue = new LinkedList<>();
-        queue.add(root);
-        while (!queue.isEmpty()){
-            Node node = queue.poll();
-            System.out.print(node.data + "\t");
-            if(node.left != null){
-                queue.add(node.left);
-            }
-            if(node.right != null){
-                queue.add(node.right);
-            }
         }
     }
 

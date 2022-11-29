@@ -14,10 +14,10 @@ public class Dimensions {
     static int diameter = Integer.MIN_VALUE;
 
     public static void main(String[] args) {
-        BinaryTree binaryTree = BinaryTree.getBinarySearchTree();
-        System.out.println(binaryTree.root);
-        int height = determineHeight(binaryTree.root);
-        int size = determineSize(binaryTree.root);
+        BinaryTree tree = BinaryTree.getBinarySearchTree();
+        System.out.println(tree.root);
+        int height = determineHeight(tree.root);
+        int size = determineSize(tree.root);
         System.out.println("Size is : " + size);
         System.out.println("Height is : " + height);
         System.out.println("Diameter is : " + diameter);

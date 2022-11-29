@@ -15,7 +15,7 @@ import java.util.TreeMap;
  */
 public class Views {
     public static void main(String[] args) {
-        BinaryTree binaryTree = BinaryTree.getSampleBinaryTree();
+        BinaryTree binaryTree = BinaryTree.getBinaryTree();
         System.out.println(binaryTree.root);
 
         List<Integer> leftViewNodes = leftView(binaryTree.root);

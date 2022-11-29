@@ -21,7 +21,7 @@ public class BinaryTree {
         this.root = null;
     }
 
-    public static BinaryTree getSampleBinaryTree(){
+    public static BinaryTree getBinaryTree(){
         BinaryTree tree = new BinaryTree();
         tree.root = new Node(1);
         tree.root.left = new Node(2);
@@ -56,37 +56,34 @@ public class BinaryTree {
 
     public static BinaryTree getBinarySearchTree(){
         BinaryTree tree = new BinaryTree();
-        Node head = null;
-        head = tree.insertNode(head,10);
-        tree.root = head;
-        head = tree.insertNode(head,15);
-        head = tree.insertNode(head,14);
-        head = tree.insertNode(head,5);
-        head = tree.insertNode(head,7);
-        head = tree.insertNode(head,19);
-        head = tree.insertNode(head,18);
-        head = tree.insertNode(head,20);
-        head = tree.insertNode(head,-1);
-        head = tree.insertNode(head,21);
-
+        tree.insertNode(10);
+        tree.insertNode(15);
+        tree.insertNode(14);
+        tree.insertNode(5);
+        tree.insertNode(7);
+        tree.insertNode(19);
+        tree.insertNode(18);
+        tree.insertNode(20);
+        tree.insertNode(-1);
+        tree.insertNode(21);
         return tree;
     }
 
     //insertion in Binary search tree
-    public Node insertNode(Node root, int data) {
-        Node tempRoot = root;
+    public void insertNode(int data) {
         Node node = new Node(data);
         if(root == null){
             root = node;
-            return root;
+            return;
         }
         Node previous = null;
-        while(root != null){
-            previous = root;
-            if(root.data < data){
-                root = root.right;
+        Node temp = root;
+        while(temp != null){
+            previous = temp;
+            if(temp.data < data){
+                temp = temp.right;
             }else{
-                root = root.left;
+                temp = temp.left;
             }
         }
         if(previous.data < data){
@@ -94,7 +91,17 @@ public class BinaryTree {
         }else{
             previous.left = node;
         }
-        return tempRoot;
+    }
+
+    public static void main(String[] args) {
+        BinaryTree bt = BinaryTree.getBinaryTree();
+        BinaryTree lsbt = BinaryTree.getLeftSkewedBinaryTree();
+        BinaryTree rsbt = BinaryTree.getRightSkewedBinaryTree();
+        BinaryTree bst = BinaryTree.getBinarySearchTree();
+        System.out.println(bt.root);
+        System.out.println(lsbt.root);
+        System.out.println(rsbt.root);
+        System.out.println(bst.root);
     }
 
 }

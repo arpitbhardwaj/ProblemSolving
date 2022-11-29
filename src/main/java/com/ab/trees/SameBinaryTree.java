@@ -8,8 +8,8 @@ import com.ab.trees.impl.Node;
  */
 public class SameBinaryTree {
     public static void main(String[] args) {
-        BinaryTree bt1 = BinaryTree.getSampleBinaryTree();
-        BinaryTree bt2 = BinaryTree.getSampleBinaryTree();
+        BinaryTree bt1 = BinaryTree.getBinaryTree();
+        BinaryTree bt2 = BinaryTree.getBinaryTree();
         System.out.println(bt1.root);
         System.out.println(bt2.root);
         //BinaryTree bt2 = BinaryTree.getAnotherSampleBinaryTree();

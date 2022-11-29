@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class RootToLeafSum {
     public static void main(String[] args) {
-        BinaryTree binaryTree = BinaryTree.getSampleBinaryTree();
+        BinaryTree binaryTree = BinaryTree.getBinaryTree();
         System.out.println(binaryTree.root);
         int sum = 8;
         List<Node> rootToLeafNodeList = new ArrayList<>();
