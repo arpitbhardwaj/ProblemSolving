@@ -1,5 +1,8 @@
 package com.ab.trees.impl;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * @author Arpit Bhardwaj
  *
@@ -16,11 +19,132 @@ package com.ab.trees.impl;
  */
 public class BinaryTreeFromLL {
 
-    public static class BinaryTree{
+    public static class BinaryTree {
         public Node root;
-
         public BinaryTree(){
             this.root = null;
+        }
+
+        Node searchNode(int data){
+            if(root == null){
+                return null;
+            }
+            Queue<Node> queue = new LinkedList<>();
+            queue.add(root);
+            while (!queue.isEmpty()){
+                Node node = queue.poll();
+                if (node.data == data){
+                    return node;
+                }
+                if(node.left != null){
+                    queue.add(node.left);
+                }
+                if(node.right != null){
+                    queue.add(node.right);
+                }
+            }
+            return null;
+        }
+
+        /**
+         * Step1: A root node is null
+         * Step2: The tree exists and we have to look for a first vacant place
+         *
+         */
+        void insertNode(int data){
+            if(root == null){
+                return;
+            }
+            Node newNode = new Node(data);
+            Queue<Node> queue = new LinkedList<>();
+            queue.add(root);
+            while (!queue.isEmpty()){
+                Node node = queue.poll();
+                if (node.left == null){
+                    node.left = newNode;
+                    return;
+                } else if (node.right == null) {
+                    node.right = newNode;
+                    return;
+                } else {
+                    queue.add(node.left);
+                    queue.add(node.right);
+                }
+            }
+        }
+
+        /**
+         * Step 1 - Find the Node
+         * Step 2 - Find Deepest Node
+         * Step 3 - Set Deepest Node’s value to Current Node
+         * Step 4 - Delete Deepest Node
+         */
+        void deleteNode(int data){
+            if(root == null){
+                return;
+            }
+            Queue<Node> queue = new LinkedList<>();
+            queue.add(root);
+            while (!queue.isEmpty()){
+                Node node = queue.poll();
+                if (node.data == data){
+                    node.data = getDeepestNode().data;
+                    deleteDeepestNode();
+                    return;
+                }
+                if(node.left != null){
+                    queue.add(node.left);
+                }
+                if(node.right != null){
+                    queue.add(node.right);
+                }
+            }
+        }
+
+        private Node getDeepestNode(){
+            if(root == null){
+                return null;
+            }
+            Queue<Node> queue = new LinkedList<>();
+            queue.add(root);
+            Node node = null;
+            while (!queue.isEmpty()){
+                node = queue.poll();
+                if(node.left != null){
+                    queue.add(node.left);
+                }
+                if(node.right != null){
+                    queue.add(node.right);
+                }
+            }
+            return node;
+        }
+
+        private void deleteDeepestNode(){
+            if(root == null){
+                return;
+            }
+            Queue<Node> queue = new LinkedList<>();
+            queue.add(root);
+            Node node, previousNode = null;
+            while (!queue.isEmpty()){
+                node = queue.poll();
+                previousNode = node;
+                if (node.left == null){
+                    previousNode.right = null;
+                    return;
+                } else if (node.right == null) {
+                    node.left = null;
+                    return;
+                } else {
+                    queue.add(node.left);
+                    queue.add(node.right);
+                }
+            }
+        }
+
+        void delete(){
+            root = null;
         }
     }
 
@@ -58,11 +182,21 @@ public class BinaryTreeFromLL {
 
     public static void main(String[] args) {
         BinaryTree bt = getBinaryTree();
-        BinaryTree lsbt = getLeftSkewedBinaryTree();
-        BinaryTree rsbt = getRightSkewedBinaryTree();
         System.out.println(bt.root);
-        System.out.println(lsbt.root);
-        System.out.println(rsbt.root);
+
+        Node node = bt.searchNode(5);
+        System.out.println(node.data);
+        bt.insertNode(10);
+        System.out.println(bt.root);
+        bt.deleteNode(3);
+        System.out.println(bt.root);
+        bt.delete();
+
+        BinaryTree lsbt = getLeftSkewedBinaryTree();
+        //System.out.println(lsbt.root);
+
+        BinaryTree rsbt = getRightSkewedBinaryTree();
+        //System.out.println(rsbt.root);
     }
 
 }

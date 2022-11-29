@@ -52,5 +52,12 @@ public class BinarySearchTreeFromLL {
             }
         }
 
+        void deleteNode(int data){
+            //TODO
+        }
+        void delete(){
+            //TODO
+        }
+
     }
 }
