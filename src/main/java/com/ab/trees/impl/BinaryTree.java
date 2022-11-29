@@ -53,55 +53,13 @@ public class BinaryTree {
         return tree;
     }
 
-
-    public static BinaryTree getBinarySearchTree(){
-        BinaryTree tree = new BinaryTree();
-        tree.insertNode(10);
-        tree.insertNode(15);
-        tree.insertNode(14);
-        tree.insertNode(5);
-        tree.insertNode(7);
-        tree.insertNode(19);
-        tree.insertNode(18);
-        tree.insertNode(20);
-        tree.insertNode(-1);
-        tree.insertNode(21);
-        return tree;
-    }
-
-    //insertion in Binary search tree
-    public void insertNode(int data) {
-        Node node = new Node(data);
-        if(root == null){
-            root = node;
-            return;
-        }
-        Node previous = null;
-        Node temp = root;
-        while(temp != null){
-            previous = temp;
-            if(temp.data < data){
-                temp = temp.right;
-            }else{
-                temp = temp.left;
-            }
-        }
-        if(previous.data < data){
-            previous.right = node;
-        }else{
-            previous.left = node;
-        }
-    }
-
     public static void main(String[] args) {
         BinaryTree bt = BinaryTree.getBinaryTree();
         BinaryTree lsbt = BinaryTree.getLeftSkewedBinaryTree();
         BinaryTree rsbt = BinaryTree.getRightSkewedBinaryTree();
-        BinaryTree bst = BinaryTree.getBinarySearchTree();
         System.out.println(bt.root);
         System.out.println(lsbt.root);
         System.out.println(rsbt.root);
-        System.out.println(bst.root);
     }
 
 }

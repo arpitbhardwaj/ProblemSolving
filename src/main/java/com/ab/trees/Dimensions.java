@@ -1,5 +1,6 @@
 package com.ab.trees;
 
+import com.ab.trees.impl.BinarySearchTreeFromLL;
 import com.ab.trees.impl.BinaryTree;
 import com.ab.trees.impl.Node;
 
@@ -14,7 +15,7 @@ public class Dimensions {
     static int diameter = Integer.MIN_VALUE;
 
     public static void main(String[] args) {
-        BinaryTree tree = BinaryTree.getBinarySearchTree();
+        BinarySearchTreeFromLL.BinarySearchTree tree = BinarySearchTreeFromLL.getBinarySearchTree();
         System.out.println(tree.root);
         int height = determineHeight(tree.root);
         int size = determineSize(tree.root);

@@ -1,5 +1,6 @@
 package com.ab.trees;
 
+import com.ab.trees.impl.BinarySearchTreeFromLL;
 import com.ab.trees.impl.BinaryTree;
 import com.ab.trees.impl.Node;
 
@@ -15,7 +16,7 @@ public class LowestCommonAncestor {
         Node node1 = getBTLCA(bt.root,n1,n2);
         System.out.println(String.format("LCA of %s and %s is : %s",n1,n2,node1.data));
 
-        BinaryTree bst = BinaryTree.getBinarySearchTree();
+        BinarySearchTreeFromLL.BinarySearchTree bst = BinarySearchTreeFromLL.getBinarySearchTree();
         System.out.println(bst.root);
         int n3 = 14;
         int n4 = 18;

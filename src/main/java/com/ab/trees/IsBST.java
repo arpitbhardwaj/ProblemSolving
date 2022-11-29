@@ -1,5 +1,6 @@
 package com.ab.trees;
 
+import com.ab.trees.impl.BinarySearchTreeFromLL;
 import com.ab.trees.impl.BinaryTree;
 import com.ab.trees.impl.Node;
 
@@ -8,11 +9,11 @@ import com.ab.trees.impl.Node;
  */
 public class IsBST {
     public static void main(String[] args) {
-        BinaryTree binaryTree = BinaryTree.getBinarySearchTree();
+        BinarySearchTreeFromLL.BinarySearchTree tree = BinarySearchTreeFromLL.getBinarySearchTree();
         //BinaryTree binaryTree = BinaryTree.getSampleBinaryTree();
         //BinaryTree binaryTree = BinaryTree.getAnotherSampleBinaryTree();
-        System.out.println(binaryTree.root);
-        boolean isBST = isBST(binaryTree.root);
+        System.out.println(tree.root);
+        boolean isBST = isBST(tree.root);
         System.out.println("is given tree a BST : " + isBST);
     }
 
