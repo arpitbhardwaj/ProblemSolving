@@ -17,4 +17,7 @@ package com.ab.advancedds;
  * Time to create BI Tree first time is O(nlogn)
  */
 public class BinaryIndexedTree {
+    public static void main(String[] args) {
+
+    }
 }

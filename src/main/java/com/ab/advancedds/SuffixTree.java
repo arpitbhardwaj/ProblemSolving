@@ -21,9 +21,7 @@ public class SuffixTree {
     End end;
     int index;
 
-    public static void main(String[] args) {
-
-    }
+    public static void main(String[] args) {}
 
     private static class End{
         public End(int end){

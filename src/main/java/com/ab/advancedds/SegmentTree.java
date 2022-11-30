@@ -21,4 +21,7 @@ package com.ab.advancedds;
  * Worst Case Time Complexity for range queries: O(4logn)
  */
 public class SegmentTree {
+    public static void main(String[] args) {
+
+    }
 }

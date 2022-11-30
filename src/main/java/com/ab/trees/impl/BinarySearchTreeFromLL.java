@@ -17,8 +17,10 @@ public class BinarySearchTreeFromLL {
         tree.insertNode(19);
         tree.insertNode(18);
         tree.insertNode(20);
-        tree.insertNode(-1);
         tree.insertNode(21);
+        tree.insertNodeRecursive(6);
+        System.out.println(tree.searchNode(19).data);
+        tree.delete();
         return tree;
     }
 
@@ -29,7 +31,7 @@ public class BinarySearchTreeFromLL {
             this.root = null;
         }
 
-        public void insertNode(int data) {
+        void insertNode(int data) {
             Node node = new Node(data);
             if(root == null){
                 root = node;
@@ -52,11 +54,44 @@ public class BinarySearchTreeFromLL {
             }
         }
 
+        void insertNodeRecursive(int data) {
+            insertNodeRecursiveUtil(root, data);
+        }
+
+        Node insertNodeRecursiveUtil(Node currentNode, int data) {
+            if(currentNode == null){
+                Node node = new Node(data);
+                currentNode = node;
+            } else if(currentNode.data < data){
+                currentNode.right = insertNodeRecursiveUtil(currentNode.right, data);
+            } else{
+                currentNode.left = insertNodeRecursiveUtil(currentNode.left, data);
+            }
+            return currentNode;
+        }
+
+        Node searchNode(int data){
+            return searchNodeUtil(root, data);
+        }
+
+        Node searchNodeUtil(Node currentNode, int data){
+            if(currentNode == null){
+                return null;
+            } else if(currentNode.data == data){
+                return currentNode;
+            } else if(currentNode.data < data){
+                return searchNodeUtil(currentNode.right, data);
+            } else{
+                return searchNodeUtil(currentNode.left, data);
+            }
+        }
+
         void deleteNode(int data){
             //TODO
         }
+
         void delete(){
-            //TODO
+            root = null;
         }
 
     }
