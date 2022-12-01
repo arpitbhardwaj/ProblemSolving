@@ -7,11 +7,13 @@ public class Node {
     public int data;
     public Node left;
     public Node right;
+    int height;
 
     public Node(int data) {
         this.data = data;
         this.left = null;
         this.right = null;
+        this.height = 0;
     }
 
     public StringBuilder toString(StringBuilder prefix, boolean isTail, StringBuilder sb) {
