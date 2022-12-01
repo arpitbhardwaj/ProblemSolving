@@ -1,4 +1,4 @@
-package com.ab.heap;
+package com.ab.heap.impl;
 
 /**
  * @author Arpit Bhardwaj

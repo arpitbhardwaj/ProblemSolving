@@ -1,4 +1,4 @@
-package com.ab.heap;
+package com.ab.heap.impl;
 
 /**
  * Binary Max Heap: The key at root must be maximum among all keys present in Binary Heap.

@@ -16,6 +16,9 @@ public class AVLTreeFromLL {
         System.out.println(avl.root);
 
         System.out.println(avl.searchNode(15).data);
+        avl.deleteNode(5);
+        avl.deleteNode(30);
+        avl.deleteNode(20);
         System.out.println(avl.root);
 
         avl.delete();
@@ -147,7 +150,69 @@ public class AVLTreeFromLL {
          *  Rotation is required
          */
         void deleteNode(int data){
-            //TODO
+            deleteNodeUtil(root, data);
+        }
+
+        Node deleteNodeUtil(Node currentNode, int data){
+            if(currentNode == null){
+                return null;
+            } else if (currentNode.data < data){
+                currentNode.right = deleteNodeUtil(currentNode.right, data);
+            } else if (currentNode.data > data){
+                currentNode.left = deleteNodeUtil(currentNode.left, data);
+            } else{
+                //case 1
+                if (currentNode.left != null && currentNode.right != null){
+                    Node minNodeRight = getMinimumNode(currentNode.right);
+                    currentNode.data = minNodeRight.data;
+                    currentNode.right = deleteNodeUtil(currentNode.right, minNodeRight.data);
+                }
+                //case 2
+                else if (currentNode.left != null) {
+                    currentNode = currentNode.left;
+                }
+                //case 2
+                else if (currentNode.right != null) {
+                    currentNode = currentNode.right;
+                }
+                //case 3
+                else {
+                    currentNode = null;
+                }
+            }
+
+            int balance = getBalance(currentNode);
+
+            //LL
+            if (balance > 1 && getBalance(currentNode.left) >= 0){
+                return rotateRight(currentNode);
+            }
+
+            //LR
+            if (balance > 1 && getBalance(currentNode.left) < 0){
+                currentNode.left = rotateLeft(currentNode.left);
+                return rotateRight(currentNode);
+            }
+
+            //RR
+            if (balance < -1 && getBalance(currentNode.right) <= 0){
+                return rotateLeft(currentNode);
+            }
+
+            //RL
+            if (balance < -1 && getBalance(currentNode.right) > 0){
+                currentNode.right = rotateRight(currentNode.right);
+                return rotateLeft(currentNode);
+            }
+
+            return currentNode;
+        }
+
+        Node getMinimumNode(Node currentNode){
+            if (currentNode.left == null){
+                return currentNode;
+            }
+            return getMinimumNode(currentNode.left);
         }
 
         void delete(){
