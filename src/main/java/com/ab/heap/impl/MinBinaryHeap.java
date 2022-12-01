@@ -8,14 +8,15 @@ import java.util.Map;
  *                  The same property must be recursively true for all nodes in Binary Tree.
  *
  * Data structure to support following operations
- * extracMin - O(logn) (Extract and returns the min node value of the heap)
- * min() - Get the heap min value without extracting
- * addToHeap - O(logn) Add key and its weight to the heap
- * containsData - O(1) Checks where the key exists in heap or not
- * decreaseWeight - O(logn) Decreases the weight of given key to newWeight
- * getWeight - O(1) Get the weight of given key
+ *      extracHead - O(logn) (Extract and returns the min node value of the heap)
+ *      peek() - Get the heap min value without extracting
+ *      addToHeap - O(logn) Add key and its weight to the heap
+ *      containsData - O(1) Checks where the key exists in heap or not
+ *      decreaseWeight - O(logn) Decreases the weight of given key to newWeight
+ *      getWeight - O(1) Get the weight of given key
  *
  * It is a combination of binary heap and hash map
+ *
  * @author Arpit Bhardwaj
  */
 public class MinBinaryHeap<T> extends BinaryHeap<T> {
@@ -23,28 +24,24 @@ public class MinBinaryHeap<T> extends BinaryHeap<T> {
     private Map<T,Integer> nodePosition = new HashMap<>();
 
     public static void main(String[] args) {
-        /*BinaryHeap<String> binaryHeap = new MinBinaryHeap<>();
-        binaryHeap = getSampleIntegerBinaryHeap(binaryHeap);
-        printStringHeap(binaryHeap);*/
-
         BinaryHeap<Character> binaryHeap = new MinBinaryHeap<>();
         binaryHeap = getSampleCharacterBinaryHeap(binaryHeap);
         printCharacterHeap(binaryHeap);
 
         MinBinaryHeap<Character> minBinaryHeap = (MinBinaryHeap<Character>) binaryHeap;
 
-        System.out.println("Get Min : " + minBinaryHeap.min());
+        System.out.println("Get Min : " + minBinaryHeap.peek());
         printCharacterHeap(minBinaryHeap);
         System.out.println(minBinaryHeap.nodePosition);
 
-        Node minNode = minBinaryHeap.extractMinNode();
+        Node minNode = minBinaryHeap.extractHead();
 
         System.out.println("Extract Min Node : " + minNode.getData() + " " + minNode.getWeight());
         System.out.println(minBinaryHeap.nodePosition);
         printCharacterHeap(minBinaryHeap);
     }
 
-    public void add(Node<T> node) {
+    public void insertNode(Node<T> node) {
         nodeList.add(node);
         int size = nodeList.size();
         int currentIndex = size - 1;
@@ -73,16 +70,7 @@ public class MinBinaryHeap<T> extends BinaryHeap<T> {
         nodePosition.put(data2,currentIndex);
     }
 
-    public T min(){
-        return nodeList.get(0).data;
-    }
-
-    public T extractMin(){
-        Node<T> minNode = extractMinNode();
-        return minNode.data;
-    }
-
-    public Node<T> extractMinNode(){
+    Node<T> extractHead(){
         if(nodeList.isEmpty()){
             throw new IllegalStateException("Heap Underflow");
         }
@@ -106,7 +94,7 @@ public class MinBinaryHeap<T> extends BinaryHeap<T> {
         return minNode;
     }
 
-    public void minHeapify(int currentIndex) {
+    void minHeapify(int currentIndex) {
         int size = nodeList.size() - 1;
         while (true){
             int leftIndex = 2*currentIndex + 1;

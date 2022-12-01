@@ -16,13 +16,13 @@ public class BinaryTreeFromArray {
         System.out.println();
         bt.postOrder(1);
         System.out.println();
-        bt.levelOrder(1);
+        bt.levelOrder();
         System.out.println();
 
         System.out.println(bt.searchNode(7));
         bt.deleteNode(1);
 
-        bt.levelOrder(1);
+        bt.levelOrder();
         System.out.println();
 
         bt.delete();
@@ -74,7 +74,7 @@ public class BinaryTreeFromArray {
             System.out.print(arr[index] + "\t");
         }
 
-        void levelOrder(int index){
+        void levelOrder(){
             for (int i = 1; i <= lastUsedIndex; i++) {
                 System.out.print(arr[i] + "\t");
             }

@@ -8,17 +8,7 @@ package com.ab.heap.impl;
  */
 public class MaxBinaryHeap<T> extends BinaryHeap<T> {
 
-    //private List<Node<T>> nodeList = new ArrayList<>();
-
-
     public static void main(String[] args) {
-        //MaxBinaryHeap<String> maxBinaryHeap = getSampleIntegerMaxBH();
-        //MaxBinaryHeap<Character> maxBinaryHeap = getSampleCharacterMaxBH();
-
-        /*BinaryHeap<String> binaryHeap = new MaxBinaryHeap<>();
-        binaryHeap = getSampleIntegerBinaryHeap(binaryHeap);
-        printStringHeap(binaryHeap);*/
-
         BinaryHeap<Character> binaryHeap = new MaxBinaryHeap<>();
         binaryHeap = getSampleCharacterBinaryHeap(binaryHeap);
 
@@ -26,39 +16,17 @@ public class MaxBinaryHeap<T> extends BinaryHeap<T> {
 
         MaxBinaryHeap<Character> maxBinaryHeap = (MaxBinaryHeap<Character>) binaryHeap;
 
-        System.out.println("Get Max : " + maxBinaryHeap.max());
+        System.out.println("Get Max : " + maxBinaryHeap.peek());
         printCharacterHeap(maxBinaryHeap);
 
-        Node maxNode = maxBinaryHeap.extractMaxNode();
+        Node maxNode = maxBinaryHeap.extractHead();
 
         System.out.println("Extract Max Node : " + maxNode.getData() + " " + maxNode.getWeight());
         printCharacterHeap(maxBinaryHeap);
     }
 
-/*    private static MaxBinaryHeap<String> getSampleIntegerMaxBH() {
-        MaxBinaryHeap<String> maxBinaryHeap = new MaxBinaryHeap<>();
-        maxBinaryHeap.add(new Node<>("ram",2));
-        maxBinaryHeap.add(new Node<>("shyam",6));
-        maxBinaryHeap.add(new Node<>("rita",9));
-        maxBinaryHeap.add(new Node<>("gita",3));
-        maxBinaryHeap.add(new Node<>("sita",10));
-        maxBinaryHeap.add(new Node<>("boom",19));
-        return maxBinaryHeap;
-    }*/
-
-    /*private static MaxBinaryHeap<Character> getSampleCharacterMaxBH() {
-        MaxBinaryHeap<Character> maxBinaryHeap = new MaxBinaryHeap<>();
-        maxBinaryHeap.add(new Node<>('A',2));
-        maxBinaryHeap.add(new Node<>('B',6));
-        maxBinaryHeap.add(new Node<>('C',9));
-        maxBinaryHeap.add(new Node<>('D',3));
-        maxBinaryHeap.add(new Node<>('E',10));
-        maxBinaryHeap.add(new Node<>('F',19));
-        return maxBinaryHeap;
-    }*/
-
     @Override
-    public void add(Node<T> node) {
+    public void insertNode(Node<T> node) {
         nodeList.add(node);
         int size = nodeList.size();
         int currentIndex = size - 1;
@@ -76,17 +44,7 @@ public class MaxBinaryHeap<T> extends BinaryHeap<T> {
         }
     }
 
-    //get the max element without removing
-    public T max(){
-        return nodeList.get(0).data;
-    }
-
-    public T extractMax(){
-        Node<T> maxNode = extractMaxNode();
-        return maxNode.data;
-    }
-
-    public Node<T> extractMaxNode(){
+    Node<T> extractHead(){
         if(nodeList.isEmpty()){
             throw new IllegalStateException("Heap Underflow");
         }
@@ -105,9 +63,10 @@ public class MaxBinaryHeap<T> extends BinaryHeap<T> {
         maxHeapifyRecursive(0);
         return maxNode;
     }
+
     // A recursive function to max heapify the given subtree. This function assumes that the left and
     // right subtrees are already heapified, we only need to fix the root.
-    public void maxHeapifyRecursive(int currentIndex){
+    void maxHeapifyRecursive(int currentIndex){
         int size = nodeList.size() - 1;
         int leftIndex = 2*currentIndex + 1;
         int rightIndex = 2*currentIndex + 2;
@@ -130,7 +89,7 @@ public class MaxBinaryHeap<T> extends BinaryHeap<T> {
 
     // A iterative function to max heapify the given subtree. This function assumes that the left and
     // right subtrees are already heapified, we only need to fix the root.
-    public void maxHeapify(int currentIndex){
+    void maxHeapify(int currentIndex){
         int size = nodeList.size() - 1;
         while (true){
             int leftIndex = 2*currentIndex + 1;
@@ -151,15 +110,4 @@ public class MaxBinaryHeap<T> extends BinaryHeap<T> {
             }
         }
     }
-    /*private int calculateParentIndex(int index){
-        return (index - 1)/2;
-    }*/
-
-    /*private static void printHeap(MaxBinaryHeap<String> maxBinaryHeap) {
-        for (Node<String> node:
-                maxBinaryHeap.nodeList) {
-            System.out.println(node.getWeight() + " : " + node.getData());
-        }
-    }*/
-
 }
