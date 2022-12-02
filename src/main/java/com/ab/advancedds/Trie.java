@@ -1,8 +1,5 @@
 package com.ab.advancedds;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * @author Arpit Bhardwaj
  *
@@ -10,9 +7,11 @@ import java.util.Map;
  * space-optimized presentation of trie is calles redix tree or patricia tree.
  *
  * A trie is a tree-like data structure whose nodes store the letters of an alphabet.
- * By structuring the nodes in a particular way, words and strings can be retrieved from the structure by traversing down a branch path of the tree.
+ * By structuring the nodes in a particular way,
+ * words and strings can be retrieved from the structure by traversing down a branch path of the tree.
  *
  * Use Case:
+ *      Spelling Checker
  *      To design autocomplete feature in search bars
  */
 public class Trie {
@@ -23,11 +22,11 @@ public class Trie {
         this.root = new TrieNode();
     }
 
-    public void insertRecursive(String word) {
-        insertRecursiveUtil(root,word,0);
+    public void insert(String word) {
+        insertUtil(root,word,0);
     }
 
-    private void insertRecursiveUtil(TrieNode current, String word, int index) {
+    private void insertUtil(TrieNode current, String word, int index) {
         if (index == word.length()){
             current.endOfWord = true;
             return;
@@ -38,14 +37,14 @@ public class Trie {
             node = new TrieNode();
             current.children.put(c,node);
         }
-        insertRecursiveUtil(node,word,index+1);
+        insertUtil(node,word,index+1);
     }
 
-    public boolean searchRecursive(String word) {
-        return searchRecursiveUtil(root,word,0);
+    public boolean search(String word) {
+        return searchUtil(root,word,0);
     }
 
-    private boolean searchRecursiveUtil(TrieNode current, String word, int index) {
+    private boolean searchUtil(TrieNode current, String word, int index) {
         if(index == word.length()){
             return current.endOfWord;
         }
@@ -54,21 +53,29 @@ public class Trie {
         if (node == null){
             return false;
         }
-        return searchRecursiveUtil(node,word,index+1);
+        return searchUtil(node,word,index+1);
     }
 
-    public void deleteRecursive(String word) {
-        deleteRecursiveUtil(root,word,0);
+    public void delete(String word) {
+        deleteUtil(root,word,0);
     }
 
-    private void deleteRecursiveUtil(TrieNode current, String word, int index) {
-
+    private void deleteUtil(TrieNode current, String word, int index) {
+        //TODO
     }
 
     public static void main(String[] args) {
         Trie trie = new Trie();
-        trie.insertRecursive("banana");
-        trie.insertRecursive("apple");
-        trie.insertRecursive("appium");
+        trie.insert("banana");
+        trie.insert("apple");
+        trie.insert("appium");
+        trie.insert("mango");
+        trie.insert("egg");
+
+        System.out.println(trie.search("apple"));
+        System.out.println(trie.search("mango"));
+        System.out.println(trie.search("beetroot"));
+
+        trie.delete("apple");
     }
 }

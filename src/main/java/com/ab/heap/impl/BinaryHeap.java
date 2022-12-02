@@ -68,13 +68,40 @@ public abstract class BinaryHeap<T> {
         return binaryHeap;
     }
 
-    abstract void insertNode(Node<T> node);
+    void insertNode(Node<T> node) {
+        nodeList.add(node);
+        int size = nodeList.size();
+        int currentIndex = size - 1;
+        heapifyBottomToTop(currentIndex);
+    }
 
     T peek(){
         return nodeList.get(0).data;
     }
 
-    abstract Node<T> extractHead();
+    Node<T> extractHead(){
+        if(nodeList.isEmpty()){
+            throw new IllegalStateException("Heap Underflow");
+        }
+
+        int size = nodeList.size() - 1;
+
+        T minData = nodeList.get(0).getData();
+        int minWeight = nodeList.get(0).getWeight();
+        Node<T> minNode = new Node<>(minData,minWeight);
+
+        nodeList.get(0).data = nodeList.get(size).getData();
+        nodeList.get(0).weight = nodeList.get(size).getWeight();
+
+        nodeList.remove(size);
+
+        heapifyTopToBottom(0);
+        return minNode;
+    }
+
+    abstract void heapifyTopToBottom(int index);
+
+    abstract void heapifyBottomToTop(int index);
 
     boolean empty(){
         return nodeList.size() == 0;
