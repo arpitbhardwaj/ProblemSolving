@@ -37,8 +37,12 @@ public class MinBinaryHeapWithAddedFunc<T> extends BinaryHeap<T> {
         printCharacterHeap(minBinaryHeap);
     }
 
+    public boolean empty(){
+        return nodeList.size() == 0;
+    }
+
     @Override
-    void insertNode(Node<T> node) {
+    public void insertNode(Node<T> node) {
         nodeList.add(node);
         int size = nodeList.size();
         int currentIndex = size - 1;
@@ -72,7 +76,7 @@ public class MinBinaryHeapWithAddedFunc<T> extends BinaryHeap<T> {
     }
 
     @Override
-    Node<T> extractHead(){
+    public Node<T> extractHead(){
         if(nodeList.isEmpty()){
             throw new IllegalStateException("Heap Underflow");
         }

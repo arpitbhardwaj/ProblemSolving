@@ -1,18 +1,20 @@
-package com.ab.graphs;
+package com.ab.graphs.mst;
 
 import com.ab.graphs.impl.Edge;
 import com.ab.graphs.impl.Graph;
 import com.ab.graphs.impl.Vertex;
+import com.ab.heap.impl.MinBinaryHeapWithAddedFunc;
+import com.ab.heap.impl.Node;
 
 import java.util.*;
 
 /**
  * @author Arpit Bhardwaj
  */
-public class PrimMST<T> {
+public class Prim<T> {
     public static void main(String[] args) {
         Graph<Integer> weightedIntGraph = Graph.getWeightedSampleIntGraph(false);
-        PrimMST prims = new PrimMST();
+        Prim prims = new Prim();
         Collection<Edge<Integer>> edgeCollection = prims.primMST(weightedIntGraph);
         for (Edge<Integer> edge:
              edgeCollection) {
@@ -22,7 +24,7 @@ public class PrimMST<T> {
 
     private List<Edge<T>> primMST(Graph<T> weightedIntGraph) {
         //required a binary min heap data structure
-        MinBinaryHeap<Vertex<T>> minBinaryHeap = new MinBinaryHeap<>();
+        MinBinaryHeapWithAddedFunc<Vertex<T>> minBinaryHeap = new MinBinaryHeapWithAddedFunc<>();
 
         //Map of vertex to edge
         Map<Vertex<T>,Edge<T>> vertexToEdge = new HashMap<>();
@@ -33,7 +35,8 @@ public class PrimMST<T> {
         //insert all vertices with infinite value initially.
         for (Vertex<T> vertex:
              weightedIntGraph.getAllVertex()) {
-             minBinaryHeap.add(vertex, Integer.MAX_VALUE);
+             Node<Vertex<T>> node = new Node<>(vertex, Integer.MAX_VALUE);
+             minBinaryHeap.insertNode(node);
         }
 
         //start from any random vertex
@@ -45,7 +48,7 @@ public class PrimMST<T> {
         //iterate till heap + map has elements in it
         while (!minBinaryHeap.empty()){
             //extract min value vertex from heap + map
-            Vertex<T> vertex = minBinaryHeap.extractMin();
+            Vertex<T> vertex = minBinaryHeap.extractHead().getData();
 
             //get the corresponding edge for this vertex if present and add it to final result.
             //This edge wont be present for first vertex.
@@ -62,7 +65,7 @@ public class PrimMST<T> {
                 //get the adjacent vertex
                 Vertex<T> adjacentVertex = getVertexForEdge(vertex, edge);
                 //check if adjacent vertex exist in heap + map and weight attached with this vertex is greater than this edge weight
-                if (minBinaryHeap.containsVertex(adjacentVertex)
+                if (minBinaryHeap.containsData(adjacentVertex)
                 && minBinaryHeap.getWeight(adjacentVertex) > edge.getWeight()){
                     minBinaryHeap.decreaseWeight(adjacentVertex,edge.getWeight());
                     vertexToEdge.put(adjacentVertex,edge);

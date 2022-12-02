@@ -1,4 +1,4 @@
-package com.ab.graphs;
+package com.ab.graphs.sssp;
 
 import com.ab.graphs.impl.Graph;
 import com.ab.graphs.impl.Vertex;
@@ -10,12 +10,12 @@ import java.util.Map;
  *
  * Dijkstra doesn't work with negative weights and if cycle is present in graph
  */
-public class DijkstraSSSP {
+public class Dijkstra {
     public static void main(String[] args) {
         Graph<Integer> weightedIntGraph = Graph.getWeightedSSSPIntGraph(false);
-        DijkstraSSSP dijkstraSSSP = new DijkstraSSSP();
+        Dijkstra dijkstra = new Dijkstra();
         Vertex<Integer> sourceVertex = weightedIntGraph.getVertex(1);
-        Map<Vertex<Integer>,Integer> vertexToDistance = dijkstraSSSP.shortestPath(weightedIntGraph,sourceVertex);
+        Map<Vertex<Integer>,Integer> vertexToDistance = dijkstra.shortestPath(weightedIntGraph,sourceVertex);
     }
 
     private Map<Vertex<Integer>, Integer> shortestPath(Graph<Integer> graph, Vertex<Integer> sourceVertex) {
