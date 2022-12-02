@@ -1,8 +1,8 @@
 package com.ab.disjoint;
 
-import com.ab.graphs.Edge;
-import com.ab.graphs.Graph;
-import com.ab.graphs.Vertex;
+import com.ab.graphs.impl.Edge;
+import com.ab.graphs.impl.Graph;
+import com.ab.graphs.impl.Vertex;
 
 import java.util.*;
 

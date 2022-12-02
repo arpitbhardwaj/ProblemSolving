@@ -1,4 +1,4 @@
-package com.ab.graphs;
+package com.ab.graphs.impl;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;

@@ -1,5 +1,8 @@
 package com.ab.graphs;
 
+import com.ab.graphs.impl.Graph;
+import com.ab.graphs.impl.Vertex;
+
 import java.util.HashSet;
 import java.util.Set;
 
