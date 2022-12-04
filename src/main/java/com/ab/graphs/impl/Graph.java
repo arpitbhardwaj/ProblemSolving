@@ -7,6 +7,8 @@ import java.util.concurrent.atomic.AtomicInteger;
  *
  * @author Arpit Bhardwaj
  */
+
+
 public class Graph<T> {
     private static final AtomicInteger count = new AtomicInteger(0);
     boolean isDirected = false;
@@ -19,7 +21,7 @@ public class Graph<T> {
         this.vertexMap = new HashMap<>();
     }
 
-    public static Graph<Integer> getSampleIntegerConnGraph(boolean isDirected) {
+    public static Graph<Integer> getIntegerConnectedGraph(boolean isDirected) {
         Graph<Integer> graph = new Graph<>(isDirected);
         graph.addEdge(1, 2);
         graph.addEdge(1, 3);
@@ -31,7 +33,7 @@ public class Graph<T> {
         return graph;
     }
 
-    public static Graph<Integer> getSampleIntegerDisConnGraph(boolean isDirected) {
+    public static Graph<Integer> getIntegerDisconnectedGraph(boolean isDirected) {
         Graph<Integer> graph = new Graph<>(isDirected);
         graph.addEdge(1, 2);
         graph.addEdge(1, 9);
@@ -45,7 +47,7 @@ public class Graph<T> {
         return graph;
     }
 
-    public static Graph<Character> getSampleCharGraph(boolean isDirected) {
+    public static Graph<Character> getCharacterGraph(boolean isDirected) {
         Graph<Character> graph = new Graph<>(isDirected);
         graph.addEdge('a', 'b');
         graph.addEdge('a', 'c');
@@ -57,7 +59,7 @@ public class Graph<T> {
         return graph;
     }
 
-    public static Graph<Character> getAnotherSampleCharGraph(boolean isDirected) {
+    public static Graph<Character> getAnotherCharacterGraph(boolean isDirected) {
         Graph<Character> graph = new Graph<>(isDirected);
         graph.addEdge('a', 'c');
         graph.addEdge('b', 'c');
@@ -70,7 +72,7 @@ public class Graph<T> {
         return graph;
     }
 
-    public static Graph<Integer> getAnotherSampleIntGraph(boolean isDirected) {
+    public static Graph<Integer> getAnotherIntegerGraph(boolean isDirected) {
         Graph<Integer> graph = new Graph<>(isDirected);
         graph.addEdge(1, 3);
         graph.addEdge(2, 3);
@@ -83,7 +85,7 @@ public class Graph<T> {
         return graph;
     }
 
-    public static Graph<Integer> getSampleCycLicGraph(boolean isDirected) {
+    public static Graph<Integer> getCyclicGraph(boolean isDirected) {
         Graph<Integer> graph = new Graph<>(isDirected);
         graph.addEdge(0, 1);
         //graph.addEdge(0, 2);//makes cycle for undirected not for directed

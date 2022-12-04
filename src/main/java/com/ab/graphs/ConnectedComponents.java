@@ -12,20 +12,26 @@ import java.util.Set;
  * BFS or DFS starting from every unvisited vertex, and we get all strongly connected components.
  * Print count of connected components in an undirected disconnected graph
  * Print connected components one after the other
+ *
+ * A directed graph is strongly connected if there is a path between all pairs of vertices.
+ * A strongly connected component (SCC) of a directed graph is a maximal strongly connected subgraph.
+ *
+ * Kosaraju’s algorithm :
+ * Tarjan’s algorithm :
  */
-public class ConnectedComponentsUndirected<T> {
+public class ConnectedComponents<T> {
 
     static int countConnCompo = 0;
 
     public static void main(String[] args) {
-        Graph<Integer> integerGraph = Graph.getSampleIntegerDisConnGraph(true);
+        Graph<Integer> integerGraph = Graph.getIntegerDisconnectedGraph(true);
 
-        ConnectedComponentsUndirected<Integer> connComp = new ConnectedComponentsUndirected<>();
-        connComp.printConnectedComponents(integerGraph);
+        ConnectedComponents<Integer> connComp = new ConnectedComponents<>();
+        connComp.printConnectedComponentsUndirected(integerGraph);
         System.out.println("Count of Connected Components : " + countConnCompo);
     }
 
-    private void printConnectedComponents(Graph<T> integerGraph) {
+    private void printConnectedComponentsUndirected(Graph<T> integerGraph) {
         DFS<T> dfs = new DFS<>();
         Set<Long> visitedVertexSet = new HashSet<>();
         for (Vertex<T> vertex:integerGraph.getAllVertex()) {
@@ -35,5 +41,9 @@ public class ConnectedComponentsUndirected<T> {
                 countConnCompo++;
             }
         }
+    }
+
+    private void printConnectedComponentsDirected(Graph<T> integerGraph) {
+        //TODO
     }
 }

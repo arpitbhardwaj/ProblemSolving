@@ -15,7 +15,7 @@ public class DFS<T> {
 
     public static void main(String[] args) {
         //Graph<Integer> integerGraph = Graph.getSampleIntegerConnGraph(true);
-        Graph<Integer> integerGraph = Graph.getSampleIntegerDisConnGraph(true);
+        Graph<Integer> integerGraph = Graph.getIntegerDisconnectedGraph(true);
         System.out.println("DFS Traversal : ");
         DFS<Integer> dfs = new DFS<>();
         dfs.printDFSTraversal(integerGraph);

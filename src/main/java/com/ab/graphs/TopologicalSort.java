@@ -17,7 +17,7 @@ import java.util.Set;
  */
 public class TopologicalSort<T> {
     public static void main(String[] args) {
-        Graph<Integer> intDirectedGraph = Graph.getAnotherSampleIntGraph(true);
+        Graph<Integer> intDirectedGraph = Graph.getAnotherIntegerGraph(true);
         TopologicalSort<Integer> topologicalSort = new TopologicalSort<>();
         Deque<Vertex<Integer>> stack = topologicalSort.topSort(intDirectedGraph);
         System.out.println("Topological Sorting : ");

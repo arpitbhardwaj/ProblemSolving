@@ -9,7 +9,7 @@ package com.ab.graphs;
  *
  * Depth-First Search (Recursive)
  */
-public class MaxAreaIsland {
+public class Islands {
     private int[][] grid;
     private boolean[][] seen;
 
@@ -23,7 +23,7 @@ public class MaxAreaIsland {
                         {0,0,0,0,0,0,0,1,1,1,0,0,0},
                         {0,0,0,0,0,0,0,1,1,0,0,0,0}
                         };
-        MaxAreaIsland maxArea = new MaxAreaIsland();
+        Islands maxArea = new Islands();
         System.out.println(maxArea.maxAreaOfIsland(grid));
     }
 
@@ -46,5 +46,10 @@ public class MaxAreaIsland {
             }
         }
         return ans;
+    }
+
+    public int noOfIslands(int[][] grid){
+        //TODO
+        return -1;
     }
 }

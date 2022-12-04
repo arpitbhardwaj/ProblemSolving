@@ -14,7 +14,7 @@ import java.util.Set;
 public class BFS<T> {
 
     public static void main(String[] args) {
-        Graph<Integer> graph = Graph.getSampleIntegerConnGraph(true);
+        Graph<Integer> graph = Graph.getIntegerConnectedGraph(true);
         BFS bfs = new BFS();
         System.out.println("BFS Traversal : ");
         bfs.printBFSTraversal(graph);

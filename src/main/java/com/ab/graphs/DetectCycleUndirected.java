@@ -14,7 +14,7 @@ import java.util.Set;
  */
 public class DetectCycleUndirected<T> {
     public static void main(String[] args) {
-        Graph<Integer> undirectedGraph = Graph.getSampleCycLicGraph(false);
+        Graph<Integer> undirectedGraph = Graph.getCyclicGraph(false);
         DetectCycleUndirected<Integer> detectCycle = new DetectCycleUndirected<>();
         if(detectCycle.isCyclic(undirectedGraph)){
             System.out.println("Graph contains cycle");

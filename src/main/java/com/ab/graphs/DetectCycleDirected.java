@@ -16,7 +16,7 @@ import java.util.Set;
  */
 public class DetectCycleDirected<T> {
     public static void main(String[] args) {
-        Graph<Integer> directedGraph = Graph.getSampleCycLicGraph(true);
+        Graph<Integer> directedGraph = Graph.getCyclicGraph(true);
         //Graph<Integer> directedGraph = Graph.getAnotherSampleIntGraph(true);
         DetectCycleDirected<Integer> detectCycle = new DetectCycleDirected<>();
         if(detectCycle.isCyclic(directedGraph)){
