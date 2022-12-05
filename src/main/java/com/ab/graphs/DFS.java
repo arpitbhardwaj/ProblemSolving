@@ -1,6 +1,7 @@
 package com.ab.graphs;
 
-import com.ab.graphs.impl.Graph;
+import com.ab.graphs.impl.GraphUsingAdjacencyList.Graph;
+import com.ab.graphs.impl.GraphUsingAdjacencyList;
 import com.ab.graphs.impl.Vertex;
 
 import java.util.HashSet;
@@ -15,7 +16,7 @@ public class DFS<T> {
 
     public static void main(String[] args) {
         //Graph<Integer> integerGraph = Graph.getSampleIntegerConnGraph(true);
-        Graph<Integer> integerGraph = Graph.getIntegerDisconnectedGraph(true);
+        Graph<Integer> integerGraph = GraphUsingAdjacencyList.getIntegerDisconnectedGraph(true);
         System.out.println("DFS Traversal : ");
         DFS<Integer> dfs = new DFS<>();
         dfs.printDFSTraversal(integerGraph);

@@ -1,7 +1,8 @@
 package com.ab.graphs.mst;
 
 import com.ab.graphs.impl.Edge;
-import com.ab.graphs.impl.Graph;
+import com.ab.graphs.impl.GraphUsingAdjacencyList;
+import com.ab.graphs.impl.GraphUsingAdjacencyList.Graph;
 import com.ab.graphs.impl.Vertex;
 import com.ab.heap.impl.MinBinaryHeapWithAddedFunc;
 import com.ab.heap.impl.Node;
@@ -13,7 +14,7 @@ import java.util.*;
  */
 public class Prim<T> {
     public static void main(String[] args) {
-        Graph<Integer> weightedIntGraph = Graph.getWeightedSampleIntGraph(false);
+        Graph<Integer> weightedIntGraph = GraphUsingAdjacencyList.getWeightedSampleIntGraph(false);
         Prim prims = new Prim();
         Collection<Edge<Integer>> edgeCollection = prims.primMST(weightedIntGraph);
         for (Edge<Integer> edge:

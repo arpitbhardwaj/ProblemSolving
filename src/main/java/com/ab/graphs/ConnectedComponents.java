@@ -1,6 +1,7 @@
 package com.ab.graphs;
 
-import com.ab.graphs.impl.Graph;
+import com.ab.graphs.impl.GraphUsingAdjacencyList;
+import com.ab.graphs.impl.GraphUsingAdjacencyList.Graph;
 import com.ab.graphs.impl.Vertex;
 
 import java.util.HashSet;
@@ -24,7 +25,7 @@ public class ConnectedComponents<T> {
     static int countConnCompo = 0;
 
     public static void main(String[] args) {
-        Graph<Integer> integerGraph = Graph.getIntegerDisconnectedGraph(true);
+        Graph<Integer> integerGraph = GraphUsingAdjacencyList.getIntegerDisconnectedGraph(true);
 
         ConnectedComponents<Integer> connComp = new ConnectedComponents<>();
         connComp.printConnectedComponentsUndirected(integerGraph);

@@ -8,17 +8,11 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author Arpit Bhardwaj
  */
 
+public class GraphUsingAdjacencyList {
 
-public class Graph<T> {
-    private static final AtomicInteger count = new AtomicInteger(0);
-    boolean isDirected = false;
-    private List<Edge<T>> edgeList;
-    private Map<Long, Vertex<T>> vertexMap;
-
-    public Graph(boolean isDirected) {
-        this.isDirected = isDirected;
-        this.edgeList = new ArrayList<>();
-        this.vertexMap = new HashMap<>();
+    public static void main(String[] args) {
+        Graph graph = getIntegerConnectedGraph(false);
+        System.out.println(graph);
     }
 
     public static Graph<Integer> getIntegerConnectedGraph(boolean isDirected) {
@@ -101,7 +95,6 @@ public class Graph<T> {
 
     public static Graph<Integer> getWeightedSampleIntGraph(boolean isDirected) {
         Graph<Integer> graph = new Graph<>(isDirected);
-
         graph.addEdge(0, 1, 4);
         graph.addEdge(1, 2, 8);
         graph.addEdge(2, 3, 7);
@@ -116,22 +109,11 @@ public class Graph<T> {
         graph.addEdge(6, 8, 6);
         graph.addEdge(6, 7, 1);
         graph.addEdge(7, 8, 7);
-
-        /*graph.addEdge(1, 2, 3);
-        graph.addEdge(2, 3, 1);
-        graph.addEdge(3, 1, 1);
-        graph.addEdge(1, 4, 1);
-        graph.addEdge(2, 4, 3);
-        graph.addEdge(4, 5, 6);
-        graph.addEdge(5, 6, 2);
-        graph.addEdge(3, 5, 5);
-        graph.addEdge(3, 6, 4);*/
         return graph;
     }
 
     public static Graph<Integer> getWeightedSSSPIntGraph(boolean isDirected) {
         Graph<Integer> graph = new Graph<>(isDirected);
-
         graph.addEdge(1, 2, 5);
         graph.addEdge(2, 3, 2);
         graph.addEdge(1, 4, 9);
@@ -139,13 +121,11 @@ public class Graph<T> {
         graph.addEdge(5, 6, 2);
         graph.addEdge(6, 4, 2);
         graph.addEdge(3, 4, 3);
-
         return graph;
     }
 
     public static Graph<Integer> getNegativeWeightedSSSPIntGraph(boolean isDirected) {
         Graph<Integer> graph = new Graph<>(isDirected);
-
         graph.addEdge(0, 3, 8);
         graph.addEdge(0, 1, 4);
         graph.addEdge(0, 2, 5);
@@ -153,93 +133,80 @@ public class Graph<T> {
         graph.addEdge(2, 4, 4);
         graph.addEdge(3, 4, 2);
         graph.addEdge(4, 3, 1);
-
         return graph;
     }
 
-    public List<Edge<T>> getEdgeList() {
-        return edgeList;
-    }
+    public static class Graph<T> {
 
-    public Map<Long, Vertex<T>> getVertexMap() {
-        return vertexMap;
-    }
+        private static final AtomicInteger count = new AtomicInteger(0);
+        boolean isDirected = false;
+        private List<Edge<T>> edgeList;
+        private Map<Long, Vertex<T>> vertexMap;
 
-    public void addEdge(long id1, long id2){
-        addEdge(id1, id2, 0);
-    }
-
-    
-    private void addEdge(long id1, long id2, int weight) {
-        Vertex<T> vertex1 = null;
-        if(vertexMap.containsKey(id1)){
-            vertex1 = vertexMap.get(id1);
-        }else{
-            vertex1 = new Vertex<>(id1);
-            vertexMap.put(id1,vertex1);
+        public Graph(boolean isDirected) {
+            this.isDirected = isDirected;
+            this.edgeList = new ArrayList<>();
+            this.vertexMap = new HashMap<>();
         }
 
-        Vertex<T> vertex2 = null;
-        if(vertexMap.containsKey(id2)){
-            vertex2 = vertexMap.get(id2);
-        }else{
-            vertex2 = new Vertex<>(id2);
-            vertexMap.put(id2,vertex2);
+        public List<Edge<T>> getEdgeList() {
+            return edgeList;
         }
 
-        Edge<T> edge = new Edge<>(isDirected,vertex1,vertex2,weight);
-
-        edgeList.add(edge);
-        vertex1.addAdjacentVertex(edge,vertex2);
-        if(!isDirected){
-            vertex2.addAdjacentVertex(edge,vertex1);
-        }
-    }
-
-    public void addEdge(T data1, T data2){
-        addEdge(data1, data2, 0);
-    }
-
-    private void addEdge(T data1, T data2, int weight) {
-        /*Vertex<T> vertex1 = null;
-        if(vertexMap.containsValue(id1)){
-            vertex1 = vertexMap.get(id1);
-        }else{
-            final long vertexId = count.incrementAndGet();
-            vertex1 = new Vertex<>(vertexId,data1);
-            vertexMap.put(vertexId,vertex1);
+        public void addEdge(long id1, long id2){
+            addEdge(id1, id2, 0);
         }
 
-        Vertex<T> vertex2 = null;
-        if(vertexMap.containsKey(id2)){
-            vertex2 = vertexMap.get(id2);
-        }else{
-            final long vertexId = count.incrementAndGet();
-            vertex2 = new Vertex<>(vertexId,data2);
-            vertexMap.put(vertexId,vertex2);
+
+        private void addEdge(long id1, long id2, int weight) {
+            Vertex<T> vertex1 = null;
+            if(vertexMap.containsKey(id1)){
+                vertex1 = vertexMap.get(id1);
+            }else{
+                vertex1 = new Vertex<>(id1);
+                vertexMap.put(id1,vertex1);
+            }
+
+            Vertex<T> vertex2 = null;
+            if(vertexMap.containsKey(id2)){
+                vertex2 = vertexMap.get(id2);
+            }else{
+                vertex2 = new Vertex<>(id2);
+                vertexMap.put(id2,vertex2);
+            }
+
+            Edge<T> edge = new Edge<>(isDirected,vertex1,vertex2,weight);
+
+            edgeList.add(edge);
+            vertex1.addAdjacentVertex(edge,vertex2);
+            if(!isDirected){
+                vertex2.addAdjacentVertex(edge,vertex1);
+            }
         }
 
-        Edge<T> edge = new Edge<>(isDirected,vertex1,vertex2,weight);
-
-        edgeList.add(edge);
-        vertex1.addAdjacentVertex(edge,vertex2);
-        if(!isDirected){
-            vertex2.addAdjacentVertex(edge,vertex1);
-        }*/
-    }
-
-    public Collection<Vertex<T>> getAllVertex() {
-       return vertexMap.values();
-    }
-
-    public void setDataForVertex(long id, T data){
-        if (vertexMap.containsKey(id)){
-            Vertex<T> vertex = vertexMap.get(id);
-            vertex.setData(data);
+        public Collection<Vertex<T>> getAllVertex() {
+            return vertexMap.values();
         }
-    }
 
-    public Vertex<T> getVertex(long id){
-        return vertexMap.get(id);
+        @Override
+        public String toString() {
+            StringBuilder sb = new StringBuilder();
+            Collection<Vertex<T>> allVertex = getAllVertex();
+            for (Vertex v : allVertex) {
+                sb.append(v.getId() + ": ");
+                List<Vertex> vertexList = v.getAdjacentVertexList();
+                for (int i = 0; i < vertexList.size(); i++) {
+                    if (i == vertexList.size()-1){
+                        sb.append(vertexList.get(i).getId());
+                    }else{
+                        sb.append(vertexList.get(i).getId() + " -> ");
+                    }
+                }
+                sb.append("\n");
+            }
+            return sb.toString();
+        }
     }
 }
+
+

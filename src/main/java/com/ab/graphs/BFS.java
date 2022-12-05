@@ -1,6 +1,7 @@
 package com.ab.graphs;
 
-import com.ab.graphs.impl.Graph;
+import com.ab.graphs.impl.GraphUsingAdjacencyList;
+import com.ab.graphs.impl.GraphUsingAdjacencyList.Graph;
 import com.ab.graphs.impl.Vertex;
 
 import java.util.HashSet;
@@ -14,7 +15,7 @@ import java.util.Set;
 public class BFS<T> {
 
     public static void main(String[] args) {
-        Graph<Integer> graph = Graph.getIntegerConnectedGraph(true);
+        Graph<Integer> graph = GraphUsingAdjacencyList.getIntegerConnectedGraph(true);
         BFS bfs = new BFS();
         System.out.println("BFS Traversal : ");
         bfs.printBFSTraversal(graph);

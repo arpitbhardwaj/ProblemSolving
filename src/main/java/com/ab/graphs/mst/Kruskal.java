@@ -2,7 +2,8 @@ package com.ab.graphs.mst;
 
 import com.ab.disjoint.DisjointSet;
 import com.ab.graphs.impl.Edge;
-import com.ab.graphs.impl.Graph;
+import com.ab.graphs.impl.GraphUsingAdjacencyList;
+import com.ab.graphs.impl.GraphUsingAdjacencyList.Graph;
 import com.ab.graphs.impl.Vertex;
 
 import java.util.*;
@@ -12,7 +13,7 @@ import java.util.*;
  */
 public class Kruskal {
     public static void main(String[] args) {
-        Graph<Integer> weightedIntGraph = Graph.getWeightedSampleIntGraph(false);
+        Graph<Integer> weightedIntGraph = GraphUsingAdjacencyList.getWeightedSampleIntGraph(false);
         Kruskal kruskal = new Kruskal();
         List<Edge<Integer>> edgeCollection = kruskal.kruskalMST(weightedIntGraph);
         for (Edge<Integer> edge:

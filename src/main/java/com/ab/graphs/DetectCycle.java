@@ -1,6 +1,7 @@
 package com.ab.graphs;
 
-import com.ab.graphs.impl.Graph;
+import com.ab.graphs.impl.GraphUsingAdjacencyList;
+import com.ab.graphs.impl.GraphUsingAdjacencyList.Graph;
 import com.ab.graphs.impl.Vertex;
 
 import java.util.HashSet;
@@ -19,8 +20,8 @@ import java.util.Set;
  */
 public class DetectCycle<T> {
     public static void main(String[] args) {
-        Graph<Integer> directedGraph = Graph.getCyclicGraph(true);
-        Graph<Integer> undirectedGraph = Graph.getCyclicGraph(false);
+        Graph<Integer> directedGraph = GraphUsingAdjacencyList.getCyclicGraph(true);
+        Graph<Integer> undirectedGraph = GraphUsingAdjacencyList.getCyclicGraph(false);
         DetectCycle<Integer> detectCycle = new DetectCycle<>();
         if(detectCycle.isCyclicDirected(directedGraph)){
             System.out.println("Graph contains cycle");

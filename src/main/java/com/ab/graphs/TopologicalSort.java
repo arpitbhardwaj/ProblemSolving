@@ -1,6 +1,7 @@
 package com.ab.graphs;
 
-import com.ab.graphs.impl.Graph;
+import com.ab.graphs.impl.GraphUsingAdjacencyList.Graph;
+import com.ab.graphs.impl.GraphUsingAdjacencyList;
 import com.ab.graphs.impl.Vertex;
 
 import java.util.ArrayDeque;
@@ -17,7 +18,7 @@ import java.util.Set;
  */
 public class TopologicalSort<T> {
     public static void main(String[] args) {
-        Graph<Integer> intDirectedGraph = Graph.getAnotherIntegerGraph(true);
+        Graph<Integer> intDirectedGraph = GraphUsingAdjacencyList.getAnotherIntegerGraph(true);
         TopologicalSort<Integer> topologicalSort = new TopologicalSort<>();
         Deque<Vertex<Integer>> stack = topologicalSort.topSort(intDirectedGraph);
         System.out.println("Topological Sorting : ");
