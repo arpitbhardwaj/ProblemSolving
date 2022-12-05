@@ -8,10 +8,10 @@ import java.util.Objects;
  * @author Arpit Bhardwaj
  */
 public class Vertex<T> {
-    long id;//for simple use case consider id as data itself
+    long id;                                                        //for consider id as index also
     private T data;
     private List<Edge<T>> edgeList = new ArrayList<>();
-    private List<Vertex<T>> adjacentVertexList = new ArrayList<>();
+    private List<Vertex<T>> adjacentVertexList = new ArrayList<>(); //for adjacencyList impl
 
     public Vertex(long id) {
         this.id = id;
