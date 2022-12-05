@@ -8,16 +8,16 @@ import java.util.Objects;
  * @author Arpit Bhardwaj
  */
 public class Vertex<T> {
-    long id;                                                        //for consider id as index also
+    int id;                                                        //consider id as index also for simple impl
     private T data;
     private List<Edge<T>> edgeList = new ArrayList<>();
     private List<Vertex<T>> adjacentVertexList = new ArrayList<>(); //for adjacencyList impl
 
-    public Vertex(long id) {
+    public Vertex(int id) {
         this.id = id;
     }
 
-    public Vertex(long id, T data) {
+    public Vertex(int id, T data) {
         this.id = id;
         this.data = data;
     }
@@ -62,7 +62,7 @@ public class Vertex<T> {
     }
 
     public void swap(Vertex<T> vertex) {
-        long id = vertex.id;
+        int id = vertex.id;
         T data = vertex.data;
 
         vertex.id = this.id;

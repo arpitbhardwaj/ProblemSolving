@@ -5,6 +5,5 @@ package com.ab.graphs.sssp;
  */
 public class BellmanFord {
     public static void main(String[] args) {
-        //Graph<Integer> graph = GraphUsingAdjacencyList.getNegativeWeightedSSSPIntGraph(false);
     }
 }

@@ -37,7 +37,7 @@ public class DetectCycle<T> {
 
     private boolean isCyclicDirected(Graph<T> directedGraph) {
         Set<Long> visitedVertexSet = new HashSet<>();
-        for (Vertex<T> vertex:directedGraph.getAllVertex()) {
+        for (Vertex<T> vertex : directedGraph.getVertexList()) {
             if(!visitedVertexSet.contains(vertex.getId())){
                 if(isCyclicDirectedUtil(vertex,visitedVertexSet)){
                     return true;
@@ -65,7 +65,7 @@ public class DetectCycle<T> {
 
     private boolean isCyclicUndirected(Graph<T> directedGraph) {
         Set<Long> visitedVertexSet = new HashSet<>();
-        for (Vertex<T> vertex:directedGraph.getAllVertex()) {
+        for (Vertex<T> vertex : directedGraph.getVertexList()) {
             if(!visitedVertexSet.contains(vertex.getId())){
                 if(isCyclicUndirectedUtil(vertex,visitedVertexSet,null)){
                     return true;

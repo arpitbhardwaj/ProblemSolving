@@ -14,7 +14,7 @@ import java.util.*;
  */
 public class Prim<T> {
     public static void main(String[] args) {
-        Graph<Integer> weightedIntGraph = GraphUsingAdjacencyList.getWeightedSampleIntGraph(false);
+        Graph<Integer> weightedIntGraph = GraphUsingAdjacencyList.getWeightedIntGraph(false);
         Prim prims = new Prim();
         Collection<Edge<Integer>> edgeCollection = prims.primMST(weightedIntGraph);
         for (Edge<Integer> edge:
@@ -35,13 +35,13 @@ public class Prim<T> {
 
         //insert all vertices with infinite value initially.
         for (Vertex<T> vertex:
-             weightedIntGraph.getAllVertex()) {
+             weightedIntGraph.getVertexList()) {
              Node<Vertex<T>> node = new Node<>(vertex, Integer.MAX_VALUE);
              minBinaryHeap.insertNode(node);
         }
 
         //start from any random vertex
-        Vertex<T> startVertex = weightedIntGraph.getAllVertex().iterator().next();
+        Vertex<T> startVertex = weightedIntGraph.getVertexList().iterator().next();
 
         //for the start vertex decrease the value in heap + map to 0
         minBinaryHeap.decreaseWeight(startVertex,0);

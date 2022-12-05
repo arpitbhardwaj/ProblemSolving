@@ -25,7 +25,7 @@ public class BFS<T> {
         Set<Long> visitedVertexSet = new HashSet<>();
         Queue<Vertex<T>> vertexQueue = new LinkedList<>();
 
-        for (Vertex vertex:graph.getAllVertex()) {
+        for (Vertex vertex : graph.getVertexList()) {
             long vertexId = vertex.getId();
 
             if(!visitedVertexSet.contains(vertexId)){
@@ -34,8 +34,7 @@ public class BFS<T> {
                 while (!vertexQueue.isEmpty()){
                     Vertex<T> pollVertex = vertexQueue.poll();
                     System.out.print(pollVertex.getId() + " ");
-                    for (Vertex<T> adjacentVertex:
-                            pollVertex.getAdjacentVertexList()) {
+                    for (Vertex<T> adjacentVertex: pollVertex.getAdjacentVertexList()) {
                         long adjacentVertexId = adjacentVertex.getId();
                         if (!visitedVertexSet.contains(adjacentVertexId)){
                             visitedVertexSet.add(adjacentVertexId);

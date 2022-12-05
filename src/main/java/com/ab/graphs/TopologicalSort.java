@@ -31,7 +31,7 @@ public class TopologicalSort<T> {
         Deque<Vertex<T>> vertexStack = new ArrayDeque<>();
         Set<Long> visitedVertexSet = new HashSet<>();
 
-        for (Vertex<T> vertex:graph.getAllVertex()) {
+        for (Vertex<T> vertex : graph.getVertexList()) {
             if(!visitedVertexSet.contains(vertex.getId())){
                 topSortUtil(vertex,vertexStack,visitedVertexSet);
             }
@@ -41,8 +41,7 @@ public class TopologicalSort<T> {
 
     private void topSortUtil(Vertex<T> vertex, Deque<Vertex<T>> vertexStack, Set<Long> visitedVertexSet) {
         visitedVertexSet.add(vertex.getId());
-        for (Vertex<T> adjacentVertex:
-                vertex.getAdjacentVertexList()) {
+        for (Vertex<T> adjacentVertex: vertex.getAdjacentVertexList()) {
             if(!visitedVertexSet.contains(adjacentVertex.getId())){
                 topSortUtil(adjacentVertex,vertexStack,visitedVertexSet);
             }

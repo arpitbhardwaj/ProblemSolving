@@ -16,71 +16,103 @@ public class GraphUsingAdjacencyList {
     }
 
     public static Graph<Integer> getIntegerConnectedGraph(boolean isDirected) {
-        Graph<Integer> graph = new Graph<>(isDirected);
-        graph.addEdge(1, 2);
+        List<Vertex<Integer>> vertexList = new ArrayList<>();
+        vertexList.add(new Vertex(0,1));
+        vertexList.add(new Vertex(1,2));
+        vertexList.add(new Vertex(2,3));
+        vertexList.add(new Vertex(3,4));
+        vertexList.add(new Vertex(4,5));
+        vertexList.add(new Vertex(5,6));
+
+        Graph<Integer> graph = new Graph<>(vertexList, isDirected);
+        graph.addEdge(0, 1);
+        graph.addEdge(0, 2);
         graph.addEdge(1, 3);
-        graph.addEdge(2, 4);
-        graph.addEdge(3, 4);
-        graph.addEdge(4, 6);
-        graph.addEdge(6, 5);
-        graph.addEdge(5, 3);
+        graph.addEdge(2, 3);
+        graph.addEdge(3, 5);
+        graph.addEdge(5, 4);
+        graph.addEdge(4, 2);
         return graph;
     }
 
     public static Graph<Integer> getIntegerDisconnectedGraph(boolean isDirected) {
-        Graph<Integer> graph = new Graph<>(isDirected);
-        graph.addEdge(1, 2);
-        graph.addEdge(1, 9);
-        graph.addEdge(1, 3);
-        graph.addEdge(2, 4);
-        graph.addEdge(3, 4);
-        graph.addEdge(4, 6);
-        graph.addEdge(6, 5);
-        graph.addEdge(5, 3);
-        graph.addEdge(7, 8);
-        return graph;
-    }
+        List<Vertex<Integer>> vertexList = new ArrayList<>();
+        vertexList.add(new Vertex(0,1));
+        vertexList.add(new Vertex(1,2));
+        vertexList.add(new Vertex(2,3));
+        vertexList.add(new Vertex(3,4));
+        vertexList.add(new Vertex(4,5));
+        vertexList.add(new Vertex(5,6));
+        vertexList.add(new Vertex(6,7));
+        vertexList.add(new Vertex(7,8));
+        vertexList.add(new Vertex(8,9));
 
-    public static Graph<Character> getCharacterGraph(boolean isDirected) {
-        Graph<Character> graph = new Graph<>(isDirected);
-        graph.addEdge('a', 'b');
-        graph.addEdge('a', 'c');
-        graph.addEdge('b', 'd');
-        graph.addEdge('c', 'd');
-        graph.addEdge('d', 'f');
-        graph.addEdge('f', 'e');
-        graph.addEdge('e', 'c');
-        return graph;
-    }
-
-    public static Graph<Character> getAnotherCharacterGraph(boolean isDirected) {
-        Graph<Character> graph = new Graph<>(isDirected);
-        graph.addEdge('a', 'c');
-        graph.addEdge('b', 'c');
-        graph.addEdge('b', 'd');
-        graph.addEdge('c', 'e');
-        graph.addEdge('d', 'f');
-        graph.addEdge('e', 'h');
-        graph.addEdge('e', 'f');
-        graph.addEdge('f', 'g');
-        return graph;
-    }
-
-    public static Graph<Integer> getAnotherIntegerGraph(boolean isDirected) {
-        Graph<Integer> graph = new Graph<>(isDirected);
+        Graph<Integer> graph = new Graph<>(vertexList, isDirected);
+        graph.addEdge(0, 1);
+        graph.addEdge(0, 8);
+        graph.addEdge(0, 2);
         graph.addEdge(1, 3);
         graph.addEdge(2, 3);
-        graph.addEdge(2, 4);
         graph.addEdge(3, 5);
-        graph.addEdge(4, 6);
-        graph.addEdge(5, 8);
-        graph.addEdge(5, 6);
+        graph.addEdge(5, 4);
+        graph.addEdge(4, 2);
         graph.addEdge(6, 7);
         return graph;
     }
 
+    public static Graph<Character> getCharacterGraph(boolean isDirected) {
+        List<Vertex<Character>> vertexList = new ArrayList<>();
+        vertexList.add(new Vertex(0,'a'));
+        vertexList.add(new Vertex(1,'b'));
+        vertexList.add(new Vertex(2,'c'));
+        vertexList.add(new Vertex(3,'d'));
+        vertexList.add(new Vertex(4,'e'));
+        vertexList.add(new Vertex(5,'f'));
+
+        Graph<Character> graph = new Graph<>(vertexList, isDirected);
+        graph.addEdge(0, 1);
+        graph.addEdge(0, 2);
+        graph.addEdge(1, 3);
+        graph.addEdge(2, 3);
+        graph.addEdge(3, 5);
+        graph.addEdge(5, 4);
+        graph.addEdge(4, 2);
+        return graph;
+    }
+
+    public static Graph<Integer> getAnotherIntegerGraph(boolean isDirected) {
+        List<Vertex<Integer>> vertexList = new ArrayList<>();
+        vertexList.add(new Vertex(0,1));
+        vertexList.add(new Vertex(1,2));
+        vertexList.add(new Vertex(2,3));
+        vertexList.add(new Vertex(3,4));
+        vertexList.add(new Vertex(4,5));
+        vertexList.add(new Vertex(5,6));
+        vertexList.add(new Vertex(6,7));
+        vertexList.add(new Vertex(7,8));
+
+        Graph<Integer> graph = new Graph<>(vertexList, isDirected);
+        graph.addEdge(0, 2);
+        graph.addEdge(1, 2);
+        graph.addEdge(1, 3);
+        graph.addEdge(2, 4);
+        graph.addEdge(3, 5);
+        graph.addEdge(4, 7);
+        graph.addEdge(4, 5);
+        graph.addEdge(5, 6);
+        return graph;
+    }
+
     public static Graph<Integer> getCyclicGraph(boolean isDirected) {
-        Graph<Integer> graph = new Graph<>(isDirected);
+        List<Vertex<Integer>> vertexList = new ArrayList<>();
+        vertexList.add(new Vertex(0,1));
+        vertexList.add(new Vertex(1,2));
+        vertexList.add(new Vertex(2,3));
+        vertexList.add(new Vertex(3,4));
+        vertexList.add(new Vertex(4,5));
+        vertexList.add(new Vertex(5,6));
+
+        Graph<Integer> graph = new Graph<>(vertexList, isDirected);
         graph.addEdge(0, 1);
         //graph.addEdge(0, 2);//makes cycle for undirected not for directed
         graph.addEdge(1, 2);
@@ -88,13 +120,24 @@ public class GraphUsingAdjacencyList {
         graph.addEdge(2, 3);
         //graph.addEdge(0, 3);//makes cycle for undirected not for directed
         //graph.addEdge(3, 3);//cycle
-        graph.addEdge(4, 5);
+        graph.addEdge(3, 5);
         //graph.addEdge(5, 4);//cycle
         return graph;
     }
 
-    public static Graph<Integer> getWeightedSampleIntGraph(boolean isDirected) {
-        Graph<Integer> graph = new Graph<>(isDirected);
+    public static Graph<Integer> getWeightedIntGraph(boolean isDirected) {
+        List<Vertex<Integer>> vertexList = new ArrayList<>();
+        vertexList.add(new Vertex(0,1));
+        vertexList.add(new Vertex(1,2));
+        vertexList.add(new Vertex(2,3));
+        vertexList.add(new Vertex(3,4));
+        vertexList.add(new Vertex(4,5));
+        vertexList.add(new Vertex(5,6));
+        vertexList.add(new Vertex(6,7));
+        vertexList.add(new Vertex(7,8));
+        vertexList.add(new Vertex(8,9));
+
+        Graph<Integer> graph = new Graph<>(vertexList, isDirected);
         graph.addEdge(0, 1, 4);
         graph.addEdge(1, 2, 8);
         graph.addEdge(2, 3, 7);
@@ -112,69 +155,35 @@ public class GraphUsingAdjacencyList {
         return graph;
     }
 
-    public static Graph<Integer> getWeightedSSSPIntGraph(boolean isDirected) {
-        Graph<Integer> graph = new Graph<>(isDirected);
-        graph.addEdge(1, 2, 5);
-        graph.addEdge(2, 3, 2);
-        graph.addEdge(1, 4, 9);
-        graph.addEdge(1, 5, 3);
-        graph.addEdge(5, 6, 2);
-        graph.addEdge(6, 4, 2);
-        graph.addEdge(3, 4, 3);
-        return graph;
-    }
-
-    public static Graph<Integer> getNegativeWeightedSSSPIntGraph(boolean isDirected) {
-        Graph<Integer> graph = new Graph<>(isDirected);
-        graph.addEdge(0, 3, 8);
-        graph.addEdge(0, 1, 4);
-        graph.addEdge(0, 2, 5);
-        graph.addEdge(1, 2, -3);
-        graph.addEdge(2, 4, 4);
-        graph.addEdge(3, 4, 2);
-        graph.addEdge(4, 3, 1);
-        return graph;
-    }
-
     public static class Graph<T> {
 
         private static final AtomicInteger count = new AtomicInteger(0);
         boolean isDirected = false;
         private List<Edge<T>> edgeList;
-        private Map<Long, Vertex<T>> vertexMap;
+        private List<Vertex<T>> vertexList;
 
-        public Graph(boolean isDirected) {
+        public Graph(List<Vertex<T>> vertexList, boolean isDirected) {
             this.isDirected = isDirected;
+            this.vertexList = vertexList;
             this.edgeList = new ArrayList<>();
-            this.vertexMap = new HashMap<>();
         }
 
         public List<Edge<T>> getEdgeList() {
             return edgeList;
         }
 
-        public void addEdge(long id1, long id2){
+        public List<Vertex<T>> getVertexList() {
+            return vertexList;
+        }
+
+        public void addEdge(int id1, int id2){
             addEdge(id1, id2, 0);
         }
 
 
-        private void addEdge(long id1, long id2, int weight) {
-            Vertex<T> vertex1 = null;
-            if(vertexMap.containsKey(id1)){
-                vertex1 = vertexMap.get(id1);
-            }else{
-                vertex1 = new Vertex<>(id1);
-                vertexMap.put(id1,vertex1);
-            }
-
-            Vertex<T> vertex2 = null;
-            if(vertexMap.containsKey(id2)){
-                vertex2 = vertexMap.get(id2);
-            }else{
-                vertex2 = new Vertex<>(id2);
-                vertexMap.put(id2,vertex2);
-            }
-
+        private void addEdge(int id1, int id2, int weight) {
+            Vertex vertex1 = vertexList.get(id1);
+            Vertex vertex2 = vertexList.get(id2);
             Edge<T> edge = new Edge<>(isDirected,vertex1,vertex2,weight);
 
             edgeList.add(edge);
@@ -184,15 +193,10 @@ public class GraphUsingAdjacencyList {
             }
         }
 
-        public Collection<Vertex<T>> getAllVertex() {
-            return vertexMap.values();
-        }
-
         @Override
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            Collection<Vertex<T>> allVertex = getAllVertex();
-            for (Vertex v : allVertex) {
+            for (Vertex v : vertexList) {
                 sb.append(v.getId() + ": ");
                 List<Vertex> vertexList = v.getAdjacentVertexList();
                 for (int i = 0; i < vertexList.size(); i++) {

@@ -9,14 +9,14 @@ import java.util.List;
 public class GraphUsingAdjacencyMatrix {
 
     public static void main(String[] args) {
-        List<Vertex> nodeList = new ArrayList<>();
-        nodeList.add(new Vertex(0,"A"));
-        nodeList.add(new Vertex(1,"B"));
-        nodeList.add(new Vertex(2,"C"));
-        nodeList.add(new Vertex(3,"D"));
-        nodeList.add(new Vertex(4,"E"));
+        List<Vertex> vertexList = new ArrayList<>();
+        vertexList.add(new Vertex(0,"A"));
+        vertexList.add(new Vertex(1,"B"));
+        vertexList.add(new Vertex(2,"C"));
+        vertexList.add(new Vertex(3,"D"));
+        vertexList.add(new Vertex(4,"E"));
 
-        Graph graph = new Graph(nodeList);
+        Graph graph = new Graph(vertexList);
         graph.addUndirectedEdge(0,1);
         graph.addUndirectedEdge(0,2);
         graph.addUndirectedEdge(0,3);
@@ -28,12 +28,12 @@ public class GraphUsingAdjacencyMatrix {
     }
 
     private static class Graph{
-        List<Vertex> nodeList;
+        List<Vertex> vertexList;
         int[][] adjacencyMatrix;
 
-        public Graph(List<Vertex> nodeList) {
-            this.nodeList = nodeList;
-            this.adjacencyMatrix = new int[nodeList.size()][nodeList.size()];
+        public Graph(List<Vertex> vertexList) {
+            this.vertexList = vertexList;
+            this.adjacencyMatrix = new int[vertexList.size()][vertexList.size()];
         }
 
         private void addUndirectedEdge(int index1, int index2) {
@@ -45,13 +45,13 @@ public class GraphUsingAdjacencyMatrix {
         public String toString() {
             StringBuilder sb = new StringBuilder();
             sb.append("  ");
-            for (int i = 0; i < nodeList.size(); i++) {
-                sb.append(nodeList.get(i).getData() + " ");
+            for (int i = 0; i < vertexList.size(); i++) {
+                sb.append(vertexList.get(i).getData() + " ");
             }
             sb.append("\n");
 
-            for (int i = 0; i < nodeList.size(); i++) {
-                sb.append(nodeList.get(i).getData() + " ");
+            for (int i = 0; i < vertexList.size(); i++) {
+                sb.append(vertexList.get(i).getData() + " ");
                 for (int j:
                      adjacencyMatrix[i]) {
                     sb.append(j + " ");

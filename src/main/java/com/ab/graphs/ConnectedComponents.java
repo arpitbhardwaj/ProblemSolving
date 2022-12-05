@@ -26,7 +26,6 @@ public class ConnectedComponents<T> {
 
     public static void main(String[] args) {
         Graph<Integer> integerGraph = GraphUsingAdjacencyList.getIntegerDisconnectedGraph(true);
-
         ConnectedComponents<Integer> connComp = new ConnectedComponents<>();
         connComp.printConnectedComponentsUndirected(integerGraph);
         System.out.println("Count of Connected Components : " + countConnCompo);
@@ -35,7 +34,7 @@ public class ConnectedComponents<T> {
     private void printConnectedComponentsUndirected(Graph<T> integerGraph) {
         DFS<T> dfs = new DFS<>();
         Set<Long> visitedVertexSet = new HashSet<>();
-        for (Vertex<T> vertex:integerGraph.getAllVertex()) {
+        for (Vertex<T> vertex : integerGraph.getVertexList()) {
             if(!visitedVertexSet.contains(vertex.getId())){
                 dfs.DFSUtil(vertex,visitedVertexSet);
                 System.out.println();

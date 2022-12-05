@@ -24,7 +24,7 @@ public class DFS<T> {
 
     private void printDFSTraversal(Graph<T> graph) {
         Set<Long> visitedVertexSet = new HashSet<>();
-        for (Vertex<T> vertex:graph.getAllVertex()) {
+        for (Vertex<T> vertex : graph.getVertexList()) {
             if(!visitedVertexSet.contains(vertex.getId())){
                 DFSUtil(vertex,visitedVertexSet);
             }
@@ -34,8 +34,7 @@ public class DFS<T> {
     public void DFSUtil(Vertex<T> vertex, Set<Long> visitedVertexSet) {
         visitedVertexSet.add(vertex.getId());
         System.out.print(vertex.getId() + " ");
-        for (Vertex<T> adjacentVertex:
-                vertex.getAdjacentVertexList()) {
+        for (Vertex<T> adjacentVertex: vertex.getAdjacentVertexList()) {
             if(!visitedVertexSet.contains(adjacentVertex.getId())){
                 DFSUtil(adjacentVertex,visitedVertexSet);
             }

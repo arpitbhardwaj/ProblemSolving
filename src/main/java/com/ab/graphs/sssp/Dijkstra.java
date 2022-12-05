@@ -7,6 +7,5 @@ package com.ab.graphs.sssp;
  */
 public class Dijkstra {
     public static void main(String[] args) {
-        //Graph<Integer> weightedIntGraph = GraphUsingAdjacencyList.getWeightedSSSPIntGraph(false);
     }
 }
