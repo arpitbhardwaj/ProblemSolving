@@ -14,7 +14,7 @@ import java.util.*;
  */
 public class Prim<T> {
     public static void main(String[] args) {
-        Graph<Integer> weightedIntGraph = GraphUsingAdjacencyList.getWeightedIntGraph(false);
+        Graph<Integer> weightedIntGraph = GraphUsingAdjacencyList.getWeightedIntegerGraph(false);
         Prim prims = new Prim();
         Collection<Edge<Integer>> edgeCollection = prims.primMST(weightedIntGraph);
         for (Edge<Integer> edge:

@@ -29,21 +29,19 @@ public class TopologicalSort<T> {
 
     private Deque<Vertex<T>> topSort(Graph<T> graph) {
         Deque<Vertex<T>> vertexStack = new ArrayDeque<>();
-        Set<Long> visitedVertexSet = new HashSet<>();
-
         for (Vertex<T> vertex : graph.getVertexList()) {
-            if(!visitedVertexSet.contains(vertex.getId())){
-                topSortUtil(vertex,vertexStack,visitedVertexSet);
+            if(!vertex.isVisited()){
+                topSortUtil(vertex,vertexStack);
             }
         }
         return vertexStack;
     }
 
-    private void topSortUtil(Vertex<T> vertex, Deque<Vertex<T>> vertexStack, Set<Long> visitedVertexSet) {
-        visitedVertexSet.add(vertex.getId());
+    private void topSortUtil(Vertex<T> vertex, Deque<Vertex<T>> vertexStack) {
+        vertex.setVisited(true);
         for (Vertex<T> adjacentVertex: vertex.getAdjacentVertexList()) {
-            if(!visitedVertexSet.contains(adjacentVertex.getId())){
-                topSortUtil(adjacentVertex,vertexStack,visitedVertexSet);
+            if(!adjacentVertex.isVisited()){
+                topSortUtil(adjacentVertex,vertexStack);
             }
         }
         //add the element to the stack when its all adjacent vertices are traversed

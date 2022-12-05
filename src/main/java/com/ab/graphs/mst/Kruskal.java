@@ -13,7 +13,7 @@ import java.util.*;
  */
 public class Kruskal {
     public static void main(String[] args) {
-        Graph<Integer> weightedIntGraph = GraphUsingAdjacencyList.getWeightedIntGraph(false);
+        Graph<Integer> weightedIntGraph = GraphUsingAdjacencyList.getWeightedIntegerGraph(false);
         Kruskal kruskal = new Kruskal();
         List<Edge<Integer>> edgeCollection = kruskal.kruskalMST(weightedIntGraph);
         for (Edge<Integer> edge:
@@ -36,7 +36,7 @@ public class Kruskal {
             }
         });
 
-        DisjointSet<Long> disjointSet = new DisjointSet<>();
+        DisjointSet<Integer> disjointSet = new DisjointSet<>();
         for (Vertex<Integer> vertex:
              graph.getVertexList()) {
             disjointSet.makeSet(vertex.getId());

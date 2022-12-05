@@ -1,4 +1,4 @@
-package com.ab.graphs;
+package com.ab.graphs.traversal;
 
 import com.ab.graphs.impl.GraphUsingAdjacencyList.Graph;
 import com.ab.graphs.impl.GraphUsingAdjacencyList;
@@ -15,28 +15,27 @@ import java.util.Set;
 public class DFS<T> {
 
     public static void main(String[] args) {
-        //Graph<Integer> integerGraph = Graph.getSampleIntegerConnGraph(true);
+        //Graph<Integer> integerGraph = GraphUsingAdjacencyList.getIntegerConnectedGraph(true);
         Graph<Integer> integerGraph = GraphUsingAdjacencyList.getIntegerDisconnectedGraph(true);
-        System.out.println("DFS Traversal : ");
+        System.out.println("DFS Traversal: ");
         DFS<Integer> dfs = new DFS<>();
         dfs.printDFSTraversal(integerGraph);
     }
 
     private void printDFSTraversal(Graph<T> graph) {
-        Set<Long> visitedVertexSet = new HashSet<>();
         for (Vertex<T> vertex : graph.getVertexList()) {
-            if(!visitedVertexSet.contains(vertex.getId())){
-                DFSUtil(vertex,visitedVertexSet);
+            if(!vertex.isVisited()){
+                DFSUtil(vertex);
             }
         }
     }
 
-    public void DFSUtil(Vertex<T> vertex, Set<Long> visitedVertexSet) {
-        visitedVertexSet.add(vertex.getId());
-        System.out.print(vertex.getId() + " ");
+    public void DFSUtil(Vertex<T> vertex) {
+        vertex.setVisited(true);
+        System.out.print(vertex.getData() + " ");
         for (Vertex<T> adjacentVertex: vertex.getAdjacentVertexList()) {
-            if(!visitedVertexSet.contains(adjacentVertex.getId())){
-                DFSUtil(adjacentVertex,visitedVertexSet);
+            if(!adjacentVertex.isVisited()){
+                DFSUtil(adjacentVertex);
             }
         }
     }

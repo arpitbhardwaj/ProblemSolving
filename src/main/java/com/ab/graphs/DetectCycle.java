@@ -36,7 +36,7 @@ public class DetectCycle<T> {
     }
 
     private boolean isCyclicDirected(Graph<T> directedGraph) {
-        Set<Long> visitedVertexSet = new HashSet<>();
+        Set<Integer> visitedVertexSet = new HashSet<>();
         for (Vertex<T> vertex : directedGraph.getVertexList()) {
             if(!visitedVertexSet.contains(vertex.getId())){
                 if(isCyclicDirectedUtil(vertex,visitedVertexSet)){
@@ -49,7 +49,7 @@ public class DetectCycle<T> {
         return false;
     }
 
-    public boolean isCyclicDirectedUtil(Vertex<T> vertex, Set<Long> visitedVertexSet) {
+    public boolean isCyclicDirectedUtil(Vertex<T> vertex, Set<Integer> visitedVertexSet) {
         System.out.print(vertex.getId() + " ");
         visitedVertexSet.add(vertex.getId());
         for (Vertex<T> adjacentVertex:
@@ -64,7 +64,7 @@ public class DetectCycle<T> {
     }
 
     private boolean isCyclicUndirected(Graph<T> directedGraph) {
-        Set<Long> visitedVertexSet = new HashSet<>();
+        Set<Integer> visitedVertexSet = new HashSet<>();
         for (Vertex<T> vertex : directedGraph.getVertexList()) {
             if(!visitedVertexSet.contains(vertex.getId())){
                 if(isCyclicUndirectedUtil(vertex,visitedVertexSet,null)){
@@ -77,7 +77,7 @@ public class DetectCycle<T> {
         return false;
     }
 
-    public boolean isCyclicUndirectedUtil(Vertex<T> vertex, Set<Long> visitedVertexSet,Vertex<T> parent) {
+    public boolean isCyclicUndirectedUtil(Vertex<T> vertex, Set<Integer> visitedVertexSet,Vertex<T> parent) {
         System.out.print(vertex.getId() + " ");
         visitedVertexSet.add(vertex.getId());
         for (Vertex<T> adjacentVertex:

@@ -8,21 +8,19 @@ import java.util.Objects;
  * @author Arpit Bhardwaj
  */
 public class Vertex<T> {
-    int id;                                                        //consider id as index also for simple impl
+    int id;                                        //consider id as index if using vertexList and id if using vertexMap
     private T data;
-    private List<Edge<T>> edgeList = new ArrayList<>();
-    private List<Vertex<T>> adjacentVertexList = new ArrayList<>(); //for adjacencyList impl
-
-    public Vertex(int id) {
-        this.id = id;
-    }
+    private List<Edge<T>> edgeList = new ArrayList<>();             //used in prim impl
+    private List<Vertex<T>> adjacentVertexList = new ArrayList<>(); //used in adjacencyList impl
+    private boolean isVisited;                                      //used in bfs, dfs
 
     public Vertex(int id, T data) {
         this.id = id;
         this.data = data;
+        this.isVisited = false;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
@@ -34,6 +32,13 @@ public class Vertex<T> {
         return data;
     }
 
+    public boolean isVisited() {
+        return isVisited;
+    }
+
+    public void setVisited(boolean visited) {
+        isVisited = visited;
+    }
     public List<Edge<T>> getEdgeList() {
         return edgeList;
     }
@@ -46,7 +51,6 @@ public class Vertex<T> {
         edgeList.add(edge);
         adjacentVertexList.add(vertex2);
     }
-
 
     @Override
     public boolean equals(Object o) {

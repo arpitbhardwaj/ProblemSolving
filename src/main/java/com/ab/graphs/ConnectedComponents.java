@@ -3,6 +3,7 @@ package com.ab.graphs;
 import com.ab.graphs.impl.GraphUsingAdjacencyList;
 import com.ab.graphs.impl.GraphUsingAdjacencyList.Graph;
 import com.ab.graphs.impl.Vertex;
+import com.ab.graphs.traversal.DFS;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -33,10 +34,9 @@ public class ConnectedComponents<T> {
 
     private void printConnectedComponentsUndirected(Graph<T> integerGraph) {
         DFS<T> dfs = new DFS<>();
-        Set<Long> visitedVertexSet = new HashSet<>();
         for (Vertex<T> vertex : integerGraph.getVertexList()) {
-            if(!visitedVertexSet.contains(vertex.getId())){
-                dfs.DFSUtil(vertex,visitedVertexSet);
+            if(!vertex.isVisited()){
+                dfs.DFSUtil(vertex);
                 System.out.println();
                 countConnCompo++;
             }
