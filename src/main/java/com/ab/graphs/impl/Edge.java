@@ -11,6 +11,11 @@ public class Edge<T> {
     private Vertex<T> vertex2;
     private int weight;
 
+    public Edge(Vertex vertex1, Vertex vertex2) {
+        this.vertex1 = vertex1;
+        this.vertex2 = vertex2;
+    }
+
     public Edge(boolean isDirected, Vertex<T> vertex1, Vertex<T> vertex2, int weight) {
         this.isDirected = isDirected;
         this.vertex1 = vertex1;

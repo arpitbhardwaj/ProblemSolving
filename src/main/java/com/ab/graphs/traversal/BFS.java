@@ -13,25 +13,28 @@ public class BFS<T> {
     public static void main(String[] args) {
         Graph<Integer> graph = GraphUsingAdjacencyList.getIntegerConnectedGraph(true);
         BFS bfs = new BFS();
-        System.out.println("BFS Traversal: ");
         bfs.printBFSTraversal(graph);
     }
 
-    private <T> void printBFSTraversal(Graph<T> graph) {
-        Queue<Vertex<T>> vertexQueue = new LinkedList<>();
-
-        for (Vertex vertex : graph.getVertexList()) {
+    private void printBFSTraversal(Graph<T> graph) {
+        for (Vertex<T> vertex : graph.getVertexList()) {
             if(!vertex.isVisited()){
-                vertexQueue.add(vertex);
-                while (!vertexQueue.isEmpty()){
-                    Vertex<T> pollVertex = vertexQueue.poll();
-                    System.out.print(pollVertex.getData() + " ");
-                    for (Vertex<T> adjacentVertex: pollVertex.getAdjacentVertexList()) {
-                        if (!adjacentVertex.isVisited()){
-                            vertexQueue.add(adjacentVertex);
-                            adjacentVertex.setVisited(true);
-                        }
-                    }
+                BFSUtil(vertex);
+            }
+        }
+    }
+
+    public <T> void BFSUtil(Vertex<T> vertex) {
+        Queue<Vertex<T>> vertexQueue = new LinkedList<>();
+        vertexQueue.add(vertex);
+        while (!vertexQueue.isEmpty()){
+            Vertex<T> removedVertex = vertexQueue.remove();
+            removedVertex.setVisited(true);
+            System.out.print(removedVertex.getData() + " ");
+            for (Vertex<T> adjacentVertex: removedVertex.getAdjacentVertexList()) {
+                if (!adjacentVertex.isVisited()){
+                    vertexQueue.add(adjacentVertex);
+                    adjacentVertex.setVisited(true);
                 }
             }
         }

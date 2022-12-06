@@ -15,9 +15,7 @@ public class GraphUsingAdjacencyList {
         System.out.println(g1);
         Graph g2 = getIntegerDisconnectedGraph(false);
         System.out.println(g2);
-        Graph g3 = getCharacterGraph(false);
-        System.out.println(g3);
-        Graph g4 = getAnotherIntegerGraph(false);
+        Graph g4 = getGraphForTopological(true);
         System.out.println(g4);
         Graph g5 = getCyclicGraph(false);
         System.out.println(g5);
@@ -67,13 +65,13 @@ public class GraphUsingAdjacencyList {
         public String toString() {
             StringBuilder sb = new StringBuilder();
             for (Vertex v : vertexList) {
-                sb.append(v.getId() + ": ");
+                sb.append(v.getData() + ": ");
                 List<Vertex> adjacentVertexList = v.getAdjacentVertexList();
                 for (int i = 0; i < adjacentVertexList.size(); i++) {
                     if (i == adjacentVertexList.size()-1){
-                        sb.append(adjacentVertexList.get(i).getId());
+                        sb.append(adjacentVertexList.get(i).getData());
                     }else{
-                        sb.append(adjacentVertexList.get(i).getId() + " -> ");
+                        sb.append(adjacentVertexList.get(i).getData() + " -> ");
                     }
                 }
                 sb.append("\n");
@@ -127,38 +125,18 @@ public class GraphUsingAdjacencyList {
         return graph;
     }
 
-    public static Graph<Character> getCharacterGraph(boolean isDirected) {
+    public static Graph<Character> getGraphForTopological(boolean isDirected) {
         List<Vertex<Character>> vertexList = new ArrayList<>();
-        vertexList.add(new Vertex(0,'a'));
-        vertexList.add(new Vertex(1,'b'));
-        vertexList.add(new Vertex(2,'c'));
-        vertexList.add(new Vertex(3,'d'));
-        vertexList.add(new Vertex(4,'e'));
-        vertexList.add(new Vertex(5,'f'));
+        vertexList.add(new Vertex(0,'A'));
+        vertexList.add(new Vertex(1,'B'));
+        vertexList.add(new Vertex(2,'C'));
+        vertexList.add(new Vertex(3,'D'));
+        vertexList.add(new Vertex(4,'E'));
+        vertexList.add(new Vertex(5,'F'));
+        vertexList.add(new Vertex(6,'G'));
+        vertexList.add(new Vertex(7,'H'));
 
         Graph<Character> graph = new Graph<>(vertexList, isDirected);
-        graph.addEdge(0, 1);
-        graph.addEdge(0, 2);
-        graph.addEdge(1, 3);
-        graph.addEdge(2, 3);
-        graph.addEdge(3, 5);
-        graph.addEdge(5, 4);
-        graph.addEdge(4, 2);
-        return graph;
-    }
-
-    public static Graph<Integer> getAnotherIntegerGraph(boolean isDirected) {
-        List<Vertex<Integer>> vertexList = new ArrayList<>();
-        vertexList.add(new Vertex(0,1));
-        vertexList.add(new Vertex(1,2));
-        vertexList.add(new Vertex(2,3));
-        vertexList.add(new Vertex(3,4));
-        vertexList.add(new Vertex(4,5));
-        vertexList.add(new Vertex(5,6));
-        vertexList.add(new Vertex(6,7));
-        vertexList.add(new Vertex(7,8));
-
-        Graph<Integer> graph = new Graph<>(vertexList, isDirected);
         graph.addEdge(0, 2);
         graph.addEdge(1, 2);
         graph.addEdge(1, 3);
@@ -181,14 +159,11 @@ public class GraphUsingAdjacencyList {
 
         Graph<Integer> graph = new Graph<>(vertexList, isDirected);
         graph.addEdge(0, 1);
-        //graph.addEdge(0, 2);//makes cycle for undirected not for directed
+        //graph.addEdge(0, 2);//makes cycle for undirected
         graph.addEdge(1, 2);
-        //graph.addEdge(2, 0);//cycle
+        //graph.addEdge(2, 0);//make cycle for both
         graph.addEdge(2, 3);
-        //graph.addEdge(0, 3);//makes cycle for undirected not for directed
-        //graph.addEdge(3, 3);//cycle
         graph.addEdge(3, 5);
-        //graph.addEdge(5, 4);//cycle
         return graph;
     }
 

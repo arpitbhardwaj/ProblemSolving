@@ -3,11 +3,7 @@ package com.ab.graphs;
 import com.ab.graphs.impl.GraphUsingAdjacencyList.Graph;
 import com.ab.graphs.impl.GraphUsingAdjacencyList;
 import com.ab.graphs.impl.Vertex;
-
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Stack;
 
 /**
  * @author Arpit Bhardwaj
@@ -15,20 +11,22 @@ import java.util.Set;
  * Topological sorting for Directed Acyclic Graph (DAG) is a linear ordering of vertices
  * such that for every directed edge uv, vertex u comes before v in the ordering.
  *
+ * DFS
+ *
  */
 public class TopologicalSort<T> {
     public static void main(String[] args) {
-        Graph<Integer> intDirectedGraph = GraphUsingAdjacencyList.getAnotherIntegerGraph(true);
-        TopologicalSort<Integer> topologicalSort = new TopologicalSort<>();
-        Deque<Vertex<Integer>> stack = topologicalSort.topSort(intDirectedGraph);
+        Graph<Character> intDirectedGraph = GraphUsingAdjacencyList.getGraphForTopological(true);
+        TopologicalSort<Character> topologicalSort = new TopologicalSort<>();
+        Stack<Vertex<Character>> stack = topologicalSort.topSort(intDirectedGraph);
         System.out.println("Topological Sorting : ");
         while (!stack.isEmpty()){
-            System.out.print(stack.poll().getId() + " ");
+            System.out.print(stack.pop().getData() + " ");
         }
     }
 
-    private Deque<Vertex<T>> topSort(Graph<T> graph) {
-        Deque<Vertex<T>> vertexStack = new ArrayDeque<>();
+    private Stack<Vertex<T>> topSort(Graph<T> graph) {
+        Stack<Vertex<T>> vertexStack = new Stack<>();
         for (Vertex<T> vertex : graph.getVertexList()) {
             if(!vertex.isVisited()){
                 topSortUtil(vertex,vertexStack);
@@ -37,15 +35,14 @@ public class TopologicalSort<T> {
         return vertexStack;
     }
 
-    private void topSortUtil(Vertex<T> vertex, Deque<Vertex<T>> vertexStack) {
-        vertex.setVisited(true);
+    private void topSortUtil(Vertex<T> vertex, Stack<Vertex<T>> vertexStack) {
         for (Vertex<T> adjacentVertex: vertex.getAdjacentVertexList()) {
             if(!adjacentVertex.isVisited()){
                 topSortUtil(adjacentVertex,vertexStack);
             }
         }
-        //add the element to the stack when its all adjacent vertices are traversed
-        vertexStack.offerFirst(vertex);
+        vertex.setVisited(true);
+        //add the element to the stack when it's all adjacent vertices are traversed
+        vertexStack.push(vertex);
     }
-
 }
