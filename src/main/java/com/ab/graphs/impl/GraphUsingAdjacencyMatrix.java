@@ -16,29 +16,33 @@ public class GraphUsingAdjacencyMatrix {
         vertexList.add(new Vertex(3,"D"));
         vertexList.add(new Vertex(4,"E"));
 
-        Graph graph = new Graph(vertexList);
-        graph.addUndirectedEdge(0,1);
-        graph.addUndirectedEdge(0,2);
-        graph.addUndirectedEdge(0,3);
-        graph.addUndirectedEdge(1,4);
-        graph.addUndirectedEdge(2,3);
-        graph.addUndirectedEdge(3,4);
+        Graph graph = new Graph(vertexList, true);
+        graph.addEdge(0,1);
+        graph.addEdge(0,2);
+        graph.addEdge(0,3);
+        graph.addEdge(1,4);
+        graph.addEdge(2,3);
+        graph.addEdge(3,4);
 
         System.out.println(graph);
     }
 
     private static class Graph{
+        boolean isDirected;
         List<Vertex> vertexList;
         int[][] adjacencyMatrix;
 
-        public Graph(List<Vertex> vertexList) {
+        public Graph(List<Vertex> vertexList, boolean isDirected) {
             this.vertexList = vertexList;
             this.adjacencyMatrix = new int[vertexList.size()][vertexList.size()];
+            this.isDirected = isDirected;
         }
 
-        private void addUndirectedEdge(int index1, int index2) {
+        private void addEdge(int index1, int index2) {
             adjacencyMatrix[index1][index2] = 1;
-            adjacencyMatrix[index2][index1] = 1;
+            if(!isDirected){
+                adjacencyMatrix[index2][index1] = 1;
+            }
         }
 
         @Override

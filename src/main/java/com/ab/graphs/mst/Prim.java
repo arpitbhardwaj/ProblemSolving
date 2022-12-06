@@ -14,11 +14,10 @@ import java.util.*;
  */
 public class Prim<T> {
     public static void main(String[] args) {
-        Graph<Integer> weightedIntGraph = GraphUsingAdjacencyList.getWeightedIntegerGraph(false);
+        Graph<Character> weightedIntGraph = GraphUsingAdjacencyList.getWeightedIntegerGraph(false);
         Prim prims = new Prim();
         Collection<Edge<Integer>> edgeCollection = prims.primMST(weightedIntGraph);
-        for (Edge<Integer> edge:
-             edgeCollection) {
+        for (Edge<Integer> edge: edgeCollection) {
             System.out.println(edge);
         }
     }
@@ -34,8 +33,7 @@ public class Prim<T> {
         List<Edge<T>> resultEdgeList = new ArrayList<>();
 
         //insert all vertices with infinite value initially.
-        for (Vertex<T> vertex:
-             weightedIntGraph.getVertexList()) {
+        for (Vertex<T> vertex: weightedIntGraph.getVertexList()) {
              Node<Vertex<T>> node = new Node<>(vertex, Integer.MAX_VALUE);
              minBinaryHeap.insertNode(node);
         }
@@ -61,14 +59,13 @@ public class Prim<T> {
 
 
             //iterate through all the adjacent vertices
-            for (Edge<T> edge:
-                 vertex.edgeList) {
+            for (Edge<T> edge: vertex.adjacentEdges) {
                 //get the adjacent vertex
                 Vertex<T> adjacentVertex = getVertexForEdge(vertex, edge);
                 //check if adjacent vertex exist in heap + map and weight attached with this vertex is greater than this edge weight
                 if (minBinaryHeap.containsData(adjacentVertex)
-                && minBinaryHeap.getWeight(adjacentVertex) > edge.getWeight()){
-                    minBinaryHeap.decreaseWeight(adjacentVertex,edge.getWeight());
+                && minBinaryHeap.getWeight(adjacentVertex) > edge.weight){
+                    minBinaryHeap.decreaseWeight(adjacentVertex,edge.weight);
                     vertexToEdge.put(adjacentVertex,edge);
                 }
             }
@@ -77,7 +74,7 @@ public class Prim<T> {
     }
 
     private Vertex<T> getVertexForEdge(Vertex<T> v, Edge<T> e){
-        return e.getVertex1().equals(v) ? e.getVertex2() : e.getVertex1();
+        return e.vertex1.equals(v) ? e.vertex2 : e.vertex1;
     }
 
 }

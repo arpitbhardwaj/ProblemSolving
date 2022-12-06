@@ -10,9 +10,10 @@ import java.util.Objects;
 public class Vertex<T> {
     public int id;                                        //consider id as index if using vertexList and id if using vertexMap
     public T name;
-    public List<Edge<T>> edgeList = new ArrayList<>();              //used in prim impl
+    public List<Edge<T>> adjacentEdges = new ArrayList<>();         //used in prim impl
     public List<Vertex<T>> adjacentVertices = new ArrayList<>();    //used in adjacencyList impl
     public boolean isVisited = false;                               //used in bfs, dfs
+    public Vertex<T> parent;
 
     public Vertex(int id, T name) {
         this.id = id;
@@ -20,7 +21,7 @@ public class Vertex<T> {
     }
 
     public void addAdjacentVertex(Edge<T> edge, Vertex<T> vertex2) {
-        edgeList.add(edge);
+        adjacentEdges.add(edge);
         adjacentVertices.add(vertex2);
     }
 

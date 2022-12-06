@@ -1,5 +1,12 @@
 package com.ab.graphs.sssp;
 
+import com.ab.graphs.impl.GraphUsingAdjacencyList;
+import com.ab.graphs.impl.GraphUsingAdjacencyList.Graph;
+import com.ab.graphs.impl.Vertex;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * @author Arpit Bhardwaj
  *
@@ -13,8 +20,44 @@ package com.ab.graphs.sssp;
  * BFS doesn't work with weighted graphs
  */
 
-public class BFS {
+public class BFS<T> {
     public static void main(String[] args) {
+        Graph<Integer> graph = GraphUsingAdjacencyList.getIntegerConnectedGraph(true);
+        BFS bfs = new BFS();
+        bfs.BFSTraversal(graph);
+    }
 
+    private void BFSTraversal(Graph<T> graph) {
+        for (Vertex<T> vertex : graph.getVertexList()) {
+            if(!vertex.isVisited){
+                BFSUtil(vertex);
+            }
+        }
+    }
+
+    public <T> void BFSUtil(Vertex<T> vertex) {
+        Queue<Vertex<T>> vertexQueue = new LinkedList<>();
+        vertexQueue.add(vertex);
+        while (!vertexQueue.isEmpty()){
+            Vertex<T> currentVertex = vertexQueue.remove();
+            currentVertex.isVisited = true;
+            System.out.print("Printing path for node " + currentVertex.name + ": ");
+            printShortestPath(currentVertex);
+            System.out.println();
+            for (Vertex<T> adjacentVertex: currentVertex.adjacentVertices) {
+                if (!adjacentVertex.isVisited){
+                    vertexQueue.add(adjacentVertex);
+                    adjacentVertex.isVisited = true;
+                    adjacentVertex.parent = currentVertex; //crux (different from BFS)
+                }
+            }
+        }
+    }
+
+    public <T> void printShortestPath(Vertex<T> vertex){
+        if (vertex.parent != null){
+            printShortestPath(vertex.parent);
+        }
+        System.out.print(vertex.name + " ");
     }
 }

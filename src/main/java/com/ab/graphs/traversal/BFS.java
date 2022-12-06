@@ -28,10 +28,10 @@ public class BFS<T> {
         Queue<Vertex<T>> vertexQueue = new LinkedList<>();
         vertexQueue.add(vertex);
         while (!vertexQueue.isEmpty()){
-            Vertex<T> removedVertex = vertexQueue.remove();
-            removedVertex.isVisited = true;
-            System.out.print(removedVertex.name + " ");
-            for (Vertex<T> adjacentVertex: removedVertex.adjacentVertices) {
+            Vertex<T> currentVertex = vertexQueue.remove();
+            currentVertex.isVisited = true;
+            System.out.print(currentVertex.name + " ");
+            for (Vertex<T> adjacentVertex: currentVertex.adjacentVertices) {
                 if (!adjacentVertex.isVisited){
                     vertexQueue.add(adjacentVertex);
                     adjacentVertex.isVisited = true;

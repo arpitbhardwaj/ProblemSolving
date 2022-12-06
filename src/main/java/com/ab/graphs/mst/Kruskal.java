@@ -10,25 +10,33 @@ import java.util.*;
 
 /**
  * @author Arpit Bhardwaj
+ *
+ * A Minimum Spanning Tree (MST) is a subset of the edges of connected, weighted and undirected graph which :
+ * - Connects all vertices together
+ * - No cycle
+ * - Minimum total edge
+ * Real life problem
+ * - Connect five island with bridges
+ * - The cost of bridges between island varies based on different factors
+ * - Which bridge should be constructed so that all islands are accessible and the cost is minimum
  */
-public class Kruskal {
+public class Kruskal<T> {
     public static void main(String[] args) {
-        Graph<Integer> weightedIntGraph = GraphUsingAdjacencyList.getWeightedIntegerGraph(false);
+        Graph<Character> weightedIntGraph = GraphUsingAdjacencyList.getWeightedIntegerGraph(false);
         Kruskal kruskal = new Kruskal();
-        List<Edge<Integer>> edgeCollection = kruskal.kruskalMST(weightedIntGraph);
-        for (Edge<Integer> edge:
-                edgeCollection) {
+        List<Edge<Character>> edgeCollection = kruskal.kruskalMST(weightedIntGraph);
+        for (Edge<Character> edge: edgeCollection) {
             System.out.println(edge);
         }
     }
 
-    private List<Edge<Integer>> kruskalMST(Graph<Integer> graph) {
-        List<Edge<Integer>> resultEdgeList = new ArrayList<>();
-        List<Edge<Integer>> allEdges = graph.getEdgeList();
-        Collections.sort(allEdges, new Comparator<Edge<Integer>>() {
+    private List<Edge<T>> kruskalMST(Graph<T> graph) {
+        List<Edge<T>> resultEdgeList = new ArrayList<>();
+        List<Edge<T>> allEdges = graph.getEdgeList();
+        Collections.sort(allEdges, new Comparator<Edge<T>>() {
             @Override
-            public int compare(Edge<Integer> edge1, Edge<Integer> edge2) {
-                if (edge1.getWeight() > edge2.getWeight()){
+            public int compare(Edge<T> edge1, Edge<T> edge2) {
+                if (edge1.weight > edge2.weight){
                     return 1;
                 }else{
                     return -1;
@@ -37,19 +45,17 @@ public class Kruskal {
         });
 
         DisjointSet<Integer> disjointSet = new DisjointSet<>();
-        for (Vertex<Integer> vertex:
-             graph.getVertexList()) {
+        for (Vertex<T> vertex: graph.getVertexList()) {
             disjointSet.makeSet(vertex.id);
         }
 
-        for (Edge<Integer> edge:
-             allEdges) {
-            long identity1 = disjointSet.findSet(edge.getVertex1().id);
-            long identity2 = disjointSet.findSet(edge.getVertex2().id);
+        for (Edge<T> edge: allEdges) {
+            long identity1 = disjointSet.findSet(edge.vertex1.id);
+            long identity2 = disjointSet.findSet(edge.vertex2.id);
 
             if (identity1 != identity2) {
                 resultEdgeList.add(edge);
-                disjointSet.union(edge.getVertex1().id,edge.getVertex2().id);
+                disjointSet.union(edge.vertex1.id,edge.vertex2.id);
             }
         }
         return resultEdgeList;
