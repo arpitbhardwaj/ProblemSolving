@@ -8,48 +8,20 @@ import java.util.Objects;
  * @author Arpit Bhardwaj
  */
 public class Vertex<T> {
-    int id;                                        //consider id as index if using vertexList and id if using vertexMap
-    private T data;
-    private List<Edge<T>> edgeList = new ArrayList<>();             //used in prim impl
-    private List<Vertex<T>> adjacentVertexList = new ArrayList<>(); //used in adjacencyList impl
-    private boolean isVisited;                                      //used in bfs, dfs
+    public int id;                                        //consider id as index if using vertexList and id if using vertexMap
+    public T name;
+    public List<Edge<T>> edgeList = new ArrayList<>();              //used in prim impl
+    public List<Vertex<T>> adjacentVertices = new ArrayList<>();    //used in adjacencyList impl
+    public boolean isVisited = false;                               //used in bfs, dfs
 
-    public Vertex(int id, T data) {
+    public Vertex(int id, T name) {
         this.id = id;
-        this.data = data;
-        this.isVisited = false;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public boolean isVisited() {
-        return isVisited;
-    }
-
-    public void setVisited(boolean visited) {
-        isVisited = visited;
-    }
-    public List<Edge<T>> getEdgeList() {
-        return edgeList;
-    }
-
-    public List<Vertex<T>> getAdjacentVertexList() {
-        return adjacentVertexList;
+        this.name = name;
     }
 
     public void addAdjacentVertex(Edge<T> edge, Vertex<T> vertex2) {
         edgeList.add(edge);
-        adjacentVertexList.add(vertex2);
+        adjacentVertices.add(vertex2);
     }
 
     @Override
@@ -67,13 +39,13 @@ public class Vertex<T> {
 
     public void swap(Vertex<T> vertex) {
         int id = vertex.id;
-        T data = vertex.data;
+        T data = vertex.name;
 
         vertex.id = this.id;
-        vertex.data = this.data;
+        vertex.name = this.name;
 
         this.id = id;
-        this.data = data;
+        this.name = data;
     }
 
     @Override

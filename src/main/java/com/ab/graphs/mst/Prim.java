@@ -62,7 +62,7 @@ public class Prim<T> {
 
             //iterate through all the adjacent vertices
             for (Edge<T> edge:
-                 vertex.getEdgeList()) {
+                 vertex.edgeList) {
                 //get the adjacent vertex
                 Vertex<T> adjacentVertex = getVertexForEdge(vertex, edge);
                 //check if adjacent vertex exist in heap + map and weight attached with this vertex is greater than this edge weight

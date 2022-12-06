@@ -35,7 +35,7 @@ public class ConnectedComponents<T> {
     private void printConnectedComponentsUndirected(Graph<T> integerGraph) {
         DFS<T> dfs = new DFS<>();
         for (Vertex<T> vertex : integerGraph.getVertexList()) {
-            if(!vertex.isVisited()){
+            if(!vertex.isVisited){
                 dfs.DFSUtil(vertex);
                 System.out.println();
                 countConnCompo++;

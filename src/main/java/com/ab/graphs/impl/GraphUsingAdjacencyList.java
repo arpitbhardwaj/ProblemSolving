@@ -28,7 +28,6 @@ public class GraphUsingAdjacencyList {
         private static final AtomicInteger count = new AtomicInteger(0);
         boolean isDirected = false;
         private List<Edge<T>> edgeList;
-        //private Map<Integer, Vertex<T>> vertexMap;
         private List<Vertex<T>> vertexList;
 
         public Graph(List<Vertex<T>> vertexList, boolean isDirected) {
@@ -65,13 +64,13 @@ public class GraphUsingAdjacencyList {
         public String toString() {
             StringBuilder sb = new StringBuilder();
             for (Vertex v : vertexList) {
-                sb.append(v.getData() + ": ");
-                List<Vertex> adjacentVertexList = v.getAdjacentVertexList();
+                sb.append(v.name + ": ");
+                List<Vertex> adjacentVertexList = v.adjacentVertices;
                 for (int i = 0; i < adjacentVertexList.size(); i++) {
                     if (i == adjacentVertexList.size()-1){
-                        sb.append(adjacentVertexList.get(i).getData());
+                        sb.append(adjacentVertexList.get(i).name);
                     }else{
-                        sb.append(adjacentVertexList.get(i).getData() + " -> ");
+                        sb.append(adjacentVertexList.get(i).name + " -> ");
                     }
                 }
                 sb.append("\n");

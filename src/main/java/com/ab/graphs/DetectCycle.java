@@ -33,7 +33,7 @@ public class DetectCycle<T> {
 
     private boolean isCyclicDirected(Graph<T> directedGraph) {
         for (Vertex<T> vertex : directedGraph.getVertexList()) {
-            if(!vertex.isVisited()){
+            if(!vertex.isVisited){
                 if(isCyclicDirectedUtil(vertex)){
                     return true;
                 }else{//continue to explore for disconnected graphs
@@ -45,10 +45,10 @@ public class DetectCycle<T> {
     }
 
     public boolean isCyclicDirectedUtil(Vertex<T> vertex) {
-        System.out.print(vertex.getData() + " ");
-        vertex.setVisited(true);
-        for (Vertex<T> adjacentVertex: vertex.getAdjacentVertexList()) {
-            if(!adjacentVertex.isVisited()){
+        System.out.print(vertex.name + " ");
+        vertex.isVisited = true;
+        for (Vertex<T> adjacentVertex: vertex.adjacentVertices) {
+            if(!adjacentVertex.isVisited){
                 return isCyclicDirectedUtil(adjacentVertex);
             }else{
                 return true;
@@ -59,7 +59,7 @@ public class DetectCycle<T> {
 
     private boolean isCyclicUndirected(Graph<T> directedGraph) {
         for (Vertex<T> vertex : directedGraph.getVertexList()) {
-            if(!vertex.isVisited()){
+            if(!vertex.isVisited){
                 if(isCyclicUndirectedUtil(vertex,null)){
                     return true;
                 }else{//continue to explore for disconnected graphs
@@ -71,14 +71,14 @@ public class DetectCycle<T> {
     }
 
     public boolean isCyclicUndirectedUtil(Vertex<T> vertex, Vertex<T> parent) {
-        System.out.print(vertex.getData() + " ");
-        vertex.setVisited(true);
-        for (Vertex<T> adjacentVertex: vertex.getAdjacentVertexList()) {
+        System.out.print(vertex.name + " ");
+        vertex.isVisited = true;
+        for (Vertex<T> adjacentVertex: vertex.adjacentVertices) {
             //crux condition for undirected graph and the only difference compare to directed algo
             if (adjacentVertex.equals(parent)){
                 continue;
             }
-            if(!adjacentVertex.isVisited()){
+            if(!adjacentVertex.isVisited){
                 return isCyclicUndirectedUtil(adjacentVertex,vertex);
             }else{
                 return true;

@@ -46,12 +46,12 @@ public class GraphUsingAdjacencyMatrix {
             StringBuilder sb = new StringBuilder();
             sb.append("  ");
             for (int i = 0; i < vertexList.size(); i++) {
-                sb.append(vertexList.get(i).getData() + " ");
+                sb.append(vertexList.get(i).name + " ");
             }
             sb.append("\n");
 
             for (int i = 0; i < vertexList.size(); i++) {
-                sb.append(vertexList.get(i).getData() + " ");
+                sb.append(vertexList.get(i).name + " ");
                 for (int j:
                      adjacencyMatrix[i]) {
                     sb.append(j + " ");

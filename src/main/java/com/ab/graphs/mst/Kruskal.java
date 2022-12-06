@@ -39,17 +39,17 @@ public class Kruskal {
         DisjointSet<Integer> disjointSet = new DisjointSet<>();
         for (Vertex<Integer> vertex:
              graph.getVertexList()) {
-            disjointSet.makeSet(vertex.getId());
+            disjointSet.makeSet(vertex.id);
         }
 
         for (Edge<Integer> edge:
              allEdges) {
-            long identity1 = disjointSet.findSet(edge.getVertex1().getId());
-            long identity2 = disjointSet.findSet(edge.getVertex2().getId());
+            long identity1 = disjointSet.findSet(edge.getVertex1().id);
+            long identity2 = disjointSet.findSet(edge.getVertex2().id);
 
             if (identity1 != identity2) {
                 resultEdgeList.add(edge);
-                disjointSet.union(edge.getVertex1().getId(),edge.getVertex2().getId());
+                disjointSet.union(edge.getVertex1().id,edge.getVertex2().id);
             }
         }
         return resultEdgeList;

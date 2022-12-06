@@ -20,7 +20,7 @@ public class DFS<T> {
 
     private void printDFSTraversal(Graph<T> graph) {
         for (Vertex<T> vertex : graph.getVertexList()) {
-            if(!vertex.isVisited()){
+            if(!vertex.isVisited){
                 DFSUtil(vertex);
                 //DFSUtilRecursive(vertex);
             }
@@ -32,22 +32,22 @@ public class DFS<T> {
         vertexStack.push(vertex);
         while (!vertexStack.isEmpty()){
             Vertex<T> poppedVertex = vertexStack.pop();
-            poppedVertex.setVisited(true);
-            System.out.print(poppedVertex.getData() + " ");
-            for (Vertex<T> adjacentVertex: poppedVertex.getAdjacentVertexList()) {
-                if (!adjacentVertex.isVisited()){
+            poppedVertex.isVisited = true;
+            System.out.print(poppedVertex.name + " ");
+            for (Vertex<T> adjacentVertex: poppedVertex.adjacentVertices) {
+                if (!adjacentVertex.isVisited){
                     vertexStack.push(adjacentVertex);
-                    adjacentVertex.setVisited(true);
+                    adjacentVertex.isVisited = true;
                 }
             }
         }
     }
 
     public void DFSUtilRecursive(Vertex<T> vertex) {
-        vertex.setVisited(true);
-        System.out.print(vertex.getData() + " ");
-        for (Vertex<T> adjacentVertex: vertex.getAdjacentVertexList()) {
-            if(!adjacentVertex.isVisited()){
+        vertex.isVisited = true;
+        System.out.print(vertex.name + " ");
+        for (Vertex<T> adjacentVertex: vertex.adjacentVertices) {
+            if(!adjacentVertex.isVisited){
                 DFSUtilRecursive(adjacentVertex);
             }
         }

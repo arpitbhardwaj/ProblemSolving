@@ -51,7 +51,7 @@ public class CountBridges {
         discovery.put(vertex, time);
         low.put(vertex, time);
         time++;
-        for(Vertex<Integer> child : vertex.getAdjacentVertexList()){
+        for(Vertex<Integer> child : vertex.adjacentVertices){
             if(!visited.containsKey(child)){
                 parent.put(child, vertex);
                 BridgeUtil(child,result,discovery,low,parent,visited);

@@ -18,7 +18,7 @@ public class BFS<T> {
 
     private void printBFSTraversal(Graph<T> graph) {
         for (Vertex<T> vertex : graph.getVertexList()) {
-            if(!vertex.isVisited()){
+            if(!vertex.isVisited){
                 BFSUtil(vertex);
             }
         }
@@ -29,12 +29,12 @@ public class BFS<T> {
         vertexQueue.add(vertex);
         while (!vertexQueue.isEmpty()){
             Vertex<T> removedVertex = vertexQueue.remove();
-            removedVertex.setVisited(true);
-            System.out.print(removedVertex.getData() + " ");
-            for (Vertex<T> adjacentVertex: removedVertex.getAdjacentVertexList()) {
-                if (!adjacentVertex.isVisited()){
+            removedVertex.isVisited = true;
+            System.out.print(removedVertex.name + " ");
+            for (Vertex<T> adjacentVertex: removedVertex.adjacentVertices) {
+                if (!adjacentVertex.isVisited){
                     vertexQueue.add(adjacentVertex);
-                    adjacentVertex.setVisited(true);
+                    adjacentVertex.isVisited = true;
                 }
             }
         }

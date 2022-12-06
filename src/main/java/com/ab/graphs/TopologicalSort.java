@@ -21,14 +21,14 @@ public class TopologicalSort<T> {
         Stack<Vertex<Character>> stack = topologicalSort.topSort(intDirectedGraph);
         System.out.println("Topological Sorting : ");
         while (!stack.isEmpty()){
-            System.out.print(stack.pop().getData() + " ");
+            System.out.print(stack.pop().name + " ");
         }
     }
 
     private Stack<Vertex<T>> topSort(Graph<T> graph) {
         Stack<Vertex<T>> vertexStack = new Stack<>();
         for (Vertex<T> vertex : graph.getVertexList()) {
-            if(!vertex.isVisited()){
+            if(!vertex.isVisited){
                 topSortUtil(vertex,vertexStack);
             }
         }
@@ -36,12 +36,12 @@ public class TopologicalSort<T> {
     }
 
     private void topSortUtil(Vertex<T> vertex, Stack<Vertex<T>> vertexStack) {
-        for (Vertex<T> adjacentVertex: vertex.getAdjacentVertexList()) {
-            if(!adjacentVertex.isVisited()){
+        for (Vertex<T> adjacentVertex: vertex.adjacentVertices) {
+            if(!adjacentVertex.isVisited){
                 topSortUtil(adjacentVertex,vertexStack);
             }
         }
-        vertex.setVisited(true);
+        vertex.isVisited = true;
         //add the element to the stack when it's all adjacent vertices are traversed
         vertexStack.push(vertex);
     }
