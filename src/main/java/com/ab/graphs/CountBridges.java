@@ -34,7 +34,7 @@ public class CountBridges {
         Map<Vertex,Vertex> parent = new HashMap<>();
         Map<Vertex,Boolean> visited = new HashMap<>();
 
-        for(Vertex vertex : graph.getVertexList()){
+        for(Vertex vertex : graph.getVertices()){
             if(!visited.containsKey(vertex)){
                 BridgeUtil(vertex,result,discovery,low,parent,visited);
             }

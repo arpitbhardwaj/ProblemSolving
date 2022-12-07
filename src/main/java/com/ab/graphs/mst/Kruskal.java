@@ -19,35 +19,39 @@ import java.util.*;
  * - Connect five island with bridges
  * - The cost of bridges between island varies based on different factors
  * - Which bridge should be constructed so that all islands are accessible and the cost is minimum
+ *
+ *
  */
 public class Kruskal<T> {
     public static void main(String[] args) {
         Graph<Character> weightedIntGraph = GraphUsingAdjacencyList.getWeightedIntegerGraph(false);
         Kruskal kruskal = new Kruskal();
-        List<Edge<Character>> edges = kruskal.kruskalMST(weightedIntGraph);
+        List<Edge<Character>> edges = kruskal.kruskal(weightedIntGraph);
         for (Edge<Character> edge: edges) {
             System.out.println(edge);
         }
     }
 
-    private List<Edge<T>> kruskalMST(Graph<T> graph) {
-        List<Edge<T>> resultEdgeList = new ArrayList<>();
-        List<Edge<T>> allEdges = graph.getEdgeList();
-        Collections.sort(allEdges, (edge1, edge2) -> edge1.weight > edge2.weight ? 1 : -1);
+    private List<Edge<T>> kruskal(Graph<T> graph) {
+        List<Edge<T>> resultEdges = new ArrayList<>();
+        List<Edge<T>> edges = graph.getEdges();
+        DisjointSet<T> disjointSet = new DisjointSet<>();
+        int cost = 0;
 
-        DisjointSet<Integer> disjointSet = new DisjointSet<>();
-        for (Vertex<T> vertex: graph.getVertexList()) {
-            disjointSet.makeSet(vertex.index);
+        edges.sort(Comparator.comparingInt(edge -> edge.weight));
+        for (Vertex<T> vertex: graph.getVertices()) {
+            disjointSet.makeSet(vertex.name);
         }
-
-        for (Edge<T> edge: allEdges) {
-            long identity1 = disjointSet.findSet(edge.vertex1.index);
-            long identity2 = disjointSet.findSet(edge.vertex2.index);
+        for (Edge<T> edge: edges) {
+            T identity1 = disjointSet.findSet(edge.firstVertex.name);
+            T identity2 = disjointSet.findSet(edge.secondVertex.name);
             if (identity1 != identity2) {
-                resultEdgeList.add(edge);
-                disjointSet.union(edge.vertex1.index,edge.vertex2.index);
+                disjointSet.union(edge.firstVertex.name, edge.secondVertex.name);
+                resultEdges.add(edge);
+                cost += edge.weight;
             }
         }
-        return resultEdgeList;
+        System.out.println("Total Cost: " + cost);
+        return resultEdges;
     }
 }

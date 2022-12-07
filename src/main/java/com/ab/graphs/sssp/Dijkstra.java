@@ -19,13 +19,13 @@ public class Dijkstra<T> {
         //Graph<Character> graph = GraphUsingAdjacencyList.getWeightedSSSPGraph(true);
         Graph<Character> graph = GraphUsingAdjacencyList.getWeightedNegativeCycleSSSPGraph(true);
         Dijkstra dijkstra = new Dijkstra();
-        dijkstra.dijkstra(graph, graph.getVertexList().get(0));
+        dijkstra.dijkstra(graph, graph.getVertices().get(0));
     }
 
     void dijkstra(Graph<T> graph, Vertex<T> sVertex){
         sVertex.distance = 0;
         PriorityQueue<Vertex<T>> pQueue = new PriorityQueue<>();
-        pQueue.addAll(graph.getVertexList());
+        pQueue.addAll(graph.getVertices());
         while (!pQueue.isEmpty()){
             Vertex<T> currentVertex = pQueue.remove();
             for (Vertex<T> adjacentVertex: currentVertex.adjacentVertices) {
@@ -40,7 +40,7 @@ public class Dijkstra<T> {
             }
         }
 
-        for (Vertex<T> vertex:graph.getVertexList()) {
+        for (Vertex<T> vertex:graph.getVertices()) {
             System.out.print(vertex + ", Distance: " + vertex.distance + ", Path: ");
             printShortestPath(vertex);
             System.out.println();

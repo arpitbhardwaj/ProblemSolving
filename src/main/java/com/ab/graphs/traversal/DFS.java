@@ -19,7 +19,7 @@ public class DFS<T> {
     }
 
     private void printDFSTraversal(Graph<T> graph) {
-        for (Vertex<T> vertex : graph.getVertexList()) {
+        for (Vertex<T> vertex : graph.getVertices()) {
             if(!vertex.isVisited){
                 DFSUtil(vertex);
                 //DFSUtilRecursive(vertex);

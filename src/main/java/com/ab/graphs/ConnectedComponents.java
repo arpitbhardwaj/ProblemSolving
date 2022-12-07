@@ -5,9 +5,6 @@ import com.ab.graphs.impl.GraphUsingAdjacencyList.Graph;
 import com.ab.graphs.impl.Vertex;
 import com.ab.graphs.traversal.DFS;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * @author Arpit Bhardwaj
  *
@@ -34,7 +31,7 @@ public class ConnectedComponents<T> {
 
     private void printConnectedComponentsUndirected(Graph<T> integerGraph) {
         DFS<T> dfs = new DFS<>();
-        for (Vertex<T> vertex : integerGraph.getVertexList()) {
+        for (Vertex<T> vertex : integerGraph.getVertices()) {
             if(!vertex.isVisited){
                 dfs.DFSUtil(vertex);
                 System.out.println();

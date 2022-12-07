@@ -12,8 +12,9 @@ public class Vertex<T> implements Comparable<Vertex<T>> {
     public List<Vertex<T>> adjacentVertices = new ArrayList<>();    //used in adjacencyList impl
     public boolean isVisited = false;                               //used in bfs, dfs
     public Vertex<T> parent;                                        //used in bfs(sssp)
-    public int distance;
-    public Map<Vertex<T>/*adjacent vertex to this vertex*/, Integer> weightMap = new HashMap<>();
+    public int distance;                                            //used in dijkstra, bellmanford
+    public Map<Vertex<T>/*adjacent vertex to this vertex*/, Integer> weightMap = new HashMap<>(); //used in bellmanford
+    public DisjointSet<T> disjointSet;
 
     public Vertex(int index, T name) {
         this.index = index;
@@ -53,9 +54,7 @@ public class Vertex<T> implements Comparable<Vertex<T>> {
 
     @Override
     public String toString() {
-        return "Vertex{" +
-                "name=" + name +
-                '}';
+        return "Vertex (" + name + ')';
     }
 
     @Override

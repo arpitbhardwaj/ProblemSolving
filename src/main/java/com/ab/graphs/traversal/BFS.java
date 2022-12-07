@@ -17,7 +17,7 @@ public class BFS<T> {
     }
 
     private void printBFSTraversal(Graph<T> graph) {
-        for (Vertex<T> vertex : graph.getVertexList()) {
+        for (Vertex<T> vertex : graph.getVertices()) {
             if(!vertex.isVisited){
                 BFSUtil(vertex);
             }

@@ -27,7 +27,7 @@ public class TopologicalSort<T> {
 
     private Stack<Vertex<T>> topSort(Graph<T> graph) {
         Stack<Vertex<T>> vertexStack = new Stack<>();
-        for (Vertex<T> vertex : graph.getVertexList()) {
+        for (Vertex<T> vertex : graph.getVertices()) {
             if(!vertex.isVisited){
                 topSortUtil(vertex,vertexStack);
             }

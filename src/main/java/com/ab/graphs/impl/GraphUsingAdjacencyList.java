@@ -1,7 +1,6 @@
 package com.ab.graphs.impl;
 
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  *
@@ -25,29 +24,27 @@ public class GraphUsingAdjacencyList {
 
     public static class Graph<T> {
         boolean isDirected;
-        private List<Edge<T>> edgeList;
-        private List<Vertex<T>> vertexList;
+        private List<Edge<T>> edges;
+        private List<Vertex<T>> vertices;
 
-        public Graph(List<Vertex<T>> vertexList, boolean isDirected) {
+        public Graph(List<Vertex<T>> vertices, boolean isDirected) {
             this.isDirected = isDirected;
-            this.vertexList = vertexList;
-            this.edgeList = new ArrayList<>();
+            this.vertices = vertices;
+            this.edges = new ArrayList<>();
         }
 
-        public List<Edge<T>> getEdgeList() {
-            return edgeList;
-        }
+        public List<Edge<T>> getEdges() { return edges; }
 
-        public List<Vertex<T>> getVertexList() {
-            return vertexList;
+        public List<Vertex<T>> getVertices() {
+            return vertices;
         }
 
         public void addEdge(int index1, int index2){
-            Vertex vertex1 = vertexList.get(index1);
-            Vertex vertex2 = vertexList.get(index2);
+            Vertex vertex1 = vertices.get(index1);
+            Vertex vertex2 = vertices.get(index2);
             Edge<T> edge = new Edge<>(vertex1,vertex2);
 
-            edgeList.add(edge);
+            edges.add(edge);
             vertex1.addAdjacentVertex(edge,vertex2);
             if(!isDirected){
                 vertex2.addAdjacentVertex(edge,vertex1);
@@ -55,11 +52,11 @@ public class GraphUsingAdjacencyList {
         }
 
         private void addWeightedEdge(int index1, int index2, int weight) {
-            Vertex vertex1 = vertexList.get(index1);
-            Vertex vertex2 = vertexList.get(index2);
+            Vertex vertex1 = vertices.get(index1);
+            Vertex vertex2 = vertices.get(index2);
             Edge<T> edge = new Edge<>(vertex1,vertex2,weight);
 
-            edgeList.add(edge);
+            edges.add(edge);
             vertex1.addAdjacentVertex(edge,vertex2);
             if(!isDirected){
                 vertex2.addAdjacentVertex(edge,vertex1);
@@ -69,7 +66,7 @@ public class GraphUsingAdjacencyList {
         @Override
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            for (Vertex v : vertexList) {
+            for (Vertex v : vertices) {
                 sb.append(v.name + ": ");
                 List<Vertex> adjacentVertexList = v.adjacentVertices;
                 for (int i = 0; i < adjacentVertexList.size(); i++) {
@@ -179,26 +176,15 @@ public class GraphUsingAdjacencyList {
         vertexList.add(new Vertex(2,'C'));
         vertexList.add(new Vertex(3,'D'));
         vertexList.add(new Vertex(4,'E'));
-        vertexList.add(new Vertex(5,'F'));
-        vertexList.add(new Vertex(6,'G'));
-        vertexList.add(new Vertex(7,'H'));
-        vertexList.add(new Vertex(8,'I'));
 
         Graph<Character> graph = new Graph<>(vertexList, isDirected);
-        graph.addWeightedEdge(0, 1, 4);
-        graph.addWeightedEdge(1, 2, 8);
-        graph.addWeightedEdge(2, 3, 7);
-        graph.addWeightedEdge(3, 4, 9);
-        graph.addWeightedEdge(4, 5, 10);
-        graph.addWeightedEdge(2, 5, 4);
-        graph.addWeightedEdge(1, 7, 11);
-        graph.addWeightedEdge(0, 7, 8);
-        graph.addWeightedEdge(2, 8, 2);
-        graph.addWeightedEdge(3, 5, 14);
-        graph.addWeightedEdge(5, 6, 2);
-        graph.addWeightedEdge(6, 8, 6);
-        graph.addWeightedEdge(6, 7, 1);
-        graph.addWeightedEdge(7, 8, 7);
+        graph.addWeightedEdge(0, 1, 5);
+        graph.addWeightedEdge(0, 2, 13);
+        graph.addWeightedEdge(0, 4, 15);
+        graph.addWeightedEdge(1, 2, 10);
+        graph.addWeightedEdge(1, 3, 8);
+        graph.addWeightedEdge(2, 3, 6);
+        graph.addWeightedEdge(2, 4, 20);
         return graph;
     }
 

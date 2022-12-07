@@ -6,15 +6,14 @@ import java.util.Map;
 /**
  * @author Arpit Bhardwaj
  *
- *  * Disjoint sets using path compression and union by rank
- *  * Supports 3 operations
- *  * 1) makeSet
- *  * 2) union
- *  * 3) findSet
+ *  Disjoint sets using path compression and union by rank. it supports 3 operations
+ *  1) makeSet: used to create initial set
+ *  2) union: merge 2 given sets
+ *  3) findSet: returns the set name in which the element is present
  *
- *  * For m operations and total n elements time complexity is O(m*f(n)) where f(n) is
- *  * very slowly growing function. For most cases f(n) <= 4 so effectively
- *  * total time will be O(m)
+ *  For m operations and total n elements time complexity is O(m*f(n)) where f(n) is
+ *  very slowly growing function. For most cases f(n) <= 4 so effectively
+ *  total time will be O(m)
  */
 public class DisjointSet<T> {
 
@@ -35,7 +34,7 @@ public class DisjointSet<T> {
         if(parent1.data == parent2.data){
             return false;
         }
-        //else whoever's rank is higher becomes parent of other
+        //else whomsoever rank is higher becomes parent of other
         else{
             if(parent1.rank == parent2.rank){
                 parent1.rank++;
