@@ -16,8 +16,8 @@ public class Prim<T> {
     public static void main(String[] args) {
         Graph<Character> weightedIntGraph = GraphUsingAdjacencyList.getWeightedIntegerGraph(false);
         Prim prims = new Prim();
-        Collection<Edge<Integer>> edgeCollection = prims.primMST(weightedIntGraph);
-        for (Edge<Integer> edge: edgeCollection) {
+        Collection<Edge<Integer>> edges = prims.primMST(weightedIntGraph);
+        for (Edge<Integer> edge: edges) {
             System.out.println(edge);
         }
     }
@@ -52,12 +52,9 @@ public class Prim<T> {
             //get the corresponding edge for this vertex if present and add it to final result.
             //This edge wont be present for first vertex.
             Edge<T> spanningTreeEdge = vertexToEdge.get(vertex);
-
             if(spanningTreeEdge != null) {
                 resultEdgeList.add(spanningTreeEdge);
             }
-
-
             //iterate through all the adjacent vertices
             for (Edge<T> edge: vertex.adjacentEdges) {
                 //get the adjacent vertex

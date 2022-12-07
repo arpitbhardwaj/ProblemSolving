@@ -24,8 +24,8 @@ public class Kruskal<T> {
     public static void main(String[] args) {
         Graph<Character> weightedIntGraph = GraphUsingAdjacencyList.getWeightedIntegerGraph(false);
         Kruskal kruskal = new Kruskal();
-        List<Edge<Character>> edgeCollection = kruskal.kruskalMST(weightedIntGraph);
-        for (Edge<Character> edge: edgeCollection) {
+        List<Edge<Character>> edges = kruskal.kruskalMST(weightedIntGraph);
+        for (Edge<Character> edge: edges) {
             System.out.println(edge);
         }
     }
@@ -33,29 +33,19 @@ public class Kruskal<T> {
     private List<Edge<T>> kruskalMST(Graph<T> graph) {
         List<Edge<T>> resultEdgeList = new ArrayList<>();
         List<Edge<T>> allEdges = graph.getEdgeList();
-        Collections.sort(allEdges, new Comparator<Edge<T>>() {
-            @Override
-            public int compare(Edge<T> edge1, Edge<T> edge2) {
-                if (edge1.weight > edge2.weight){
-                    return 1;
-                }else{
-                    return -1;
-                }
-            }
-        });
+        Collections.sort(allEdges, (edge1, edge2) -> edge1.weight > edge2.weight ? 1 : -1);
 
         DisjointSet<Integer> disjointSet = new DisjointSet<>();
         for (Vertex<T> vertex: graph.getVertexList()) {
-            disjointSet.makeSet(vertex.id);
+            disjointSet.makeSet(vertex.index);
         }
 
         for (Edge<T> edge: allEdges) {
-            long identity1 = disjointSet.findSet(edge.vertex1.id);
-            long identity2 = disjointSet.findSet(edge.vertex2.id);
-
+            long identity1 = disjointSet.findSet(edge.vertex1.index);
+            long identity2 = disjointSet.findSet(edge.vertex2.index);
             if (identity1 != identity2) {
                 resultEdgeList.add(edge);
-                disjointSet.union(edge.vertex1.id,edge.vertex2.id);
+                disjointSet.union(edge.vertex1.index,edge.vertex2.index);
             }
         }
         return resultEdgeList;

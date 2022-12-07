@@ -42,9 +42,9 @@ public class GraphUsingAdjacencyList {
             return vertexList;
         }
 
-        public void addEdge(int id1, int id2){
-            Vertex vertex1 = vertexList.get(id1);
-            Vertex vertex2 = vertexList.get(id2);
+        public void addEdge(int index1, int index2){
+            Vertex vertex1 = vertexList.get(index1);
+            Vertex vertex2 = vertexList.get(index2);
             Edge<T> edge = new Edge<>(vertex1,vertex2);
 
             edgeList.add(edge);
@@ -54,9 +54,9 @@ public class GraphUsingAdjacencyList {
             }
         }
 
-        private void addWeightedEdge(int id1, int id2, int weight) {
-            Vertex vertex1 = vertexList.get(id1);
-            Vertex vertex2 = vertexList.get(id2);
+        private void addWeightedEdge(int index1, int index2, int weight) {
+            Vertex vertex1 = vertexList.get(index1);
+            Vertex vertex2 = vertexList.get(index2);
             Edge<T> edge = new Edge<>(vertex1,vertex2,weight);
 
             edgeList.add(edge);
@@ -199,6 +199,48 @@ public class GraphUsingAdjacencyList {
         graph.addWeightedEdge(6, 8, 6);
         graph.addWeightedEdge(6, 7, 1);
         graph.addWeightedEdge(7, 8, 7);
+        return graph;
+    }
+
+    public static Graph<Character> getWeightedSSSPGraph(boolean isDirected) {
+        List<Vertex<Character>> vertexList = new ArrayList<>();
+        vertexList.add(new Vertex(0,'A'));
+        vertexList.add(new Vertex(1,'B'));
+        vertexList.add(new Vertex(2,'C'));
+        vertexList.add(new Vertex(3,'D'));
+        vertexList.add(new Vertex(4,'E'));
+        vertexList.add(new Vertex(5,'F'));
+        vertexList.add(new Vertex(6,'G'));
+
+        Graph<Character> graph = new Graph<>(vertexList, isDirected);
+        graph.addWeightedEdge(0, 1, 2);
+        graph.addWeightedEdge(0, 2, 5);
+        graph.addWeightedEdge(1, 2, 6);
+        graph.addWeightedEdge(1, 3, 1);
+        graph.addWeightedEdge(1, 4, 3);
+        graph.addWeightedEdge(2, 5, 8);
+        graph.addWeightedEdge(2, 4, 4);
+        graph.addWeightedEdge(4, 6, 9);
+        graph.addWeightedEdge(5, 6, 7);
+        return graph;
+    }
+
+    public static Graph<Character> getWeightedNegativeCycleSSSPGraph(boolean isDirected) {
+        List<Vertex<Character>> vertexList = new ArrayList<>();
+        vertexList.add(new Vertex(0,'A'));
+        vertexList.add(new Vertex(1,'B'));
+        vertexList.add(new Vertex(2,'C'));
+        vertexList.add(new Vertex(3,'D'));
+        vertexList.add(new Vertex(4,'E'));
+
+        Graph<Character> graph = new Graph<>(vertexList, isDirected);
+        graph.addWeightedEdge(0, 2, 6);
+        graph.addWeightedEdge(0, 3, -6);
+        graph.addWeightedEdge(1, 0, 3);
+        graph.addWeightedEdge(2, 3, 1);
+        graph.addWeightedEdge(3, 1, 1);
+        graph.addWeightedEdge(4, 1, 4);
+        graph.addWeightedEdge(4, 3, 2);
         return graph;
     }
 }
