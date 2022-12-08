@@ -24,30 +24,9 @@ This Project is about Computer Science Problem Solving
         Return Nth to last
         Partition
         Sum Lists
-        Intersection
-        Reverse a LinkedList
-        Reverse a Sub-list
-        Reverse every K-element Sub-list
-
-**2. Fast & Slow pointers**
-
         LinkedList Cycle
-        Start of LinkedList Cycle
-        Happy Number
-        Middle of the LinkedList
 
-**1. Two Pointers Approach**
-
-        Pair with exact/closest/max sum
-        Remove Duplicates
-        Squaring a Sorted Array
-        Triplet Sum to Zero
-        Triplet Sum Close to Target
-        Triplets with Smaller Sum
-        Subarrays with Product Less than a Target
-        Dutch National Flag Problem
-
-**2. Stack and Queues**
+**4. Stack and Queues**
 
         Three in one
         Stack Minimum
@@ -55,107 +34,30 @@ This Project is about Computer Science Problem Solving
         Queue via stacks
         Animal Shelter
 
-**3. Bitwise XOR**
+**5. Trees**
 
-        Single Number (easy)
-        Two Single Numbers (medium)
-        Complement of Base 10 Number (medium)
+        Minimal Tree
+        Check balanced
+        Validate BST
+        Successor
+        Common Ancestor
 
-**4. Sliding Window**
+**6. Graphs**
 
-        Maximum Sum Subarray of Size K (easy)
-        Smallest Subarray with a given sum (easy)
-        Longest Substring with K Distinct Characters (medium)
- 
-**5. Merge Intervals**
+        Route between nodes
+        Build Order
 
-        Merge Intervals (medium)
-        Insert Interval (medium)
-        Intervals Intersection (medium)
+**7. Greedy**
 
-**6. Cyclic Sort**
+        Activity Selection
+        Coin Change
+        Fractional Knapsack
 
-        Cyclic Sort (easy)
-        Find the Missing Number (easy)
-        Find all Missing Numbers (easy)
-        Find the Duplicate Number (easy)
-        Find all Duplicate Numbers (easy)
+**7. Divide and Conquer**
 
-**8. Breadth First Search**
-
-        Binary Tree Level Order Traversal (easy)
-        Reverse Level Order Traversal (easy)
-        Zigzag Traversal (medium)
-        Level Averages in a Binary Tree (easy)
-        Minimum Depth of a Binary Tree (easy)
-        Level Order Successor (easy)
-        Connect Level Order Siblings (medium)
-        
-**9. Depth First Search**
-
-        Binary Tree Path Sum (easy)
-        All Paths for a Sum (medium)
-        Sum of Path Numbers (medium)
-        Path With Given Sequence (medium)
-        Count Paths for a Sum (medium)       
-        
-**10. Two Heaps**
-
-        Find the Median of a Number Stream (medium)
-        Sliding Window Median (hard)
-        Maximize Capital (hard) 
-        
-**11. Subsets**
-
-        Subsets (easy)
-        Subsets With Duplicates (easy)
-        Permutations (medium)
-        String Permutations by changing case (medium)
-        Balanced Parentheses (hard)
-        Unique Generalized Abbreviations (hard)
-        
-**12. Modified Binary Search**
-
-        Order-agnostic Binary Search (easy)
-        Ceiling of a Number (medium)
-        Next Letter (medium)
-        Number Range (medium)
-        Search in a Sorted Infinite Array (medium)
-        Minimum Difference Element (medium)
-        Bitonic Array Maximum (easy)
-        
-**13. Top 'K' Elements**
-
-        Top 'K' Numbers (easy)
-        Kth Smallest Number (easy)
-        'K' Closest Points to the Origin (easy)
-        Connect Ropes (easy)
-        Top 'K' Frequent Numbers (medium)
-        Frequency Sort (medium)
-        Kth Largest Number in a Stream (medium)
-        'K' Closest Numbers (medium)
-        Maximum Distinct Elements (medium)
-        Sum of Elements (medium)
-        Rearrange String (hard)
-        
-**14. K-way merge**
-
-        Merge K Sorted Lists (medium)
-        Kth Smallest Number in M Sorted Lists (Medium)
-        Kth Smallest Number in a Sorted Matrix (Hard)
-        Smallest Number Range (Hard)
-        
-**15. 0/1 Knapsack**
-
-        0/1 Knapsack (medium)
-        Equal Subset Sum Partition (medium)
-        Subset Sum (medium)
-        Minimum Subset Sum Difference (hard)
-        
-**16. Topological Sort** 
-    
-        Topological Sort (medium)
-        Tasks Scheduling (medium)
-        Tasks Scheduling Order (medium)
-        All Tasks Scheduling Orders (hard)
-        Alien Dictionary (hard)
+        House Robber
+        Convert one string to another
+        0/1 Knapsack
+        Longest Common Subsequence
+        Longest Palindromic Subsequence
+        Minimum Cost to reach last cell

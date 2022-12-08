@@ -2,20 +2,20 @@ package com.ab.dp;
 
 import com.ab.utils.Utils;
 
-import java.util.Arrays;
-
 /**
  * @author Arpit Bhardwaj
  */
-public class CoinChanging {
+public class CoinChange {
     public static void main(String[] args) {
-        int amount = 11;
-        int coins[] = {3,5,6,8};
-        int noOfCoins = calculateMinNoOfCoins(amount,coins);
+        //int coins[] = {3,5,6,8};
+        int coins[] = {1,2,5,10,20,50,10,1000};
+        //int amount = 11;
+        int amount = 2035;
+        int noOfCoins = minNoOfCoins(amount,coins);
         System.out.println("Minimum no of coins required to make total of " + amount + " is: " + noOfCoins);
     }
 
-    private static int calculateMinNoOfCoins(int amount, int[] coins) {
+    private static int minNoOfCoins(int amount, int[] coins) {
         int m = coins.length;
         int n = amount + 1;
         int[][] dp = new int[m][n];

@@ -15,12 +15,10 @@ public class DisjointSet<T> {
 
     private List<Vertex<T>> vertices = new ArrayList<>();
 
-    public void makeSet(List<Vertex<T>> vertices){
-        for (Vertex<T> vertex:vertices) {
-            DisjointSet<T> set = new DisjointSet<>();
-            set.vertices.add(vertex);
-            vertex.disjointSet = set;
-        }
+    public void makeSet(Vertex<T> vertex){
+        DisjointSet<T> set = new DisjointSet<>();
+        set.vertices.add(vertex);
+        vertex.disjointSet = set;
     }
 
     public DisjointSet<T> findSet(Vertex<T> vertex){
