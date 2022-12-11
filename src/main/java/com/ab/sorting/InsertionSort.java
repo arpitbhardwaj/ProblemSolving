@@ -24,7 +24,6 @@ public class InsertionSort {
     }
 
     public static void insertionSortUtil(int[] arr, int startIndex, int endIndex) {
-
         for (int i = startIndex; i <= endIndex; i++) {
             int key = arr[i];
             int j = i - 1;

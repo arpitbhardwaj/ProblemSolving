@@ -7,20 +7,20 @@ import java.util.Arrays;
 /**
  * @author Arpit Bhardwaj
  *
- * * Given a string find the longest palindromic subsequence in this string.
- *  *
- *  * Time complexity - O(n2)
- *  * Space complexity - O(n2)
+ * Given a string find the longest palindromic subsequence in this string.
+ *  Time complexity - O(n2)
+ *  Space complexity - O(n2)
  */
 public class LongestPalindromicSubSeq {
 
     public static void main(String[] args) {
         String str = "agbdba";
-        int lpsLength = longestPalindromicSubSequence(str);
-        System.out.println("Longest Palindromic Sub Sequence : " + lpsLength);
+        //int lpsLength = longestPalindromicSubSeqDP(str);
+        int lpsLength = longestPalindromicSubSeq(str);
+        System.out.println("Longest Palindromic Sub Sequence: " + lpsLength);
     }
 
-    private static int longestPalindromicSubSequence(String str) {
+    private static int longestPalindromicSubSeqDP(String str) {
         int n = str.length();
         int[][] dp = new int[n][n];
 
@@ -43,5 +43,26 @@ public class LongestPalindromicSubSeq {
         }
         Utils.printMatrix(dp);
         return dp[0][n - 1];
+    }
+
+    //Divide and Conquer (Recursive)
+    private static int longestPalindromicSubSeq(String str) {
+        return longestPalindromicSubSeqUtil(str, 0, str.length()-1);
+    }
+
+    private static int longestPalindromicSubSeqUtil(String str, int start, int end) {
+        if (start > end){//found the final solution
+            return 0;
+        }
+        if (start == end){
+            return 1;
+        }
+        if (str.charAt(start) == str.charAt(end)){ //go for next character
+            return 2 + longestPalindromicSubSeqUtil(str,start+1,end-1);
+        }
+        int skipStartChar = longestPalindromicSubSeqUtil(str,start+1,end);
+        int skipEndChar = longestPalindromicSubSeqUtil(str,start,end-1);
+
+        return Math.max(skipStartChar, skipEndChar);
     }
 }

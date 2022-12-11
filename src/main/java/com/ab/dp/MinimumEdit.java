@@ -7,24 +7,46 @@ import java.util.Arrays;
 /**
  * @author Arpit Bhardwaj
  *
- *  * Given two strings how many minimum edits(update, delete or add) is needed to convert one string to another
- *  *
- *  * Time complexity is O(m*n)
- *  * Space complexity is O(m*n)
+ *  Given two strings how many minimum edits(update, delete or add) is needed to convert one string to another
+ *
+ *  Time complexity is O(m*n)
+ *  Space complexity is O(m*n)
  */
 public class MinimumEdit {
     public static void main(String[] args) {
-        String str1 = "abcdef";
-        String str2 = "azced";
-
-        int minEdits = minimumEdits(str2.toCharArray(),str1.toCharArray());
-        System.out.println("String 1 : " + str1);
-        System.out.println("String 2 : " + str2);
-        System.out.println("Minimum edits required to conert str1 to str2 is : " + minEdits);
+        String s1 = "tbres";
+        String s2 = "table";
+        int minEdits = minimumEdits(s2.toCharArray(),s1.toCharArray());
+        //int minEdits = minimumEditsDPBU(s2.toCharArray(),s1.toCharArray());
+        //int minEdits = minimumEditsDPTD(s2.toCharArray(),s1.toCharArray());
+        System.out.println("Minimum edits required to convert s1 to s2 is : " + minEdits);
     }
 
+    //Divide and Conquer (Recursive)
     private static int minimumEdits(char[] strArr1, char[] strArr2) {
-        //strArr1 rows, strArr2 columns
+        return minimumEditsUtil(strArr1,strArr2, 0, 0);
+    }
+
+    private static int minimumEditsUtil(char[] strArr1, char[] strArr2, int i1, int i2) {
+        int n1 = strArr1.length;
+        int n2 = strArr2.length;
+        if (i1 == n1){//rest all characters from string 2 need to be inserted
+            return n2 - i2;
+        }
+        if (i2 == n2){//rest all characters from string 1 need to be deleted
+            return n1 - i1;
+        }
+        if (strArr1[i1] == strArr2[i2]){ //go for next character
+            return minimumEditsUtil(strArr1,strArr2,i1+1,i2+1);
+        }
+        int insertOp = 1 + minimumEditsUtil(strArr1,strArr2,i1,i2+1);
+        int deleteOp = 1 + minimumEditsUtil(strArr1,strArr2,i1+1,i2);
+        int replaceOp = 1 + minimumEditsUtil(strArr1,strArr2,i1+1,i2+1);
+        return Math.min(insertOp, Math.min(deleteOp, replaceOp));
+    }
+
+    //DP Bottom Up
+    private static int minimumEditsDPBU(char[] strArr1, char[] strArr2) {
         int n1 = strArr1.length;
         int n2 = strArr2.length;
 

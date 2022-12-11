@@ -1,5 +1,9 @@
 package com.ab.recursion;
 
+/**
+ * @author Arpit Bhardwaj
+ *
+ */
 public class MathematicalRecursion {
     static int sum = 0;
     public static void main(String[] args) {

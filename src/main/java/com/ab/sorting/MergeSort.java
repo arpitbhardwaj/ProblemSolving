@@ -23,6 +23,7 @@ public class MergeSort {
         System.out.println(Arrays.toString(arr));
     }
 
+    //Divide and Conquer
     private static void mergeSort(int[] arr, int low, int high) {
         if(low < high) {
            int mid = (low + high) >>> 1;
@@ -36,11 +37,10 @@ public class MergeSort {
         //create two temp arrays
         int n1 = mid - low + 1;//+1 for 0 based indexing
         int n2 = high - mid;
-
-        //copy data to temp arrays
         int[] tempArr1 = new int[n1];
         int[] tempArr2 = new int[n2];
 
+        //copy data to temp arrays
         for (int i = 0; i < n1; i++) {
             tempArr1[i] = arr[low + i];
         }

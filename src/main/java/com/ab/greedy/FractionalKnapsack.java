@@ -2,6 +2,16 @@ package com.ab.greedy;
 
 import java.util.*;
 
+/**
+ * @author Arpit Bhardwaj
+ *
+ * Given a set of items, each with a weight and a value,
+ * determine the number of each item to include in a collection (knapsack) so that
+ *      the total weight is less than or equal to a given limit
+ *      the total value is as large as possible.
+ *
+ * You can break the items.
+ */
 public class FractionalKnapsack {
     public static void main(String[] args) {
         int value[] = {100,120,60};
