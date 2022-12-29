@@ -20,6 +20,7 @@ public class LongestPalindromicSubSeq {
         System.out.println("Longest Palindromic Sub Sequence: " + lpsLength);
     }
 
+    //DP Bottom Up
     private static int longestPalindromicSubSeqDP(String str) {
         int n = str.length();
         int[][] dp = new int[n][n];

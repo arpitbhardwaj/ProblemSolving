@@ -20,6 +20,7 @@ public class MaxSubSquareMatrix {
         System.out.println("Legth of Maximum Sub Square Matrix: " + maxSubSquareLength);
     }
 
+    //DP Bottom Up
     private static int calculateMaxSubSquare(int[][] matrix) {
         int rows = matrix.length;
         int columns = matrix[0].length;

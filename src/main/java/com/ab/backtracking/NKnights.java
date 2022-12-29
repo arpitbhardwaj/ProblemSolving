@@ -1,5 +1,8 @@
 package com.ab.backtracking;
 
+/**
+ * @author Arpit Bhardwaj
+ */
 public class NKnights {
     public static void main(String[] args) {
         int n = 4;

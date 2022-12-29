@@ -53,7 +53,7 @@ This Project is about Computer Science Problem Solving
         Coin Change
         Fractional Knapsack
 
-**7. Divide and Conquer**
+**8. Divide and Conquer And DP**
 
         House Robber
         Convert one string to another

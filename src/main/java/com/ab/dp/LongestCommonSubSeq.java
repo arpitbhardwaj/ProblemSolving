@@ -20,6 +20,7 @@ public class LongestCommonSubSeq {
         System.out.println("Length of LCS: " + lcsLength);
     }
 
+    //DP Bottom Up
     private static int longestCommonSubSeqDP(String s1, String s2) {
         int n1 = s1.length()+1;
         int n2 = s2.length()+1;

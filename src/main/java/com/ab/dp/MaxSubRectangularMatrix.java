@@ -23,6 +23,7 @@ public class MaxSubRectangularMatrix {
         System.out.println("Legth of Maximum Sub Rectangle Matrix: " + maxSubRectangleLength);
     }
 
+    //DP Bottom Up
     private static int calculateMaxSubRectangle(int[][] matrix) {
         int rows = matrix.length;
         int columns = matrix[0].length;

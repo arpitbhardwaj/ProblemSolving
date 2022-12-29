@@ -16,6 +16,7 @@ public class LongestCommonSubString {
         System.out.println("Length of Longest Common Substring : " + lcsLength);
     }
 
+    //DP Bottom Up
     private static int longestCommonSubString(String str1, String str2) {
         int n1 = str1.length()+1;
         int n2 = str2.length()+1;
