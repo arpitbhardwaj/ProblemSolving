@@ -24,6 +24,7 @@ public class ZeroSubArray {
         System.out.println("Length of the longest sub array with sum equals to 0 in " + Arrays.toString(arr) + " is : " + maxLength);
     }
 
+    //time complexity of below method is O(n) due to hashing
     private static int getMaxLengthZeroSubArray(int[] arr) {
         Map<Integer, Integer> sumMapIndex = new HashMap<>();
         int maxLength = 0;

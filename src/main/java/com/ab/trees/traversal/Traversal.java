@@ -8,9 +8,11 @@ import java.util.Stack;
 /**
  * @author Arpit Bhardwaj
  *
- * Iterative In Order   : Using 1 Stacks
  * Iterative Pre Order  : Using 1 Stacks
+ * Iterative In Order   : Using 1 Stacks
  * Iterative Post Order : Using 2 Stacks
+ *
+ * Top Down Approach (Root, Left, Right) or Bottom Up Approach (Left, Right, Root)
  */
 public class Traversal {
     public static void main(String[] args) {
@@ -33,6 +35,7 @@ public class Traversal {
         printPostOrder(binaryTree.root);
     }
 
+    //TC: O(n) and SC: O(h) where h is height of the tree
     private static void printIterativePreOrder(Node root) {
         if(root == null){
             return;
@@ -54,6 +57,7 @@ public class Traversal {
         }
     }
 
+    //TC: O(n) and SC: O(h) where h is height of the tree
     private static void printIterativeInOrder(Node root) {
         if(root == null){
             return;
@@ -74,6 +78,8 @@ public class Traversal {
             }
         }
     }
+
+    //TC: O(n) and SC: O(h) where h is height of the tree
     private static void printIterativePostOrder(Node root) {
         if(root == null){
             return;

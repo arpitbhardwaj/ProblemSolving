@@ -11,9 +11,9 @@ import java.util.*;
  *
  * Level Order Traversal (LOT)
  *
- * Regular LOT          : 1 Queue
- * Level By Level LOT   : 2 Queue / 1 Queue and delimeter / 1 Queue and counter
- * Reverse LOT          : 1 Queue + 1 Stack
+ * Regular          : 1 Queue
+ * Level By Level   : 2 Queue / 1 Queue and delimeter / 1 Queue and counter
+ * Reverse          : 1 Queue + 1 Stack
  */
 public class LevelOrderTraversal {
     public static void main(String[] args) {
@@ -33,6 +33,7 @@ public class LevelOrderTraversal {
         printIterativeReverseLevelOrder(tree.root);
     }
 
+    //TC: O(n)
     private static void printIterativeLevelOrder(Node root) {
         if(root == null){
             return;

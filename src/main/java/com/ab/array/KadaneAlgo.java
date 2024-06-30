@@ -15,6 +15,7 @@ public class KadaneAlgo {
         System.out.println("Largest sum of contiguous sub array: " + largestSum);
     }
 
+    //time complexity of below method is O(n) due to single pass
     public static int getLargestContiguousSum(int[] arr) {
         int maxEndingHere = 0;
         int maxSoFar = Integer.MIN_VALUE;
