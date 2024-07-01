@@ -22,6 +22,7 @@ public class IntersectionOfTwoUnsorted {
         System.out.println("Union : " + union);
     }
 
+    //time complexity of below method is O(n) due to hashing
     private static Set<Integer> getUnion(int[] arr1, int[] arr2) {
         Set<Integer> resultSet = new HashSet<>();
 
@@ -36,6 +37,7 @@ public class IntersectionOfTwoUnsorted {
         return resultSet;
     }
 
+    //time complexity of below method is O(n) due to hashing
     private static List<Integer> getIntersection(int[] arr1, int[] arr2) {
         Set<Integer> tempSet = new HashSet<>();
         List<Integer> resultList = new ArrayList<>();

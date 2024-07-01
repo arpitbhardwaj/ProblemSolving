@@ -24,6 +24,7 @@ public class ExactPairSumAndProduct {
         printExactPairProduct(arr2,product);
     }
 
+    //time complexity of below method is O(n log n) due to sorting
     private static void printExactPairSum(int[] arr, int sum) {
         int n = arr.length;
         int left = 0,right = n - 1;
@@ -41,6 +42,7 @@ public class ExactPairSumAndProduct {
         }
     }
 
+    //time complexity of below method is O(n log n) due to sorting
     private static void printExactPairProduct(int[] arr, int product) {
         int n = arr.length;
         Arrays.sort(arr);
@@ -48,7 +50,9 @@ public class ExactPairSumAndProduct {
             int x = arr[i];
             int y = product/x;
             int j = BinarySearch.recursiveBinarySearch(arr,i+1,n-1,y);
-            System.out.println("Pair exist with given product : " + product + " is (" + arr[i] + "," + arr[j] + ")");
+            if (j != -1 && arr[j] == y) {
+                System.out.println("Pair exist with given product : " + product + " is (" + arr[i] + "," + arr[j] + ")");
+            }
         }
     }
 }

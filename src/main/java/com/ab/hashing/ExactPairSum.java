@@ -7,7 +7,6 @@ import java.util.HashSet;
  *
  *  given an array A[] of n numbers and another number x,
  *  1. determines whether there exist two elements in S whose sum is exactly x.
- *
  *  2. find the number of pairs of integers in the array whose sum is equal to ‘sum’.
  */
 public class ExactPairSum {
@@ -18,6 +17,7 @@ public class ExactPairSum {
         printExactPairSum(arr,sum);
     }
 
+    //time complexity of below method is O(n) due to hashing
     private static void printExactPairSum(int[] arr, int sum) {
         HashSet<Integer> hashSet = new HashSet<>();
         for (int i = 0; i < arr.length; i++) {

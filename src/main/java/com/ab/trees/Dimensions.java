@@ -4,9 +4,9 @@ import com.ab.trees.impl.BinarySearchTreeFromLL;
 import com.ab.trees.impl.Node;
 
 /**
- * Size of the tree is number of nodes in the tree
- * Height = Maximum Depth = the number of nodes along the longest path from the root node down to the farthest leaf node.
- * Diameter of a tree is the number of nodes on the longest path between two leaves in the tree.
+ * Size = number of nodes in the tree
+ * Height = Maximum Depth = number of nodes along the longest path from the root node down to the farthest leaf node.
+ * Diameter = number of nodes on the longest path between two leaves in the tree.
  *
  * @author Arpit Bhardwaj
  */
@@ -23,6 +23,8 @@ public class Dimensions {
         System.out.println("Diameter is : " + diameter);
     }
 
+    //Time complexity of this solution is O(n^2)
+    //This is Bottom Up Approach (Left, Right, Root) or Divide and Conquer Approach
     public static int determineHeight(Node root) {
         if(root == null){
             return 0;
@@ -33,6 +35,7 @@ public class Dimensions {
         return Math.max(leftSubTreeHeight,rightSubTreeHeight) + 1;
     }
 
+    //Time Complexity of this solution is O(n)
     public static int determineSize(Node root) {
         if(root == null){
             return 0;

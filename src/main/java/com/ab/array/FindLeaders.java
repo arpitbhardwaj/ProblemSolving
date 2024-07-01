@@ -17,9 +17,10 @@ public class FindLeaders {
     public static void main(String[] args) {
         int[] arr = {16,17,10,4,9,3,5,2};
         List<Integer> leaders = getLeaders(arr);
-        System.out.println(leaders.toString());
+        System.out.println(leaders);
     }
 
+    //time complexity of below method is O(n) due to single pass
     private static List<Integer> getLeaders(int[] arr) {
         List<Integer> leaders = new ArrayList<>();
         int n = arr.length;

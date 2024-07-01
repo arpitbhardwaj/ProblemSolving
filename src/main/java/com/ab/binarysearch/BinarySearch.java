@@ -3,9 +3,9 @@ package com.ab.binarysearch;
 /**
  * @author Arpit Bhardwaj
  *
- * Worst-case performance	O(log n)
- * Best-case performance	O(1)
- * Average performance	O(log n)
+ * Average performance	    O(log n)
+ * Best-case performance	O(1)        //when the element is at the middle index of the array
+ * Worst-case performance   O(log n)
  * Worst-case space complexity	O(1)
  */
 public class BinarySearch {

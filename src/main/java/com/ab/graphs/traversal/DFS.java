@@ -27,6 +27,7 @@ public class DFS<T> {
         }
     }
 
+    //Time Complexity for below method is O(V+E) where V is number of vertices and E is number of edges
     public void DFSUtil(Vertex<T> vertex) {
         Stack<Vertex<T>> vertexStack = new Stack<>();
         vertexStack.push(vertex);
@@ -43,6 +44,7 @@ public class DFS<T> {
         }
     }
 
+    //Time Complexity for below method is O(V+E) where V is number of vertices and E is number of edges
     public void DFSUtilRecursive(Vertex<T> vertex) {
         vertex.isVisited = true;
         System.out.print(vertex.name + " ");

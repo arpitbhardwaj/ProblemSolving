@@ -21,6 +21,7 @@ public class ArraySubSet {
         System.out.println("Array 2 is the subset of Array 1: " + isSubset);
     }
 
+    //time complexity of below method is O(n) due to hashing
     private <T> boolean isSubSet(T[] arr1, T[] arr2) {
         Set<T> arrayHashSet = new HashSet<>();
         for (int i = 0; i < arr1.length; i++) {
