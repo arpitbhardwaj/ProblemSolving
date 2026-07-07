@@ -8,30 +8,34 @@ import java.util.Stack;
 /**
  * @author Arpit Bhardwaj
  *
- * Iterative Pre Order  : Using 1 Stacks
- * Iterative In Order   : Using 1 Stacks
- * Iterative Post Order : Using 2 Stacks
+ * Iterative Pre Order: Root → Left → Right : Using 1 Stacks
+ * Iterative In Order: Left → Root → Right : Using 1 Stacks
+ * Iterative Post Order: Left → Right → Root: Using 2 Stacks
  *
  * Top Down Approach (Root, Left, Right) or Bottom Up Approach (Left, Right, Root)
  */
 public class Traversal {
     public static void main(String[] args) {
         BinaryTreeFromLL.BinaryTree binaryTree = BinaryTreeFromLL.getBinaryTree();
-        System.out.println("Iterative PreOrder Traversal : ");
+        System.out.println(binaryTree.root);
+        System.out.print("Iterative PreOrder Traversal:" + "\t");
         printIterativePreOrder(binaryTree.root);
         System.out.println();
+        System.out.print("Recursive PreOrder Traversal:" + "\t");
         printPreOrder(binaryTree.root);
-        System.out.println();
 
-        System.out.println("Iterative InOrder Traversal : ");
+        System.out.println();
+        System.out.print("Iterative InOrder Traversal:" + "\t");
         printIterativeInOrder(binaryTree.root);
         System.out.println();
+        System.out.print("Recursive InOrder Traversal:" + "\t");
         printInOrder(binaryTree.root);
-        System.out.println();
 
-        System.out.println("Iterative PostOrder Traversal : ");
+        System.out.println();
+        System.out.print("Iterative PostOrder Traversal:" + "\t");
         printIterativePostOrder(binaryTree.root);
         System.out.println();
+        System.out.print("Recursive PostOrder Traversal:" + "\t");
         printPostOrder(binaryTree.root);
     }
 

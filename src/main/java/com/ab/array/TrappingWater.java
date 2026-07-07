@@ -10,7 +10,7 @@ import java.util.Arrays;
  */
 public class TrappingWater {
     public static void main(String[] args) {
-        int arr[] = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+        int arr[] = {3,0,2,0,4};
         System.out.println(Arrays.toString(arr));
         int maxWater = trappingWater(arr);
         System.out.println("Max Water : " + maxWater);
@@ -22,14 +22,14 @@ public class TrappingWater {
         int left[] = new int[n];
         int right[] = new int[n];
 
-        //compute the highest bar on left of every bar
+        //compute the tallest bar seen so far on the left of every bar
         left[0] = arr[0];
         for (int i = 1; i < n; i++) {
             left[i] = Math.max(left[i-1],arr[i]);
         }
         System.out.println(Arrays.toString(left));
 
-        //compute the highest bar on right of every bar
+        //compute the tallest bar seen so far on the right of every bar
         right[n-1] = arr[n-1];
         for (int i = n-2; i >= 0; i--) {
             right[i] = Math.max(right[i+1],arr[i]);

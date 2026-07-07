@@ -20,16 +20,18 @@ public class LevelOrderTraversal {
         BinaryTreeFromLL.BinaryTree tree = BinaryTreeFromLL.getBinaryTree();
         System.out.println(tree.root);
 
-        System.out.println("LOT : ");
+        System.out.print("Iterative LOT:" + "\t");
         printIterativeLevelOrder(tree.root);
         System.out.println();
+
+        System.out.print("Recursive LOT:" + "\t");
         printRecursiveLevelOrder(tree.root);
         System.out.println();
 
-        System.out.println("LBL LOT : ");
+        System.out.println("Level By Level LOT:" + "\t");
         printIterativeLBLLevelOrder(tree.root);
 
-        System.out.println("Reverse LOT: ");
+        System.out.print("Reverse LOT:" + "\t");
         printIterativeReverseLevelOrder(tree.root);
     }
 
